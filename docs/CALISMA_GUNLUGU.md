@@ -551,4 +551,9 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   okunur dökümü; araç çıktıları çıkarıldı, e-posta/ev dizini maskelendi). Fable betiklerindeki mutlak yollar
   göreliye çevrildi; günlük dosyalarında ve `transcript_main.md`'de ev dizini maskelendi.
 - Commit yazarı GitHub noreply adresi; kişisel e-posta repoda yok.
+- Aynı gün: kullanıcı isteğiyle repo **public** yapıldı. `data/cache` (~9 GB) GitHub release `data-v1` olarak yüklendi
+  (tar + bölünmüş BLIP özellikleri, SHA256SUMS); `scripts/fetch_data.sh` indirip birleştirir. Flickr8k'den türetilen
+  6 inceleme PNG'si ve `annotation/pilot/annotate.html` lisans nedeniyle public repodan çıkarıldı (yerelde duruyor,
+  script 07 ile yeniden üretilir). Git geçmişi tek temiz commit'e indirildi. Ham Flickr8k görüntüleri ve test split'i
+  release'te yok.
 

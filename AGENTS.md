@@ -4,7 +4,8 @@ Bu dosya her oturumun başında okunur. Kısa tutulur; ayrıntı aşağıdaki do
 
 ## Önce bunları oku
 0. **Yeni katılan için:** `docs/handoff/YOLCULUK.md` (projenin hikâyesi, modeller, kararlar, sıradaki adımlar) ve
-   `docs/handoff/sohbetler/` (Claude oturum dökümleri). Repo: github.com/iboRotti52/look-check-retell (gizli).
+   `docs/handoff/sohbetler/` (Claude oturum dökümleri). Repo: github.com/iboRotti52/look-check-retell (public);
+   büyük veri release `data-v1`, `bash scripts/fetch_data.sh`.
 1. `docs/CALISMA_GUNLUGU.md` — **ne oldu, şu an ne yapıyoruz, sıradaki adım ne.** Her oturumun sonunda güncellenir.
 2. **Güncel tek yöntem: `docs/LCR.md`. Kapsam yalnız Look → Check; Retell kullanıcı kararıyla bekliyor.**
    B protokolü `docs/LCR_BIRLESTIRME_PROTOKOL.md`; sonuç `docs/generated/LCR_DEVELOPMENT.md`.
