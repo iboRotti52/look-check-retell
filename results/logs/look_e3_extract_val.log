@@ -1,0 +1,20 @@
+W1114 10:32:05.767000 69698 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+validation 200/1000 rows, 1.2 min
+validation 400/1000 rows, 2.2 min
+validation 600/1000 rows, 3.1 min
+Traceback (most recent call last):
+  File "<proje>/scripts/25_look_e3_extract.py", line 44, in <module>
+    h, mm, info = dec.run_row(r, feats[data.parse_id(r["id"])[1]])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<proje>/lcr/look_e3.py", line 165, in run_row
+    return np.zeros((0, 12, 12, 576), np.float16), [], []
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<proje>/lcr/look_e3.py", line 113, in extract_e3
+    return np.stack(heads), maps, info
+           ^^^^^^^^^^^^^^^
+  File "<proje>/.venv/lib/python3.12/site-packages/numpy/_core/shape_base.py", line 454, in stack
+    raise ValueError('need at least one array to stack')
+ValueError: need at least one array to stack
+W1114 10:36:38.539000 70929 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+validation 800/1000 rows, 1.4 min
+validation 1000/1000 rows, 2.8 min

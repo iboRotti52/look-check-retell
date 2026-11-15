@@ -1,0 +1,50 @@
+{
+ "pipe": "A_validation_look4",
+ "metric_version": "exact_box_union_v2",
+ "claims": 2272,
+ "claims_with_gt": 1795,
+ "all": {
+  "n": 1795,
+  "pointing": 90.974930362117,
+  "pointing_chance": 37.17279781016805,
+  "energy": 79.59818605164442,
+  "energy_chance": 37.17279781016805,
+  "region_att": 80.3899721448468,
+  "region_det": 82.72980501392759,
+  "region_random": 4.735376044568245,
+  "region_oracle": 95.26462395543176
+ },
+ "person": {
+  "n": 761,
+  "pointing": 91.72141918528253,
+  "pointing_chance": 37.73068208559507,
+  "energy": 73.67494445665929,
+  "energy_chance": 37.73068208559507,
+  "region_att": 76.47831800262811,
+  "region_det": 85.9395532194481,
+  "region_random": 6.83311432325887,
+  "region_oracle": 95.53219448094612
+ },
+ "stuff": {
+  "n": 276,
+  "pointing": 86.23188405797102,
+  "pointing_chance": 59.856114088707514,
+  "energy": 79.49149413061257,
+  "energy_chance": 59.856114088707514,
+  "region_att": 78.26086956521739,
+  "region_det": 71.01449275362319,
+  "region_random": 1.8115942028985508,
+  "region_oracle": 94.20289855072464
+ },
+ "thing": {
+  "n": 758,
+  "pointing": 91.95250659630607,
+  "pointing_chance": 28.35334500478962,
+  "energy": 85.58371880096956,
+  "energy_chance": 28.35334500478962,
+  "region_att": 85.09234828496042,
+  "region_det": 83.7730870712401,
+  "region_random": 3.6939313984168867,
+  "region_oracle": 95.3825857519789
+ }
+}

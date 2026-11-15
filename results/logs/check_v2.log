@@ -1,0 +1,61 @@
+W1114 02:00:37.590000 42337 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+
+=== rec_att: B 6856 claims, validation 2272 claims
+  raw          lam=1.0  det6cap_raw   rule a: B J 0.711 | val J 0.797 AUROC 0.740 con-prec 0.369 con 0.528 unc 0.002
+  raw          lam=1.0  det6cap_raw   rule b: B J 0.710 | val J 0.798 AUROC 0.740 con-prec 0.369 con 0.530 unc 0.000
+  raw          lam=1.0  det6cap_cal   rule a: B J 0.711 | val J 0.797 AUROC 0.740 con-prec 0.369 con 0.528 unc 0.002
+  raw          lam=1.0  det6cap_cal   rule b: B J 0.710 | val J 0.798 AUROC 0.740 con-prec 0.369 con 0.530 unc 0.000
+  raw          lam=1.0  samekind_cal  rule a: B J 0.705 | val J 0.792 AUROC 0.740 con-prec 0.368 con 0.526 unc 0.004
+  raw          lam=1.0  samekind_cal  rule b: B J 0.710 | val J 0.798 AUROC 0.740 con-prec 0.369 con 0.530 unc 0.000
+  raw          lam=1.0  cap_cal       rule a: B J 0.715 | val J 0.794 AUROC 0.740 con-prec 0.370 con 0.522 unc 0.008
+  raw          lam=1.0  cap_cal       rule b: B J 0.710 | val J 0.798 AUROC 0.740 con-prec 0.369 con 0.530 unc 0.000
+  percentile   lam=1.0  det6cap_raw   rule a: B J 0.410 | val J 0.432 AUROC 0.634 con-prec 0.313 con 0.559 unc 0.128
+  percentile   lam=1.0  det6cap_cal   rule a: B J 0.425 | val J 0.459 AUROC 0.634 con-prec 0.316 con 0.597 unc 0.090
+  percentile   lam=1.0  det6cap_cal   rule b: B J 0.327 | val J 0.372 AUROC 0.634 con-prec 0.283 con 0.687 unc 0.000
+  percentile   lam=1.0  samekind_cal  rule a: B J 0.380 | val J 0.404 AUROC 0.634 con-prec 0.318 con 0.466 unc 0.221
+  percentile   lam=1.0  cap_cal       rule a: B J 0.368 | val J 0.348 AUROC 0.634 con-prec 0.287 con 0.549 unc 0.138
+  offset       lam=1.0  det6cap_raw   rule a: B J 0.844 | val J 0.874 AUROC 0.786 con-prec 0.395 con 0.489 unc 0.000
+  offset       lam=1.0  det6cap_cal   rule a: B J 0.844 | val J 0.874 AUROC 0.786 con-prec 0.395 con 0.489 unc 0.000
+  offset       lam=1.0  det6cap_cal   rule b: B J 0.844 | val J 0.874 AUROC 0.786 con-prec 0.395 con 0.489 unc 0.000
+  offset       lam=1.0  samekind_cal  rule a: B J 0.839 | val J 0.868 AUROC 0.786 con-prec 0.393 con 0.486 unc 0.003
+  offset       lam=1.0  cap_cal       rule a: B J 0.846 | val J 0.874 AUROC 0.786 con-prec 0.396 con 0.484 unc 0.005
+  offset_slope lam=1.0  det6cap_raw   rule a: B J 0.863 | val J 0.876 AUROC 0.785 con-prec 0.395 con 0.488 unc 0.000
+  offset_slope lam=1.0  det6cap_cal   rule a: B J 0.863 | val J 0.876 AUROC 0.785 con-prec 0.395 con 0.488 unc 0.000
+  offset_slope lam=1.0  det6cap_cal   rule b: B J 0.863 | val J 0.876 AUROC 0.785 con-prec 0.395 con 0.488 unc 0.000
+  offset_slope lam=1.0  samekind_cal  rule a: B J 0.856 | val J 0.869 AUROC 0.785 con-prec 0.393 con 0.486 unc 0.003
+  offset_slope lam=1.0  cap_cal       rule a: B J 0.865 | val J 0.876 AUROC 0.785 con-prec 0.396 con 0.486 unc 0.003
+
+=== rec_det: B 6856 claims, validation 2272 claims
+  raw          lam=1.0  det6cap_raw   rule a: B J 0.728 | val J 0.814 AUROC 0.744 con-prec 0.385 con 0.478 unc 0.005
+  raw          lam=1.0  det6cap_raw   rule b: B J 0.724 | val J 0.822 AUROC 0.744 con-prec 0.387 con 0.484 unc 0.000
+  raw          lam=1.0  det6cap_cal   rule a: B J 0.728 | val J 0.814 AUROC 0.744 con-prec 0.385 con 0.478 unc 0.005
+  raw          lam=1.0  det6cap_cal   rule b: B J 0.724 | val J 0.822 AUROC 0.744 con-prec 0.387 con 0.484 unc 0.000
+  raw          lam=1.0  samekind_cal  rule a: B J 0.722 | val J 0.816 AUROC 0.744 con-prec 0.385 con 0.482 unc 0.001
+  raw          lam=1.0  samekind_cal  rule b: B J 0.724 | val J 0.822 AUROC 0.744 con-prec 0.387 con 0.484 unc 0.000
+  raw          lam=1.0  cap_cal       rule a: B J 0.729 | val J 0.795 AUROC 0.744 con-prec 0.383 con 0.462 unc 0.022
+  raw          lam=1.0  cap_cal       rule b: B J 0.724 | val J 0.822 AUROC 0.744 con-prec 0.387 con 0.484 unc 0.000
+  percentile   lam=1.0  det6cap_raw   rule a: B J 0.384 | val J 0.420 AUROC 0.635 con-prec 0.317 con 0.484 unc 0.119
+  percentile   lam=1.0  det6cap_cal   rule a: B J 0.417 | val J 0.433 AUROC 0.635 con-prec 0.322 con 0.488 unc 0.115
+  percentile   lam=1.0  det6cap_cal   rule b: B J 0.349 | val J 0.390 AUROC 0.635 con-prec 0.292 con 0.603 unc 0.000
+  percentile   lam=1.0  samekind_cal  rule a: B J 0.400 | val J 0.403 AUROC 0.635 con-prec 0.319 con 0.440 unc 0.163
+  percentile   lam=1.0  cap_cal       rule a: B J 0.387 | val J 0.375 AUROC 0.635 con-prec 0.293 con 0.550 unc 0.054
+  offset       lam=1.0  det6cap_raw   rule a: B J 0.882 | val J 0.905 AUROC 0.790 con-prec 0.406 con 0.472 unc 0.001
+  offset       lam=1.0  det6cap_cal   rule a: B J 0.882 | val J 0.907 AUROC 0.790 con-prec 0.406 con 0.474 unc -0.000
+  offset       lam=1.0  det6cap_cal   rule b: B J 0.882 | val J 0.907 AUROC 0.790 con-prec 0.406 con 0.474 unc -0.000
+  offset       lam=1.0  samekind_cal  rule a: B J 0.881 | val J 0.901 AUROC 0.790 con-prec 0.404 con 0.472 unc 0.001
+  offset       lam=1.0  cap_cal       rule a: B J 0.885 | val J 0.906 AUROC 0.790 con-prec 0.407 con 0.469 unc 0.005
+  offset_slope lam=1.0  det6cap_raw   rule a: B J 0.925 | val J 0.877 AUROC 0.792 con-prec 0.394 con 0.494 unc 0.000
+  offset_slope lam=1.0  det6cap_cal   rule a: B J 0.925 | val J 0.877 AUROC 0.792 con-prec 0.394 con 0.494 unc 0.000
+  offset_slope lam=1.0  det6cap_cal   rule b: B J 0.925 | val J 0.877 AUROC 0.792 con-prec 0.394 con 0.494 unc 0.000
+  offset_slope lam=1.0  samekind_cal  rule a: B J 0.923 | val J 0.874 AUROC 0.792 con-prec 0.393 con 0.493 unc 0.001
+  offset_slope lam=1.0  cap_cal       rule a: B J 0.928 | val J 0.878 AUROC 0.792 con-prec 0.395 con 0.490 unc 0.003
+
+chosen on B (attention records): {'transform': 'offset_slope', 'alt': 'cap_cal', 'rule': 'a'}
+
+                                        J  AUROC    ECE   sup   con   unc  sPrec  cPrec  rec.w J_f30k  altOK
+att  round 1 (raw, script-11 thr.)  0.572  0.740  0.418  0.67  0.26  0.07  0.852  0.405  0.457  0.513  0.540
+att  Check v2, J-optimal            0.876  0.785  0.028  0.51  0.49  0.00  0.919  0.396  0.821  0.695  0.363
+att  Check v2, con-precision>=0.5   0.738  0.785  0.028  0.51  0.20  0.29  0.919  0.500  0.432  0.558  0.368
+det  round 1 (raw, script-11 thr.)  0.489  0.744  0.367  0.59  0.06  0.34  0.886  0.500  0.131  0.453  0.543
+det  Check v2, J-optimal            0.878  0.792  0.036  0.51  0.49  0.00  0.921  0.395  0.827  0.748  0.368
+det  Check v2, con-precision>=0.5   0.772  0.792  0.036  0.51  0.23  0.26  0.921  0.490  0.489  0.613  0.308

@@ -1,0 +1,6 @@
+W1114 11:22:44.451000 83395 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/314 [00:00<?, ?it/s]Loading weights: 100%|██████████| 314/314 [00:00<00:00, 8702.91it/s]
+validation SAM 250/998 images, 11.8 min
+validation SAM 500/998 images, 22.7 min
+validation SAM 750/998 images, 33.3 min
+SAM done validation A1_G3_labelfree_heads:top4

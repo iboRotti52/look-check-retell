@@ -1,0 +1,180 @@
+{
+  "split": "B",
+  "label": "automatic reference proxy, not human truth or replacement validity",
+  "scope": "frozen records only; exploratory B diagnostic; no new model selection",
+  "source": "A_B_look4_check4.json",
+  "groups": {
+    "all": {
+      "n": 4594,
+      "supported": 2869,
+      "alternative_in_references": 1064,
+      "alternative_already_in_draft": 334,
+      "alternative_is_person": 17,
+      "uncertain": 1056,
+      "contradicted": 669
+    },
+    "reference_unsupported": {
+      "n": 1100,
+      "uncertain": 327,
+      "alternative_in_references": 319,
+      "alternative_already_in_draft": 94,
+      "alternative_is_person": 9,
+      "supported": 452,
+      "contradicted": 321
+    },
+    "contradicted": {
+      "n": 669,
+      "contradicted": 669,
+      "alternative_in_references": 213,
+      "alternative_already_in_draft": 98,
+      "alternative_is_person": 2
+    },
+    "contradicted_reference_unsupported": {
+      "n": 321,
+      "contradicted": 321,
+      "alternative_in_references": 106,
+      "alternative_already_in_draft": 43,
+      "alternative_is_person": 1
+    },
+    "stuff_reference_unsupported": {
+      "n": 259,
+      "uncertain": 163,
+      "alternative_in_references": 93,
+      "alternative_already_in_draft": 15,
+      "alternative_is_person": 0,
+      "supported": 93,
+      "contradicted": 3
+    }
+  },
+  "raw_alt_label_changed_but_raw_score_retained": 2394,
+  "current_pipeline_thresholds": {
+    "last_k": 4,
+    "t_excess": 0.0,
+    "t_support": 0.2,
+    "t_contra": 0.05
+  },
+  "verdict_transitions_after_current_finalise": [
+    {
+      "before": "contradicted",
+      "after": "contradicted",
+      "n": 292
+    },
+    {
+      "before": "contradicted",
+      "after": "supported",
+      "n": 135
+    },
+    {
+      "before": "contradicted",
+      "after": "uncertain",
+      "n": 242
+    },
+    {
+      "before": "supported",
+      "after": "contradicted",
+      "n": 70
+    },
+    {
+      "before": "supported",
+      "after": "supported",
+      "n": 2391
+    },
+    {
+      "before": "supported",
+      "after": "uncertain",
+      "n": 408
+    },
+    {
+      "before": "uncertain",
+      "after": "contradicted",
+      "n": 268
+    },
+    {
+      "before": "uncertain",
+      "after": "supported",
+      "n": 346
+    },
+    {
+      "before": "uncertain",
+      "after": "uncertain",
+      "n": 442
+    }
+  ],
+  "most_common_contradicted_pairs": [
+    {
+      "claim": "shirt",
+      "alternative": "uniform",
+      "n": 29
+    },
+    {
+      "claim": "shirt",
+      "alternative": "dress",
+      "n": 22
+    },
+    {
+      "claim": "shirt",
+      "alternative": "suit",
+      "n": 16
+    },
+    {
+      "claim": "shirt",
+      "alternative": "swimsuit",
+      "n": 10
+    },
+    {
+      "claim": "jacket",
+      "alternative": "suit",
+      "n": 9
+    },
+    {
+      "claim": "suit",
+      "alternative": "bikini",
+      "n": 9
+    },
+    {
+      "claim": "shirt",
+      "alternative": "couch",
+      "n": 9
+    },
+    {
+      "claim": "ball",
+      "alternative": "dog",
+      "n": 8
+    },
+    {
+      "claim": "shirt",
+      "alternative": "bikini",
+      "n": 8
+    },
+    {
+      "claim": "shirt",
+      "alternative": "bed",
+      "n": 8
+    },
+    {
+      "claim": "shirt",
+      "alternative": "swing",
+      "n": 8
+    },
+    {
+      "claim": "shirt",
+      "alternative": "backpack",
+      "n": 7
+    },
+    {
+      "claim": "shirt",
+      "alternative": "costume",
+      "n": 7
+    },
+    {
+      "claim": "toy",
+      "alternative": "dog",
+      "n": 6
+    },
+    {
+      "claim": "shirt",
+      "alternative": "bicycle",
+      "n": 6
+    }
+  ]
+}

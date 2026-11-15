@@ -1,0 +1,4 @@
+A_B_e1: own 89.0  transposed 54.0  vflip 58.9  (n=5383)
+  swap test (n=4301 claims with another-class claim in image): pointing own 88.3 vs other-claim map 47.6; energy own 71.9 vs other 45.9; chance 37.2
+A_validation_e1: own 89.2  transposed 53.2  vflip 54.6  (n=1795)
+  swap test (n=1443 claims with another-class claim in image): pointing own 88.4 vs other-claim map 45.2; energy own 70.7 vs other 44.0; chance 35.9

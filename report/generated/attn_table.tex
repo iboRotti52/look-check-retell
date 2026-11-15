@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Attention as a localisation signal (1503 non-person claims, first 1000 validation images,
+fine-tuned decoder). Target: the region the detector itself selects
+for the claimed class (proxy until hand-drawn boxes exist). \emph{Point}: attention peak inside the target;
+\emph{Chance}: mean target area. \emph{Top-5\%}: attention mass on the 5\% most attended patches.
+\emph{IoU}: excess-mass region overlaps the target with IoU$\geq$0.5.}
+\label{tab:attn}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Map & $k$ & Point (\%) & Chance (\%) & Top-5\% & IoU (\%) \\
+\midrule
+raw & 1 & 26.1 & 31.8 & 0.75 & 13.2 \\
+raw & 4 & 26.2 & 31.8 & 0.76 & 12.5 \\
+raw & 12 & 25.8 & 31.8 & 0.79 & 8.4 \\
+sink-corrected & 1 & 66.1 & 31.8 & 0.57 & 40.9 \\
+sink-corrected & 4 & 71.5 & 31.8 & 0.61 & 46.8 \\
+sink-corrected & 12 & 68.5 & 31.8 & 0.51 & 45.2 \\
+\bottomrule
+\end{tabular}
+\end{table}

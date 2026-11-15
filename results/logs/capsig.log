@@ -1,0 +1,12 @@
+W1114 02:01:57.361000 42821 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 53614.73it/s]
+A_B_look2: 0/3000
+A_B_look2: 640/3000
+A_B_look2: 1280/3000
+A_B_look2: 1920/3000
+A_B_look2: 2560/3000
+A_B_look2: 6856/6856 claims matched after re-tokenising the draft
+A_validation_look2: 0/1000
+A_validation_look2: 640/1000
+A_validation_look2: 2272/2272 claims matched after re-tokenising the draft

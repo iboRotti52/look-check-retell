@@ -1,0 +1,1396 @@
+{
+ "split": "B",
+ "label": "automatic reference proxy; exploratory diagnostics only",
+ "note": "Per-box verdicts reuse weighted-score OOF thresholds; no independent per-box calibration.",
+ "counts": {
+  "claims_with_region": 4594,
+  "boxes_give_both_support_and_contradiction": 2221,
+  "weighted_not_supported_but_one_box_above_support": 1014,
+  "same_reference_supported": 654,
+  "same_reference_unsupported": 360
+ },
+ "patterns": [
+  {
+   "weighted": "supported",
+   "per_box": "supported/supported/supported",
+   "n": 512
+  },
+  {
+   "weighted": "supported",
+   "per_box": "supported/contradicted/contradicted",
+   "n": 502
+  },
+  {
+   "weighted": "supported",
+   "per_box": "supported/uncertain/uncertain",
+   "n": 429
+  },
+  {
+   "weighted": "supported",
+   "per_box": "supported/supported/contradicted",
+   "n": 403
+  },
+  {
+   "weighted": "supported",
+   "per_box": "supported/contradicted/uncertain",
+   "n": 295
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "contradicted/contradicted/contradicted",
+   "n": 241
+  },
+  {
+   "weighted": "supported",
+   "per_box": "supported/supported/uncertain",
+   "n": 230
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "supported/uncertain/uncertain",
+   "n": 225
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "uncertain/uncertain/uncertain",
+   "n": 207
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "supported/contradicted/contradicted",
+   "n": 165
+  },
+  {
+   "weighted": "supported",
+   "per_box": "supported/contradicted/supported",
+   "n": 156
+  },
+  {
+   "weighted": "supported",
+   "per_box": "supported/uncertain/contradicted",
+   "n": 137
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "supported/contradicted/contradicted",
+   "n": 131
+  },
+  {
+   "weighted": "supported",
+   "per_box": "supported/uncertain/supported",
+   "n": 104
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "supported/contradicted/uncertain",
+   "n": 63
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "contradicted/supported/contradicted",
+   "n": 55
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "contradicted/contradicted/contradicted",
+   "n": 54
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "uncertain/supported/uncertain",
+   "n": 51
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "uncertain/uncertain/supported",
+   "n": 37
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "contradicted/contradicted/uncertain",
+   "n": 37
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "contradicted/supported/contradicted",
+   "n": 35
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "contradicted/contradicted/supported",
+   "n": 34
+  },
+  {
+   "weighted": "supported",
+   "per_box": "contradicted/supported/supported",
+   "n": 34
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "supported/uncertain/contradicted",
+   "n": 33
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "contradicted/contradicted/uncertain",
+   "n": 31
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "contradicted/uncertain/contradicted",
+   "n": 28
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "supported/contradicted/uncertain",
+   "n": 26
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "uncertain/contradicted/contradicted",
+   "n": 24
+  },
+  {
+   "weighted": "supported",
+   "per_box": "uncertain/supported/uncertain",
+   "n": 22
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "contradicted/supported/uncertain",
+   "n": 18
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "contradicted/uncertain/uncertain",
+   "n": 17
+  },
+  {
+   "weighted": "supported",
+   "per_box": "uncertain/supported/supported",
+   "n": 17
+  },
+  {
+   "weighted": "supported",
+   "per_box": "contradicted/supported/contradicted",
+   "n": 17
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "uncertain/contradicted/contradicted",
+   "n": 16
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "uncertain/contradicted/uncertain",
+   "n": 16
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "contradicted/supported/supported",
+   "n": 14
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "contradicted/uncertain/contradicted",
+   "n": 14
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "supported/supported/uncertain",
+   "n": 14
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "supported/supported/contradicted",
+   "n": 14
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "uncertain/uncertain/contradicted",
+   "n": 12
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "supported/uncertain/contradicted",
+   "n": 11
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "uncertain/supported/contradicted",
+   "n": 10
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "supported/contradicted/supported",
+   "n": 10
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "contradicted/contradicted/supported",
+   "n": 9
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "contradicted/uncertain/uncertain",
+   "n": 9
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "contradicted/supported/uncertain",
+   "n": 9
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "supported/supported/contradicted",
+   "n": 8
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "supported/uncertain/supported",
+   "n": 7
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "uncertain/supported/supported",
+   "n": 7
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "supported/contradicted/supported",
+   "n": 6
+  },
+  {
+   "weighted": "supported",
+   "per_box": "contradicted/supported/uncertain",
+   "n": 5
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "contradicted/supported/supported",
+   "n": 5
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "uncertain/contradicted/supported",
+   "n": 4
+  },
+  {
+   "weighted": "uncertain",
+   "per_box": "contradicted/uncertain/supported",
+   "n": 4
+  },
+  {
+   "weighted": "supported",
+   "per_box": "uncertain/supported/contradicted",
+   "n": 3
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "supported/uncertain/uncertain",
+   "n": 3
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "contradicted/uncertain/supported",
+   "n": 2
+  },
+  {
+   "weighted": "supported",
+   "per_box": "uncertain/uncertain/supported",
+   "n": 2
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "uncertain/uncertain/uncertain",
+   "n": 2
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "uncertain/uncertain/contradicted",
+   "n": 2
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "supported/uncertain/supported",
+   "n": 1
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "supported/supported/uncertain",
+   "n": 1
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "uncertain/contradicted/uncertain",
+   "n": 1
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "uncertain/supported/contradicted",
+   "n": 1
+  },
+  {
+   "weighted": "supported",
+   "per_box": "uncertain/contradicted/supported",
+   "n": 1
+  },
+  {
+   "weighted": "contradicted",
+   "per_box": "uncertain/contradicted/supported",
+   "n": 1
+  }
+ ],
+ "frisbee": [
+  {
+   "id": "train_0004",
+   "reference_support": true,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 2.275863703646823,
+   "thresholds": [
+    0.1630529335516477,
+    0.0996480139938262,
+    0.1630529335516477
+   ],
+   "top3": [
+    {
+     "region": 0,
+     "weight": 0.7094608890687907,
+     "claim_raw": 0.9444402456283569,
+     "claim_z": 4.598612308502197,
+     "alternative": "sled",
+     "alternative_z": 1.6796284914016724,
+     "verdict": "supported"
+    },
+    {
+     "region": 1,
+     "weight": 0.23549789337246566,
+     "claim_raw": 0.0009129554964601994,
+     "claim_z": -3.4429121017456055,
+     "alternative": "dog",
+     "alternative_z": 1.768064260482788,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 53,
+     "weight": 0.055041217558743756,
+     "claim_raw": 0.0012353083584457636,
+     "claim_z": -3.1953022480010986,
+     "alternative": "dog",
+     "alternative_z": -1.344983458518982,
+     "verdict": "uncertain"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.9444402456283569,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.41162109375,
+    0.533203125,
+    0.5283203125,
+    0.77783203125
+   ]
+  },
+  {
+   "id": "train_0716",
+   "reference_support": true,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 1.6641119322689202,
+   "thresholds": [
+    0.05361802724415244,
+    0.05361802724415244,
+    0.05361802724415244
+   ],
+   "top3": [
+    {
+     "region": 0,
+     "weight": 0.6261085730944865,
+     "claim_raw": 0.8151929974555969,
+     "claim_z": 3.495150566101074,
+     "alternative": "hoop",
+     "alternative_z": 2.381133794784546,
+     "verdict": "supported"
+    },
+    {
+     "region": 15,
+     "weight": 0.2009414080878303,
+     "claim_raw": 0.02364269085228443,
+     "claim_z": -0.7623047828674316,
+     "alternative": "bone",
+     "alternative_z": 1.0560685396194458,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 1,
+     "weight": 0.17295001881768307,
+     "claim_raw": 0.004444202408194542,
+     "claim_z": -2.1454360485076904,
+     "alternative": "dog",
+     "alternative_z": 1.5636012554168701,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.8151929974555969,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.48681640625,
+    0.2349853515625,
+    0.6728515625,
+    0.450439453125
+   ]
+  },
+  {
+   "id": "train_0835",
+   "reference_support": false,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 1.2250321754457738,
+   "thresholds": [
+    0.14311404059460903,
+    0.14311404059460903,
+    0.14311404059460903
+   ],
+   "top3": [
+    {
+     "region": 0,
+     "weight": 0.6448947383829379,
+     "claim_raw": 0.6207203269004822,
+     "claim_z": 2.6841259002685547,
+     "alternative": "hoop",
+     "alternative_z": 2.525394916534424,
+     "verdict": "supported"
+    },
+    {
+     "region": 14,
+     "weight": 0.18093678656101508,
+     "claim_raw": 0.05080356448888779,
+     "claim_z": -0.11354993283748627,
+     "alternative": "kite",
+     "alternative_z": 1.0481135845184326,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 2,
+     "weight": 0.17416847505604702,
+     "claim_raw": 0.002033441560342908,
+     "claim_z": -2.7869632244110107,
+     "alternative": "person",
+     "alternative_z": 0.7077859044075012,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.6207203269004822,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.708984375,
+    0.2216796875,
+    0.94970703125,
+    0.70556640625
+   ]
+  },
+  {
+   "id": "train_1337",
+   "reference_support": false,
+   "weighted_verdict": "contradicted",
+   "weighted_claim_z": -1.9065588431992524,
+   "thresholds": [
+    0.1630529335516477,
+    0.0996480139938262,
+    0.1630529335516477
+   ],
+   "top3": [
+    {
+     "region": 6,
+     "weight": 0.43732157004866257,
+     "claim_raw": 0.004098210483789444,
+     "claim_z": -2.212017059326172,
+     "alternative": "person",
+     "alternative_z": 0.38142234086990356,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 26,
+     "weight": 0.34383987669710925,
+     "claim_raw": 0.007954702712595463,
+     "claim_z": -1.6663533449172974,
+     "alternative": "park",
+     "alternative_z": 1.5488958358764648,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 4,
+     "weight": 0.21883855325422827,
+     "claim_raw": 0.007885569706559181,
+     "claim_z": -1.6735503673553467,
+     "alternative": "person",
+     "alternative_z": 0.34304681420326233,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 1,
+   "image_best_raw": 0.04888247698545456,
+   "image_best_is_in_top3": false,
+   "image_best_passes_look_size_filter": false,
+   "image_best_box": [
+    0.61962890625,
+    0.2607421875,
+    0.63330078125,
+    0.517578125
+   ]
+  },
+  {
+   "id": "train_1869",
+   "reference_support": true,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 2.777112716893494,
+   "thresholds": [
+    0.17823622688301605,
+    0.07153622039659041,
+    0.17823622688301605
+   ],
+   "top3": [
+    {
+     "region": 0,
+     "weight": 0.7856373688862129,
+     "claim_raw": 0.9023281335830688,
+     "claim_z": 4.099838733673096,
+     "alternative": "plate",
+     "alternative_z": 2.9670000076293945,
+     "verdict": "supported"
+    },
+    {
+     "region": 3,
+     "weight": 0.1164560903632219,
+     "claim_raw": 0.0031568335834890604,
+     "claim_z": -2.426265001296997,
+     "alternative": "statue",
+     "alternative_z": 2.6951067447662354,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 43,
+     "weight": 0.09790654075056521,
+     "claim_raw": 0.008136710152029991,
+     "claim_z": -1.6476985216140747,
+     "alternative": "rock",
+     "alternative_z": 1.1467972993850708,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.9023281335830688,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.1209716796875,
+    0.310546875,
+    0.39501953125,
+    0.47216796875
+   ]
+  },
+  {
+   "id": "train_1947",
+   "reference_support": true,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 1.6858066524399475,
+   "thresholds": [
+    0.1630529335516477,
+    0.0996480139938262,
+    0.1630529335516477
+   ],
+   "top3": [
+    {
+     "region": 1,
+     "weight": 0.6314878164411643,
+     "claim_raw": 0.7898192405700684,
+     "claim_z": 3.364049196243286,
+     "alternative": "hoop",
+     "alternative_z": 3.0108370780944824,
+     "verdict": "supported"
+    },
+    {
+     "region": 34,
+     "weight": 0.18781475521376131,
+     "claim_raw": 0.06181569769978523,
+     "claim_z": 0.056474048644304276,
+     "alternative": "racket",
+     "alternative_z": 1.021638035774231,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 0,
+     "weight": 0.18069742834507446,
+     "claim_raw": 0.0029363082721829414,
+     "claim_z": -2.48568058013916,
+     "alternative": "dog",
+     "alternative_z": 1.4510976076126099,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 1,
+   "image_best_raw": 0.7898192405700684,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.5830078125,
+    0.211181640625,
+    0.75341796875,
+    0.384765625
+   ]
+  },
+  {
+   "id": "train_2019",
+   "reference_support": true,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 2.2024378988044817,
+   "thresholds": [
+    0.17823622688301605,
+    0.07153622039659041,
+    0.17823622688301605
+   ],
+   "top3": [
+    {
+     "region": 0,
+     "weight": 0.7782586983039397,
+     "claim_raw": 0.8315513134002686,
+     "claim_z": 3.5872128009796143,
+     "alternative": "bucket",
+     "alternative_z": 2.4180121421813965,
+     "verdict": "supported"
+    },
+    {
+     "region": 1,
+     "weight": 0.15554498167477585,
+     "claim_raw": 0.002194145228713751,
+     "claim_z": -2.724614381790161,
+     "alternative": "dog",
+     "alternative_z": 1.5514088869094849,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 6,
+     "weight": 0.06619632002128452,
+     "claim_raw": 0.0028828035574406385,
+     "claim_z": -2.5007669925689697,
+     "alternative": "yard",
+     "alternative_z": 2.043614625930786,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.8315513134002686,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.521484375,
+    0.363525390625,
+    0.68359375,
+    0.6435546875
+   ]
+  },
+  {
+   "id": "train_2328",
+   "reference_support": true,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 2.6242146170951854,
+   "thresholds": [
+    0.05361802724415244,
+    0.05361802724415244,
+    0.05361802724415244
+   ],
+   "top3": [
+    {
+     "region": 0,
+     "weight": 0.8384335271092284,
+     "claim_raw": 0.8504646420478821,
+     "claim_z": 3.7030277252197266,
+     "alternative": "hoop",
+     "alternative_z": 2.6809451580047607,
+     "verdict": "supported"
+    },
+    {
+     "region": 17,
+     "weight": 0.08497493605262968,
+     "claim_raw": 0.0020011835731565952,
+     "claim_z": -2.800069808959961,
+     "alternative": "scooter",
+     "alternative_z": -0.24964633584022522,
+     "verdict": "uncertain"
+    },
+    {
+     "region": 74,
+     "weight": 0.07659153683814186,
+     "claim_raw": 0.0012781961122527719,
+     "claim_z": -3.1673502922058105,
+     "alternative": "sky",
+     "alternative_z": 1.831749439239502,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.8504646420478821,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.2081298828125,
+    0.00522613525390625,
+    0.348388671875,
+    0.197509765625
+   ]
+  },
+  {
+   "id": "train_2921",
+   "reference_support": true,
+   "weighted_verdict": "contradicted",
+   "weighted_claim_z": -2.2856924178051443,
+   "thresholds": [
+    0.17823622688301605,
+    0.07153622039659041,
+    0.17823622688301605
+   ],
+   "top3": [
+    {
+     "region": 1,
+     "weight": 0.33784030567265316,
+     "claim_raw": 0.007826856337487698,
+     "claim_z": -1.6797118186950684,
+     "alternative": "sheep",
+     "alternative_z": 3.2274346351623535,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 44,
+     "weight": 0.3334820664791884,
+     "claim_raw": 0.0017402330413460732,
+     "claim_z": -2.9145705699920654,
+     "alternative": "branch",
+     "alternative_z": 0.885510265827179,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 24,
+     "weight": 0.3286776278481584,
+     "claim_raw": 0.0038165294099599123,
+     "claim_z": -2.2704954147338867,
+     "alternative": "branch",
+     "alternative_z": 1.1432228088378906,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.9648695588111877,
+   "image_best_is_in_top3": false,
+   "image_best_passes_look_size_filter": false,
+   "image_best_box": [
+    0.392578125,
+    0.1517333984375,
+    0.51025390625,
+    0.2279052734375
+   ]
+  },
+  {
+   "id": "train_3467",
+   "reference_support": true,
+   "weighted_verdict": "contradicted",
+   "weighted_claim_z": -2.9054031633742605,
+   "thresholds": [
+    0.05361802724415244,
+    0.05361802724415244,
+    0.05361802724415244
+   ],
+   "top3": [
+    {
+     "region": 9,
+     "weight": 0.8479195469362715,
+     "claim_raw": 0.0018467243062332273,
+     "claim_z": -2.8659002780914307,
+     "alternative": "garden",
+     "alternative_z": 2.041095733642578,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 63,
+     "weight": 0.10385367243668238,
+     "claim_raw": 0.0029919398948550224,
+     "claim_z": -2.470282554626465,
+     "alternative": "flower",
+     "alternative_z": 0.5407285094261169,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 1,
+     "weight": 0.048226780627046086,
+     "claim_raw": 0.0002398139622528106,
+     "claim_z": -4.536947727203369,
+     "alternative": "dog",
+     "alternative_z": 1.75774085521698,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 3,
+   "image_best_raw": 0.6955703496932983,
+   "image_best_is_in_top3": false,
+   "image_best_passes_look_size_filter": false,
+   "image_best_box": [
+    0.0007066726684570312,
+    0.78369140625,
+    0.057159423828125,
+    0.859375
+   ]
+  },
+  {
+   "id": "train_3693",
+   "reference_support": true,
+   "weighted_verdict": "contradicted",
+   "weighted_claim_z": -1.6737311486096016,
+   "thresholds": [
+    0.4263175308629894,
+    0.047225902055193,
+    0.4263175308629894
+   ],
+   "top3": [
+    {
+     "region": 1,
+     "weight": 0.4202394260676385,
+     "claim_raw": 0.007111317943781614,
+     "claim_z": -1.7587233781814575,
+     "alternative": "person",
+     "alternative_z": 0.5464479327201843,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 11,
+     "weight": 0.33439442455768187,
+     "claim_raw": 0.007219112012535334,
+     "claim_z": -1.7463287115097046,
+     "alternative": "field",
+     "alternative_z": 1.9229036569595337,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 2,
+     "weight": 0.24536614937467982,
+     "claim_raw": 0.010601423680782318,
+     "claim_z": -1.4292259216308594,
+     "alternative": "shoe",
+     "alternative_z": 1.1920628547668457,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.8927419781684875,
+   "image_best_is_in_top3": false,
+   "image_best_passes_look_size_filter": false,
+   "image_best_box": [
+    0.346923828125,
+    0.11578369140625,
+    0.62890625,
+    0.1767578125
+   ]
+  },
+  {
+   "id": "train_3713",
+   "reference_support": true,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 2.5277888827884176,
+   "thresholds": [
+    0.4263175308629894,
+    0.047225902055193,
+    0.4263175308629894
+   ],
+   "top3": [
+    {
+     "region": 0,
+     "weight": 0.696499373672522,
+     "claim_raw": 0.948610782623291,
+     "claim_z": 4.666044235229492,
+     "alternative": "plate",
+     "alternative_z": 1.9962807893753052,
+     "verdict": "supported"
+    },
+    {
+     "region": 1,
+     "weight": 0.18048338822207824,
+     "claim_raw": 0.003576594404876232,
+     "claim_z": -2.323803663253784,
+     "alternative": "dog",
+     "alternative_z": 1.6709586381912231,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 4,
+     "weight": 0.12301723810539969,
+     "claim_raw": 0.00302734412252903,
+     "claim_z": -2.4606311321258545,
+     "alternative": "cat",
+     "alternative_z": 0.28807780146598816,
+     "verdict": "uncertain"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.948610782623291,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.15625,
+    0.163330078125,
+    0.474853515625,
+    0.38623046875
+   ]
+  },
+  {
+   "id": "train_3719",
+   "reference_support": true,
+   "weighted_verdict": "contradicted",
+   "weighted_claim_z": -1.5134900445257649,
+   "thresholds": [
+    0.14311404059460903,
+    0.14311404059460903,
+    0.14311404059460903
+   ],
+   "top3": [
+    {
+     "region": 1,
+     "weight": 0.618680701349813,
+     "claim_raw": 0.009505064226686954,
+     "claim_z": -1.519424557685852,
+     "alternative": "dog",
+     "alternative_z": 1.5298255681991577,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 50,
+     "weight": 0.34805825796727635,
+     "claim_raw": 0.00947333313524723,
+     "claim_z": -1.522186040878296,
+     "alternative": "field",
+     "alternative_z": 1.9496591091156006,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 47,
+     "weight": 0.033261040682910754,
+     "claim_raw": 0.012213504873216152,
+     "claim_z": -1.3121048212051392,
+     "alternative": "hurdle",
+     "alternative_z": 1.4059147834777832,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.8840901255607605,
+   "image_best_is_in_top3": false,
+   "image_best_passes_look_size_filter": false,
+   "image_best_box": [
+    0.312255859375,
+    0.392333984375,
+    0.3994140625,
+    0.437255859375
+   ]
+  },
+  {
+   "id": "train_3875",
+   "reference_support": true,
+   "weighted_verdict": "uncertain",
+   "weighted_claim_z": -2.2019383682805196,
+   "thresholds": [
+    0.4263175308629894,
+    0.047225902055193,
+    0.4263175308629894
+   ],
+   "top3": [
+    {
+     "region": 26,
+     "weight": 0.4054576713130136,
+     "claim_raw": 0.007093529682606459,
+     "claim_z": -1.7607866525650024,
+     "alternative": "kite",
+     "alternative_z": -0.7409387230873108,
+     "verdict": "uncertain"
+    },
+    {
+     "region": 4,
+     "weight": 0.2995565360781664,
+     "claim_raw": 0.008688835427165031,
+     "claim_z": -1.5935407876968384,
+     "alternative": "field",
+     "alternative_z": 2.4766685962677,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 81,
+     "weight": 0.29498579260881996,
+     "claim_raw": 0.0009318672236986458,
+     "claim_z": -3.4261255264282227,
+     "alternative": "kite",
+     "alternative_z": -2.3311612606048584,
+     "verdict": "uncertain"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.9284659624099731,
+   "image_best_is_in_top3": false,
+   "image_best_passes_look_size_filter": false,
+   "image_best_box": [
+    0.368408203125,
+    0.3330078125,
+    0.5107421875,
+    0.38134765625
+   ]
+  },
+  {
+   "id": "train_4066",
+   "reference_support": true,
+   "weighted_verdict": "contradicted",
+   "weighted_claim_z": -2.8239649327831717,
+   "thresholds": [
+    0.17823622688301605,
+    0.07153622039659041,
+    0.17823622688301605
+   ],
+   "top3": [
+    {
+     "region": 1,
+     "weight": 0.49165456618876374,
+     "claim_raw": 0.003920321818441153,
+     "claim_z": -2.248461961746216,
+     "alternative": "cat",
+     "alternative_z": 3.037205457687378,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 7,
+     "weight": 0.2966504144916108,
+     "claim_raw": 0.0012214290909469128,
+     "claim_z": -3.2045557498931885,
+     "alternative": "house",
+     "alternative_z": 2.2750258445739746,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 4,
+     "weight": 0.21169501931962537,
+     "claim_raw": 0.0007289039785973728,
+     "claim_z": -3.627225399017334,
+     "alternative": "bridge",
+     "alternative_z": 0.9583199620246887,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 2,
+   "image_best_raw": 0.5405973792076111,
+   "image_best_is_in_top3": false,
+   "image_best_passes_look_size_filter": false,
+   "image_best_box": [
+    0.490966796875,
+    0.282958984375,
+    0.54150390625,
+    0.375
+   ]
+  },
+  {
+   "id": "train_4911",
+   "reference_support": true,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 3.5696838267518456,
+   "thresholds": [
+    0.17823622688301605,
+    0.07153622039659041,
+    0.17823622688301605
+   ],
+   "top3": [
+    {
+     "region": 0,
+     "weight": 0.9054847585642118,
+     "claim_raw": 0.9208983778953552,
+     "claim_z": 4.28899621963501,
+     "alternative": "kite",
+     "alternative_z": 2.294611930847168,
+     "verdict": "supported"
+    },
+    {
+     "region": 14,
+     "weight": 0.05031680277651365,
+     "claim_raw": 0.0026772881392389536,
+     "claim_z": -2.561431884765625,
+     "alternative": "sky",
+     "alternative_z": 1.9059717655181885,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 8,
+     "weight": 0.044198438659274426,
+     "claim_raw": 0.0003678587672766298,
+     "claim_z": -4.186885833740234,
+     "alternative": "mountain",
+     "alternative_z": 0.8935310244560242,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.9208983778953552,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.56591796875,
+    0.014739990234375,
+    0.6708984375,
+    0.14208984375
+   ]
+  },
+  {
+   "id": "train_4991",
+   "reference_support": true,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 3.5444681499143775,
+   "thresholds": [
+    0.05361802724415244,
+    0.05361802724415244,
+    0.05361802724415244
+   ],
+   "top3": [
+    {
+     "region": 0,
+     "weight": 0.9265926949657323,
+     "claim_raw": 0.8901960253715515,
+     "claim_z": 3.992994546890259,
+     "alternative": "kite",
+     "alternative_z": 2.4734251499176025,
+     "verdict": "supported"
+    },
+    {
+     "region": 30,
+     "weight": 0.06997589005338027,
+     "claim_raw": 0.004491067957133055,
+     "claim_z": -2.13681697845459,
+     "alternative": "sand",
+     "alternative_z": 2.1920325756073,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 1,
+     "weight": 0.0034314149808873343,
+     "claim_raw": 0.007496519014239311,
+     "claim_z": -1.715256929397583,
+     "alternative": "goat",
+     "alternative_z": 1.8892329931259155,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.8901960253715515,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.71728515625,
+    0.38720703125,
+    0.9326171875,
+    0.51806640625
+   ]
+  },
+  {
+   "id": "train_5117",
+   "reference_support": false,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 0.5363853608445809,
+   "thresholds": [
+    0.05361802724415244,
+    0.05361802724415244,
+    0.05361802724415244
+   ],
+   "top3": [
+    {
+     "region": 0,
+     "weight": 0.8226056812514748,
+     "claim_raw": 0.2286672294139862,
+     "claim_z": 1.2866532802581787,
+     "alternative": "racket",
+     "alternative_z": 3.133362293243408,
+     "verdict": "supported"
+    },
+    {
+     "region": 50,
+     "weight": 0.09779476446191875,
+     "claim_raw": 0.0009031902882270515,
+     "claim_z": -3.4517159461975098,
+     "alternative": "racket",
+     "alternative_z": -1.1449817419052124,
+     "verdict": "uncertain"
+    },
+    {
+     "region": 7,
+     "weight": 0.07959955428660638,
+     "claim_raw": 0.0036046477034687996,
+     "claim_z": -2.317389726638794,
+     "alternative": "ocean",
+     "alternative_z": 2.027494192123413,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.2286672294139862,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.1617431640625,
+    0.61376953125,
+    0.336669921875,
+    0.806640625
+   ]
+  },
+  {
+   "id": "train_5206",
+   "reference_support": true,
+   "weighted_verdict": "contradicted",
+   "weighted_claim_z": -2.0124243685590826,
+   "thresholds": [
+    0.4263175308629894,
+    0.047225902055193,
+    0.4263175308629894
+   ],
+   "top3": [
+    {
+     "region": 1,
+     "weight": 0.6451403431252003,
+     "claim_raw": 0.011191927827894688,
+     "claim_z": -1.3843998908996582,
+     "alternative": "goat",
+     "alternative_z": 1.9872968196868896,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 50,
+     "weight": 0.18463003553757487,
+     "claim_raw": 0.0008007235592231154,
+     "claim_z": -3.5502986907958984,
+     "alternative": "cliff",
+     "alternative_z": 1.1480417251586914,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 5,
+     "weight": 0.1702296213372248,
+     "claim_raw": 0.0021942974999547005,
+     "claim_z": -2.724557399749756,
+     "alternative": "forest",
+     "alternative_z": 2.358534336090088,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.8938846588134766,
+   "image_best_is_in_top3": false,
+   "image_best_passes_look_size_filter": false,
+   "image_best_box": [
+    0.67041015625,
+    0.196533203125,
+    0.76025390625,
+    0.271240234375
+   ]
+  },
+  {
+   "id": "train_5240",
+   "reference_support": true,
+   "weighted_verdict": "uncertain",
+   "weighted_claim_z": -2.6156028176044135,
+   "thresholds": [
+    0.05361802724415244,
+    0.05361802724415244,
+    0.05361802724415244
+   ],
+   "top3": [
+    {
+     "region": 61,
+     "weight": 0.3970965825545725,
+     "claim_raw": 0.0022236155346035957,
+     "claim_z": -2.713676691055298,
+     "alternative": "racket",
+     "alternative_z": -1.5061966180801392,
+     "verdict": "uncertain"
+    },
+    {
+     "region": 35,
+     "weight": 0.3661232284657371,
+     "claim_raw": 0.0030723363161087036,
+     "claim_z": -2.4485270977020264,
+     "alternative": "playground",
+     "alternative_z": -0.26068881154060364,
+     "verdict": "uncertain"
+    },
+    {
+     "region": 43,
+     "weight": 0.23678018897969053,
+     "claim_raw": 0.0022350598592311144,
+     "claim_z": -2.709468364715576,
+     "alternative": "grass",
+     "alternative_z": 1.1251096725463867,
+     "verdict": "contradicted"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.9325679540634155,
+   "image_best_is_in_top3": false,
+   "image_best_passes_look_size_filter": false,
+   "image_best_box": [
+    0.625,
+    0.361083984375,
+    0.77685546875,
+    0.39404296875
+   ]
+  },
+  {
+   "id": "train_5798",
+   "reference_support": true,
+   "weighted_verdict": "supported",
+   "weighted_claim_z": 2.5117191531591776,
+   "thresholds": [
+    0.4263175308629894,
+    0.047225902055193,
+    0.4263175308629894
+   ],
+   "top3": [
+    {
+     "region": 0,
+     "weight": 0.7209236220679716,
+     "claim_raw": 0.9217395782470703,
+     "claim_z": 4.298488616943359,
+     "alternative": "hoop",
+     "alternative_z": 1.7063452005386353,
+     "verdict": "supported"
+    },
+    {
+     "region": 1,
+     "weight": 0.15377234970980827,
+     "claim_raw": 0.0027926883194595575,
+     "claim_z": -2.5268185138702393,
+     "alternative": "goat",
+     "alternative_z": 1.6919680833816528,
+     "verdict": "contradicted"
+    },
+    {
+     "region": 22,
+     "weight": 0.12530402822222023,
+     "claim_raw": 0.008779137395322323,
+     "claim_z": -1.585008978843689,
+     "alternative": "muzzle",
+     "alternative_z": 0.3604523241519928,
+     "verdict": "uncertain"
+    }
+   ],
+   "image_best_region": 0,
+   "image_best_raw": 0.9217395782470703,
+   "image_best_is_in_top3": true,
+   "image_best_passes_look_size_filter": true,
+   "image_best_box": [
+    0.47119140625,
+    0.326171875,
+    0.5927734375,
+    0.443359375
+   ]
+  }
+ ]
+}

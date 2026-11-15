@@ -1,0 +1,16 @@
+\begin{table}[t]
+\caption{Human-box localisation on validation (\LookGtClaims{} claims). All entries are percentages.
+Energy uses the exact union of annotated boxes. Pointing and energy share the map; region accuracy
+also depends on the proposal rule.}
+\label{tab:look-human}
+\centering\footnotesize
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Map + region rule & Pointing & Energy & Region \\
+\midrule
+Raw + v1 & 23.9 & 35.8 & 12.9 \\
+Sink + v1 & 88.3 & 73.2 & 55.7 \\
+Sink + v2 & 88.3 & 73.2 & 75.3 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,1175 @@
+{
+ "protocol": {
+  "seed": 415,
+  "image_ids": [
+   "train_0015",
+   "train_0052",
+   "train_0082",
+   "train_0093",
+   "train_0098",
+   "train_0107",
+   "train_0115",
+   "train_0124",
+   "train_0125",
+   "train_0128",
+   "train_0148",
+   "train_0151",
+   "train_0163",
+   "train_0166",
+   "train_0175",
+   "train_0179",
+   "train_0180",
+   "train_0184",
+   "train_0191",
+   "train_0193",
+   "train_0205",
+   "train_0213",
+   "train_0221",
+   "train_0245",
+   "train_0251",
+   "train_0264",
+   "train_0269",
+   "train_0270",
+   "train_0276",
+   "train_0312",
+   "train_0340",
+   "train_0343",
+   "train_0353",
+   "train_0354",
+   "train_0384",
+   "train_0398",
+   "train_0414",
+   "train_0435",
+   "train_0446",
+   "train_0454",
+   "train_0455",
+   "train_0456",
+   "train_0497",
+   "train_0501",
+   "train_0513",
+   "train_0544",
+   "train_0548",
+   "train_0570",
+   "train_0573",
+   "train_0592",
+   "train_0636",
+   "train_0639",
+   "train_0642",
+   "train_0657",
+   "train_0697",
+   "train_0702",
+   "train_0709",
+   "train_0745",
+   "train_0747",
+   "train_0758",
+   "train_0776",
+   "train_0787",
+   "train_0789",
+   "train_0801",
+   "train_0802",
+   "train_0811",
+   "train_0824",
+   "train_0849",
+   "train_0850",
+   "train_0880",
+   "train_0917",
+   "train_0919",
+   "train_0920",
+   "train_0945",
+   "train_0972",
+   "train_0977",
+   "train_0990",
+   "train_0993",
+   "train_1004",
+   "train_1016",
+   "train_1018",
+   "train_1019",
+   "train_1023",
+   "train_1038",
+   "train_1060",
+   "train_1066",
+   "train_1076",
+   "train_1099",
+   "train_1108",
+   "train_1114",
+   "train_1116",
+   "train_1168",
+   "train_1191",
+   "train_1199",
+   "train_1219",
+   "train_1222",
+   "train_1243",
+   "train_1251",
+   "train_1253",
+   "train_1272",
+   "train_1273",
+   "train_1290",
+   "train_1298",
+   "train_1322",
+   "train_1354",
+   "train_1360",
+   "train_1372",
+   "train_1391",
+   "train_1395",
+   "train_1404",
+   "train_1407",
+   "train_1414",
+   "train_1421",
+   "train_1445",
+   "train_1446",
+   "train_1452",
+   "train_1458",
+   "train_1461",
+   "train_1469",
+   "train_1520",
+   "train_1536",
+   "train_1537",
+   "train_1550",
+   "train_1554",
+   "train_1560",
+   "train_1572",
+   "train_1580",
+   "train_1583",
+   "train_1589",
+   "train_1593",
+   "train_1597",
+   "train_1598",
+   "train_1600",
+   "train_1602",
+   "train_1612",
+   "train_1617",
+   "train_1624",
+   "train_1636",
+   "train_1673",
+   "train_1704",
+   "train_1737",
+   "train_1746",
+   "train_1769",
+   "train_1772",
+   "train_1804",
+   "train_1812",
+   "train_1817",
+   "train_1856",
+   "train_1872",
+   "train_1901",
+   "train_1928",
+   "train_1944",
+   "train_1945",
+   "train_1948",
+   "train_1951",
+   "train_1956",
+   "train_1957",
+   "train_2002",
+   "train_2010",
+   "train_2022",
+   "train_2079",
+   "train_2083",
+   "train_2091",
+   "train_2095",
+   "train_2117",
+   "train_2132",
+   "train_2141",
+   "train_2146",
+   "train_2149",
+   "train_2150",
+   "train_2159",
+   "train_2163",
+   "train_2172",
+   "train_2182",
+   "train_2208",
+   "train_2211",
+   "train_2227",
+   "train_2229",
+   "train_2243",
+   "train_2246",
+   "train_2276",
+   "train_2279",
+   "train_2296",
+   "train_2317",
+   "train_2323",
+   "train_2374",
+   "train_2382",
+   "train_2384",
+   "train_2386",
+   "train_2418",
+   "train_2431",
+   "train_2456",
+   "train_2483",
+   "train_2506",
+   "train_2519",
+   "train_2529",
+   "train_2539",
+   "train_2550",
+   "train_2552",
+   "train_2559",
+   "train_2560",
+   "train_2568",
+   "train_2581",
+   "train_2642",
+   "train_2645",
+   "train_2646",
+   "train_2650",
+   "train_2668",
+   "train_2673",
+   "train_2682",
+   "train_2690",
+   "train_2693",
+   "train_2714",
+   "train_2717",
+   "train_2721",
+   "train_2745",
+   "train_2785",
+   "train_2796",
+   "train_2799",
+   "train_2803",
+   "train_2805",
+   "train_2806",
+   "train_2818",
+   "train_2831",
+   "train_2840",
+   "train_2845",
+   "train_2847",
+   "train_2860",
+   "train_2880",
+   "train_2881",
+   "train_2885",
+   "train_2891",
+   "train_2893",
+   "train_2895",
+   "train_2901",
+   "train_2930",
+   "train_2933",
+   "train_2939",
+   "train_2944",
+   "train_2959",
+   "train_2972",
+   "train_2992",
+   "train_2999",
+   "train_3030",
+   "train_3069",
+   "train_3080",
+   "train_3097",
+   "train_3099",
+   "train_3113",
+   "train_3121",
+   "train_3128",
+   "train_3154",
+   "train_3157",
+   "train_3162",
+   "train_3167",
+   "train_3173",
+   "train_3190",
+   "train_3197",
+   "train_3203",
+   "train_3223",
+   "train_3232",
+   "train_3238",
+   "train_3271",
+   "train_3286",
+   "train_3292",
+   "train_3293",
+   "train_3294",
+   "train_3306",
+   "train_3307",
+   "train_3314",
+   "train_3324",
+   "train_3334",
+   "train_3357",
+   "train_3359",
+   "train_3368",
+   "train_3373",
+   "train_3375",
+   "train_3404",
+   "train_3409",
+   "train_3429",
+   "train_3464",
+   "train_3471",
+   "train_3479",
+   "train_3480",
+   "train_3507",
+   "train_3510",
+   "train_3517",
+   "train_3547",
+   "train_3553",
+   "train_3563",
+   "train_3579",
+   "train_3635",
+   "train_3659",
+   "train_3688",
+   "train_3717",
+   "train_3745",
+   "train_3784",
+   "train_3787",
+   "train_3806",
+   "train_3808",
+   "train_3827",
+   "train_3840",
+   "train_3861",
+   "train_3871",
+   "train_3894",
+   "train_3902",
+   "train_3935",
+   "train_3945",
+   "train_3989",
+   "train_3996",
+   "train_3999",
+   "train_4007",
+   "train_4012",
+   "train_4042",
+   "train_4053",
+   "train_4056",
+   "train_4064",
+   "train_4074",
+   "train_4082",
+   "train_4090",
+   "train_4094",
+   "train_4097",
+   "train_4107",
+   "train_4124",
+   "train_4139",
+   "train_4164",
+   "train_4172",
+   "train_4175",
+   "train_4184",
+   "train_4196",
+   "train_4200",
+   "train_4215",
+   "train_4228",
+   "train_4265",
+   "train_4270",
+   "train_4274",
+   "train_4293",
+   "train_4302",
+   "train_4309",
+   "train_4311",
+   "train_4315",
+   "train_4344",
+   "train_4348",
+   "train_4350",
+   "train_4356",
+   "train_4373",
+   "train_4410",
+   "train_4417",
+   "train_4427",
+   "train_4440",
+   "train_4449",
+   "train_4456",
+   "train_4459",
+   "train_4475",
+   "train_4485",
+   "train_4506",
+   "train_4508",
+   "train_4514",
+   "train_4519",
+   "train_4542",
+   "train_4561",
+   "train_4568",
+   "train_4572",
+   "train_4579",
+   "train_4580",
+   "train_4585",
+   "train_4589",
+   "train_4590",
+   "train_4608",
+   "train_4610",
+   "train_4617",
+   "train_4621",
+   "train_4637",
+   "train_4640",
+   "train_4643",
+   "train_4648",
+   "train_4649",
+   "train_4655",
+   "train_4656",
+   "train_4673",
+   "train_4685",
+   "train_4687",
+   "train_4689",
+   "train_4693",
+   "train_4708",
+   "train_4716",
+   "train_4719",
+   "train_4725",
+   "train_4744",
+   "train_4749",
+   "train_4760",
+   "train_4765",
+   "train_4770",
+   "train_4772",
+   "train_4773",
+   "train_4787",
+   "train_4790",
+   "train_4826",
+   "train_4830",
+   "train_4849",
+   "train_4861",
+   "train_4865",
+   "train_4873",
+   "train_4875",
+   "train_4880",
+   "train_4887",
+   "train_4906",
+   "train_4953",
+   "train_4955",
+   "train_4965",
+   "train_4975",
+   "train_4977",
+   "train_5019",
+   "train_5034",
+   "train_5059",
+   "train_5076",
+   "train_5104",
+   "train_5115",
+   "train_5117",
+   "train_5119",
+   "train_5132",
+   "train_5145",
+   "train_5155",
+   "train_5171",
+   "train_5172",
+   "train_5176",
+   "train_5190",
+   "train_5197",
+   "train_5201",
+   "train_5228",
+   "train_5234",
+   "train_5242",
+   "train_5244",
+   "train_5249",
+   "train_5253",
+   "train_5258",
+   "train_5288",
+   "train_5304",
+   "train_5308",
+   "train_5311",
+   "train_5321",
+   "train_5322",
+   "train_5336",
+   "train_5344",
+   "train_5350",
+   "train_5369",
+   "train_5370",
+   "train_5385",
+   "train_5395",
+   "train_5415",
+   "train_5436",
+   "train_5443",
+   "train_5445",
+   "train_5452",
+   "train_5462",
+   "train_5470",
+   "train_5479",
+   "train_5494",
+   "train_5532",
+   "train_5537",
+   "train_5573",
+   "train_5591",
+   "train_5596",
+   "train_5599",
+   "train_5668",
+   "train_5675",
+   "train_5677",
+   "train_5678",
+   "train_5702",
+   "train_5707",
+   "train_5713",
+   "train_5714",
+   "train_5718",
+   "train_5721",
+   "train_5725",
+   "train_5731",
+   "train_5732",
+   "train_5734",
+   "train_5738",
+   "train_5742",
+   "train_5744",
+   "train_5754",
+   "train_5761",
+   "train_5764",
+   "train_5782",
+   "train_5805",
+   "train_5811",
+   "train_5825",
+   "train_5832",
+   "train_5855",
+   "train_5877",
+   "train_5898",
+   "train_5924",
+   "train_5931",
+   "train_5940",
+   "train_5942",
+   "train_5954",
+   "train_5957",
+   "train_5959",
+   "train_5997"
+  ],
+  "n_images": 500,
+  "methods": [
+   "S1_raw",
+   "S3_caption",
+   "S3_prefix",
+   "S2_gradcam",
+   "S4_contrast",
+   "S3_read",
+   "S3_pieces"
+  ],
+  "threshold_pp": 2.0,
+  "source_selection": "B subset only; fixed v2 box rule",
+  "contrast_target": "highest-scoring whole-word token in blip_alts[0]'s class",
+  "missing_alternative": "S3 fallback, availability reported",
+  "target": "first_wordpiece",
+  "intervention": "feature-level mask, fixed caption prefix; matched random token count; CLS retained",
+  "causal_acceptance": "image-paired 95% interval for drop_look - drop_random strictly above zero",
+  "head_selection": "excluded by direction document"
+ },
+ "n_claims": 1142,
+ "baseline": {
+  "all": {
+   "n": 918,
+   "region": 73.63834422657952,
+   "miou": 0.6977818096842828,
+   "pointing": 88.34422657952071,
+   "energy": 73.58204429353053,
+   "chance": 39.170789175031146
+  },
+  "person": {
+   "n": 360,
+   "region": 65.0,
+   "miou": 0.6295454622039365,
+   "pointing": 90.27777777777779,
+   "energy": 68.94579167308436,
+   "chance": 39.035862849345115
+  },
+  "thing": {
+   "n": 394,
+   "region": 80.20304568527918,
+   "miou": 0.7426660528612148,
+   "pointing": 85.78680203045685,
+   "energy": 76.87968132212436,
+   "chance": 30.06628165217828
+  },
+  "stuff": {
+   "n": 164,
+   "region": 76.82926829268293,
+   "miou": 0.7397372565209502,
+   "pointing": 90.2439024390244,
+   "energy": 75.83681230630287,
+   "chance": 61.3399930850982
+  }
+ },
+ "sources": {
+  "S1_raw": {
+   "all": {
+    "n": 918,
+    "region": 45.42483660130719,
+    "miou": 0.49499007443413506,
+    "pointing": 25.816993464052292,
+    "energy": 37.742508886690636,
+    "chance": 39.170789175031146
+   },
+   "person": {
+    "n": 360,
+    "region": 35.27777777777778,
+    "miou": 0.42080913983453583,
+    "pointing": 23.333333333333332,
+    "energy": 35.96929568011612,
+    "chance": 39.035862849345115
+   },
+   "thing": {
+    "n": 394,
+    "region": 47.71573604060914,
+    "miou": 0.5131849068832148,
+    "pointing": 17.512690355329948,
+    "energy": 29.730007321669934,
+    "chance": 30.06628165217828
+   },
+   "stuff": {
+    "n": 164,
+    "region": 62.19512195121951,
+    "miou": 0.614114296817783,
+    "pointing": 51.21951219512195,
+    "energy": 60.884474563428284,
+    "chance": 61.3399930850982
+   },
+   "paired_bootstrap": {
+    "all": {
+     "delta_pp": -28.21350762527233,
+     "ci95_pp": [
+      -31.6080538581782,
+      -24.97261774370208
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "person": {
+     "delta_pp": -29.72222222222222,
+     "ci95_pp": [
+      -35.59380078941258,
+      -23.942597895062686
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "thing": {
+     "delta_pp": -32.48730964467005,
+     "ci95_pp": [
+      -37.56613756613756,
+      -27.70751531091026
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "stuff": {
+     "delta_pp": -14.634146341463413,
+     "ci95_pp": [
+      -21.473373519760308,
+      -7.8431372549019605
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    }
+   }
+  },
+  "S3_caption": {
+   "all": {
+    "n": 918,
+    "region": 71.89542483660131,
+    "miou": 0.682946415444834,
+    "pointing": 86.27450980392157,
+    "energy": 70.47902577423089,
+    "chance": 39.170789175031146
+   },
+   "person": {
+    "n": 360,
+    "region": 63.888888888888886,
+    "miou": 0.6198038112863691,
+    "pointing": 89.16666666666667,
+    "energy": 65.8830486769608,
+    "chance": 39.035862849345115
+   },
+   "thing": {
+    "n": 394,
+    "region": 77.66497461928934,
+    "miou": 0.7215444812235579,
+    "pointing": 84.51776649746193,
+    "energy": 73.27538812002035,
+    "chance": 30.06628165217828
+   },
+   "stuff": {
+    "n": 164,
+    "region": 75.60975609756098,
+    "miou": 0.7288226323974568,
+    "pointing": 84.14634146341463,
+    "energy": 73.84966596189054,
+    "chance": 61.3399930850982
+   },
+   "paired_bootstrap": {
+    "all": {
+     "delta_pp": -1.7429193899782136,
+     "ci95_pp": [
+      -2.9638342108690394,
+      -0.5506456482652671
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "person": {
+     "delta_pp": -1.1111111111111112,
+     "ci95_pp": [
+      -3.2711133922573534,
+      1.098901098901099
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "thing": {
+     "delta_pp": -2.5380710659898478,
+     "ci95_pp": [
+      -4.407910271546635,
+      -0.7633587786259542
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "stuff": {
+     "delta_pp": -1.2195121951219512,
+     "ci95_pp": [
+      -3.125988924050633,
+      0.0
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    }
+   }
+  },
+  "S3_prefix": {
+   "all": {
+    "n": 918,
+    "region": 58.71459694989106,
+    "miou": 0.5943037632943845,
+    "pointing": 63.50762527233116,
+    "energy": 54.47149502747122,
+    "chance": 39.170789175031146
+   },
+   "person": {
+    "n": 360,
+    "region": 48.61111111111111,
+    "miou": 0.515454526832198,
+    "pointing": 68.05555555555556,
+    "energy": 54.1884410165695,
+    "chance": 39.035862849345115
+   },
+   "thing": {
+    "n": 394,
+    "region": 61.6751269035533,
+    "miou": 0.6147736938599956,
+    "pointing": 53.045685279187815,
+    "energy": 47.866919873494176,
+    "chance": 30.06628165217828
+   },
+   "stuff": {
+    "n": 164,
+    "region": 73.78048780487805,
+    "miou": 0.7182096930720457,
+    "pointing": 78.65853658536585,
+    "energy": 70.95992218961491,
+    "chance": 61.3399930850982
+   },
+   "paired_bootstrap": {
+    "all": {
+     "delta_pp": -14.923747276688454,
+     "ci95_pp": [
+      -17.569276912235825,
+      -12.43032433099026
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "person": {
+     "delta_pp": -16.38888888888889,
+     "ci95_pp": [
+      -21.111408199643492,
+      -11.452513966480447
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "thing": {
+     "delta_pp": -18.527918781725887,
+     "ci95_pp": [
+      -22.626462115921786,
+      -14.646156688839618
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "stuff": {
+     "delta_pp": -3.048780487804878,
+     "ci95_pp": [
+      -6.486661986661987,
+      0.0
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    }
+   }
+  },
+  "S2_gradcam": {
+   "all": {
+    "n": 918,
+    "region": 72.54901960784314,
+    "miou": 0.6975235391579657,
+    "pointing": 92.48366013071896,
+    "energy": 64.56647155287764,
+    "chance": 39.170789175031146
+   },
+   "person": {
+    "n": 360,
+    "region": 68.05555555555556,
+    "miou": 0.656005044012434,
+    "pointing": 94.72222222222221,
+    "energy": 65.12984226790682,
+    "chance": 39.035862849345115
+   },
+   "thing": {
+    "n": 394,
+    "region": 78.1725888324873,
+    "miou": 0.7361381783842719,
+    "pointing": 91.11675126903553,
+    "energy": 60.99822827961988,
+    "chance": 30.06628165217828
+   },
+   "stuff": {
+    "n": 164,
+    "region": 68.90243902439023,
+    "miou": 0.6958923830434952,
+    "pointing": 90.85365853658537,
+    "energy": 71.90229101783527,
+    "chance": 61.3399930850982
+   },
+   "paired_bootstrap": {
+    "all": {
+     "delta_pp": -1.0893246187363834,
+     "ci95_pp": [
+      -3.5373582215084505,
+      1.3143843315847117
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "person": {
+     "delta_pp": 3.0555555555555554,
+     "ci95_pp": [
+      -1.5040709158356216,
+      7.459599447513806
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "thing": {
+     "delta_pp": -2.030456852791878,
+     "ci95_pp": [
+      -4.786196346334885,
+      0.7635055783910738
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "stuff": {
+     "delta_pp": -7.926829268292683,
+     "ci95_pp": [
+      -13.483490728613772,
+      -2.4539877300613497
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    }
+   }
+  },
+  "S4_contrast": {
+   "all": {
+    "n": 918,
+    "region": 73.20261437908496,
+    "miou": 0.6996883830438065,
+    "pointing": 93.24618736383442,
+    "energy": 66.66246259953051,
+    "chance": 39.170789175031146
+   },
+   "person": {
+    "n": 360,
+    "region": 68.61111111111111,
+    "miou": 0.664848461925673,
+    "pointing": 94.16666666666667,
+    "energy": 65.85550378504854,
+    "chance": 39.035862849345115
+   },
+   "thing": {
+    "n": 394,
+    "region": 78.42639593908629,
+    "miou": 0.7316587908432209,
+    "pointing": 93.1472081218274,
+    "energy": 64.82547915601648,
+    "chance": 30.06628165217828
+   },
+   "stuff": {
+    "n": 164,
+    "region": 70.73170731707317,
+    "miou": 0.6993593033459946,
+    "pointing": 91.46341463414635,
+    "energy": 72.84707631878685,
+    "chance": 61.3399930850982
+   },
+   "paired_bootstrap": {
+    "all": {
+     "delta_pp": -0.4357298474945534,
+     "ci95_pp": [
+      -2.6387686387686387,
+      1.7654621556770485
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "person": {
+     "delta_pp": 3.6111111111111107,
+     "ci95_pp": [
+      -0.2833062387329385,
+      7.527257163452873
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "thing": {
+     "delta_pp": -1.7766497461928936,
+     "ci95_pp": [
+      -4.556978993450301,
+      0.997757495430189
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "stuff": {
+     "delta_pp": -6.097560975609756,
+     "ci95_pp": [
+      -11.377245508982035,
+      -1.2654272151898756
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    }
+   }
+  },
+  "S3_read": {
+   "all": {
+    "n": 918,
+    "region": 54.03050108932462,
+    "miou": 0.550717272691242,
+    "pointing": 53.48583877995643,
+    "energy": 51.82867598640441,
+    "chance": 39.170789175031146
+   },
+   "person": {
+    "n": 360,
+    "region": 59.166666666666664,
+    "miou": 0.5816815374134522,
+    "pointing": 73.33333333333333,
+    "energy": 65.53873359163495,
+    "chance": 39.035862849345115
+   },
+   "thing": {
+    "n": 394,
+    "region": 48.984771573604064,
+    "miou": 0.5141223775176214,
+    "pointing": 36.29441624365482,
+    "energy": 37.50908486794997,
+    "chance": 30.06628165217828
+   },
+   "stuff": {
+    "n": 164,
+    "region": 54.87804878048781,
+    "miou": 0.5706639397547228,
+    "pointing": 51.21951219512195,
+    "energy": 56.13537210096572,
+    "chance": 61.3399930850982
+   },
+   "paired_bootstrap": {
+    "all": {
+     "delta_pp": -19.607843137254903,
+     "ci95_pp": [
+      -22.942184793791938,
+      -16.263358778625957
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "person": {
+     "delta_pp": -5.833333333333333,
+     "ci95_pp": [
+      -11.267707400472197,
+      -0.28085964471784597
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "thing": {
+     "delta_pp": -31.218274111675125,
+     "ci95_pp": [
+      -35.981380455407965,
+      -26.50884985530655
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "stuff": {
+     "delta_pp": -21.951219512195124,
+     "ci95_pp": [
+      -29.51936779375567,
+      -14.193439407149086
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    }
+   }
+  },
+  "S3_pieces": {
+   "all": {
+    "n": 918,
+    "region": 71.56862745098039,
+    "miou": 0.6813308375529703,
+    "pointing": 84.9673202614379,
+    "energy": 69.9635321285252,
+    "chance": 39.170789175031146
+   },
+   "person": {
+    "n": 360,
+    "region": 63.33333333333333,
+    "miou": 0.6165051208679668,
+    "pointing": 88.61111111111111,
+    "energy": 65.96579710904064,
+    "chance": 39.035862849345115
+   },
+   "thing": {
+    "n": 394,
+    "region": 77.41116751269035,
+    "miou": 0.7207942985989234,
+    "pointing": 81.97969543147208,
+    "energy": 71.99870638827781,
+    "chance": 30.06628165217828
+   },
+   "stuff": {
+    "n": 164,
+    "region": 75.60975609756098,
+    "miou": 0.7288226323974568,
+    "pointing": 84.14634146341463,
+    "energy": 73.84966596189054,
+    "chance": 61.3399930850982
+   },
+   "paired_bootstrap": {
+    "all": {
+     "delta_pp": -2.0697167755991286,
+     "ci95_pp": [
+      -3.4030099291487876,
+      -0.7742298012987145
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "person": {
+     "delta_pp": -1.6666666666666667,
+     "ci95_pp": [
+      -3.988888888888889,
+      0.5634600805968955
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "thing": {
+     "delta_pp": -2.7918781725888326,
+     "ci95_pp": [
+      -4.9278046162104125,
+      -0.7791201047015006
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    },
+    "stuff": {
+     "delta_pp": -1.2195121951219512,
+     "ci95_pp": [
+      -3.125988924050633,
+      0.0
+     ],
+     "n_boot": 2000,
+     "unit": "image"
+    }
+   }
+  }
+ },
+ "map_gates": {
+  "S1_raw": {
+   "pointing": 25.816993464052292,
+   "transposed": 36.9281045751634,
+   "swap_own": 25.866666666666667,
+   "swap_other": 25.866666666666667,
+   "passed": false
+  },
+  "S3_caption": {
+   "pointing": 86.27450980392157,
+   "transposed": 52.723311546840954,
+   "swap_own": 85.06666666666666,
+   "swap_other": 46.13333333333333,
+   "passed": true
+  },
+  "S3_prefix": {
+   "pointing": 63.50762527233116,
+   "transposed": 45.31590413943355,
+   "swap_own": 63.33333333333333,
+   "swap_other": 40.666666666666664,
+   "passed": true
+  },
+  "S2_gradcam": {
+   "pointing": 92.48366013071896,
+   "transposed": 55.55555555555556,
+   "swap_own": 92.13333333333334,
+   "swap_other": 52.26666666666666,
+   "passed": true
+  },
+  "S4_contrast": {
+   "pointing": 93.24618736383442,
+   "transposed": 54.68409586056645,
+   "swap_own": 93.06666666666666,
+   "swap_other": 49.86666666666667,
+   "passed": true
+  },
+  "S3_read": {
+   "pointing": 53.48583877995643,
+   "transposed": 47.05882352941176,
+   "swap_own": 50.26666666666667,
+   "swap_other": 43.2,
+   "passed": true
+  },
+  "S3_pieces": {
+   "pointing": 84.9673202614379,
+   "transposed": 52.17864923747276,
+   "swap_own": 83.6,
+   "swap_other": 45.6,
+   "passed": true
+  }
+ },
+ "acceptance": {
+  "S3_prefix": {
+   "gain_pp": -14.92374727668846,
+   "passes_map_gates": true
+  },
+  "S2_gradcam": {
+   "gain_pp": -1.0893246187363843,
+   "passes_map_gates": true
+  },
+  "S4_contrast": {
+   "gain_pp": -0.43572984749455657,
+   "passes_map_gates": true
+  },
+  "S3_read": {
+   "gain_pp": -19.607843137254896,
+   "passes_map_gates": true
+  },
+  "S3_pieces": {
+   "gain_pp": -2.069716775599133,
+   "passes_map_gates": true
+  }
+ },
+ "threshold_winner": null,
+ "accepted_source": null,
+ "reproduction": {
+  "max_abs_S1": 5.889683961868286e-05,
+  "S1_passed": true,
+  "max_abs_S3": 0.1698879599571228,
+  "mean_abs_S3": 0.011147047596011718,
+  "S3_reference_compatible": false,
+  "note": "archived S3 is the fixed control; recomputed caption-reference drift is reported"
+ },
+ "contrast_available": 983,
+ "multi_piece_claims": 49,
+ "degenerate_maps": {
+  "S4_contrast": 4
+ },
+ "nonzero_gradients": 1142,
+ "causal": {
+  "n_claims": 1142,
+  "mean_logp_drop": {
+   "look": 1.685236063911441,
+   "random": 0.9813276171821272,
+   "detector": 1.3121036598042972
+  },
+  "look_minus_random": 0.7039084467293137,
+  "ci95": [
+   0.6167586012135887,
+   0.7904185181615344
+  ],
+  "bootstrap_unit": "image",
+  "n_boot": 2000,
+  "feature_level_gate_passed": true,
+  "mean_masked_look_tokens": 229.492119089317,
+  "mean_masked_detector_tokens": 184.94658493870404
+ },
+ "intervention_version": 2,
+ "maps_path": "data/cache/look_e2/sources.npz"
+}

@@ -1,0 +1,812 @@
+{
+ "systems": [
+  "draft"
+ ],
+ "split": "validation",
+ "decoder": "A",
+ "seed": 415,
+ "items": [
+  {
+   "item": "pilot-0000",
+   "image": "validation_0054",
+   "caption": "a little girl in a pink dress is standing in a doorway."
+  },
+  {
+   "item": "pilot-0001",
+   "image": "validation_0746",
+   "caption": "two dogs running in the woods."
+  },
+  {
+   "item": "pilot-0002",
+   "image": "validation_0217",
+   "caption": "a brown dog is jumping in the air to catch a white frisbee."
+  },
+  {
+   "item": "pilot-0003",
+   "image": "validation_0126",
+   "caption": "a brown and white dog is running in the grass."
+  },
+  {
+   "item": "pilot-0004",
+   "image": "validation_0670",
+   "caption": "a woman in a black apron is sitting at a bar."
+  },
+  {
+   "item": "pilot-0005",
+   "image": "validation_0787",
+   "caption": "a woman in a black hat and sunglasses is laying on the sand."
+  },
+  {
+   "item": "pilot-0006",
+   "image": "validation_0519",
+   "caption": "three men stand in front of a vehicle."
+  },
+  {
+   "item": "pilot-0007",
+   "image": "validation_0757",
+   "caption": "a white chicken and a black and white chicken are in a fenced in area."
+  },
+  {
+   "item": "pilot-0008",
+   "image": "validation_0391",
+   "caption": "a group of people playing basketball."
+  },
+  {
+   "item": "pilot-0009",
+   "image": "validation_0985",
+   "caption": "a woman in a white shirt and blue shorts is suspended on a rope."
+  },
+  {
+   "item": "pilot-0010",
+   "image": "validation_0190",
+   "caption": "a brown dog is laying on a bed covered with brown and white sheets."
+  },
+  {
+   "item": "pilot-0011",
+   "image": "validation_0725",
+   "caption": "a little girl is laying on a blue and black inflatable bed."
+  },
+  {
+   "item": "pilot-0012",
+   "image": "validation_0542",
+   "caption": "a boy is doing a handstand on the grass."
+  },
+  {
+   "item": "pilot-0013",
+   "image": "validation_0252",
+   "caption": "a black dog with a green collar is running on the grass."
+  },
+  {
+   "item": "pilot-0014",
+   "image": "validation_0228",
+   "caption": "a brown dog is sleeping on a green cushion."
+  },
+  {
+   "item": "pilot-0015",
+   "image": "validation_0779",
+   "caption": "two people on a motorcycle racing on a track."
+  },
+  {
+   "item": "pilot-0016",
+   "image": "validation_0464",
+   "caption": "a man in a white shirt and blue jeans is dancing on a stage."
+  },
+  {
+   "item": "pilot-0017",
+   "image": "validation_0660",
+   "caption": "a brown dog is running down a stone staircase."
+  },
+  {
+   "item": "pilot-0018",
+   "image": "validation_0284",
+   "caption": "a woman in a red dress is running past a stop sign."
+  },
+  {
+   "item": "pilot-0019",
+   "image": "validation_0261",
+   "caption": "a group of people stand in a wooded area."
+  },
+  {
+   "item": "pilot-0020",
+   "image": "validation_0905",
+   "caption": "a little girl in a green skirt is walking down a path."
+  },
+  {
+   "item": "pilot-0021",
+   "image": "validation_0868",
+   "caption": "two children play in a water sprinkler."
+  },
+  {
+   "item": "pilot-0022",
+   "image": "validation_0074",
+   "caption": "a man is sitting on the sand and is flying a kite."
+  },
+  {
+   "item": "pilot-0023",
+   "image": "validation_0501",
+   "caption": "a bicyclist is riding on a city street at night."
+  },
+  {
+   "item": "pilot-0024",
+   "image": "validation_0288",
+   "caption": "four children are jumping in the air in front of a house."
+  },
+  {
+   "item": "pilot-0025",
+   "image": "validation_0906",
+   "caption": "a brown dog is playing with a tennis ball."
+  },
+  {
+   "item": "pilot-0026",
+   "image": "validation_0130",
+   "caption": "a man in a white t - shirt is skateboarding on a ramp."
+  },
+  {
+   "item": "pilot-0027",
+   "image": "validation_0666",
+   "caption": "a white dog is playing with a young boy in a field."
+  },
+  {
+   "item": "pilot-0028",
+   "image": "validation_0366",
+   "caption": "a snowboarder is in the air above a sand mound."
+  },
+  {
+   "item": "pilot-0029",
+   "image": "validation_0654",
+   "caption": "a group of people are sitting at a table in front of a mountain."
+  },
+  {
+   "item": "pilot-0030",
+   "image": "validation_0959",
+   "caption": "a black dog is running through the grass."
+  },
+  {
+   "item": "pilot-0031",
+   "image": "validation_0912",
+   "caption": "three girls in blue swimsuits are dancing in front of a crowd."
+  },
+  {
+   "item": "pilot-0032",
+   "image": "validation_0116",
+   "caption": "a brown dog is running through the water."
+  },
+  {
+   "item": "pilot-0033",
+   "image": "validation_0699",
+   "caption": "a white and brown dog is running with a ball in its mouth."
+  },
+  {
+   "item": "pilot-0034",
+   "image": "validation_0837",
+   "caption": "a man is jumping high in the air."
+  },
+  {
+   "item": "pilot-0035",
+   "image": "validation_0891",
+   "caption": "a hockey player in a red uniform is being pursued by another player in a white uniform."
+  },
+  {
+   "item": "pilot-0036",
+   "image": "validation_0214",
+   "caption": "a person is standing in front of a waterfall."
+  },
+  {
+   "item": "pilot-0037",
+   "image": "validation_0048",
+   "caption": "a yellow dog is running through the grass."
+  },
+  {
+   "item": "pilot-0038",
+   "image": "validation_0370",
+   "caption": "a grey bird is flying through the air."
+  },
+  {
+   "item": "pilot-0039",
+   "image": "validation_0171",
+   "caption": "two children play tennis on a tennis court."
+  },
+  {
+   "item": "pilot-0040",
+   "image": "validation_0466",
+   "caption": "a boy jumping on the floor."
+  },
+  {
+   "item": "pilot-0041",
+   "image": "validation_0232",
+   "caption": "a child in pajamas is playing on a wooden rocking toy."
+  },
+  {
+   "item": "pilot-0042",
+   "image": "validation_0845",
+   "caption": "a little girl in a red dress is surrounded by confecents."
+  },
+  {
+   "item": "pilot-0043",
+   "image": "validation_0513",
+   "caption": "a man in a red jacket is riding a dirt bike through a stream."
+  },
+  {
+   "item": "pilot-0044",
+   "image": "validation_0321",
+   "caption": "a boy is jumping through a large yellow tube."
+  },
+  {
+   "item": "pilot-0045",
+   "image": "validation_0484",
+   "caption": "two black dogs are running on the dirt."
+  },
+  {
+   "item": "pilot-0046",
+   "image": "validation_0432",
+   "caption": "a white dog and a yellow cat are playing on a bed."
+  },
+  {
+   "item": "pilot-0047",
+   "image": "validation_0593",
+   "caption": "a group of people are rafting down a river."
+  },
+  {
+   "item": "pilot-0048",
+   "image": "validation_0867",
+   "caption": "a brown dog is digging a hole in the grass."
+  },
+  {
+   "item": "pilot-0049",
+   "image": "validation_0085",
+   "caption": "a brown dog is chasing a red frisbee."
+  },
+  {
+   "item": "pilot-0050",
+   "image": "validation_0887",
+   "caption": "a brown dog is running through the water."
+  },
+  {
+   "item": "pilot-0051",
+   "image": "validation_0758",
+   "caption": "a group of people are standing on rocks in the middle of a river."
+  },
+  {
+   "item": "pilot-0052",
+   "image": "validation_0600",
+   "caption": "a man is walking across a rope bridge."
+  },
+  {
+   "item": "pilot-0053",
+   "image": "validation_0753",
+   "caption": "two people sit outside a tent."
+  },
+  {
+   "item": "pilot-0054",
+   "image": "validation_0465",
+   "caption": "a woman in a red jacket kneels on the snow."
+  },
+  {
+   "item": "pilot-0055",
+   "image": "validation_0248",
+   "caption": "a boy in blue shorts is playing with a basketball."
+  },
+  {
+   "item": "pilot-0056",
+   "image": "validation_0225",
+   "caption": "a little boy in a blue robe is sitting in a chair."
+  },
+  {
+   "item": "pilot-0057",
+   "image": "validation_0365",
+   "caption": "a man is walking down the street in front of a store."
+  },
+  {
+   "item": "pilot-0058",
+   "image": "validation_0693",
+   "caption": "a black dog is wading through a stream."
+  },
+  {
+   "item": "pilot-0059",
+   "image": "validation_0258",
+   "caption": "a skateboarder in midair."
+  },
+  {
+   "item": "pilot-0060",
+   "image": "validation_0145",
+   "caption": "a girl in a blue uniform is playing field hockey."
+  },
+  {
+   "item": "pilot-0061",
+   "image": "validation_0621",
+   "caption": "a snowboarder is riding down a snowy hill."
+  },
+  {
+   "item": "pilot-0062",
+   "image": "validation_0173",
+   "caption": "a white dog is running on a dirt path."
+  },
+  {
+   "item": "pilot-0063",
+   "image": "validation_0740",
+   "caption": "a man with a blue hat and glasses is giving the peace sign."
+  },
+  {
+   "item": "pilot-0064",
+   "image": "validation_0305",
+   "caption": "a brown and white dog is jumping into the water."
+  },
+  {
+   "item": "pilot-0065",
+   "image": "validation_0908",
+   "caption": "a black dog is swimming in the ocean."
+  },
+  {
+   "item": "pilot-0066",
+   "image": "validation_0201",
+   "caption": "a snowboarder in midair."
+  },
+  {
+   "item": "pilot-0067",
+   "image": "validation_0976",
+   "caption": "a little girl wearing a white helmet on her head."
+  },
+  {
+   "item": "pilot-0068",
+   "image": "validation_0661",
+   "caption": "a police dog is standing in front of a crowd of people."
+  },
+  {
+   "item": "pilot-0069",
+   "image": "validation_0634",
+   "caption": "a woman is reading a book in a library."
+  },
+  {
+   "item": "pilot-0070",
+   "image": "validation_0359",
+   "caption": "a brown and white dog is playing with another brown and white dog."
+  },
+  {
+   "item": "pilot-0071",
+   "image": "validation_0568",
+   "caption": "a shirtless man is doing a trick on a trampoline."
+  },
+  {
+   "item": "pilot-0072",
+   "image": "validation_0775",
+   "caption": "a boy in a blue and white striped shirt is running on a path surrounded by ferns."
+  },
+  {
+   "item": "pilot-0073",
+   "image": "validation_0834",
+   "caption": "a boy in a blue suit is jumping a bicycle."
+  },
+  {
+   "item": "pilot-0074",
+   "image": "validation_0388",
+   "caption": "a baseball player in a white uniform is on the field at sunset."
+  },
+  {
+   "item": "pilot-0075",
+   "image": "validation_0653",
+   "caption": "a tan dog is running through the grass."
+  },
+  {
+   "item": "pilot-0076",
+   "image": "validation_0547",
+   "caption": "a man plays a trumpet while another plays a guitar."
+  },
+  {
+   "item": "pilot-0077",
+   "image": "validation_0812",
+   "caption": "a man in a black shirt is dancing on a stage."
+  },
+  {
+   "item": "pilot-0078",
+   "image": "validation_0271",
+   "caption": "a group of children playing in a water fountain."
+  },
+  {
+   "item": "pilot-0079",
+   "image": "validation_0534",
+   "caption": "two brown poodles play on the grass."
+  },
+  {
+   "item": "pilot-0080",
+   "image": "validation_0771",
+   "caption": "a girl in a red graduation gown is throwing a red cap in the air."
+  },
+  {
+   "item": "pilot-0081",
+   "image": "validation_0002",
+   "caption": "a woman in a white shirt and a white hat is walking a dog through an obstacle course."
+  },
+  {
+   "item": "pilot-0082",
+   "image": "validation_0937",
+   "caption": "three people dressed in green costumes stand in front of a car."
+  },
+  {
+   "item": "pilot-0083",
+   "image": "validation_0817",
+   "caption": "a group of children play in a field."
+  },
+  {
+   "item": "pilot-0084",
+   "image": "validation_0289",
+   "caption": "a young boy is sliding down a blue slide."
+  },
+  {
+   "item": "pilot-0085",
+   "image": "validation_0203",
+   "caption": "a man in a white jacket and blue hat smiles."
+  },
+  {
+   "item": "pilot-0086",
+   "image": "validation_0894",
+   "caption": "a man and a woman dressed as santa claus pose for a picture."
+  },
+  {
+   "item": "pilot-0087",
+   "image": "validation_0039",
+   "caption": "a group of children playing on a playground."
+  },
+  {
+   "item": "pilot-0088",
+   "image": "validation_0570",
+   "caption": "a woman sits on a bench in front of a store."
+  },
+  {
+   "item": "pilot-0089",
+   "image": "validation_0578",
+   "caption": "a man is throwing a blue frisbee in front of a monument."
+  },
+  {
+   "item": "pilot-0090",
+   "image": "validation_0316",
+   "caption": "a girl in an orange sweater is petting a white dog."
+  },
+  {
+   "item": "pilot-0091",
+   "image": "validation_0486",
+   "caption": "a group of women dressed in costumes pose for a picture."
+  },
+  {
+   "item": "pilot-0092",
+   "image": "validation_0172",
+   "caption": "a soccer player in a blue uniform is being tackled by another player in a blue uniform."
+  },
+  {
+   "item": "pilot-0093",
+   "image": "validation_0549",
+   "caption": "a brown dog is running through the grass."
+  },
+  {
+   "item": "pilot-0094",
+   "image": "validation_0046",
+   "caption": "a little boy is swinging on a tire swing."
+  },
+  {
+   "item": "pilot-0095",
+   "image": "validation_0351",
+   "caption": "a boy is jumping on a red couch."
+  },
+  {
+   "item": "pilot-0096",
+   "image": "validation_0083",
+   "caption": "a black dog is running through the water."
+  },
+  {
+   "item": "pilot-0097",
+   "image": "validation_0955",
+   "caption": "a bicyclist is riding a bicycle."
+  },
+  {
+   "item": "pilot-0098",
+   "image": "validation_0681",
+   "caption": "a man in a blue shirt is standing in the middle of a crowded street."
+  },
+  {
+   "item": "pilot-0099",
+   "image": "validation_0487",
+   "caption": "a woman in a black shirt is helping a young boy in a yellow shirt into a bag."
+  }
+ ],
+ "system_captions": {
+  "validation_0002": {
+   "draft": "a woman in a white shirt and a white hat is walking a dog through an obstacle course."
+  },
+  "validation_0039": {
+   "draft": "a group of children playing on a playground."
+  },
+  "validation_0046": {
+   "draft": "a little boy is swinging on a tire swing."
+  },
+  "validation_0048": {
+   "draft": "a yellow dog is running through the grass."
+  },
+  "validation_0054": {
+   "draft": "a little girl in a pink dress is standing in a doorway."
+  },
+  "validation_0074": {
+   "draft": "a man is sitting on the sand and is flying a kite."
+  },
+  "validation_0083": {
+   "draft": "a black dog is running through the water."
+  },
+  "validation_0085": {
+   "draft": "a brown dog is chasing a red frisbee."
+  },
+  "validation_0116": {
+   "draft": "a brown dog is running through the water."
+  },
+  "validation_0126": {
+   "draft": "a brown and white dog is running in the grass."
+  },
+  "validation_0130": {
+   "draft": "a man in a white t - shirt is skateboarding on a ramp."
+  },
+  "validation_0145": {
+   "draft": "a girl in a blue uniform is playing field hockey."
+  },
+  "validation_0171": {
+   "draft": "two children play tennis on a tennis court."
+  },
+  "validation_0172": {
+   "draft": "a soccer player in a blue uniform is being tackled by another player in a blue uniform."
+  },
+  "validation_0173": {
+   "draft": "a white dog is running on a dirt path."
+  },
+  "validation_0190": {
+   "draft": "a brown dog is laying on a bed covered with brown and white sheets."
+  },
+  "validation_0201": {
+   "draft": "a snowboarder in midair."
+  },
+  "validation_0203": {
+   "draft": "a man in a white jacket and blue hat smiles."
+  },
+  "validation_0214": {
+   "draft": "a person is standing in front of a waterfall."
+  },
+  "validation_0217": {
+   "draft": "a brown dog is jumping in the air to catch a white frisbee."
+  },
+  "validation_0225": {
+   "draft": "a little boy in a blue robe is sitting in a chair."
+  },
+  "validation_0228": {
+   "draft": "a brown dog is sleeping on a green cushion."
+  },
+  "validation_0232": {
+   "draft": "a child in pajamas is playing on a wooden rocking toy."
+  },
+  "validation_0248": {
+   "draft": "a boy in blue shorts is playing with a basketball."
+  },
+  "validation_0252": {
+   "draft": "a black dog with a green collar is running on the grass."
+  },
+  "validation_0258": {
+   "draft": "a skateboarder in midair."
+  },
+  "validation_0261": {
+   "draft": "a group of people stand in a wooded area."
+  },
+  "validation_0271": {
+   "draft": "a group of children playing in a water fountain."
+  },
+  "validation_0284": {
+   "draft": "a woman in a red dress is running past a stop sign."
+  },
+  "validation_0288": {
+   "draft": "four children are jumping in the air in front of a house."
+  },
+  "validation_0289": {
+   "draft": "a young boy is sliding down a blue slide."
+  },
+  "validation_0305": {
+   "draft": "a brown and white dog is jumping into the water."
+  },
+  "validation_0316": {
+   "draft": "a girl in an orange sweater is petting a white dog."
+  },
+  "validation_0321": {
+   "draft": "a boy is jumping through a large yellow tube."
+  },
+  "validation_0351": {
+   "draft": "a boy is jumping on a red couch."
+  },
+  "validation_0359": {
+   "draft": "a brown and white dog is playing with another brown and white dog."
+  },
+  "validation_0365": {
+   "draft": "a man is walking down the street in front of a store."
+  },
+  "validation_0366": {
+   "draft": "a snowboarder is in the air above a sand mound."
+  },
+  "validation_0370": {
+   "draft": "a grey bird is flying through the air."
+  },
+  "validation_0388": {
+   "draft": "a baseball player in a white uniform is on the field at sunset."
+  },
+  "validation_0391": {
+   "draft": "a group of people playing basketball."
+  },
+  "validation_0432": {
+   "draft": "a white dog and a yellow cat are playing on a bed."
+  },
+  "validation_0464": {
+   "draft": "a man in a white shirt and blue jeans is dancing on a stage."
+  },
+  "validation_0465": {
+   "draft": "a woman in a red jacket kneels on the snow."
+  },
+  "validation_0466": {
+   "draft": "a boy jumping on the floor."
+  },
+  "validation_0484": {
+   "draft": "two black dogs are running on the dirt."
+  },
+  "validation_0486": {
+   "draft": "a group of women dressed in costumes pose for a picture."
+  },
+  "validation_0487": {
+   "draft": "a woman in a black shirt is helping a young boy in a yellow shirt into a bag."
+  },
+  "validation_0501": {
+   "draft": "a bicyclist is riding on a city street at night."
+  },
+  "validation_0513": {
+   "draft": "a man in a red jacket is riding a dirt bike through a stream."
+  },
+  "validation_0519": {
+   "draft": "three men stand in front of a vehicle."
+  },
+  "validation_0534": {
+   "draft": "two brown poodles play on the grass."
+  },
+  "validation_0542": {
+   "draft": "a boy is doing a handstand on the grass."
+  },
+  "validation_0547": {
+   "draft": "a man plays a trumpet while another plays a guitar."
+  },
+  "validation_0549": {
+   "draft": "a brown dog is running through the grass."
+  },
+  "validation_0568": {
+   "draft": "a shirtless man is doing a trick on a trampoline."
+  },
+  "validation_0570": {
+   "draft": "a woman sits on a bench in front of a store."
+  },
+  "validation_0578": {
+   "draft": "a man is throwing a blue frisbee in front of a monument."
+  },
+  "validation_0593": {
+   "draft": "a group of people are rafting down a river."
+  },
+  "validation_0600": {
+   "draft": "a man is walking across a rope bridge."
+  },
+  "validation_0621": {
+   "draft": "a snowboarder is riding down a snowy hill."
+  },
+  "validation_0634": {
+   "draft": "a woman is reading a book in a library."
+  },
+  "validation_0653": {
+   "draft": "a tan dog is running through the grass."
+  },
+  "validation_0654": {
+   "draft": "a group of people are sitting at a table in front of a mountain."
+  },
+  "validation_0660": {
+   "draft": "a brown dog is running down a stone staircase."
+  },
+  "validation_0661": {
+   "draft": "a police dog is standing in front of a crowd of people."
+  },
+  "validation_0666": {
+   "draft": "a white dog is playing with a young boy in a field."
+  },
+  "validation_0670": {
+   "draft": "a woman in a black apron is sitting at a bar."
+  },
+  "validation_0681": {
+   "draft": "a man in a blue shirt is standing in the middle of a crowded street."
+  },
+  "validation_0693": {
+   "draft": "a black dog is wading through a stream."
+  },
+  "validation_0699": {
+   "draft": "a white and brown dog is running with a ball in its mouth."
+  },
+  "validation_0725": {
+   "draft": "a little girl is laying on a blue and black inflatable bed."
+  },
+  "validation_0740": {
+   "draft": "a man with a blue hat and glasses is giving the peace sign."
+  },
+  "validation_0746": {
+   "draft": "two dogs running in the woods."
+  },
+  "validation_0753": {
+   "draft": "two people sit outside a tent."
+  },
+  "validation_0757": {
+   "draft": "a white chicken and a black and white chicken are in a fenced in area."
+  },
+  "validation_0758": {
+   "draft": "a group of people are standing on rocks in the middle of a river."
+  },
+  "validation_0771": {
+   "draft": "a girl in a red graduation gown is throwing a red cap in the air."
+  },
+  "validation_0775": {
+   "draft": "a boy in a blue and white striped shirt is running on a path surrounded by ferns."
+  },
+  "validation_0779": {
+   "draft": "two people on a motorcycle racing on a track."
+  },
+  "validation_0787": {
+   "draft": "a woman in a black hat and sunglasses is laying on the sand."
+  },
+  "validation_0812": {
+   "draft": "a man in a black shirt is dancing on a stage."
+  },
+  "validation_0817": {
+   "draft": "a group of children play in a field."
+  },
+  "validation_0834": {
+   "draft": "a boy in a blue suit is jumping a bicycle."
+  },
+  "validation_0837": {
+   "draft": "a man is jumping high in the air."
+  },
+  "validation_0845": {
+   "draft": "a little girl in a red dress is surrounded by confecents."
+  },
+  "validation_0867": {
+   "draft": "a brown dog is digging a hole in the grass."
+  },
+  "validation_0868": {
+   "draft": "two children play in a water sprinkler."
+  },
+  "validation_0887": {
+   "draft": "a brown dog is running through the water."
+  },
+  "validation_0891": {
+   "draft": "a hockey player in a red uniform is being pursued by another player in a white uniform."
+  },
+  "validation_0894": {
+   "draft": "a man and a woman dressed as santa claus pose for a picture."
+  },
+  "validation_0905": {
+   "draft": "a little girl in a green skirt is walking down a path."
+  },
+  "validation_0906": {
+   "draft": "a brown dog is playing with a tennis ball."
+  },
+  "validation_0908": {
+   "draft": "a black dog is swimming in the ocean."
+  },
+  "validation_0912": {
+   "draft": "three girls in blue swimsuits are dancing in front of a crowd."
+  },
+  "validation_0937": {
+   "draft": "three people dressed in green costumes stand in front of a car."
+  },
+  "validation_0955": {
+   "draft": "a bicyclist is riding a bicycle."
+  },
+  "validation_0959": {
+   "draft": "a black dog is running through the grass."
+  },
+  "validation_0976": {
+   "draft": "a little girl wearing a white helmet on her head."
+  },
+  "validation_0985": {
+   "draft": "a woman in a white shirt and blue shorts is suspended on a rope."
+  }
+ }
+}

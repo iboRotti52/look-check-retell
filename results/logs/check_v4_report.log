@@ -1,0 +1,10 @@
+A_B_look4 4594 non-person claims; region index mismatches vs records: 0
+A_validation_look4 1503 non-person claims; region index mismatches vs records: 0
+  return _nanquantile_unchecked(
+original_live    cprec 0.440 recw 0.219 sprec 0.861 J 0.481 con 0.116
+original_tuned   cprec nan recw 0.000 sprec 0.919 J 0.410 con 0.000
+v4               cprec 0.523 recw 0.287 sprec 0.859 J 0.553 con 0.128
+ref_check_v2     cprec 0.506 recw 0.682 sprec 0.945 J 0.959 con 0.315
+ref_check_v3     cprec 0.484 recw 0.841 sprec 0.944 J 1.131 con 0.407
+v4_minus_original_live {'contradicted_precision': (0.083, [0.007, 0.157]), 'recall_wrong': (0.068, [0.015, 0.12]), 'J': (0.072, [-0.021, 0.159])}
+v4_minus_original_tuned {'contradicted_precision': (nan, [nan, nan]), 'recall_wrong': (0.287, [0.243, 0.332]), 'J': (0.143, [0.059, 0.229])}

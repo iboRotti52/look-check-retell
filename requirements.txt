@@ -1,0 +1,15 @@
+torch
+torchvision
+transformers==5.23.0
+huggingface-hub
+numpy
+pandas
+pyarrow
+pillow
+scipy
+matplotlib
+nltk
+tqdm
+pycocoevalcap
+pycocotools
+pytest

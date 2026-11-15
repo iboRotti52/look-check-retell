@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\caption{Quality of the Check verdict on validation thing/stuff claims (\NumCheckClaims{} claims), measured against the
+reference proxy (claim class mentioned in a reference). Calibrated thresholds were chosen on training half B
+and are applied here unchanged. $J$: informedness of the two verdicts,
+$[P(\mathrm{sup}\mid\mathrm{ref})-P(\mathrm{sup}\mid\neg\mathrm{ref})]+[P(\mathrm{con}\mid\neg\mathrm{ref})-P(\mathrm{con}\mid\mathrm{ref})]$,
+where 0 is chance. Prec.: share of \emph{contradicted} claims that no reference mentions (base rate \UnsupBaseRate\%).}
+\label{tab:check}
+\centering\footnotesize
+\begin{tabular}{@{}llcccccc@{}}
+\toprule
+Region & Thresholds & $\tau_s/\tau_c$ & Supp.\ (\%) & Contra.\ (\%) & Uncert.\ (\%) & $J$ & Prec.\ (\%) \\
+\midrule
+Attention (raw) & provisional & 0.20/0.050 & 12.1 & 26.5 & 61.3 & 0.01 & 23.3 \\
+\addlinespace
+Attention (sink-corr.) & provisional & 0.20/0.050 & 46.4 & 9.7 & 43.8 & 0.28 & 38.4 \\
+Attention (sink-corr.) & calibrated on B & 0.22/0.205 & 45.0 & 14.9 & 40.1 & 0.31 & 35.3 \\
+\addlinespace
+Detector-selected & provisional & 0.20/0.050 & 76.6 & 3.9 & 19.6 & 0.31 & 43.1 \\
+Detector-selected & calibrated on B & 0.34/0.205 & 59.5 & 6.1 & 34.4 & 0.49 & 50.0 \\
+\bottomrule
+\end{tabular}
+\end{table*}

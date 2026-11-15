@@ -1,0 +1,13 @@
+{
+ "pipe": "A_validation_sink",
+ "n": 1795,
+ "pointing": 88.3008356545961,
+ "transposed": 51.92200557103064,
+ "vflip": 54.42896935933148,
+ "swap_n": 1443,
+ "swap_own": 87.52598752598753,
+ "swap_other": 45.39154539154539,
+ "swap_energy_own": 72.02747831977632,
+ "swap_energy_other": 44.249421566535815,
+ "swap_chance": 35.84717060535688
+}

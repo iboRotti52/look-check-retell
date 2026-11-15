@@ -1,0 +1,13 @@
+PTBTokenizer tokenized 8390 tokens at 69038.40 tokens per second.
+PTBTokenizer tokenized 64447 tokens at 414930.73 tokens per second.
+Traceback (most recent call last):
+  File "/content/lcr/scripts/colab_full_metrics.py", line 53, in <module>
+    results[name] = score(gens)
+                    ~~~~~^^^^^^
+  File "/content/lcr/scripts/colab_full_metrics.py", line 29, in score
+    out["METEOR"] = 100 * Meteor().compute_score(gts, res)[0]
+                          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/pycocoevalcap/meteor/meteor.py", line 43, in compute_score
+    scores.append(float(self.meteor_p.stdout.readline().strip()))
+                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: b'6.0 13.0 3.0 5.0 1.0 1.0 3.0 3.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 3.0 4.0 4.0'

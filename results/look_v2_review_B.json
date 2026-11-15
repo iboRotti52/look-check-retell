@@ -1,0 +1,248 @@
+{
+ "stem": "A_B_look2",
+ "split": "B",
+ "purpose": "descriptive audit; no configuration selected",
+ "metric": "class-level best IoU against any matching F30kE box, threshold .5",
+ "all": {
+  "n": 5383,
+  "own": {
+   "accuracy_pct": 74.64239271781534,
+   "miou": 0.7033713553326821
+  },
+  "recomputed": {
+   "accuracy_pct": 74.64239271781534,
+   "miou": 0.7033713553326821
+  },
+  "detector": {
+   "accuracy_pct": 82.90915846182426,
+   "miou": 0.7588582699648911
+  },
+  "objectness_only": {
+   "accuracy_pct": 35.94649823518484,
+   "miou": 0.38825527985731534
+  },
+  "uniform_v2": {
+   "accuracy_pct": 39.60616756455508,
+   "miou": 0.4564594120157659
+  },
+  "attention_no_objectness": {
+   "accuracy_pct": 50.770945569385106,
+   "miou": 0.5467375399026752
+  },
+  "oracle": {
+   "accuracy_pct": 94.89132454021922,
+   "miou": 0.8489661413931241
+  }
+ },
+ "by_kind": {
+  "person": {
+   "n": 2244,
+   "own": {
+    "accuracy_pct": 68.27094474153299,
+    "miou": 0.6596484405529472
+   },
+   "recomputed": {
+    "accuracy_pct": 68.27094474153299,
+    "miou": 0.6596484405529472
+   },
+   "detector": {
+    "accuracy_pct": 87.92335115864527,
+    "miou": 0.7973819796525942
+   },
+   "objectness_only": {
+    "accuracy_pct": 26.8716577540107,
+    "miou": 0.3287042263898801
+   },
+   "uniform_v2": {
+    "accuracy_pct": 36.63101604278075,
+    "miou": 0.43965138792800207
+   },
+   "attention_no_objectness": {
+    "accuracy_pct": 41.31016042780749,
+    "miou": 0.4697951427259343
+   },
+   "oracle": {
+    "accuracy_pct": 96.6131907308378,
+    "miou": 0.8736700628759213
+   }
+  },
+  "thing": {
+   "n": 2334,
+   "own": {
+    "accuracy_pct": 80.29134532990574,
+    "miou": 0.7373584536306844
+   },
+   "recomputed": {
+    "accuracy_pct": 80.29134532990574,
+    "miou": 0.7373584536306844
+   },
+   "detector": {
+    "accuracy_pct": 81.23393316195373,
+    "miou": 0.7374046174773923
+   },
+   "objectness_only": {
+    "accuracy_pct": 53.12767780634105,
+    "miou": 0.5096524665314531
+   },
+   "uniform_v2": {
+    "accuracy_pct": 38.303341902313626,
+    "miou": 0.43191746510127416
+   },
+   "attention_no_objectness": {
+    "accuracy_pct": 53.04198800342759,
+    "miou": 0.5662712980867399
+   },
+   "oracle": {
+    "accuracy_pct": 93.61610968294774,
+    "miou": 0.8294882658622033
+   }
+  },
+  "stuff": {
+   "n": 805,
+   "own": {
+    "accuracy_pct": 76.0248447204969,
+    "miou": 0.72671089985217
+   },
+   "recomputed": {
+    "accuracy_pct": 76.0248447204969,
+    "miou": 0.72671089985217
+   },
+   "detector": {
+    "accuracy_pct": 73.7888198757764,
+    "miou": 0.7136727052029246
+   },
+   "objectness_only": {
+    "accuracy_pct": 11.428571428571429,
+    "miou": 0.20228202555108793
+   },
+   "uniform_v2": {
+    "accuracy_pct": 51.67701863354037,
+    "miou": 0.5744694867379593
+   },
+   "attention_no_objectness": {
+    "accuracy_pct": 70.55900621118012,
+    "miou": 0.7045846798567112
+   },
+   "oracle": {
+    "accuracy_pct": 93.7888198757764,
+    "miou": 0.8365757832338351
+   }
+  }
+ },
+ "person_by_gt_box_count": {
+  "1": {
+   "n": 1145,
+   "own": {
+    "accuracy_pct": 72.13973799126637,
+    "miou": 0.6851004351935996
+   },
+   "recomputed": {
+    "accuracy_pct": 72.13973799126637,
+    "miou": 0.6851004351935996
+   },
+   "detector": {
+    "accuracy_pct": 86.55021834061135,
+    "miou": 0.7882294444552334
+   },
+   "objectness_only": {
+    "accuracy_pct": 26.46288209606987,
+    "miou": 0.3246515806743013
+   },
+   "uniform_v2": {
+    "accuracy_pct": 39.38864628820961,
+    "miou": 0.4531679808039637
+   },
+   "attention_no_objectness": {
+    "accuracy_pct": 44.27947598253275,
+    "miou": 0.4713700991504171
+   },
+   "oracle": {
+    "accuracy_pct": 96.33187772925764,
+    "miou": 0.8527779660988843
+   }
+  },
+  "2": {
+   "n": 489,
+   "own": {
+    "accuracy_pct": 72.80163599182005,
+    "miou": 0.6845989515985874
+   },
+   "recomputed": {
+    "accuracy_pct": 72.80163599182005,
+    "miou": 0.6845989515985874
+   },
+   "detector": {
+    "accuracy_pct": 88.34355828220859,
+    "miou": 0.8027880396455876
+   },
+   "objectness_only": {
+    "accuracy_pct": 24.948875255623722,
+    "miou": 0.3105538304500446
+   },
+   "uniform_v2": {
+    "accuracy_pct": 39.46830265848671,
+    "miou": 0.46615429547023035
+   },
+   "attention_no_objectness": {
+    "accuracy_pct": 45.39877300613497,
+    "miou": 0.5127728449329276
+   },
+   "oracle": {
+    "accuracy_pct": 96.93251533742331,
+    "miou": 0.8891597817364341
+   }
+  },
+  "3+": {
+   "n": 610,
+   "own": {
+    "accuracy_pct": 57.377049180327866,
+    "miou": 0.5918724835613651
+   },
+   "recomputed": {
+    "accuracy_pct": 57.377049180327866,
+    "miou": 0.5918724835613651
+   },
+   "detector": {
+    "accuracy_pct": 90.1639344262295,
+    "miou": 0.8102280279548961
+   },
+   "objectness_only": {
+    "accuracy_pct": 29.18032786885246,
+    "miou": 0.3508613132077773
+   },
+   "uniform_v2": {
+    "accuracy_pct": 29.18032786885246,
+    "miou": 0.39303430492615665
+   },
+   "attention_no_objectness": {
+    "accuracy_pct": 32.459016393442624,
+    "miou": 0.4323862550451924
+   },
+   "oracle": {
+    "accuracy_pct": 96.88524590163935,
+    "miou": 0.9004683879364404
+   }
+  }
+ },
+ "matched_map_swap": {
+  "n": 4991,
+  "own_accuracy_pct": 74.65437788018433,
+  "swapped_accuracy_pct": 22.119815668202765
+ },
+ "person_failures": {
+  "n": 712,
+  "with_correct_point": 569,
+  "geometry_counts": {
+   "no_overlap": 39,
+   "small_part": 206,
+   "large_container": 201,
+   "other_overlap": 266
+  },
+  "area_ratio_median": 1.0500268936157227
+ },
+ "cache_metadata": {
+  "recomputed_region_differs": 0,
+  "stale_iou_att_det_gt_1e_5": 0,
+  "regions_by_k4_differs_from_rec_att": 0
+ }
+}

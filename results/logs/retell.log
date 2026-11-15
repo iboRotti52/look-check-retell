@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 17581.74it/s]
+init identical to drafts: True
+ep 0 step 100/1407 loss 1.886 0.3 min
+ep 0 step 200/1407 loss 1.867 0.6 min
+ep 0 step 300/1407 loss 1.880 0.9 min
+ep 0 step 400/1407 loss 1.842 1.2 min
+epoch 1 {'epoch': 1, 'train_loss': 1.8690173643738477, 'BLEU-4': 33.958950759390824, 'CIDEr': 0.9825366901841314, 'RUOR': 15.741145605596852, 'claims': 2287, 'claims_per_image': 2.287}
+ep 1 step 500/1407 loss 1.822 2.0 min
+ep 1 step 600/1407 loss 1.817 2.3 min
+ep 1 step 700/1407 loss 1.850 2.6 min
+ep 1 step 800/1407 loss 1.824 2.9 min
+ep 1 step 900/1407 loss 1.831 3.2 min
+epoch 2 {'epoch': 2, 'train_loss': 1.826019342774267, 'BLEU-4': 33.604259873387946, 'CIDEr': 0.9814916262319408, 'RUOR': 16.093953892996954, 'claims': 2299, 'claims_per_image': 2.299}
+ep 2 step 1000/1407 loss 1.764 4.0 min
+ep 2 step 1100/1407 loss 1.774 4.3 min
+ep 2 step 1200/1407 loss 1.798 4.6 min
+ep 2 step 1300/1407 loss 1.788 4.9 min
+ep 2 step 1400/1407 loss 1.786 5.2 min
+epoch 3 {'epoch': 3, 'train_loss': 1.7839202903735358, 'BLEU-4': 32.87023534052258, 'CIDEr': 0.9607979875836512, 'RUOR': 16.340721425467187, 'claims': 2301, 'claims_per_image': 2.301}
+real {'BLEU-4': 33.958950759390824, 'CIDEr': 0.9825366901841314, 'RUOR': 15.741145605596852, 'claims': 2287, 'claims_per_image': 2.287, 'changed_captions': 63.6, 'n_contradicted': 0, 'contradicted_claim_retained': nan, 'alternative_adopted': nan, 'supported_claim_retained': nan, 'ref_supported_retained': 92.89074751698902, 'ref_unsupported_retained': 67.68802228412257}
+masked {'BLEU-4': 33.958950759390824, 'CIDEr': 0.9825366901841314, 'RUOR': 15.741145605596852, 'claims': 2287, 'claims_per_image': 2.287, 'changed_captions': 63.6, 'n_contradicted': 0, 'contradicted_claim_retained': nan, 'alternative_adopted': nan, 'supported_claim_retained': nan, 'ref_supported_retained': 92.89074751698902, 'ref_unsupported_retained': 67.68802228412257}

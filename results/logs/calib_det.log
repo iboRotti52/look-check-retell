@@ -1,0 +1,3 @@
+4594 thing/stuff claims on half B, 23.9% reference-unsupported
+provisional: {'t_support': 0.2, 't_contra': 0.05, 'informedness': 0.25921788000208146, 'contradicted_precision': 0.49230769230769234, 'dist': {'supported': 0.7514148889856335, 'contradicted': 0.042446669569003045, 'uncertain': 0.20613844144536353}}
+chosen     : {'t_support': 0.34, 't_contra': 0.205, 'informedness': 0.41384191080813865, 'contradicted_precision': 0.39880952380952384, 'dist': {'supported': 0.5787984327383544, 'contradicted': 0.07313887679582064, 'uncertain': 0.348062690465825}}

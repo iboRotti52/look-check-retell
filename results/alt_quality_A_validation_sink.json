@@ -1,0 +1,8 @@
+{
+ "pipe": "A_validation_sink",
+ "unsupported_claims": 352,
+ "top1_in_refs": 36.64772727272727,
+ "top3_in_refs": 58.23863636363637,
+ "top1_already_in_draft": 6.534090909090909,
+ "label": "reference proxy (automatic)"
+}

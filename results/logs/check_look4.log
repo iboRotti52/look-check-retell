@@ -1,0 +1,29 @@
+W1114 12:23:19.389000 89565 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+
+=== rec_att: lam_c=1.0 lam_w=10.0 (B out-of-fold log-loss 0.2867)
+  prior                      B AUROC 0.757 | val AUROC 0.763 AP(wrong) 0.426 ECE 0.031 | op0.5: con 0.124 cPrec 0.489 rec.w 0.259 sup 0.337 sPrec 0.959
+  det (no class prior)       B AUROC 0.728 | val AUROC 0.764 AP(wrong) 0.447 ECE 0.113 | op0.5: con 0.067 cPrec 0.554 rec.w 0.159 sup 0.284 sPrec 0.965
+  cap (no class prior)       B AUROC 0.712 | val AUROC 0.704 AP(wrong) 0.386 ECE 0.052 | op0.5: con 0.083 cPrec 0.456 rec.w 0.162 sup 0.265 sPrec 0.960
+  prior+region               B AUROC 0.785 | val AUROC 0.800 AP(wrong) 0.502 ECE 0.024 | op0.5: con 0.220 cPrec 0.497 rec.w 0.466 sup 0.397 sPrec 0.961
+  prior+image                B AUROC 0.799 | val AUROC 0.799 AP(wrong) 0.473 ECE 0.030 | op0.5: con 0.251 cPrec 0.491 rec.w 0.526 sup 0.426 sPrec 0.956
+  prior+det                  B AUROC 0.802 | val AUROC 0.809 AP(wrong) 0.494 ECE 0.032 | op0.5: con 0.263 cPrec 0.504 rec.w 0.565 sup 0.417 sPrec 0.954
+  prior+cap                  B AUROC 0.798 | val AUROC 0.799 AP(wrong) 0.520 ECE 0.013 | op0.5: con 0.266 cPrec 0.492 rec.w 0.560 sup 0.387 sPrec 0.952
+  prior+det+look             B AUROC 0.802 | val AUROC 0.807 AP(wrong) 0.490 ECE 0.031 | op0.5: con 0.279 cPrec 0.506 rec.w 0.602 sup 0.397 sPrec 0.961
+  prior+det+cap              B AUROC 0.825 | val AUROC 0.826 AP(wrong) 0.557 ECE 0.013 | op0.5: con 0.315 cPrec 0.506 rec.w 0.682 sup 0.482 sPrec 0.945
+  det+cap (no class prior)   B AUROC 0.758 | val AUROC 0.762 AP(wrong) 0.472 ECE 0.041 | op0.5: con 0.174 cPrec 0.471 rec.w 0.349 sup 0.304 sPrec 0.963
+  all                        B AUROC 0.826 | val AUROC 0.826 AP(wrong) 0.546 ECE 0.033 | op0.5: con 0.311 cPrec 0.513 rec.w 0.682 sup 0.472 sPrec 0.946
+
+=== rec_det: lam_c=1.0 lam_w=10.0 (B out-of-fold log-loss 0.2867)
+  prior                      B AUROC 0.757 | val AUROC 0.763 AP(wrong) 0.426 ECE 0.031 | op0.5: con 0.124 cPrec 0.489 rec.w 0.259 sup 0.337 sPrec 0.959
+  det (no class prior)       B AUROC 0.691 | val AUROC 0.727 AP(wrong) 0.407 ECE 0.084 | op0.5: con 0.000 cPrec nan rec.w 0.000 sup 0.281 sPrec 0.964
+  cap (no class prior)       B AUROC 0.712 | val AUROC 0.704 AP(wrong) 0.386 ECE 0.052 | op0.5: con 0.083 cPrec 0.456 rec.w 0.162 sup 0.265 sPrec 0.960
+  prior+region               B AUROC 0.788 | val AUROC 0.797 AP(wrong) 0.488 ECE 0.033 | op0.5: con 0.218 cPrec 0.482 rec.w 0.449 sup 0.406 sPrec 0.954
+  prior+image                B AUROC 0.799 | val AUROC 0.799 AP(wrong) 0.473 ECE 0.029 | op0.5: con 0.251 cPrec 0.491 rec.w 0.526 sup 0.427 sPrec 0.955
+  prior+det                  B AUROC 0.800 | val AUROC 0.804 AP(wrong) 0.489 ECE 0.029 | op0.5: con 0.252 cPrec 0.509 rec.w 0.548 sup 0.417 sPrec 0.954
+  prior+cap                  B AUROC 0.798 | val AUROC 0.799 AP(wrong) 0.520 ECE 0.013 | op0.5: con 0.266 cPrec 0.492 rec.w 0.560 sup 0.387 sPrec 0.952
+  prior+det+cap              B AUROC 0.823 | val AUROC 0.824 AP(wrong) 0.555 ECE 0.025 | op0.5: con 0.318 cPrec 0.508 rec.w 0.690 sup 0.475 sPrec 0.944
+  det+cap (no class prior)   B AUROC 0.759 | val AUROC 0.765 AP(wrong) 0.474 ECE 0.043 | op0.5: con 0.181 cPrec 0.467 rec.w 0.361 sup 0.306 sPrec 0.961
+wrote <proje>/data/cache/pipeline/A_B_look4_check2.json
+wrote <proje>/data/cache/pipeline/A_validation_look4_check2.json
+wrote <proje>/data/cache/pipeline/A_B_look4_check2vis.json
+wrote <proje>/data/cache/pipeline/A_validation_look4_check2vis.json

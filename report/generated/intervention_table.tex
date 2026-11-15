@@ -1,0 +1,25 @@
+\begin{table}[t]
+\caption{Evidence interventions on validation: the same trained model with real records, all records masked
+(null token only), or false records (alternative label of each contradicted record replaced by a class the
+detector does not see in the image). \emph{Sens.}: captions that differ from the real-evidence output.
+[R1]/[R2]: development round.}
+\label{tab:interv}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{2.3cm}lcccc@{}}
+\toprule
+System & Evidence & CIDEr & RUOR & Alt.\ adopt. & Sens.\ (\%) \\
+\midrule
+LCR, raw attention [R1] & real & 0.987 & 15.8 & 15.1 & -- \\
+ & masked & 0.993 & 15.8 & 15.2 & -- \\
+ & false & 0.987 & 15.8 & 0.0 & -- \\
+\addlinespace
+LCR, sink-corr. attention [R1] & real & 0.991 & 15.7 & 41.0 & -- \\
+ & masked & 0.984 & 15.9 & 41.0 & 10.9 \\
+ & false & 0.991 & 15.7 & 0.0 & 0.0 \\
+\addlinespace
+B3 (detector regions) [R1] & real & 0.981 & 15.8 & 26.5 & -- \\
+ & masked & 0.990 & 15.7 & 27.6 & -- \\
+ & false & 0.981 & 15.8 & 0.0 & -- \\
+\bottomrule
+\end{tabular}
+\end{table}

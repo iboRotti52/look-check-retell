@@ -1,0 +1,27 @@
+\begin{table*}[t]
+\caption{Retell development runs on the validation split (decoder fine-tuned on A, pathway trained on B, 3 epochs,
+$\rho=0.15$ unless stated). Each round has its own matched no-evidence control B0+. BLEU-4 and CIDEr use our
+simplified tokeniser (compare only with scores using the same tokenisation). \emph{Changed}: captions that
+differ from the draft. \emph{Alt.\ adopt.} / \emph{Con.\ kept}: of the draft claims whose record is
+\emph{contradicted}, the share whose alternative label appears in the output / whose claimed label is still in
+the output (the set of contradicted records depends on the thresholds, so these two columns are comparable only
+within a round). \emph{Sens.}: captions that change when all evidence is masked. All columns are automatic;
+none is a human-verified error rate.}
+\label{tab:retell}
+\centering\footnotesize
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+System & BLEU-4 & CIDEr & RUOR & Changed (\%) & Alt.\ adopt.\ (\%) & Con.\ kept (\%) & Sens.\ (\%) \\
+\midrule
+B0 (draft) & 32.6 & 0.979 & 15.8 & -- & -- & -- & -- \\
+B1 (word repl., provisional thr.) & 27.9 & 0.815 & 25.9 & 40.3 & -- & -- & -- \\
+\midrule
+\multicolumn{8}{@{}l}{\emph{Round 1: provisional thresholds, no patch dropout}} \\
+B0+ (no evidence) & 34.0 & 0.983 & 15.7 & 63.6 & -- & -- & -- \\
+LCR, raw attention & 34.2 & 0.987 & 15.8 & 65.0 & 15.1 & 90.3 & -- \\
+LCR, sink-corr. attention & 34.3 & 0.991 & 15.7 & 64.1 & 41.0 & 87.1 & 10.9 \\
+B3 (detector regions) & 34.1 & 0.981 & 15.8 & 64.6 & 26.5 & 88.8 & -- \\
+B2 (image tags) & 34.3 & 0.983 & 15.7 & 64.7 & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table*}

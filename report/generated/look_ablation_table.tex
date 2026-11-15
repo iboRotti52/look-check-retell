@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\caption{Look closure ablation. Region accuracy (\%) against human boxes. Decisions were made on B.
+Intervals compare each stage with v2, using 2,000 paired image-level bootstrap samples on validation.
+E1 changes a kind only after a gain of at least one point on B. E2 added no source.}
+\label{tab:look-close}
+\centering\footnotesize
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Stage & B & Validation & Difference from v2 [95\% CI], points \\
+\midrule
+Raw + R1 & 13.49 & 12.92 & -62.34 [-64.85, -60.01] \\
+Sink + R1 & 55.69 & 55.71 & -19.55 [-21.95, -17.31] \\
+Region rule v2 & 74.64 & 75.26 & +0.00 [+0.00, +0.00] \\
+E1: accepted components & 75.59 & 76.10 & +0.84 [+0.16, +1.55] \\
+After E2 (no addition) & 75.59 & 76.10 & +0.84 [+0.16, +1.55] \\
+\bottomrule\end{tabular}
+\end{table*}

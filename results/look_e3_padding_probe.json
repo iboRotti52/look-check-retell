@@ -1,0 +1,74 @@
+[
+ {
+  "id": "train_0004",
+  "tokens": 18,
+  "best_mean_end": 18,
+  "error": 1.7862766981124878e-05
+ },
+ {
+  "id": "train_0006",
+  "tokens": 14,
+  "best_mean_end": 18,
+  "error": 0.003039363461236159
+ },
+ {
+  "id": "train_0009",
+  "tokens": 14,
+  "best_mean_end": 19,
+  "error": 0.004106226144358516
+ },
+ {
+  "id": "train_0010",
+  "tokens": 14,
+  "best_mean_end": 19,
+  "error": 0.0037636097986251116
+ },
+ {
+  "id": "train_0013",
+  "tokens": 12,
+  "best_mean_end": 21,
+  "error": 0.0010656733065843582
+ },
+ {
+  "id": "train_0015",
+  "tokens": 15,
+  "best_mean_end": 20,
+  "error": 0.004786550183780491
+ },
+ {
+  "id": "train_0017",
+  "tokens": 14,
+  "best_mean_end": 17,
+  "error": 0.0026972971973009408
+ },
+ {
+  "id": "train_0018",
+  "tokens": 14,
+  "best_mean_end": 16,
+  "error": 0.0015866381581872702
+ },
+ {
+  "id": "train_0020",
+  "tokens": 17,
+  "best_mean_end": 18,
+  "error": 0.0014368537813425064
+ },
+ {
+  "id": "train_0021",
+  "tokens": 17,
+  "best_mean_end": 17,
+  "error": 0.00045715309291457135
+ },
+ {
+  "id": "train_0022",
+  "tokens": 15,
+  "best_mean_end": 15,
+  "error": 0.003068894147872925
+ },
+ {
+  "id": "train_0025",
+  "tokens": 11,
+  "best_mean_end": 20,
+  "error": 0.004886007634922862
+ }
+]

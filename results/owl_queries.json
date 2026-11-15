@@ -1,0 +1,56 @@
+{
+ "sets": {
+  "single": [
+   "a photo of a dog",
+   "a photo of a grass"
+  ],
+  "grammatical": [
+   "a photo of a dog",
+   "a photo of grass"
+  ],
+  "ensemble": [
+   "a photo of a dog",
+   "a photo of the dog",
+   "a dog",
+   "dog",
+   "a close-up photo of a dog",
+   "a cropped photo of the dog",
+   "there is a dog in the scene",
+   "a photo of grass",
+   "a photo of the grass",
+   "grass",
+   "grass",
+   "a close-up photo of grass",
+   "a cropped photo of the grass",
+   "there is grass in the scene"
+  ]
+ },
+ "results": {
+  "single": {
+   "B_auroc_region_raw": 0.7062834989852734,
+   "B_auroc_region_cal": 0.781822344798876,
+   "B_auroc_image_raw": 0.7319454129156476,
+   "val_auroc_region_raw": 0.7402579772529816,
+   "val_auroc_region_cal": 0.7843673485506674,
+   "val_auroc_image_raw": 0.742795296580049
+  },
+  "grammatical": {
+   "B_auroc_region_raw": 0.7064026643076443,
+   "B_auroc_region_cal": 0.7820666597283655,
+   "B_auroc_image_raw": 0.7325706405786543,
+   "val_auroc_region_raw": 0.7412107061053629,
+   "val_auroc_region_cal": 0.784552464260327,
+   "val_auroc_image_raw": 0.7432691927967775
+  },
+  "ensemble": {
+   "B_auroc_region_raw": 0.7082702815215695,
+   "B_auroc_region_cal": 0.7820611958162044,
+   "B_auroc_image_raw": 0.7347549045116303,
+   "val_auroc_region_raw": 0.7428298515125188,
+   "val_auroc_region_cal": 0.7849325685174947,
+   "val_auroc_image_raw": 0.746445778374536
+  }
+ },
+ "chosen": "grammatical",
+ "label": "reference proxy; thing/stuff claims at the Look v2 region"
+}

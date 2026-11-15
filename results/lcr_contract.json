@@ -1,0 +1,53 @@
+{
+ "bundle_id": "4c0481274067b130",
+ "images": 3000,
+ "claims": 6856,
+ "evidence_tokens": 16044,
+ "synthetic_rescores": 115,
+ "fit_cal_disjoint": true,
+ "all_region_scores_independently_checked": true,
+ "all_stored_verdicts_preserved": true,
+ "image_maximum_excluded": true,
+ "frisbee_proxy_cases": [
+  {
+   "id": "train_2921",
+   "before": "contradicted",
+   "after": "supported"
+  },
+  {
+   "id": "train_3467",
+   "before": "contradicted",
+   "after": "supported"
+  },
+  {
+   "id": "train_3693",
+   "before": "contradicted",
+   "after": "supported"
+  },
+  {
+   "id": "train_3719",
+   "before": "contradicted",
+   "after": "supported"
+  },
+  {
+   "id": "train_3875",
+   "before": "uncertain",
+   "after": "supported"
+  },
+  {
+   "id": "train_4066",
+   "before": "contradicted",
+   "after": "supported"
+  },
+  {
+   "id": "train_5206",
+   "before": "contradicted",
+   "after": "supported"
+  },
+  {
+   "id": "train_5240",
+   "before": "uncertain",
+   "after": "supported"
+  }
+ ]
+}

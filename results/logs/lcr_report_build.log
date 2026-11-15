@@ -1,0 +1,336 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-29>
+(./IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(~/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+)
+** ATTENTION: Overriding command lockouts (line 2).
+(./cite.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty)) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))) (~/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty (~/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (~/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (~/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (~/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (~/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (~/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (~/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (~/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (~/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (~/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (~/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (~/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (~/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (~/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))) (./generated/data_macros.tex) (./generated/result_macros.tex) (./generated/look_macros.tex) (./generated/look_closed_macros.tex) (./generated/lcr_numbers.tex) (~/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def) (./main.aux)
+-- Lines per column: 56 (exact).
+(~/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (~/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)) (./main.out) (./main.out) (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (./sections/1_intro.tex) (./sections/2_related.tex [1{~/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{~/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+Underfull \hbox (badness 1910) in paragraph at lines 8--9
+[]\OT1/ptm/m/n/10 Caption qual-ity is usu-ally re-ported with n-gram and
+
+Underfull \hbox (badness 2707) in paragraph at lines 23--24
+[]\OT1/ptm/m/n/10 Whether at-ten-tion ex-plains a model's out-put is dis-
+[2]
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 29.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 29.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+[]\OT1/ptm/m/n/8 Woodpecker [[]29[]],
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
+[]\OT1/ptm/m/n/8 Edit&Tell [[]34[]],
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+[]\OT1/ptm/m/n/8 learned
+
+Underfull \hbox (badness 7832) in paragraph at lines 44--45
+[]\OT1/ptm/m/n/8 penalised de-
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+[]\OT1/ptm/m/n/8 label
+) (./sections/3_design.tex [3]
+Underfull \hbox (badness 2626) in paragraph at lines 50--51
+[]\OT1/ptm/b/n/10 Decision. \OT1/ptm/m/n/10 OWLv2 runs once per im-age. Af-ter non-
+[4 <./figures/pipeline.pdf>] [5] (./generated/power_table.tex)) (./sections/4_experiments.tex (./generated/caption_table.tex
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 4.
+
+) [6 <./figures/finetune_curve.pdf>] (./generated/look_human_table.tex) (./generated/look_kind_table.tex) (./generated/look_ablation_table.tex) (./generated/look_e2_table.tex) [7] (./generated/retell_table.tex
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+) (./generated/intervention_table.tex
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 5.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--20
+[]\OT1/ptm/m/n/8 B3 (de-tec-tor
+)) (./sections/5_conclusion.tex [8 <./figures/verdict_by_kind.pdf> <./figures/gate_curves.pdf>]
+Underfull \hbox (badness 3375) in paragraph at lines 35--36
+[]\OT1/ptm/m/n/8 Label the 100-draft pi-lot (two an-no-ta-tors, $\OML/cmm/m/it/8 ^^T$\OT1/ptm/m/n/8 ); set
+) [9] (./main.bbl [10])
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+[11] (./main.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)<~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (11 pages, 357753 bytes).
+Transcript written on main.log.
+This is BibTeX, Version 0.99d (TeX Live 2025)
+The top-level auxiliary file: main.aux
+The style file: IEEEtran.bst
+Database file #1: refs.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-29>
+(./IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(~/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+)
+** ATTENTION: Overriding command lockouts (line 2).
+(./cite.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty)) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))) (~/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty (~/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (~/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (~/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (~/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (~/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (~/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (~/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (~/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (~/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (~/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (~/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (~/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (~/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (~/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))) (./generated/data_macros.tex) (./generated/result_macros.tex) (./generated/look_macros.tex) (./generated/look_closed_macros.tex) (./generated/lcr_numbers.tex) (~/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def) (./main.aux)
+-- Lines per column: 56 (exact).
+(~/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (~/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)) (./main.out) (./main.out) (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (./sections/1_intro.tex) (./sections/2_related.tex [1{~/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{~/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+Underfull \hbox (badness 1910) in paragraph at lines 8--9
+[]\OT1/ptm/m/n/10 Caption qual-ity is usu-ally re-ported with n-gram and
+
+Underfull \hbox (badness 2707) in paragraph at lines 23--24
+[]\OT1/ptm/m/n/10 Whether at-ten-tion ex-plains a model's out-put is dis-
+[2]
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 29.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 29.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+[]\OT1/ptm/m/n/8 Woodpecker [[]29[]],
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
+[]\OT1/ptm/m/n/8 Edit&Tell [[]34[]],
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+[]\OT1/ptm/m/n/8 learned
+
+Underfull \hbox (badness 7832) in paragraph at lines 44--45
+[]\OT1/ptm/m/n/8 penalised de-
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+[]\OT1/ptm/m/n/8 label
+) (./sections/3_design.tex [3]
+Underfull \hbox (badness 2626) in paragraph at lines 50--51
+[]\OT1/ptm/b/n/10 Decision. \OT1/ptm/m/n/10 OWLv2 runs once per im-age. Af-ter non-
+[4 <./figures/pipeline.pdf>] [5] (./generated/power_table.tex)) (./sections/4_experiments.tex (./generated/caption_table.tex
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 4.
+
+) [6 <./figures/finetune_curve.pdf>] (./generated/look_human_table.tex) (./generated/look_kind_table.tex) (./generated/look_ablation_table.tex) (./generated/look_e2_table.tex) [7] (./generated/retell_table.tex
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+) (./generated/intervention_table.tex
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 5.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--20
+[]\OT1/ptm/m/n/8 B3 (de-tec-tor
+)) (./sections/5_conclusion.tex [8 <./figures/verdict_by_kind.pdf> <./figures/gate_curves.pdf>]
+Underfull \hbox (badness 3375) in paragraph at lines 35--36
+[]\OT1/ptm/m/n/8 Label the 100-draft pi-lot (two an-no-ta-tors, $\OML/cmm/m/it/8 ^^T$\OT1/ptm/m/n/8 ); set
+) [9] (./main.bbl [10])
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+[11] (./main.aux) )
+(see the transcript file for additional information)<~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (11 pages, 357904 bytes).
+Transcript written on main.log.
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-29>
+(./IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(~/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+)
+** ATTENTION: Overriding command lockouts (line 2).
+(./cite.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty)) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))) (~/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty (~/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (~/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (~/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (~/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (~/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (~/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (~/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (~/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (~/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (~/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (~/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (~/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (~/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (~/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (~/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (~/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))) (./generated/data_macros.tex) (./generated/result_macros.tex) (./generated/look_macros.tex) (./generated/look_closed_macros.tex) (./generated/lcr_numbers.tex) (~/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def) (./main.aux)
+-- Lines per column: 56 (exact).
+(~/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (~/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)) (./main.out) (./main.out) (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (~/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (./sections/1_intro.tex) (./sections/2_related.tex [1{~/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{~/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+Underfull \hbox (badness 1910) in paragraph at lines 8--9
+[]\OT1/ptm/m/n/10 Caption qual-ity is usu-ally re-ported with n-gram and
+
+Underfull \hbox (badness 2707) in paragraph at lines 23--24
+[]\OT1/ptm/m/n/10 Whether at-ten-tion ex-plains a model's out-put is dis-
+[2]
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 29.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 29.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+[]\OT1/ptm/m/n/8 Woodpecker [[]29[]],
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
+[]\OT1/ptm/m/n/8 Edit&Tell [[]34[]],
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+[]\OT1/ptm/m/n/8 learned
+
+Underfull \hbox (badness 7832) in paragraph at lines 44--45
+[]\OT1/ptm/m/n/8 penalised de-
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+[]\OT1/ptm/m/n/8 label
+) (./sections/3_design.tex [3]
+Underfull \hbox (badness 2626) in paragraph at lines 50--51
+[]\OT1/ptm/b/n/10 Decision. \OT1/ptm/m/n/10 OWLv2 runs once per im-age. Af-ter non-
+[4 <./figures/pipeline.pdf>] [5] (./generated/power_table.tex)) (./sections/4_experiments.tex (./generated/caption_table.tex
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 4.
+
+) [6 <./figures/finetune_curve.pdf>] (./generated/look_human_table.tex) (./generated/look_kind_table.tex) (./generated/look_ablation_table.tex) (./generated/look_e2_table.tex) [7] (./generated/retell_table.tex
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 9.
+
+) (./generated/intervention_table.tex
+
+LaTeX Font Warning: Font shape `OT1/ptm/m/scit' undefined
+(Font)              using `OT1/ptm/m/it' instead on input line 5.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--20
+[]\OT1/ptm/m/n/8 B3 (de-tec-tor
+)) (./sections/5_conclusion.tex [8 <./figures/verdict_by_kind.pdf> <./figures/gate_curves.pdf>]
+Underfull \hbox (badness 3375) in paragraph at lines 35--36
+[]\OT1/ptm/m/n/8 Label the 100-draft pi-lot (two an-no-ta-tors, $\OML/cmm/m/it/8 ^^T$\OT1/ptm/m/n/8 ); set
+) [9] (./main.bbl [10])
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+[11] (./main.aux) )
+(see the transcript file for additional information)<~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><~/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (11 pages, 357904 bytes).
+Transcript written on main.log.

@@ -1,0 +1,111 @@
+{
+ "n_claims_with_region": 4594,
+ "n_proxy_wrong": 1100,
+ "substitution_possible_in_refs": {
+  "all_wrong": 0.5063636363636363,
+  "thing": 0.4518430439952438,
+  "stuff": 0.6833976833976834,
+  "clothing": 0.5
+ },
+ "alternative_quality": {
+  "A1": {
+   "alt_in_refs": 0.29,
+   "alt_same_group": 0.5563636363636364,
+   "alt_in_refs_when_substitution_possible": 0.3859964093357271
+  },
+  "A2": {
+   "alt_in_refs": 0.2545454545454545,
+   "alt_same_group": 0.6527272727272727,
+   "alt_in_refs_when_substitution_possible": 0.36624775583482944
+  },
+  "A3": {
+   "alt_in_refs": 0.17727272727272728,
+   "alt_same_group": 1.0,
+   "alt_in_refs_when_substitution_possible": 0.3500897666068223
+  }
+ },
+ "top_A1_alternatives_wrong": [
+  [
+   "dress",
+   41
+  ],
+  [
+   "uniform",
+   40
+  ],
+  [
+   "suit",
+   34
+  ],
+  [
+   "bikini",
+   32
+  ],
+  [
+   "court",
+   28
+  ],
+  [
+   "costume",
+   27
+  ],
+  [
+   "couch",
+   26
+  ],
+  [
+   "dog",
+   23
+  ],
+  [
+   "street",
+   22
+  ],
+  [
+   "bed",
+   18
+  ]
+ ],
+ "presence": {
+  "0.1": {
+   "wrong_detected_in_image": 0.8254545454545454,
+   "wrong_detected_in_region": 0.5563636363636364,
+   "correct_not_in_region_but_in_image": 0.16056096164854036,
+   "correct_nowhere": 0.06525472238122496
+  },
+  "0.3": {
+   "wrong_detected_in_image": 0.4218181818181818,
+   "wrong_detected_in_region": 0.2790909090909091,
+   "correct_not_in_region_but_in_image": 0.1296508299942759,
+   "correct_nowhere": 0.25414997137950773
+  }
+ },
+ "wrong_absent_everywhere_0.1": {
+  "n": 192,
+  "substitution_possible": 0.4010416666666667
+ },
+ "camera": {
+  "n": 42,
+  "idiom": 34,
+  "idiom_and_proxy_wrong": 21
+ },
+ "claude_visual_audit": {
+  "detector_confident_seed0": {
+   "correct": 8,
+   "wrong": 1,
+   "n": 9
+  },
+  "detector_absent_seed0": {
+   "wrong": 1,
+   "correct": 1,
+   "unclear": 1,
+   "n": 3
+  },
+  "random_seed7": {
+   "correct": 6,
+   "non_visual": 2,
+   "unclear": 4,
+   "n": 12
+  }
+ }
+}

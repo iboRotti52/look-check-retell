@@ -1,0 +1,44 @@
+\section{Summary and Next Steps}
+\label{sec:conclusion}
+
+\subsection{Work Done So Far}
+Historical Look--Check--Retell variants and matched controls were implemented and run end to end. The current update unifies only Look and Check; new Retell training is explicitly deferred. Concretely, we have:
+(i) built the claim vocabulary (\NumClasses{} classes, \NumSurface{} surface forms) and the extraction rules;
+(ii) cached BLIP and OWLv2 features for the training and validation images, including the per-proposal scale and shift that make detector scores reproducible for any later query;
+(iii) fine-tuned the drafting decoder on half A (validation CIDEr \ZsCIDEr{} $\to$ \FtCIDEr{});
+(iv) generated drafts, attention maps and verification records for half B and the validation split;
+(v) trained the Retell pathway and the B0+, B2 and B3 controls once each, and verified that the zero-initialised pathway reproduces the draft exactly before training;
+(vi) built the blinded annotation tool and the scoring code for HICR, fix/break/NRR, $\kappa$ and bootstrap intervals.
+
+\subsection{What the Results So Far Show}
+\begin{itemize}
+\item Reference agreement is a poor proxy for correctness, especially for \emph{thing} and \emph{stuff} claims. This supports the decision to make human judgement the primary measure.
+\item BLIP's raw cross-attention is not a usable localisation signal because of attention sinks. A gradient-free sink correction raises human-box pointing accuracy from \LookRawPoint\% to \LookSinkPoint\%. The bounded E1 refinement raises region accuracy from v2's \LookVTwoRegion\% to frozen v3's \LookClosedRegion\%. E2 adds no source under the predefined acceptance rule. Feature-level interventions show greater sensitivity to Look-selected than matched random token masks; this is not a pixel-level causal claim.
+\item With provisional thresholds the detector contradicts far too many correct claims. Calibrating the verdict thresholds on human labels is required before B1 and before the final Retell training.
+\item The power analysis shows that H1 is only testable with a paired, claim-traced design, and only if the draft error rate is not much below 8\%.
+\end{itemize}
+
+\subsection{Deviations from the Proposal}
+We fine-tune only the BLIP decoder (encoder frozen), cache two additional OWLv2 quantities, label claims by kind, take corruption labels from the captioner's own runner-up words, and use sink-corrected instead of raw attention. Each change is justified in Section~\ref{sec:design}. The timeline is roughly on track: the work planned for weeks 1--7 is done except the human labelling and threshold calibration, which have moved into the next phase.
+
+\subsection{Next Steps}
+Table~\ref{tab:plan} lists the remaining work. The critical path runs through the pilot labels. Thresholds, the test sample size $N$ and the final Retell training all depend on them.
+
+\begin{table}[t]
+\caption{Remaining plan (weeks refer to the proposal's 12-week schedule).}
+\label{tab:plan}
+\centering\footnotesize
+\begin{tabular}{@{}p{1.1cm}p{6.6cm}@{}}
+\toprule
+Week & Task \\
+\midrule
+8 & Label the 100-draft pilot (two annotators, $\kappa$); set $\tau_s,\tau_c,\tau_e$; fix $N$ from the pilot error rate; audit Flickr30k Entities phrase mappings for H6. \\
+9 & Re-run Check and B1 with calibrated thresholds; retrain LCR, B0+, B2, B3 and the $\rho\in\{0,0.15,0.3\}$ ablation with sink-corrected attention; select epochs on a held-out part of training half B. \\
+10 & Reversed split (decoder on B, Retell on A); COCO Karpathy-test inference and CHAIR for all systems (H1b). \\
+11 & Blinded human evaluation on the test sample (HICR, CCI, fix/break/NRR); H4 screening and interventions; H6 localisation with gradient relevance as an alternative. \\
+12 & Statistics (paired bootstrap, sign tests), limitations, final report. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Main risks.} (1) If the pilot shows a draft error rate well below 8\%, H1 will be underpowered even with the paired design. In that case COCO CHAIR (H1b) becomes the main factuality evidence, as the proposal foresaw. (2) If Retell keeps ignoring the evidence after calibration, H4 will document it. Raising $\rho$ and giving B3's detector-selected regions as an alternative input are the planned responses. (3) Human annotation is the main workload, and the deduplicated annotation tool is ready for it.

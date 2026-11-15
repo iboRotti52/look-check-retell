@@ -1,0 +1,11 @@
+B v3 75.58981980308378 S3 recomputed 74.15939067434516
+A1_G2_layers {'cv_region': np.float64(75.81), 'baseline': np.float64(75.59), 'cv_gain_pp': np.float64(0.22), 'chosen_per_fold': [9, 9, 9, 9, 9], 'vs_S3_recomputed_pp': np.float64(1.65)}
+A1_G3_labelfree_heads {'cv_region': np.float64(78.23), 'baseline': np.float64(75.59), 'cv_gain_pp': np.float64(2.64), 'chosen_per_fold': [0, 0, 0, 0, 0], 'vs_S3_recomputed_pp': np.float64(4.07)}
+A1_G4_supervised_heads {'cv_region': np.float64(76.69), 'baseline': np.float64(75.59), 'cv_gain_pp': np.float64(1.1), 'chosen_per_fold': [0, 0, 0, 0, 0], 'vs_S3_recomputed_pp': np.float64(2.53)}
+A0_sink_all_positions {'cv_region': np.float64(74.53), 'baseline': np.float64(75.59), 'cv_gain_pp': np.float64(-1.06), 'chosen_per_fold': [0, 0, 0, 0, 0], 'vs_S3_recomputed_pp': np.float64(0.37)}
+A2_phrase {'cv_region': np.float64(75.35), 'baseline': np.float64(75.59), 'cv_gain_pp': np.float64(-0.24), 'chosen_per_fold': [0, 0, 0, 0, 0], 'vs_S3_recomputed_pp': np.float64(1.19)}
+A3_ratio {'cv_region': np.float64(59.06), 'baseline': np.float64(75.59), 'cv_gain_pp': np.float64(-16.53), 'chosen_per_fold': [0, 0, 0, 0, 0], 'vs_S3_recomputed_pp': np.float64(-15.1)}
+A4_chefer {'cv_region': np.float64(73.19), 'baseline': np.float64(75.59), 'cv_gain_pp': np.float64(-2.4), 'chosen_per_fold': [0, 0, 0, 0, 0], 'vs_S3_recomputed_pp': np.float64(-0.97)}
+A5_salience_dropout {'cv_region': np.float64(72.19), 'baseline': np.float64(75.59), 'cv_gain_pp': np.float64(-3.4), 'chosen_per_fold': [0, 0, 0, 0, 0], 'vs_S3_recomputed_pp': np.float64(-1.97)}
+A6_ensemble {'cv_region': np.float64(75.94), 'baseline': np.float64(75.59), 'cv_gain_pp': np.float64(0.35), 'chosen_per_fold': [3, 1, 3, 3, 1], 'vs_S3_recomputed_pp': np.float64(1.78)}
+E3 stage A locked: {'family': 'A1_G3_labelfree_heads', 'accepted': np.True_, 'config': 'top4', 'B_region': np.float64(78.22775404049787), 'heads': [103, 115, 116, 98]}

@@ -1,0 +1,145 @@
+A_validation_look3: 1795/2272 claims have F30kE boxes (79.0%)
+             n   point  chance  energy  reg.att  reg.det  random  oracle
+all       1795    89.2    37.2    71.6     76.1     82.7     4.7    95.3
+person     761    91.3    37.7    65.0     67.1     85.9     6.8    95.5
+stuff      276    85.9    59.9    75.1     79.7     71.0     1.8    94.2
+thing      758    88.3    28.4    77.1     83.8     83.8     3.7    95.4
+A_validation_look3: own 89.2  transposed 53.2  vflip 54.6  (n=1795)
+  swap test (n=1443 claims with another-class claim in image): pointing own 88.4 vs other-claim map 45.2; energy own 70.7 vs other 44.0; chance 35.9
+A_B_look3: own 89.0  transposed 54.0  vflip 58.9  (n=5383)
+  swap test (n=4301 claims with another-class claim in image): pointing own 88.3 vs other-claim map 47.6; energy own 71.9 vs other 45.9; chance 37.2
+.......................................................                  [100%]
+55 passed in 13.12s
+W1114 10:17:51.441000 65350 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+latex  -> report/generated/power_table.tex
+latex  -> report/generated/caption_table.tex
+figure -> report/figures/finetune_curve.pdf
+figure -> report/figures/verdict_by_kind.pdf
+figure -> report/figures/look_stats.pdf
+figure -> report/figures/attention_overlays.pdf
+latex  -> report/generated/check_table.tex
+latex  -> report/generated/retell_table.tex
+latex  -> report/generated/intervention_table.tex
+figure -> report/figures/gate_curves.pdf
+latex  -> report/generated/result_macros.tex
+{
+"AgreeKFour": "11.1",
+"AgreeKOne": "11.7",
+"AgreeKTwelve": "7.0",
+"AltOneFalse": "0.0",
+"AltOneMasked": "15.2",
+"AltOneReal": "15.1",
+"AttnChance": "31.8",
+"AttnDecoder": "fine-tuned",
+"AttnImages": 1000,
+"AttnN": 1503,
+"AttnRawIoU": "12.5",
+"AttnRawPoint": "26.2",
+"AttnRawTop": "0.76",
+"AttnSinkIoU": "46.8",
+"AttnSinkPoint": "71.5",
+"AttnSinkTop": "0.61",
+"AurocPerson": "0.86",
+"AurocStuff": "0.64",
+"AurocThing": "0.79",
+"BOneBreak": 409,
+"BOneDetBreak": 37,
+"BOneDetFix": 27,
+"BOneDetN": 128,
+"BOneFix": 24,
+"BOneN": 689,
+"BOneSinkBreak": 145,
+"BOneSinkFix": 38,
+"BOneSinkN": 343,
+"ChangedOneFalse": "65.0",
+"ChangedOneMasked": "63.3",
+"ChangedOneReal": "65.0",
+"CiderOneFalse": "0.987",
+"CiderOneMasked": "0.993",
+"CiderOneReal": "0.987",
+"ConDetCal": "6.1",
+"ConDetProv": "3.9",
+"ConRawProv": "26.5",
+"ConSinkCal": "14.9",
+"ConSinkProv": "9.7",
+"EntropyMedian": "0.68",
+"ExcessMedian": "0.155",
+"ExcessPositivePct": "98.5",
+"FtBLEU": "32.6",
+"FtBestEpoch": 1,
+"FtCIDEr": "0.979",
+"FtDevice": "cuda",
+"FtMinutes": "5",
+"FtRUOR": "15.8",
+"FtSPICE": "--",
+"GateOneAttn": "0.002",
+"GateOneFf": "0.020",
+"InitIdentical": "all",
+"JDetCal": "0.49",
+"JDetProv": "0.31",
+"JRawProv": "0.01",
+"JSinkCal": "0.31",
+"JSinkProv": "0.28",
+"KeptOneFalse": "90.3",
+"KeptOneMasked": "90.9",
+"KeptOneReal": "90.3",
+"LastK": 4,
+"NoRegionPct": "1.5",
+"NumCheckClaims": "1{,}503",
+"NumTests": 55,
+"OursCorruptPct": "12.0",
+"OursFalseAlt": "0.0",
+"OursFalseChanged": "65.0",
+"OursMaskedAlt": "15.2",
+"OursMaskedChanged": "63.3",
+"OursRealAlt": "15.1",
+"OursRealChanged": "65.0",
+"OursTrainContraPct": "31.4",
+"ParamsM": "23.5",
+"PrecDetCal": "50.0",
+"PrecDetProv": "43.1",
+"PrecRawProv": "23.3",
+"PrecSinkCal": "35.3",
+"PrecSinkProv": "38.4",
+"RefSupportedAll": "84.2",
+"RefSupportedPerson": "99.1",
+"RefSupportedStuff": "79.7",
+"RefSupportedThing": "75.2",
+"RuorOneFalse": "15.8",
+"RuorOneMasked": "15.8",
+"RuorOneReal": "15.8",
+"SensOneFalse": "--",
+"SensOneMasked": "--",
+"SinkAgreeKFour": "43.8",
+"SinkAgreeKOne": "39.5",
+"SinkAgreeKTwelve": "41.4",
+"SinkVerdictContradictedPct": "11.9",
+"SinkVerdictSupportedPct": "37.8",
+"SinkVerdictUncertainPct": "50.3",
+"TcDetCal": "0.205",
+"TcSinkCal": "0.205",
+"ThrContra": 0.05,
+"ThrExcess": 0.0,
+"ThrSupport": 0.2,
+"TsDetCal": "0.34",
+"TsSinkCal": "0.22",
+"UnsupBaseRate": "23.4",
+"UnsupThingHighDet": "64.0",
+"UnsupThingN": 258,
+"ValClaims": "2{,}272",
+"ValClaimsPerImage": "2.27",
+"VerdictContradictedPct": "30.3",
+"VerdictSupportedPct": "9.5",
+"VerdictUncertainPct": "60.2",
+"ZsBLEU": "25.6",
+"ZsCIDEr": "0.669",
+"ZsRUOR": "14.0",
+"ZsSPICE": "--"
+}
+W1114 10:18:02.256000 65404 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+latex  -> report/generated/look_macros.tex
+latex  -> report/generated/look_human_table.tex
+latex  -> report/generated/look_kind_table.tex
+latex  -> report/generated/look_ablation_table.tex
+latex  -> report/generated/look_e2_table.tex
+latex  -> report/generated/look_closed_macros.tex

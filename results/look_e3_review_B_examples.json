@@ -1,0 +1,92 @@
+[
+ {
+  "iid": "train_0006",
+  "kind": "person",
+  "claim": "person",
+  "owner": [
+   1,
+   0
+  ],
+  "n_gt_boxes": 3
+ },
+ {
+  "iid": "train_0009",
+  "kind": "person",
+  "claim": "person",
+  "owner": [
+   2,
+   0
+  ],
+  "n_gt_boxes": 1
+ },
+ {
+  "iid": "train_0004",
+  "kind": "thing",
+  "claim": "dog",
+  "owner": [
+   0,
+   0
+  ],
+  "n_gt_boxes": 1
+ },
+ {
+  "iid": "train_0004",
+  "kind": "thing",
+  "claim": "frisbee",
+  "owner": [
+   0,
+   1
+  ],
+  "n_gt_boxes": 1
+ },
+ {
+  "iid": "train_0009",
+  "kind": "stuff",
+  "claim": "mountain",
+  "owner": [
+   2,
+   1
+  ],
+  "n_gt_boxes": 1
+ },
+ {
+  "iid": "train_0015",
+  "kind": "stuff",
+  "claim": "path",
+  "owner": [
+   5,
+   2
+  ],
+  "n_gt_boxes": 1
+ },
+ {
+  "iid": "train_0025",
+  "kind": "person",
+  "claim": "person",
+  "owner": [
+   11,
+   0
+  ],
+  "n_gt_boxes": 4
+ },
+ {
+  "iid": "train_0070",
+  "kind": "person",
+  "claim": "person",
+  "owner": [
+   27,
+   0
+  ],
+  "n_gt_boxes": 7
+ },
+ {
+  "iid": "train_0087",
+  "kind": "person",
+  "claim": "person",
+  "owner": [
+   38,
+   0
+  ],
+  "n_gt_boxes": 2
+ }
+]

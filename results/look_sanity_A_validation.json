@@ -1,0 +1,14 @@
+{
+ "pipe": "A_validation",
+ "metric_version": "exact_box_union_v2",
+ "n": 1795,
+ "pointing": 23.899721448467968,
+ "transposed": 33.92757660167131,
+ "vflip": 36.768802228412255,
+ "swap_n": 1443,
+ "swap_own": 23.7006237006237,
+ "swap_other": 23.076923076923077,
+ "swap_energy_own": 35.044906645106515,
+ "swap_energy_other": 30.217331724256645,
+ "swap_chance": 35.87905751079397
+}

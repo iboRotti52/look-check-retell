@@ -1,0 +1,7 @@
+W1114 10:19:35.895000 65885 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+latex  -> report/generated/look_macros.tex
+latex  -> report/generated/look_human_table.tex
+latex  -> report/generated/look_kind_table.tex
+latex  -> report/generated/look_ablation_table.tex
+latex  -> report/generated/look_e2_table.tex
+latex  -> report/generated/look_closed_macros.tex

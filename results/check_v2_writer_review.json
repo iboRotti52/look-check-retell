@@ -1,0 +1,14 @@
+{
+  "written_counts": {
+    "A_B_look2": {
+      "rec_att": 6856,
+      "rec_det": 6856
+    },
+    "A_validation_look2": {
+      "rec_att": 2272,
+      "rec_det": 2272
+    }
+  },
+  "learned_artifact_hashes_unchanged": true,
+  "output_suffix": "_check2cal.json"
+}

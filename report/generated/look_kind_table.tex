@@ -1,0 +1,16 @@
+\begin{table}[t]
+\caption{Look v2 region accuracy by kind, against any matching human box at IoU $\geq 0.5$.
+B3 uses the claimed class score; oracle asks whether any eligible proposal succeeds. Percentages.}
+\label{tab:look-kind}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Kind & Claims & Look v2 & B3 & Oracle \\
+\midrule
+All & 1{,}795 & 75.3 & 82.7 & 95.3 \\
+Person & 761 & 66.4 & 85.9 & 95.5 \\
+Thing & 758 & 83.8 & 83.8 & 95.4 \\
+Stuff & 276 & 76.4 & 71.0 & 94.2 \\
+\bottomrule
+\end{tabular}
+\end{table}

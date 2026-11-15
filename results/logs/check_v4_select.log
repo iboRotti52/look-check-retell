@@ -1,0 +1,18 @@
+A_B_look4 4594 non-person claims; region index mismatches vs records: 0
+Q1 C2 A1 R2 G0 E0      ch 2 recw 0.292 cprec 0.480 sprec 0.842 J 0.473 con 0.146
+Q1 C1 A1 R2 G1 E0      ch 2 recw 0.113 cprec 0.546 sprec 0.887 J 0.452 con 0.049
+Q2 C1 A1 R2 G1 E0      ch 3 recw 0.111 cprec 0.555 sprec 0.886 J 0.451 con 0.048
+Q2 C2 A1 R2 G0 E0      ch 3 recw 0.260 cprec 0.467 sprec 0.844 J 0.450 con 0.133
+Q2 C2 A2 R2 G0 E0      ch 4 recw 0.262 cprec 0.466 sprec 0.842 J 0.450 con 0.135
+Q2 C1 A1 R1 G1 E0      ch 2 recw 0.175 cprec 0.489 sprec 0.876 J 0.443 con 0.086
+Q1 C2 A2 R2 G0 E0      ch 3 recw 0.267 cprec 0.469 sprec 0.842 J 0.442 con 0.136
+Q1 C1 A2 R2 G1 E0      ch 3 recw 0.098 cprec 0.480 sprec 0.903 J 0.442 con 0.049
+Q2 C1 A2 R2 G1 E0      ch 4 recw 0.092 cprec 0.510 sprec 0.899 J 0.439 con 0.043
+Q2 C1 A2 R2 G0 E0      ch 3 recw 0.148 cprec 0.449 sprec 0.874 J 0.434 con 0.079
+Q1 C1 A1 R1 G1 E0      ch 1 recw 0.170 cprec 0.488 sprec 0.874 J 0.434 con 0.083
+Q2 C2 A1 R2 G0 E1      ch 4 recw 0.242 cprec 0.472 sprec 0.848 J 0.431 con 0.123
+Q2 C1 A1 R1 G1 E1      ch 3 recw 0.149 cprec 0.494 sprec 0.885 J 0.430 con 0.072
+Q1 C1 A2 R2 G0 E0      ch 2 recw 0.149 cprec 0.458 sprec 0.870 J 0.430 con 0.078
+Q1 C2 A1 R2 G0 E1      ch 3 recw 0.250 cprec 0.473 sprec 0.845 J 0.430 con 0.126
+default {'recall_wrong': 0.004, 'contradicted_precision': 0.308, 'J': 0.341}
+LOCKED Q1 C2 A1 R2 G0 E0

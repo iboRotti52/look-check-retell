@@ -1,0 +1,49 @@
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Image Captioning Models}
+Neural captioning started with a CNN encoder and an LSTM decoder trained end to end~\cite{vinyals2015show}. Xu \emph{et al.}~\cite{xu2015show} added visual attention, so that each word is generated while the decoder weighs image locations, and already used the attention maps to inspect what the model ``looks at''. Bottom-up and top-down attention~\cite{anderson2018bottom} replaced the uniform grid with object regions from a detector, and Neural Baby Talk~\cite{lu2018neural} went further by generating a sentence template whose slots are filled with the classes of detected regions. Both tie words to detector output inside a single generation pass. Transformer architectures~\cite{vaswani2017attention,dosovitskiy2021image} and large-scale vision--language pre-training~\cite{radford2021learning} then became standard. BLIP~\cite{li2022blip} combines a ViT image encoder with a BERT-style~\cite{devlin2019bert} text decoder that reads image patches through cross-attention in every layer; BLIP-2~\cite{li2023blip2} and LLaVA~\cite{liu2023visual} connect frozen image encoders to large language models. We use BLIP-base because its decoder exposes explicit cross-attention over a $24\times24$ patch grid, which Look needs, and because it is small enough to train on a single GPU.
+
+\subsection{Measuring Caption Quality and Hallucination}
+Caption quality is usually reported with n-gram and scene-graph metrics computed against reference captions: BLEU~\cite{papineni2002bleu}, METEOR~\cite{banerjee2005meteor}, CIDEr~\cite{vedantam2015cider} and SPICE~\cite{anderson2016spice}, typically through the COCO caption toolkit~\cite{chen2015microsoft}; CLIPScore~\cite{hessel2021clipscore} is a reference-free alternative. None of these was designed to detect a single wrong object. CHAIR~\cite{rohrbach2018object} therefore counts generated objects that are absent from the exhaustive COCO annotations~\cite{lin2014microsoft}, per mention (CHAIR$_i$) and per sentence (CHAIR$_s$). POPE~\cite{li2023evaluating} asks a model yes/no questions about object existence and shows that frequent and co-occurring objects are hallucinated most. Dai \emph{et al.}~\cite{dai2023plausible} study how pre-training objectives and image encodings affect hallucination. ALOHa~\cite{petryk2024aloha} extends hallucination measurement to open vocabularies by matching objects extracted by a language model against reference and detected objects. All of these depend on how completely the available annotations describe the image. Flickr8k~\cite{hodosh2013framing} has five captions per image and no object annotations, so an object that no caption mentions may still be visible. This is why our primary measure is human judgment and why CHAIR on COCO is a secondary one; Section~\ref{sec:exp-check} quantifies how incomplete the references are.
+
+\subsection{Detector-Based Correction}
+A first family of methods checks a caption against an external vision model. The Cascaded Revision Network~\cite{feng2020cascaded} predicts inaccurate words and replaces them with object words from a pretrained detector, for novel-object captioning. ReFrame~\cite{adhikary2024reframe} is a rule-based plug-in that rectifies missing or incorrect objects with a Mask R-CNN detector. Woodpecker~\cite{yin2024woodpecker} extracts key concepts, validates them with a detector and a VQA model, and lets a language model rewrite the response; Visual Fact Checker~\cite{ge2024visual} lets a language model call detection and VQA tools before producing the final caption. These pipelines are training-free, which also means that the rewriting model has never been taught how reliable its tools are. HALC~\cite{chen2024halc} stays inside decoding: an open-vocabulary detector grounds each object token and the output distributions under different fields of view are contrasted. Other decoding-time methods need no detector at all: visual contrastive decoding~\cite{leng2024mitigating} contrasts predictions for the original and a distorted image, and OPERA~\cite{huang2024opera} penalises an attention pattern associated with hallucination during beam search.
+
+\subsection{Learned Editing and Feedback}
+A second family learns to revise. Show, Edit and Tell~\cite{sammani2020show} trains a model that edits an existing caption given the image. LURE~\cite{zhou2024analyzing} trains a revisor on descriptions that were corrupted synthetically according to co-occurrence, uncertainty and position; at inference it receives no external, claim-specific evidence. We borrow its synthetic-corruption idea. Volcano~\cite{lee2024volcano} trains one model to produce feedback on its own answer, revise it and decide whether to keep the revision. HELPD~\cite{yuan2024helpd} adds object- and sentence-level feedback to training and penalises decoding with an image-attention term; attention shapes the penalty but is not used to choose regions for an external check. Biten \emph{et al.}~\cite{biten2022let} feed object labels to the captioner and augment the training sentences to weaken co-occurrence bias; their labels describe the image as a whole and do not verify individual claims. This is the design that our image-level baseline B2 imitates.
+
+\subsection{Conditioning Frozen Generators}
+Parameter-efficient methods add a small number of trainable weights to a frozen model, for example adapters~\cite{houlsby2019parameter} or low-rank updates~\cite{hu2022lora}. Flamingo~\cite{alayrac2022flamingo} inserts cross-attention layers into a frozen language model and scales their output with a $\tanh$ gate initialised at zero, so that the model starts exactly at its pretrained behaviour; LLaMA-Adapter~\cite{zhang2024llama} uses a similar zero-initialised gate. We use this mechanism to inject verification records instead of images. The zero initialisation matters for our evaluation: before training, the system is identical to the baseline, so any later difference is caused by the trained pathway.
+
+\subsection{Open-Vocabulary Detection}
+Checking arbitrary caption nouns requires a detector that accepts text queries. GLIP~\cite{li2022grounded} and Grounding DINO~\cite{liu2024grounding} cast detection as phrase grounding. OWL-ViT~\cite{minderer2022simple} attaches box and class heads to a CLIP-style image encoder and scores each predicted box against text embeddings; OWLv2~\cite{minderer2023scaling} scales it up by self-training on web image--text pairs and adds an objectness score. We chose OWLv2 for an architectural reason: the image and text towers only meet in a final dot product, so the image side can be computed once and cached, and any later text query costs a matrix product (Section~\ref{sec:design-check}). Fusion-based detectors would require a new forward pass for every query set.
+
+\subsection{Attention as a Localisation Signal}
+Whether attention explains a model's output is disputed~\cite{jain2019attention}. Gradient-based alternatives exist, from Grad-CAM~\cite{selvaraju2017grad} to the relevance propagation of Chefer \emph{et al.}~\cite{chefer2021generic} for encoder--decoder transformers. For our purposes the question is narrower: does attention point at the region the word is about? Zhang \emph{et al.}~\cite{zhang2025mllms} find that large multimodal models often attend to the correct region even when their answer is wrong, and a recent preprint~\cite{sanogo2025toward} uses attention-guided crops for training-free self-correction. Whether a compact captioner such as BLIP behaves the same way is one of our hypotheses (H6). Phrase-to-region annotations that would answer it directly exist for Flickr30k~\cite{plummer2015flickr30k} but not for Flickr8k, so we have to box a sample by hand. On the other side, Geigle \emph{et al.}~\cite{geigle2024does} report that adding grounding objectives has little or no effect on hallucination in open captioning. Good grounding alone may therefore not be enough, which motivates feeding back the \emph{result} of a check in addition to its location.
+
+\subsection{Research Gap}
+Table~\ref{tab:prior} positions LCR against the closest methods. Caption editing, self-feedback and detector verification all exist. In the work we reviewed we did not find a method that \emph{trains} a captioner to regenerate its caption from external, claim-specific records whose regions are selected by its own cross-attention. We do not claim that any component is new. The contribution is the combination and its controlled evaluation: a matched control without evidence (B0+), matched controls for evidence format (B2) and for region selection (B3), and interventions that test whether correct and false evidence are used selectively.
+
+\begin{table}[t]
+\caption{Closest prior work. \emph{External}: claim-specific evidence from a separate model at inference. \emph{Own att.}: the captioner's attention selects the checked region.}
+\label{tab:prior}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}p{2.3cm}cccp{1.7cm}@{}}
+\toprule
+Method & Learned & External & Own att. & Output \\
+\midrule
+CRN~\cite{feng2020cascaded} & yes & yes & no & word substitution \\
+ReFrame~\cite{adhikary2024reframe} & no & yes & no & rule-based fix \\
+Woodpecker~\cite{yin2024woodpecker}, VFC~\cite{ge2024visual} & no & yes & no & LLM rewrite \\
+HALC~\cite{chen2024halc} & no & yes & no & contrastive decoding \\
+Edit\&Tell~\cite{sammani2020show}, LURE~\cite{zhou2024analyzing} & yes & no & no & learned revision \\
+Volcano~\cite{lee2024volcano} & yes & no & no & self-feedback \\
+HELPD~\cite{yuan2024helpd} & yes & no & no & penalised decoding \\
+Biten \emph{et al.}~\cite{biten2022let} & yes & no & no & label conditioning \\
+\textbf{LCR (ours)} & yes & yes & yes & regeneration \\
+\bottomrule
+\end{tabular}
+\end{table}

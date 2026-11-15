@@ -1,0 +1,1130 @@
+{
+ "select": "A_B_sink",
+ "stage": "T1: by-kind region rule",
+ "chosen_cfg": {
+  "person": [
+   "ratio",
+   0.25,
+   2,
+   true
+  ],
+  "thing": [
+   "ratio",
+   0.5,
+   0.5,
+   false
+  ],
+  "stuff": [
+   "ratio",
+   0.5,
+   0.5,
+   false
+  ]
+ },
+ "baseline": {
+  "n": 5383,
+  "region": 74.64239271781534,
+  "miou": 0.7033713459968567,
+  "region_person": 68.27094474153299,
+  "region_thing": 80.29134532990574,
+  "region_stuff": 76.0248447204969,
+  "auroc_thing_stuff": 0.7062837591715668
+ },
+ "selected": {
+  "n": 5383,
+  "region": 75.44120378970834,
+  "miou": 0.7101309895515442,
+  "region_person": 70.18716577540107,
+  "region_thing": 80.29134532990574,
+  "region_stuff": 76.0248447204969,
+  "auroc_thing_stuff": 0.7062837591715668
+ },
+ "grid_by_kind": {
+  "person": [
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     2,
+     true
+    ],
+    "n": 2244,
+    "region": 70.18716577540107,
+    "miou": 0.6758637428283691,
+    "region_person": 70.18716577540107,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     1,
+     true
+    ],
+    "n": 2244,
+    "region": 70.05347593582889,
+    "miou": 0.6743655800819397,
+    "region_person": 70.05347593582889,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0.5,
+     true
+    ],
+    "n": 2244,
+    "region": 69.91978609625669,
+    "miou": 0.6728783249855042,
+    "region_person": 69.91978609625669,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     1,
+     true
+    ],
+    "n": 2244,
+    "region": 69.4741532976827,
+    "miou": 0.673453688621521,
+    "region_person": 69.4741532976827,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     2,
+     true
+    ],
+    "n": 2244,
+    "region": 69.07308377896612,
+    "miou": 0.6663007736206055,
+    "region_person": 69.07308377896612,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0.5,
+     false
+    ],
+    "n": 2244,
+    "region": 68.27094474153299,
+    "miou": 0.6596484184265137,
+    "region_person": 68.27094474153299,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     2,
+     true
+    ],
+    "n": 2244,
+    "region": 67.60249554367202,
+    "miou": 0.6536592245101929,
+    "region_person": 67.60249554367202,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     1,
+     false
+    ],
+    "n": 2244,
+    "region": 66.44385026737967,
+    "miou": 0.6511563658714294,
+    "region_person": 66.44385026737967,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0.5,
+     false
+    ],
+    "n": 2244,
+    "region": 66.0873440285205,
+    "miou": 0.6495659351348877,
+    "region_person": 66.0873440285205,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     1,
+     true
+    ],
+    "n": 2244,
+    "region": 65.9536541889483,
+    "miou": 0.6415295004844666,
+    "region_person": 65.9536541889483,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0.5,
+     true
+    ],
+    "n": 2244,
+    "region": 65.73083778966132,
+    "miou": 0.6497294902801514,
+    "region_person": 65.73083778966132,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     1,
+     false
+    ],
+    "n": 2244,
+    "region": 63.27985739750446,
+    "miou": 0.6225794553756714,
+    "region_person": 63.27985739750446,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     2,
+     false
+    ],
+    "n": 2244,
+    "region": 59.09090909090909,
+    "miou": 0.5970382690429688,
+    "region_person": 59.09090909090909,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0.5,
+     true
+    ],
+    "n": 2244,
+    "region": 58.02139037433155,
+    "miou": 0.5778717398643494,
+    "region_person": 58.02139037433155,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     2,
+     false
+    ],
+    "n": 2244,
+    "region": 52.361853832442065,
+    "miou": 0.5407282114028931,
+    "region_person": 52.361853832442065,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     1,
+     false
+    ],
+    "n": 2244,
+    "region": 48.79679144385027,
+    "miou": 0.506279468536377,
+    "region_person": 48.79679144385027,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0.5,
+     false
+    ],
+    "n": 2244,
+    "region": 46.657754010695186,
+    "miou": 0.484332799911499,
+    "region_person": 46.657754010695186,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     2,
+     false
+    ],
+    "n": 2244,
+    "region": 44.29590017825312,
+    "miou": 0.47194406390190125,
+    "region_person": 44.29590017825312,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0,
+     false
+    ],
+    "n": 2244,
+    "region": 43.716577540106954,
+    "miou": 0.5082628130912781,
+    "region_person": 43.716577540106954,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0,
+     true
+    ],
+    "n": 2244,
+    "region": 43.716577540106954,
+    "miou": 0.5078150033950806,
+    "region_person": 43.716577540106954,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0,
+     true
+    ],
+    "n": 2244,
+    "region": 42.29055258467023,
+    "miou": 0.4792431592941284,
+    "region_person": 42.29055258467023,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0,
+     false
+    ],
+    "n": 2244,
+    "region": 41.31016042780749,
+    "miou": 0.4697951674461365,
+    "region_person": 41.31016042780749,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0,
+     true
+    ],
+    "n": 2244,
+    "region": 27.85204991087344,
+    "miou": 0.35802480578422546,
+    "region_person": 27.85204991087344,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0,
+     false
+    ],
+    "n": 2244,
+    "region": 18.805704099821746,
+    "miou": 0.2802942097187042,
+    "region_person": 18.805704099821746,
+    "region_thing": NaN,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": NaN
+   }
+  ],
+  "thing": [
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0.5,
+     false
+    ],
+    "n": 2334,
+    "region": 80.29134532990574,
+    "miou": 0.7373584508895874,
+    "region_person": NaN,
+    "region_thing": 80.29134532990574,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7407104946858746
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     1,
+     false
+    ],
+    "n": 2334,
+    "region": 77.07797772065125,
+    "miou": 0.7157171368598938,
+    "region_person": NaN,
+    "region_thing": 77.07797772065125,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7486788352653299
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     1,
+     false
+    ],
+    "n": 2334,
+    "region": 76.04970008568979,
+    "miou": 0.7043377757072449,
+    "region_person": NaN,
+    "region_thing": 76.04970008568979,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7402766683124996
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0.5,
+     true
+    ],
+    "n": 2334,
+    "region": 74.764353041988,
+    "miou": 0.6985450387001038,
+    "region_person": NaN,
+    "region_thing": 74.764353041988,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7146645695090383
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0.5,
+     false
+    ],
+    "n": 2334,
+    "region": 74.16452442159382,
+    "miou": 0.6971666812896729,
+    "region_person": NaN,
+    "region_thing": 74.16452442159382,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7359393950499222
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0.5,
+     false
+    ],
+    "n": 2334,
+    "region": 74.1216795201371,
+    "miou": 0.6910494565963745,
+    "region_person": NaN,
+    "region_thing": 74.1216795201371,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7176359830253051
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     1,
+     false
+    ],
+    "n": 2334,
+    "region": 73.60754070265638,
+    "miou": 0.6931890845298767,
+    "region_person": NaN,
+    "region_thing": 73.60754070265638,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7530220513549398
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     2,
+     false
+    ],
+    "n": 2334,
+    "region": 73.35047129391602,
+    "miou": 0.6896356344223022,
+    "region_person": NaN,
+    "region_thing": 73.35047129391602,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7561618449704617
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     2,
+     false
+    ],
+    "n": 2334,
+    "region": 73.00771208226222,
+    "miou": 0.6832663416862488,
+    "region_person": NaN,
+    "region_thing": 73.00771208226222,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7509881188030552
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     1,
+     true
+    ],
+    "n": 2334,
+    "region": 72.70779777206512,
+    "miou": 0.6818925142288208,
+    "region_person": NaN,
+    "region_thing": 72.70779777206512,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7137369932563771
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     2,
+     false
+    ],
+    "n": 2334,
+    "region": 72.19365895458441,
+    "miou": 0.6820272207260132,
+    "region_person": NaN,
+    "region_thing": 72.19365895458441,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7597894456382374
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     1,
+     true
+    ],
+    "n": 2334,
+    "region": 71.97943444730078,
+    "miou": 0.6801207661628723,
+    "region_person": NaN,
+    "region_thing": 71.97943444730078,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7197001249479383
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0.5,
+     true
+    ],
+    "n": 2334,
+    "region": 71.55098543273351,
+    "miou": 0.6736351251602173,
+    "region_person": NaN,
+    "region_thing": 71.55098543273351,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.6985580225441144
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     2,
+     true
+    ],
+    "n": 2334,
+    "region": 70.22279348757498,
+    "miou": 0.6669561266899109,
+    "region_person": NaN,
+    "region_thing": 70.22279348757498,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7235030390131738
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0.5,
+     true
+    ],
+    "n": 2334,
+    "region": 69.58011996572408,
+    "miou": 0.6651999354362488,
+    "region_person": NaN,
+    "region_thing": 69.58011996572408,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.713469070804327
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     2,
+     true
+    ],
+    "n": 2334,
+    "region": 69.1516709511568,
+    "miou": 0.6608260273933411,
+    "region_person": NaN,
+    "region_thing": 69.1516709511568,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7264833667699894
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     1,
+     true
+    ],
+    "n": 2334,
+    "region": 68.25192802056556,
+    "miou": 0.6560600399971008,
+    "region_person": NaN,
+    "region_thing": 68.25192802056556,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7249065366640237
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     2,
+     true
+    ],
+    "n": 2334,
+    "region": 67.30934018851757,
+    "miou": 0.648712158203125,
+    "region_person": NaN,
+    "region_thing": 67.30934018851757,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.7297380550414735
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0,
+     false
+    ],
+    "n": 2334,
+    "region": 63.239074550128535,
+    "miou": 0.6315910220146179,
+    "region_person": NaN,
+    "region_thing": 63.239074550128535,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.654977786207788
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0,
+     true
+    ],
+    "n": 2334,
+    "region": 61.739502999143106,
+    "miou": 0.62218177318573,
+    "region_person": NaN,
+    "region_thing": 61.739502999143106,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.6500893157379432
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0,
+     false
+    ],
+    "n": 2334,
+    "region": 53.04198800342759,
+    "miou": 0.5662713050842285,
+    "region_person": NaN,
+    "region_thing": 53.04198800342759,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.5547000085675756
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0,
+     true
+    ],
+    "n": 2334,
+    "region": 52.485004284490145,
+    "miou": 0.5630612373352051,
+    "region_person": NaN,
+    "region_thing": 52.485004284490145,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.5654684111505264
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0,
+     true
+    ],
+    "n": 2334,
+    "region": 32.77634961439589,
+    "miou": 0.4061434864997864,
+    "region_person": NaN,
+    "region_thing": 32.77634961439589,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.4748393084332182
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0,
+     false
+    ],
+    "n": 2334,
+    "region": 25.36418166238218,
+    "miou": 0.3428247570991516,
+    "region_person": NaN,
+    "region_thing": 25.36418166238218,
+    "region_stuff": NaN,
+    "auroc_thing_stuff": 0.44207848394520516
+   }
+  ],
+  "stuff": [
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0.5,
+     false
+    ],
+    "n": 805,
+    "region": 76.0248447204969,
+    "miou": 0.726710855960846,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 76.0248447204969,
+    "auroc_thing_stuff": 0.6163970793430995
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0.5,
+     false
+    ],
+    "n": 805,
+    "region": 75.90062111801242,
+    "miou": 0.7294892072677612,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 75.90062111801242,
+    "auroc_thing_stuff": 0.6272983217173519
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0,
+     false
+    ],
+    "n": 805,
+    "region": 73.29192546583852,
+    "miou": 0.719087541103363,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 73.29192546583852,
+    "auroc_thing_stuff": 0.6317563151963884
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0.5,
+     true
+    ],
+    "n": 805,
+    "region": 72.79503105590062,
+    "miou": 0.7071540951728821,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 72.79503105590062,
+    "auroc_thing_stuff": 0.6201167838862258
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0.5,
+     true
+    ],
+    "n": 805,
+    "region": 72.04968944099379,
+    "miou": 0.7049285173416138,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 72.04968944099379,
+    "auroc_thing_stuff": 0.6294036815537273
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0.5,
+     true
+    ],
+    "n": 805,
+    "region": 70.80745341614907,
+    "miou": 0.6866756677627563,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 70.80745341614907,
+    "auroc_thing_stuff": 0.6222645335179644
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0,
+     false
+    ],
+    "n": 805,
+    "region": 70.55900621118012,
+    "miou": 0.7045847177505493,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 70.55900621118012,
+    "auroc_thing_stuff": 0.6135393006390262
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     0,
+     true
+    ],
+    "n": 805,
+    "region": 69.8136645962733,
+    "miou": 0.6931442022323608,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 69.8136645962733,
+    "auroc_thing_stuff": 0.626602422576805
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     1,
+     true
+    ],
+    "n": 805,
+    "region": 69.3167701863354,
+    "miou": 0.6865123510360718,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 69.3167701863354,
+    "auroc_thing_stuff": 0.6198059253868952
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     0,
+     true
+    ],
+    "n": 805,
+    "region": 68.69565217391305,
+    "miou": 0.6869853138923645,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 68.69565217391305,
+    "auroc_thing_stuff": 0.6150123460278996
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     1,
+     true
+    ],
+    "n": 805,
+    "region": 68.69565217391305,
+    "miou": 0.6781278848648071,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 68.69565217391305,
+    "auroc_thing_stuff": 0.6189086747183727
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     1,
+     true
+    ],
+    "n": 805,
+    "region": 67.08074534161491,
+    "miou": 0.6639853715896606,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 67.08074534161491,
+    "auroc_thing_stuff": 0.6054499146905369
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0.5,
+     false
+    ],
+    "n": 805,
+    "region": 66.83229813664596,
+    "miou": 0.6526824235916138,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 66.83229813664596,
+    "auroc_thing_stuff": 0.6094133605570019
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     1,
+     false
+    ],
+    "n": 805,
+    "region": 66.45962732919256,
+    "miou": 0.667535662651062,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 66.45962732919256,
+    "auroc_thing_stuff": 0.5999286438444719
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     2,
+     true
+    ],
+    "n": 805,
+    "region": 65.3416149068323,
+    "miou": 0.6583215594291687,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 65.3416149068323,
+    "auroc_thing_stuff": 0.6123276589882263
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     2,
+     true
+    ],
+    "n": 805,
+    "region": 65.09316770186335,
+    "miou": 0.6544914245605469,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 65.09316770186335,
+    "auroc_thing_stuff": 0.6038108426031573
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     2,
+     true
+    ],
+    "n": 805,
+    "region": 63.60248447204969,
+    "miou": 0.6414679884910583,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 63.60248447204969,
+    "auroc_thing_stuff": 0.6032986325758513
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     1,
+     false
+    ],
+    "n": 805,
+    "region": 60.745341614906835,
+    "miou": 0.6197556257247925,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 60.745341614906835,
+    "auroc_thing_stuff": 0.5843609914973136
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     1,
+     false
+    ],
+    "n": 805,
+    "region": 51.42857142857142,
+    "miou": 0.5433352589607239,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 51.42857142857142,
+    "auroc_thing_stuff": 0.5744311819334692
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0,
+     true
+    ],
+    "n": 805,
+    "region": 50.18633540372671,
+    "miou": 0.5427178144454956,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 50.18633540372671,
+    "auroc_thing_stuff": 0.5953328835305047
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.25,
+     2,
+     false
+    ],
+    "n": 805,
+    "region": 46.83229813664596,
+    "miou": 0.5249559879302979,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 46.83229813664596,
+    "auroc_thing_stuff": 0.5502372062298869
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.5,
+     2,
+     false
+    ],
+    "n": 805,
+    "region": 41.73913043478261,
+    "miou": 0.47940707206726074,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 41.73913043478261,
+    "auroc_thing_stuff": 0.5279295764199698
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     2,
+     false
+    ],
+    "n": 805,
+    "region": 36.149068322981364,
+    "miou": 0.4298573434352875,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 36.149068322981364,
+    "auroc_thing_stuff": 0.5410774779484752
+   },
+   {
+    "cfg": [
+     "ratio",
+     0.75,
+     0,
+     false
+    ],
+    "n": 805,
+    "region": 36.024844720496894,
+    "miou": 0.4281666874885559,
+    "region_person": NaN,
+    "region_thing": NaN,
+    "region_stuff": 36.024844720496894,
+    "auroc_thing_stuff": 0.5700049808009552
+   }
+  ]
+ }
+}

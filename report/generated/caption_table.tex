@@ -1,0 +1,15 @@
+\begin{table}[t]
+\caption{Captioning quality on the Flickr8k validation split (1{,}000 images). Full COCO outputs are unavailable locally; BLEU-4 and CIDEr use the stored alphabetic-tokenisation scores. A dash marks an unavailable metric. 
+BLEU-4, METEOR, ROUGE-L, SPICE $\times100$. RUOR: share of generated vocabulary claims that
+no reference mentions (reference agreement, \emph{not} a hallucination rate).}
+\label{tab:caption}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Captioner & B-4 & M & R-L & CIDEr & SPICE & RUOR \\
+\midrule
+BLIP zero-shot & 25.6 & -- & -- & 0.669 & -- & 14.0 \\
+BLIP fine-tuned on A (B0) & 32.6 & -- & -- & 0.979 & -- & 15.8 \\
+\bottomrule
+\end{tabular}
+\end{table}

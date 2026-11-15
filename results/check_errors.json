@@ -1,0 +1,48 @@
+{
+ "clothing": {
+  "n": 325,
+  "wrong_rate": 0.4246153846153846,
+  "flagged": 220,
+  "flag_rate": 0.676923076923077,
+  "precision": 0.5045454545454545,
+  "recall": 0.8043478260869565,
+  "lift": 1.1882411067193674
+ },
+ "stuff": {
+  "n": 464,
+  "wrong_rate": 0.2025862068965517,
+  "flagged": 78,
+  "flag_rate": 0.16810344827586207,
+  "precision": 0.4230769230769231,
+  "recall": 0.35106382978723405,
+  "lift": 2.0883797054009823
+ },
+ "thing": {
+  "n": 714,
+  "wrong_rate": 0.16806722689075632,
+  "flagged": 170,
+  "flag_rate": 0.23809523809523808,
+  "precision": 0.5529411764705883,
+  "recall": 0.7833333333333333,
+  "lift": 3.29
+ },
+ "all": {
+  "n": 1503,
+  "wrong_rate": 0.23419827012641384,
+  "flagged": 468,
+  "flag_rate": 0.31137724550898205,
+  "precision": 0.5085470085470085,
+  "recall": 0.6761363636363636,
+  "lift": 2.171437937062937
+ },
+ "all_but_clothing": {
+  "n": 1178,
+  "wrong_rate": 0.18166383701188454,
+  "flagged": 248,
+  "flag_rate": 0.21052631578947367,
+  "precision": 0.5120967741935484,
+  "recall": 0.5934579439252337,
+  "lift": 2.81892523364486
+ },
+ "_note": "validation, Check v2 prior+det+cap, attention region; labels = automatic reference proxy"
+}

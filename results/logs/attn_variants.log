@@ -1,0 +1,9 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 17186.35it/s]
+raw_k1 {'n': 1503, 'pointing': np.float64(26.147704590818364), 'chance': np.float64(31.825577810218313), 'top5_mass': 0.7533260520426178, 'agree_iou50': np.float64(13.17365269461078)}
+raw_k4 {'n': 1503, 'pointing': np.float64(26.214238190286093), 'chance': np.float64(31.825577810218313), 'top5_mass': 0.7575946554928245, 'agree_iou50': np.float64(12.508316699933467)}
+raw_k12 {'n': 1503, 'pointing': np.float64(25.815036593479707), 'chance': np.float64(31.825577810218313), 'top5_mass': 0.7932473685609763, 'agree_iou50': np.float64(8.449767132401863)}
+sink_k1 {'n': 1503, 'pointing': np.float64(66.13439787092481), 'chance': np.float64(31.825577810218313), 'top5_mass': 0.5725327099928122, 'agree_iou50': np.float64(40.85163007318696)}
+sink_k4 {'n': 1503, 'pointing': np.float64(71.45708582834331), 'chance': np.float64(31.825577810218313), 'top5_mass': 0.6095256322891968, 'agree_iou50': np.float64(46.83965402528277)}
+sink_k12 {'n': 1503, 'pointing': np.float64(68.52960745176314), 'chance': np.float64(31.825577810218313), 'top5_mass': 0.5063028395949247, 'agree_iou50': np.float64(45.24284763805722)}
+latex  -> report/generated/attn_table.tex

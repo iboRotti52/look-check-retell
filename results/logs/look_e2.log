@@ -1,0 +1,27 @@
+W1114 09:48:55.890000 56288 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+E2 25/500 images, 59 claims, 0.1 min
+E2 50/500 images, 123 claims, 0.3 min
+E2 75/500 images, 184 claims, 0.4 min
+E2 100/500 images, 236 claims, 0.5 min
+E2 125/500 images, 298 claims, 0.7 min
+E2 150/500 images, 357 claims, 0.9 min
+E2 175/500 images, 408 claims, 1.0 min
+E2 200/500 images, 463 claims, 1.1 min
+E2 225/500 images, 514 claims, 1.2 min
+E2 250/500 images, 568 claims, 1.3 min
+E2 275/500 images, 620 claims, 1.5 min
+E2 300/500 images, 676 claims, 1.6 min
+E2 325/500 images, 732 claims, 1.7 min
+E2 350/500 images, 788 claims, 1.8 min
+E2 375/500 images, 847 claims, 2.0 min
+E2 400/500 images, 904 claims, 2.1 min
+E2 425/500 images, 965 claims, 2.3 min
+E2 450/500 images, 1026 claims, 2.4 min
+E2 475/500 images, 1083 claims, 2.6 min
+E2 500/500 images, 1142 claims, 2.7 min
+Traceback (most recent call last):
+  File "<proje>/scripts/19_look_e2.py", line 134, in <module>
+    main()
+  File "<proje>/scripts/19_look_e2.py", line 73, in main
+    raise RuntimeError(f"S3 failed cached-map reproduction: max absolute difference {max(differences)}")
+RuntimeError: S3 failed cached-map reproduction: max absolute difference 0.1698879599571228

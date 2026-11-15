@@ -1,0 +1,13 @@
+A_validation_look4 16/1000 0.2 min
+A_validation_look4 416/1000 3.7 min
+A_validation_look4 816/1000 7.3 min
+done A_validation_look4 1000
+A_B_look4 16/3000 0.2 min
+A_B_look4 416/3000 3.6 min
+A_B_look4 816/3000 6.6 min
+A_B_look4 1216/3000 10.0 min
+A_B_look4 1616/3000 13.7 min
+A_B_look4 2016/3000 17.2 min
+A_B_look4 2416/3000 20.7 min
+A_B_look4 2816/3000 24.3 min
+done A_B_look4 3000

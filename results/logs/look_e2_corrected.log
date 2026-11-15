@@ -1,0 +1,12 @@
+W1114 10:03:41.852000 61385 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+E2 corrected feature masks 50/500
+E2 corrected feature masks 100/500
+E2 corrected feature masks 150/500
+E2 corrected feature masks 200/500
+E2 corrected feature masks 250/500
+E2 corrected feature masks 300/500
+E2 corrected feature masks 350/500
+E2 corrected feature masks 400/500
+E2 corrected feature masks 450/500
+E2 corrected feature masks 500/500
+E2 acceptance {'S3_prefix': {'gain_pp': -14.92374727668846, 'passes_map_gates': True}, 'S2_gradcam': {'gain_pp': -1.0893246187363843, 'passes_map_gates': True}, 'S4_contrast': {'gain_pp': -0.43572984749455657, 'passes_map_gates': True}, 'S3_read': {'gain_pp': -19.607843137254896, 'passes_map_gates': True}, 'S3_pieces': {'gain_pp': -2.069716775599133, 'passes_map_gates': True}} threshold winner None promoted None causal {'n_claims': 1142, 'mean_logp_drop': {'look': 1.685236063911441, 'random': 0.9813276171821272, 'detector': 1.3121036598042972}, 'look_minus_random': 0.7039084467293137, 'ci95': [0.6167586012135887, 0.7904185181615344], 'bootstrap_unit': 'image', 'n_boot': 2000, 'feature_level_gate_passed': True, 'mean_masked_look_tokens': 229.492119089317, 'mean_masked_detector_tokens': 184.94658493870404}

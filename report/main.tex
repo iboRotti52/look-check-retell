@@ -1,0 +1,61 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+% Every number below is written by a script (scripts/01_data_stats.py, scripts/08_analyse.py).
+\input{generated/data_macros}
+\input{generated/result_macros}
+\input{generated/look_macros}
+\input{generated/look_closed_macros}
+\input{generated/lcr_numbers}
+
+\begin{document}
+
+\title{Look--Check--Retell: Learning to Use Visual Verification Feedback for Faithful Image Captioning\\[2pt]
+\large CS415 Term Project -- Progress Report}
+
+\author{
+\IEEEauthorblockN{%
+\.{I}brahim G\"{o}zl\"{u}kaya (34528) \quad
+Metin Caner Ayd\i{}n (34541) \quad
+\.{I}brahim Billurcu (34264)\\
+Zeynep Bahar Deniz (34194) \quad
+Damla Kemal (34392)}
+\IEEEauthorblockA{Faculty of Engineering and Natural Sciences, Saban\c{c}\i{} University, Istanbul, Turkey}
+}
+
+\maketitle
+
+\begin{abstract}
+Image captioners name objects that are not in the image, and standard caption metrics barely register it. Look--Check--Retell (LCR) lets a frozen BLIP captioner draft a caption, uses the captioner's own cross-attention to pick an image region for every object claim, has a separate frozen OWLv2 detector check that region, and feeds the resulting verification records back through a small zero-initialised gated pathway that regenerates the caption. This report covers the first half of the project. We describe the design decisions taken while implementing the method and their justification, and report the measurements obtained so far on the Flickr8k validation split: decoder fine-tuning (validation CIDEr \ZsCIDEr{} $\to$ \FtCIDEr{}), the behaviour of attention-based region selection and detector verdicts on \ValClaims{} draft claims, a sample-size analysis that changes how the primary hypothesis will be tested, and first training runs of the Retell pathway against its matched no-evidence control. Localisation is evaluated against human-drawn Flickr30k Entities boxes; claim-correctness results remain automatic reference proxies. Human correctness evaluation and the subsequent Check and Retell updates remain pending.
+\end{abstract}
+
+\begin{IEEEkeywords}
+image captioning, object hallucination, visual grounding, cross-attention, verification feedback
+\end{IEEEkeywords}
+
+\input{sections/1_intro}
+\input{sections/2_related}
+\input{sections/3_design}
+\input{sections/4_experiments}
+\input{sections/5_conclusion}
+
+\section*{Team Contributions}
+\textbf{\.{I}.~G\"{o}zl\"{u}kaya}: BLIP fine-tuning, draft generation, synthetic corruption, Retell and B0+ training, coordination.
+\textbf{\.{I}.~Billurcu}: evidence encoder, null token, gated layers, B2.
+\textbf{M.~C.~Ayd\i{}n}: claim extraction, attention localisation and coordinate mapping, OWLv2 caching and verification, B1/B3.
+\textbf{Z.~B.~Deniz}: automatic metrics, CHAIR, evidence interventions, power analysis.
+\textbf{D.~Kemal}: human-evaluation protocol and annotation tool, error pilot.
+All members contributed to the literature review and to writing.
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

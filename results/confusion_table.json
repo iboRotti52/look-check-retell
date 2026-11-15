@@ -1,0 +1,1682 @@
+{
+ "airplane": [
+  "house",
+  "tent",
+  "camera",
+  "couch",
+  "table",
+  "stroller",
+  "flower",
+  "cart"
+ ],
+ "backpack": [
+  "jacket",
+  "hat",
+  "helmet",
+  "wall",
+  "rope",
+  "camera",
+  "building",
+  "shirt"
+ ],
+ "bag": [
+  "sign",
+  "building",
+  "phone",
+  "skirt",
+  "sweater",
+  "pants",
+  "hat",
+  "glasses"
+ ],
+ "ball": [
+  "fence",
+  "toy",
+  "stick",
+  "tree",
+  "flower",
+  "camera",
+  "bush",
+  "house"
+ ],
+ "balloon": [
+  "shorts",
+  "bubble",
+  "camera",
+  "skirt",
+  "pants",
+  "glasses",
+  "shoe",
+  "table"
+ ],
+ "bandanna": [
+  "fence",
+  "ball",
+  "pole",
+  "camera",
+  "tree",
+  "bush",
+  "bed",
+  "house"
+ ],
+ "bat": [
+  "racket",
+  "uniform",
+  "net",
+  "swing",
+  "hoop",
+  "plate",
+  "glove",
+  "flag"
+ ],
+ "beach": [
+  "lake",
+  "wave",
+  "shore",
+  "ocean",
+  "water",
+  "river",
+  "stream",
+  "pond"
+ ],
+ "bed": [
+  "camera",
+  "couch",
+  "tent",
+  "chair",
+  "hoop",
+  "house",
+  "table",
+  "plate"
+ ],
+ "bench": [
+  "shoe",
+  "hat",
+  "chair",
+  "camera",
+  "book",
+  "sweater",
+  "table",
+  "glasses"
+ ],
+ "bicycle": [
+  "car",
+  "backpack",
+  "helmet",
+  "jacket",
+  "scooter",
+  "shirt",
+  "hat",
+  "horse"
+ ],
+ "bikini": [
+  "swimsuit",
+  "suit",
+  "pool",
+  "fish",
+  "camel",
+  "goggles",
+  "bucket",
+  "bridge"
+ ],
+ "bird": [
+  "dock",
+  "boat",
+  "pool",
+  "bucket",
+  "fountain",
+  "bottle",
+  "stick",
+  "hose"
+ ],
+ "blanket": [
+  "fence",
+  "house",
+  "ball",
+  "bed",
+  "toy",
+  "camera",
+  "cow",
+  "leash"
+ ],
+ "boat": [
+  "dock",
+  "pool",
+  "raft",
+  "bucket",
+  "fountain",
+  "kayak",
+  "bottle",
+  "fish"
+ ],
+ "bone": [
+  "cat",
+  "frisbee",
+  "collar",
+  "leash",
+  "blanket",
+  "hurdle",
+  "duck",
+  "stick"
+ ],
+ "book": [
+  "table",
+  "hat",
+  "glasses",
+  "umbrella",
+  "cup",
+  "chair",
+  "dress",
+  "camera"
+ ],
+ "boot": [
+  "sign",
+  "building",
+  "sweater",
+  "scarf",
+  "shoe",
+  "bag",
+  "hat",
+  "dress"
+ ],
+ "bottle": [
+  "pool",
+  "fountain",
+  "bridge",
+  "bucket",
+  "bubble",
+  "dock",
+  "slide",
+  "balloon"
+ ],
+ "box": [
+  "glasses",
+  "sign",
+  "bag",
+  "scarf",
+  "jacket",
+  "umbrella",
+  "building",
+  "costume"
+ ],
+ "branch": [
+  "log",
+  "leaf",
+  "stick",
+  "leash",
+  "toy",
+  "frisbee",
+  "fence",
+  "ball"
+ ],
+ "bridge": [
+  "bottle",
+  "slide",
+  "chair",
+  "hat",
+  "wall",
+  "shorts",
+  "jacket",
+  "shirt"
+ ],
+ "bubble": [
+  "shorts",
+  "slide",
+  "balloon",
+  "camera",
+  "chair",
+  "glasses",
+  "trampoline",
+  "pants"
+ ],
+ "bucket": [
+  "bottle",
+  "fountain",
+  "pool",
+  "boat",
+  "dock",
+  "bridge",
+  "bubble",
+  "shorts"
+ ],
+ "building": [
+  "bag",
+  "sign",
+  "hat",
+  "phone",
+  "dress",
+  "sweater",
+  "umbrella",
+  "table"
+ ],
+ "bus": [
+  "cart",
+  "umbrella",
+  "building",
+  "phone",
+  "train",
+  "dress",
+  "sign",
+  "statue"
+ ],
+ "bush": [
+  "camera",
+  "tree",
+  "flower",
+  "sweater",
+  "house",
+  "tent",
+  "hat",
+  "horse"
+ ],
+ "camel": [
+  "suit",
+  "bikini",
+  "bucket",
+  "shorts",
+  "statue",
+  "swimsuit",
+  "tent",
+  "dress"
+ ],
+ "camera": [
+  "hat",
+  "pants",
+  "table",
+  "glasses",
+  "tent",
+  "sweater",
+  "building",
+  "chair"
+ ],
+ "canoe": [
+  "raft",
+  "kayak",
+  "dock",
+  "boat",
+  "fish",
+  "bird",
+  "pool",
+  "bucket"
+ ],
+ "car": [
+  "building",
+  "sign",
+  "cart",
+  "bag",
+  "jacket",
+  "dress",
+  "costume",
+  "umbrella"
+ ],
+ "cart": [
+  "window",
+  "table",
+  "hat",
+  "dress",
+  "sign",
+  "statue",
+  "costume",
+  "glasses"
+ ],
+ "cat": [
+  "frisbee",
+  "leash",
+  "collar",
+  "toy",
+  "stick",
+  "blanket",
+  "bone",
+  "ball"
+ ],
+ "chair": [
+  "trampoline",
+  "table",
+  "camera",
+  "window",
+  "hat",
+  "glasses",
+  "dress",
+  "shirt"
+ ],
+ "cigarette": [
+  "sign",
+  "sweater",
+  "hat",
+  "glasses",
+  "bag",
+  "cup",
+  "scarf",
+  "phone"
+ ],
+ "city": [
+  "sidewalk",
+  "street",
+  "stage",
+  "fire",
+  "park",
+  "floor",
+  "rock",
+  "mountain"
+ ],
+ "cliff": [
+  "waterfall",
+  "sky",
+  "desert",
+  "cloud",
+  "rock",
+  "mountain",
+  "ice",
+  "stage"
+ ],
+ "cloud": [
+  "sky",
+  "desert",
+  "ice",
+  "cliff",
+  "rock",
+  "mountain",
+  "path",
+  "snow"
+ ],
+ "collar": [
+  "frisbee",
+  "leash",
+  "stick",
+  "muzzle",
+  "toy",
+  "cat",
+  "hurdle",
+  "sheep"
+ ],
+ "cone": [
+  "camera",
+  "shirt",
+  "hoop",
+  "shoe",
+  "bed",
+  "tent",
+  "bench",
+  "horse"
+ ],
+ "costume": [
+  "dress",
+  "flag",
+  "guitar",
+  "umbrella",
+  "table",
+  "cart",
+  "sign",
+  "window"
+ ],
+ "couch": [
+  "table",
+  "glasses",
+  "camera",
+  "cup",
+  "guitar",
+  "chair",
+  "tent",
+  "book"
+ ],
+ "court": [
+  "park",
+  "playground",
+  "stage",
+  "floor",
+  "fire",
+  "street",
+  "ice",
+  "rock"
+ ],
+ "cow": [
+  "fence",
+  "ball",
+  "tree",
+  "toy",
+  "blanket",
+  "pole",
+  "camera",
+  "horse"
+ ],
+ "cup": [
+  "glasses",
+  "table",
+  "window",
+  "hat",
+  "sweater",
+  "pants",
+  "phone",
+  "flag"
+ ],
+ "desert": [
+  "sky",
+  "mountain",
+  "path",
+  "rock",
+  "street",
+  "park",
+  "forest",
+  "ice"
+ ],
+ "dirt": [
+  "forest",
+  "path",
+  "track",
+  "desert",
+  "snow",
+  "mountain",
+  "sky",
+  "mud"
+ ],
+ "dock": [
+  "boat",
+  "pool",
+  "fountain",
+  "bottle",
+  "raft",
+  "bucket",
+  "fish",
+  "bird"
+ ],
+ "dog": [
+  "bird",
+  "bush",
+  "hose",
+  "flower",
+  "tree",
+  "ball",
+  "leaf",
+  "stick"
+ ],
+ "door": [
+  "window",
+  "flag",
+  "table",
+  "cart",
+  "sign",
+  "dress",
+  "wall",
+  "building"
+ ],
+ "dress": [
+  "shirt",
+  "table",
+  "costume",
+  "flag",
+  "building",
+  "umbrella",
+  "guitar",
+  "jacket"
+ ],
+ "duck": [
+  "stick",
+  "leash",
+  "frisbee",
+  "bird",
+  "collar",
+  "toy",
+  "hose",
+  "cat"
+ ],
+ "elephant": [
+  "scooter",
+  "building",
+  "car",
+  "umbrella",
+  "bag",
+  "phone",
+  "sign",
+  "costume"
+ ],
+ "fence": [
+  "ball",
+  "tree",
+  "pole",
+  "toy",
+  "house",
+  "cow",
+  "camera",
+  "stick"
+ ],
+ "field": [
+  "yard",
+  "garden",
+  "snow",
+  "grass",
+  "water",
+  "forest",
+  "park",
+  "track"
+ ],
+ "fire": [
+  "floor",
+  "stage",
+  "ice",
+  "park",
+  "street",
+  "sidewalk",
+  "playground",
+  "rock"
+ ],
+ "fish": [
+  "bridge",
+  "dock",
+  "suit",
+  "boat",
+  "pool",
+  "slide",
+  "hat",
+  "swimsuit"
+ ],
+ "flag": [
+  "dress",
+  "sign",
+  "umbrella",
+  "table",
+  "window",
+  "costume",
+  "hat",
+  "camera"
+ ],
+ "floor": [
+  "stage",
+  "park",
+  "fire",
+  "street",
+  "ice",
+  "rock",
+  "sidewalk",
+  "playground"
+ ],
+ "flower": [
+  "camera",
+  "tree",
+  "bush",
+  "ball",
+  "shirt",
+  "house",
+  "sweater",
+  "fence"
+ ],
+ "forest": [
+  "dirt",
+  "path",
+  "desert",
+  "mountain",
+  "snow",
+  "track",
+  "sky",
+  "park"
+ ],
+ "fountain": [
+  "bottle",
+  "pool",
+  "dock",
+  "bucket",
+  "boat",
+  "bridge",
+  "raft",
+  "slide"
+ ],
+ "frisbee": [
+  "leash",
+  "collar",
+  "toy",
+  "cat",
+  "stick",
+  "sheep",
+  "hurdle",
+  "ball"
+ ],
+ "garden": [
+  "park",
+  "floor",
+  "water",
+  "yard",
+  "snow",
+  "street",
+  "fire",
+  "stage"
+ ],
+ "glasses": [
+  "pants",
+  "sweater",
+  "cup",
+  "hat",
+  "shorts",
+  "table",
+  "camera",
+  "bag"
+ ],
+ "glove": [
+  "sign",
+  "glasses",
+  "hat",
+  "cup",
+  "scarf",
+  "flag",
+  "camera",
+  "pants"
+ ],
+ "goat": [
+  "fence",
+  "ball",
+  "toy",
+  "camera",
+  "house",
+  "tree",
+  "blanket",
+  "flower"
+ ],
+ "goggles": [
+  "suit",
+  "slide",
+  "pool",
+  "shirt",
+  "bottle",
+  "chair",
+  "table",
+  "statue"
+ ],
+ "grass": [
+  "yard",
+  "snow",
+  "field",
+  "garden",
+  "sand",
+  "water",
+  "forest",
+  "pond"
+ ],
+ "guitar": [
+  "table",
+  "dress",
+  "costume",
+  "glasses",
+  "cart",
+  "chair",
+  "window",
+  "camera"
+ ],
+ "harness": [
+  "stick",
+  "fence",
+  "toy",
+  "pole",
+  "cow",
+  "ball",
+  "rope",
+  "tree"
+ ],
+ "hat": [
+  "sweater",
+  "pants",
+  "building",
+  "glasses",
+  "camera",
+  "sign",
+  "table",
+  "skirt"
+ ],
+ "headband": [
+  "hat",
+  "skirt",
+  "flag",
+  "sign",
+  "dress",
+  "glasses",
+  "building",
+  "sweater"
+ ],
+ "helmet": [
+  "wheel",
+  "motorcycle",
+  "backpack",
+  "unicycle",
+  "hat",
+  "ramp",
+  "bicycle",
+  "sign"
+ ],
+ "hoop": [
+  "camera",
+  "table",
+  "swing",
+  "flag",
+  "dress",
+  "chair",
+  "trampoline",
+  "skirt"
+ ],
+ "horse": [
+  "camera",
+  "shirt",
+  "tent",
+  "jacket",
+  "dress",
+  "hat",
+  "chair",
+  "table"
+ ],
+ "hose": [
+  "sprinkler",
+  "bird",
+  "stick",
+  "pool",
+  "fountain",
+  "dock",
+  "bucket",
+  "bottle"
+ ],
+ "house": [
+  "camera",
+  "chair",
+  "trampoline",
+  "tent",
+  "window",
+  "tree",
+  "hat",
+  "fence"
+ ],
+ "hurdle": [
+  "frisbee",
+  "leash",
+  "toy",
+  "stick",
+  "collar",
+  "cow",
+  "sheep",
+  "cat"
+ ],
+ "ice": [
+  "mountain",
+  "sky",
+  "stage",
+  "rock",
+  "fire",
+  "floor",
+  "park",
+  "street"
+ ],
+ "jacket": [
+  "shirt",
+  "dress",
+  "building",
+  "hat",
+  "camera",
+  "table",
+  "backpack",
+  "window"
+ ],
+ "kayak": [
+  "raft",
+  "boat",
+  "canoe",
+  "dock",
+  "pool",
+  "bucket",
+  "fish",
+  "fountain"
+ ],
+ "kite": [
+  "shirt",
+  "flower",
+  "tent",
+  "jacket",
+  "camera",
+  "suit",
+  "dress",
+  "horse"
+ ],
+ "ladder": [
+  "bridge",
+  "camera",
+  "glasses",
+  "shoe",
+  "rope",
+  "jacket",
+  "shirt",
+  "chair"
+ ],
+ "lake": [
+  "river",
+  "stream",
+  "ocean",
+  "pond",
+  "puddle",
+  "beach",
+  "shore",
+  "wave"
+ ],
+ "leaf": [
+  "tree",
+  "fence",
+  "stick",
+  "toy",
+  "bush",
+  "log",
+  "leash",
+  "ball"
+ ],
+ "leash": [
+  "toy",
+  "frisbee",
+  "stick",
+  "collar",
+  "fence",
+  "cat",
+  "hurdle",
+  "ball"
+ ],
+ "log": [
+  "branch",
+  "stick",
+  "leaf",
+  "leash",
+  "toy",
+  "frisbee",
+  "collar",
+  "fence"
+ ],
+ "mask": [
+  "dress",
+  "costume",
+  "guitar",
+  "table",
+  "umbrella",
+  "camera",
+  "building",
+  "flag"
+ ],
+ "microphone": [
+  "guitar",
+  "chair",
+  "mask",
+  "table",
+  "costume",
+  "trampoline",
+  "dress",
+  "couch"
+ ],
+ "motorcycle": [
+  "helmet",
+  "wheel",
+  "unicycle",
+  "bicycle",
+  "car",
+  "ramp",
+  "shirt",
+  "backpack"
+ ],
+ "mountain": [
+  "ice",
+  "sky",
+  "street",
+  "desert",
+  "rock",
+  "park",
+  "path",
+  "stage"
+ ],
+ "mud": [
+  "track",
+  "path",
+  "dirt",
+  "puddle",
+  "lake",
+  "river",
+  "forest",
+  "ocean"
+ ],
+ "muzzle": [
+  "collar",
+  "frisbee",
+  "leash",
+  "toy",
+  "hurdle",
+  "sheep",
+  "stick",
+  "cat"
+ ],
+ "net": [
+  "uniform",
+  "swing",
+  "shirt",
+  "flag",
+  "dress",
+  "hoop",
+  "racket",
+  "glove"
+ ],
+ "newspaper": [
+  "bag",
+  "skirt",
+  "pants",
+  "sign",
+  "building",
+  "umbrella",
+  "shoe",
+  "sweater"
+ ],
+ "ocean": [
+  "shore",
+  "lake",
+  "river",
+  "wave",
+  "beach",
+  "stream",
+  "puddle",
+  "sand"
+ ],
+ "pants": [
+  "glasses",
+  "hat",
+  "shorts",
+  "camera",
+  "sweater",
+  "bag",
+  "skirt",
+  "building"
+ ],
+ "park": [
+  "street",
+  "floor",
+  "stage",
+  "fire",
+  "ice",
+  "rock",
+  "playground",
+  "sidewalk"
+ ],
+ "path": [
+  "track",
+  "desert",
+  "forest",
+  "mountain",
+  "sky",
+  "dirt",
+  "snow",
+  "rock"
+ ],
+ "phone": [
+  "sign",
+  "building",
+  "bag",
+  "umbrella",
+  "hat",
+  "skirt",
+  "window",
+  "table"
+ ],
+ "plate": [
+  "camera",
+  "couch",
+  "bed",
+  "hoop",
+  "uniform",
+  "shirt",
+  "table",
+  "swing"
+ ],
+ "playground": [
+  "park",
+  "stage",
+  "floor",
+  "fire",
+  "street",
+  "court",
+  "ice",
+  "rock"
+ ],
+ "pole": [
+  "camera",
+  "fence",
+  "tree",
+  "jacket",
+  "building",
+  "tent",
+  "pants",
+  "rope"
+ ],
+ "pond": [
+  "stream",
+  "river",
+  "lake",
+  "puddle",
+  "shore",
+  "beach",
+  "ocean",
+  "mud"
+ ],
+ "pool": [
+  "bottle",
+  "fountain",
+  "dock",
+  "boat",
+  "bucket",
+  "bridge",
+  "slide",
+  "suit"
+ ],
+ "puddle": [
+  "lake",
+  "river",
+  "pond",
+  "stream",
+  "ocean",
+  "mud",
+  "shore",
+  "beach"
+ ],
+ "racket": [
+  "uniform",
+  "bat",
+  "swing",
+  "net",
+  "hoop",
+  "headband",
+  "shorts",
+  "flag"
+ ],
+ "raft": [
+  "boat",
+  "kayak",
+  "canoe",
+  "dock",
+  "pool",
+  "fish",
+  "fountain",
+  "bottle"
+ ],
+ "railing": [
+  "ramp",
+  "pants",
+  "building",
+  "stairs",
+  "hat",
+  "skateboard",
+  "wall",
+  "table"
+ ],
+ "ramp": [
+  "railing",
+  "stairs",
+  "helmet",
+  "pants",
+  "wall",
+  "hat",
+  "building",
+  "shirt"
+ ],
+ "river": [
+  "lake",
+  "pond",
+  "stream",
+  "ocean",
+  "puddle",
+  "shore",
+  "beach",
+  "waterfall"
+ ],
+ "rock": [
+  "sky",
+  "ice",
+  "park",
+  "street",
+  "stage",
+  "floor",
+  "mountain",
+  "desert"
+ ],
+ "rope": [
+  "wall",
+  "camera",
+  "shorts",
+  "chair",
+  "shirt",
+  "bridge",
+  "jacket",
+  "backpack"
+ ],
+ "sand": [
+  "shore",
+  "water",
+  "ocean",
+  "beach",
+  "snow",
+  "yard",
+  "track",
+  "grass"
+ ],
+ "scarf": [
+  "sign",
+  "dress",
+  "sweater",
+  "costume",
+  "building",
+  "bag",
+  "umbrella",
+  "flag"
+ ],
+ "scooter": [
+  "car",
+  "sign",
+  "building",
+  "umbrella",
+  "bag",
+  "skirt",
+  "unicycle",
+  "jacket"
+ ],
+ "sheep": [
+  "frisbee",
+  "toy",
+  "leash",
+  "ball",
+  "stick",
+  "fence",
+  "collar",
+  "hurdle"
+ ],
+ "shirt": [
+  "dress",
+  "jacket",
+  "shoe",
+  "table",
+  "building",
+  "statue",
+  "flag",
+  "hat"
+ ],
+ "shoe": [
+  "shirt",
+  "building",
+  "hat",
+  "table",
+  "sweater",
+  "dress",
+  "glasses",
+  "camera"
+ ],
+ "shore": [
+  "ocean",
+  "sand",
+  "lake",
+  "beach",
+  "wave",
+  "river",
+  "pond",
+  "water"
+ ],
+ "shorts": [
+  "pants",
+  "glasses",
+  "bubble",
+  "hat",
+  "camera",
+  "skirt",
+  "balloon",
+  "table"
+ ],
+ "sidewalk": [
+  "city",
+  "street",
+  "stage",
+  "park",
+  "floor",
+  "fire",
+  "rock",
+  "desert"
+ ],
+ "sign": [
+  "bag",
+  "phone",
+  "building",
+  "hat",
+  "umbrella",
+  "skirt",
+  "scarf",
+  "sweater"
+ ],
+ "skateboard": [
+  "pants",
+  "railing",
+  "shoe",
+  "glasses",
+  "table",
+  "building",
+  "hat",
+  "wall"
+ ],
+ "ski": [
+  "snowboard",
+  "backpack",
+  "sled",
+  "jacket",
+  "glove",
+  "tent",
+  "hat",
+  "shirt"
+ ],
+ "skirt": [
+  "bag",
+  "sign",
+  "hat",
+  "pants",
+  "phone",
+  "glasses",
+  "building",
+  "sweater"
+ ],
+ "sky": [
+  "ice",
+  "rock",
+  "mountain",
+  "desert",
+  "street",
+  "park",
+  "cloud",
+  "stage"
+ ],
+ "sled": [
+  "ski",
+  "snowboard",
+  "backpack",
+  "jacket",
+  "tree",
+  "pole",
+  "fence",
+  "tent"
+ ],
+ "slide": [
+  "chair",
+  "bubble",
+  "trampoline",
+  "table",
+  "camera",
+  "hat",
+  "suit",
+  "shorts"
+ ],
+ "snow": [
+  "sky",
+  "forest",
+  "path",
+  "desert",
+  "water",
+  "floor",
+  "rock",
+  "dirt"
+ ],
+ "snowboard": [
+  "ski",
+  "sled",
+  "backpack",
+  "jacket",
+  "hat",
+  "glove",
+  "sweater",
+  "scarf"
+ ],
+ "sprinkler": [
+  "hose",
+  "fountain",
+  "pool",
+  "bird",
+  "dock",
+  "bucket",
+  "bottle",
+  "boat"
+ ],
+ "stage": [
+  "floor",
+  "fire",
+  "park",
+  "street",
+  "ice",
+  "rock",
+  "sidewalk",
+  "playground"
+ ],
+ "stairs": [
+  "wall",
+  "railing",
+  "ramp",
+  "chair",
+  "window",
+  "door",
+  "shirt",
+  "building"
+ ],
+ "statue": [
+  "table",
+  "dress",
+  "cart",
+  "shirt",
+  "hat",
+  "window",
+  "costume",
+  "flag"
+ ],
+ "stick": [
+  "toy",
+  "leash",
+  "ball",
+  "frisbee",
+  "fence",
+  "harness",
+  "tree",
+  "blanket"
+ ],
+ "stream": [
+  "lake",
+  "pond",
+  "river",
+  "puddle",
+  "ocean",
+  "beach",
+  "shore",
+  "waterfall"
+ ],
+ "street": [
+  "park",
+  "stage",
+  "floor",
+  "fire",
+  "ice",
+  "mountain",
+  "rock",
+  "sidewalk"
+ ],
+ "stroller": [
+  "table",
+  "camera",
+  "tent",
+  "couch",
+  "glasses",
+  "window",
+  "chair",
+  "pants"
+ ],
+ "suit": [
+  "shirt",
+  "dress",
+  "table",
+  "hat",
+  "statue",
+  "chair",
+  "slide",
+  "jacket"
+ ],
+ "surfboard": [
+  "swimsuit",
+  "bikini",
+  "suit",
+  "bucket",
+  "boat",
+  "pool",
+  "fish",
+  "kayak"
+ ],
+ "sweater": [
+  "hat",
+  "glasses",
+  "bag",
+  "building",
+  "pants",
+  "sign",
+  "camera",
+  "shoe"
+ ],
+ "swimsuit": [
+  "surfboard",
+  "bikini",
+  "pool",
+  "suit",
+  "fish",
+  "boat",
+  "bucket",
+  "dock"
+ ],
+ "swing": [
+  "shorts",
+  "glasses",
+  "hoop",
+  "pants",
+  "camera",
+  "shoe",
+  "slide",
+  "cup"
+ ],
+ "table": [
+  "dress",
+  "hat",
+  "window",
+  "camera",
+  "guitar",
+  "building",
+  "glasses",
+  "couch"
+ ],
+ "tent": [
+  "camera",
+  "table",
+  "hat",
+  "chair",
+  "glasses",
+  "couch",
+  "pants",
+  "jacket"
+ ],
+ "tire": [
+  "wheel",
+  "shirt",
+  "jacket",
+  "camera",
+  "horse",
+  "cart",
+  "hat",
+  "car"
+ ],
+ "towel": [
+  "bed",
+  "couch",
+  "shorts",
+  "camera",
+  "bandanna",
+  "tent",
+  "glasses",
+  "skirt"
+ ],
+ "toy": [
+  "leash",
+  "stick",
+  "frisbee",
+  "fence",
+  "ball",
+  "blanket",
+  "cow",
+  "sheep"
+ ],
+ "track": [
+  "path",
+  "desert",
+  "forest",
+  "dirt",
+  "street",
+  "mountain",
+  "mud",
+  "floor"
+ ],
+ "train": [
+  "table",
+  "window",
+  "cart",
+  "dress",
+  "cup",
+  "shirt",
+  "hat",
+  "phone"
+ ],
+ "trampoline": [
+  "chair",
+  "table",
+  "window",
+  "dress",
+  "flag",
+  "slide",
+  "camera",
+  "cart"
+ ],
+ "tree": [
+  "camera",
+  "bush",
+  "fence",
+  "pole",
+  "jacket",
+  "tent",
+  "flower",
+  "house"
+ ],
+ "truck": [
+  "wheel",
+  "cart",
+  "car",
+  "door",
+  "train",
+  "umbrella",
+  "sign",
+  "bus"
+ ],
+ "tube": [
+  "plate",
+  "slide",
+  "bridge",
+  "bubble",
+  "shorts",
+  "camera",
+  "bed",
+  "couch"
+ ],
+ "tunnel": [
+  "camera",
+  "slide",
+  "bed",
+  "plate",
+  "couch",
+  "tent",
+  "pants",
+  "pole"
+ ],
+ "umbrella": [
+  "sign",
+  "building",
+  "dress",
+  "phone",
+  "flag",
+  "bag",
+  "costume",
+  "table"
+ ],
+ "unicycle": [
+  "helmet",
+  "scooter",
+  "wheel",
+  "car",
+  "bicycle",
+  "jacket",
+  "building",
+  "shoe"
+ ],
+ "uniform": [
+  "net",
+  "racket",
+  "swing",
+  "flag",
+  "hoop",
+  "headband",
+  "camera",
+  "shirt"
+ ],
+ "vest": [
+  "sweater",
+  "camera",
+  "pole",
+  "bag",
+  "hat",
+  "pants",
+  "bush",
+  "sign"
+ ],
+ "wall": [
+  "hat",
+  "pants",
+  "window",
+  "chair",
+  "glasses",
+  "shirt",
+  "building",
+  "camera"
+ ],
+ "water": [
+  "floor",
+  "sky",
+  "park",
+  "ice",
+  "rock",
+  "beach",
+  "snow",
+  "sand"
+ ],
+ "waterfall": [
+  "cliff",
+  "rock",
+  "sky",
+  "ice",
+  "mountain",
+  "stage",
+  "desert",
+  "park"
+ ],
+ "wave": [
+  "ocean",
+  "beach",
+  "shore",
+  "rock",
+  "lake",
+  "sky",
+  "water",
+  "stage"
+ ],
+ "wheel": [
+  "helmet",
+  "cart",
+  "car",
+  "sign",
+  "unicycle",
+  "dress",
+  "tire",
+  "hat"
+ ],
+ "window": [
+  "table",
+  "cart",
+  "door",
+  "flag",
+  "dress",
+  "hat",
+  "phone",
+  "cup"
+ ],
+ "yard": [
+  "field",
+  "grass",
+  "garden",
+  "snow",
+  "water",
+  "park",
+  "floor",
+  "sand"
+ ]
+}

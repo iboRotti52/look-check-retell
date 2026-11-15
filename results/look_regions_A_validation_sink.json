@@ -1,0 +1,988 @@
+{
+ "select": "A_B_sink",
+ "report": "A_validation_sink",
+ "metric_version": "auroc_average_ties_v2",
+ "chosen": "ratio(alpha=0.5, gamma=0.5)",
+ "chosen_cfg": [
+  "ratio",
+  0.5,
+  0.5,
+  false
+ ],
+ "references_select": {
+  "detector_B3": 82.90915846182426,
+  "oracle": 94.89132454021922,
+  "auroc_detector_B3": 0.7174395066867877
+ },
+ "references_report": {
+  "detector_B3": 82.72980501392759,
+  "oracle": 95.26462395543176,
+  "auroc_detector_B3": 0.7439553550272491
+ },
+ "grid_on_select": [
+  {
+   "cfg": "ratio(alpha=0.5, gamma=0.5)",
+   "n": 5383,
+   "region": 74.64239271781534,
+   "miou": 0.7033713459968567,
+   "region_person": 68.27094474153299,
+   "region_thing": 80.29134532990574,
+   "region_stuff": 76.0248447204969,
+   "auroc_thing_stuff": 0.7062837591715668
+  },
+  {
+   "cfg": "ratio(alpha=0.5, gamma=0.5, peak)",
+   "n": 5383,
+   "region": 72.45030652052759,
+   "miou": 0.689132809638977,
+   "region_person": 69.91978609625669,
+   "region_thing": 74.764353041988,
+   "region_stuff": 72.79503105590062,
+   "auroc_thing_stuff": 0.6905450902846438
+  },
+  {
+   "cfg": "ratio(alpha=0.25, gamma=0.5)",
+   "n": 5383,
+   "region": 71.05703139513282,
+   "miou": 0.6821571588516235,
+   "region_person": 66.0873440285205,
+   "region_thing": 74.16452442159382,
+   "region_stuff": 75.90062111801242,
+   "auroc_thing_stuff": 0.7118202633085289
+  },
+  {
+   "cfg": "ratio(alpha=0.5, gamma=1, peak)",
+   "n": 5383,
+   "region": 70.68549136169422,
+   "miou": 0.6774235367774963,
+   "region_person": 70.05347593582889,
+   "region_thing": 71.97943444730078,
+   "region_stuff": 68.69565217391305,
+   "auroc_thing_stuff": 0.6942688765155851
+  },
+  {
+   "cfg": "excess(beta=0.5, gamma=1)",
+   "n": 5383,
+   "region": 70.35110533159948,
+   "miou": 0.6766775250434875,
+   "region_person": 67.7361853832442,
+   "region_thing": 71.2082262210797,
+   "region_stuff": 75.15527950310559,
+   "auroc_thing_stuff": 0.7226304834261331
+  },
+  {
+   "cfg": "ratio(alpha=0.25, gamma=1)",
+   "n": 5383,
+   "region": 69.55229425970649,
+   "miou": 0.6718306541442871,
+   "region_person": 66.44385026737967,
+   "region_thing": 73.60754070265638,
+   "region_stuff": 66.45962732919256,
+   "auroc_thing_stuff": 0.7139433834625591
+  },
+  {
+   "cfg": "ratio(alpha=0.75, gamma=1, peak)",
+   "n": 5383,
+   "region": 69.05071521456438,
+   "miou": 0.6623885631561279,
+   "region_person": 65.9536541889483,
+   "region_thing": 72.70779777206512,
+   "region_stuff": 67.08074534161491,
+   "auroc_thing_stuff": 0.6832871936306395
+  },
+  {
+   "cfg": "excess(beta=0.5, gamma=0.5)",
+   "n": 5383,
+   "region": 69.03213821289243,
+   "miou": 0.667160153388977,
+   "region_person": 65.9982174688057,
+   "region_thing": 69.40874035989717,
+   "region_stuff": 76.3975155279503,
+   "auroc_thing_stuff": 0.7173606702398918
+  },
+  {
+   "cfg": "ratio(alpha=0.25, gamma=1, peak)",
+   "n": 5383,
+   "region": 68.92067620286085,
+   "miou": 0.6678649187088013,
+   "region_person": 69.4741532976827,
+   "region_thing": 68.25192802056556,
+   "region_stuff": 69.3167701863354,
+   "auroc_thing_stuff": 0.704039652391112
+  },
+  {
+   "cfg": "ratio(alpha=0.5, gamma=1)",
+   "n": 5383,
+   "region": 68.883522199517,
+   "miou": 0.6625404953956604,
+   "region_person": 63.27985739750446,
+   "region_thing": 77.07797772065125,
+   "region_stuff": 60.745341614906835,
+   "auroc_thing_stuff": 0.6976624863402195
+  },
+  {
+   "cfg": "excess(beta=0.5, gamma=2, peak)",
+   "n": 5383,
+   "region": 68.56771317109418,
+   "miou": 0.6642650961875916,
+   "region_person": 70.90017825311944,
+   "region_thing": 66.40959725792631,
+   "region_stuff": 68.32298136645963,
+   "auroc_thing_stuff": 0.7083342873497425
+  },
+  {
+   "cfg": "ratio(alpha=0.5, gamma=2, peak)",
+   "n": 5383,
+   "region": 68.5119821660784,
+   "miou": 0.6621609926223755,
+   "region_person": 69.07308377896612,
+   "region_thing": 69.1516709511568,
+   "region_stuff": 65.09316770186335,
+   "auroc_thing_stuff": 0.6971314461154187
+  },
+  {
+   "cfg": "excess(beta=0.5, gamma=1, peak)",
+   "n": 5383,
+   "region": 68.40052015604682,
+   "miou": 0.6638667583465576,
+   "region_person": 69.16221033868094,
+   "region_thing": 66.49528706083976,
+   "region_stuff": 71.80124223602485,
+   "auroc_thing_stuff": 0.7089366186189312
+  },
+  {
+   "cfg": "ratio(alpha=0.25, gamma=0.5, peak)",
+   "n": 5383,
+   "region": 68.34478915103102,
+   "miou": 0.6646919846534729,
+   "region_person": 65.73083778966132,
+   "region_thing": 69.58011996572408,
+   "region_stuff": 72.04968944099379,
+   "auroc_thing_stuff": 0.6973146172659624
+  },
+  {
+   "cfg": "ratio(alpha=0.25, gamma=2, peak)",
+   "n": 5383,
+   "region": 68.21475013932752,
+   "miou": 0.6614678502082825,
+   "region_person": 70.18716577540107,
+   "region_thing": 67.30934018851757,
+   "region_stuff": 65.3416149068323,
+   "auroc_thing_stuff": 0.7040232606546287
+  },
+  {
+   "cfg": "ratio(alpha=0.75, gamma=2, peak)",
+   "n": 5383,
+   "region": 68.14044213263979,
+   "miou": 0.6576014757156372,
+   "region_person": 67.60249554367202,
+   "region_thing": 70.22279348757498,
+   "region_stuff": 63.60248447204969,
+   "auroc_thing_stuff": 0.6921767185304678
+  },
+  {
+   "cfg": "excess(beta=1.0, gamma=0.5)",
+   "n": 5383,
+   "region": 67.69459409251347,
+   "miou": 0.6592841148376465,
+   "region_person": 69.11764705882352,
+   "region_thing": 73.09340188517567,
+   "region_stuff": 48.07453416149068,
+   "auroc_thing_stuff": 0.6917474111463808
+  },
+  {
+   "cfg": "excess(beta=0.5, gamma=2)",
+   "n": 5383,
+   "region": 67.54597807913802,
+   "miou": 0.6560711860656738,
+   "region_person": 64.39393939393939,
+   "region_thing": 71.67952013710368,
+   "region_stuff": 64.34782608695652,
+   "auroc_thing_stuff": 0.718001769266795
+  },
+  {
+   "cfg": "excess(beta=1.0, gamma=1)",
+   "n": 5383,
+   "region": 67.5274010774661,
+   "miou": 0.6549919843673706,
+   "region_person": 68.36007130124777,
+   "region_thing": 72.70779777206512,
+   "region_stuff": 50.18633540372671,
+   "auroc_thing_stuff": 0.7073049903731071
+  },
+  {
+   "cfg": "excess(beta=1.0, gamma=2, peak)",
+   "n": 5383,
+   "region": 67.37878506409065,
+   "miou": 0.6534427404403687,
+   "region_person": 70.36541889483065,
+   "region_thing": 67.00942587832049,
+   "region_stuff": 60.12422360248447,
+   "auroc_thing_stuff": 0.6998064213977208
+  },
+  {
+   "cfg": "excess(beta=1.0, gamma=1, peak)",
+   "n": 5383,
+   "region": 67.34163106074679,
+   "miou": 0.6551533341407776,
+   "region_person": 69.91978609625669,
+   "region_thing": 68.29477292202229,
+   "region_stuff": 57.391304347826086,
+   "auroc_thing_stuff": 0.6913912161107353
+  },
+  {
+   "cfg": "excess(beta=0.5, gamma=0.5, peak)",
+   "n": 5383,
+   "region": 66.52424298718186,
+   "miou": 0.6503386497497559,
+   "region_person": 65.32976827094474,
+   "region_thing": 65.38131962296487,
+   "region_stuff": 73.16770186335404,
+   "auroc_thing_stuff": 0.704051100588021
+  },
+  {
+   "cfg": "excess(beta=1.0, gamma=0.5, peak)",
+   "n": 5383,
+   "region": 66.487088983838,
+   "miou": 0.6510604619979858,
+   "region_person": 68.53832442067737,
+   "region_thing": 68.72322193658955,
+   "region_stuff": 54.285714285714285,
+   "auroc_thing_stuff": 0.6810935629911016
+  },
+  {
+   "cfg": "ratio(alpha=0.75, gamma=0.5, peak)",
+   "n": 5383,
+   "region": 65.7997399219766,
+   "miou": 0.6356645226478577,
+   "region_person": 58.02139037433155,
+   "region_thing": 71.55098543273351,
+   "region_stuff": 70.80745341614907,
+   "auroc_thing_stuff": 0.6774743716501015
+  },
+  {
+   "cfg": "excess(beta=1.0, gamma=2)",
+   "n": 5383,
+   "region": 64.61081181497306,
+   "miou": 0.6312383413314819,
+   "region_person": 62.56684491978609,
+   "region_thing": 71.12253641816623,
+   "region_stuff": 51.42857142857142,
+   "auroc_thing_stuff": 0.7149763230473019
+  },
+  {
+   "cfg": "cam(tau=0.1, gamma=1)",
+   "n": 5383,
+   "region": 63.10607467954672,
+   "miou": 0.6184519529342651,
+   "region_person": 59.40285204991087,
+   "region_thing": 72.57926306769494,
+   "region_stuff": 45.962732919254655,
+   "auroc_thing_stuff": 0.6528927512098662
+  },
+  {
+   "cfg": "ratio(alpha=0.25, gamma=2)",
+   "n": 5383,
+   "region": 62.93888166449935,
+   "miou": 0.6231088638305664,
+   "region_person": 59.09090909090909,
+   "region_thing": 72.19365895458441,
+   "region_stuff": 46.83229813664596,
+   "auroc_thing_stuff": 0.6931209345891658
+  },
+  {
+   "cfg": "ratio(alpha=0.75, gamma=0.5)",
+   "n": 5383,
+   "region": 61.58276054244845,
+   "miou": 0.5991383194923401,
+   "region_person": 46.657754010695186,
+   "region_thing": 74.1216795201371,
+   "region_stuff": 66.83229813664596,
+   "auroc_thing_stuff": 0.6841148462299006
+  },
+  {
+   "cfg": "cam(tau=0.1, gamma=2)",
+   "n": 5383,
+   "region": 61.58276054244845,
+   "miou": 0.6080031394958496,
+   "region_person": 58.06595365418895,
+   "region_thing": 71.72236503856041,
+   "region_stuff": 41.98757763975156,
+   "auroc_thing_stuff": 0.654410938231774
+  },
+  {
+   "cfg": "ratio(alpha=0.75, gamma=1)",
+   "n": 5383,
+   "region": 61.00687349061862,
+   "miou": 0.5976964831352234,
+   "region_person": 48.79679144385027,
+   "region_thing": 76.04970008568979,
+   "region_stuff": 51.42857142857142,
+   "auroc_thing_stuff": 0.6799799656554093
+  },
+  {
+   "cfg": "ratio(alpha=0.5, gamma=2)",
+   "n": 5383,
+   "region": 59.87367638863087,
+   "miou": 0.5961222648620605,
+   "region_person": 52.361853832442065,
+   "region_thing": 73.35047129391602,
+   "region_stuff": 41.73913043478261,
+   "auroc_thing_stuff": 0.6787890929905812
+  },
+  {
+   "cfg": "cam(tau=0.2, gamma=2)",
+   "n": 5383,
+   "region": 59.01913431172209,
+   "miou": 0.5877915024757385,
+   "region_person": 53.38680926916221,
+   "region_thing": 69.06598114824337,
+   "region_stuff": 45.590062111801245,
+   "auroc_thing_stuff": 0.6557584430452204
+  },
+  {
+   "cfg": "cam(tau=0.3, gamma=2)",
+   "n": 5383,
+   "region": 58.981980308378226,
+   "miou": 0.5861216187477112,
+   "region_person": 52.584670231729056,
+   "region_thing": 67.86632390745501,
+   "region_stuff": 51.05590062111801,
+   "auroc_thing_stuff": 0.6590958526304834
+  },
+  {
+   "cfg": "cam(tau=0.5, gamma=2)",
+   "n": 5383,
+   "region": 58.70332528329928,
+   "miou": 0.5825913548469543,
+   "region_person": 52.450980392156865,
+   "region_thing": 66.45244215938303,
+   "region_stuff": 53.66459627329192,
+   "auroc_thing_stuff": 0.6724858198470105
+  },
+  {
+   "cfg": "cam(tau=0.1, gamma=0.5)",
+   "n": 5383,
+   "region": 58.406093256548395,
+   "miou": 0.5872007608413696,
+   "region_person": 52.62923351158645,
+   "region_thing": 69.23736075407027,
+   "region_stuff": 43.1055900621118,
+   "auroc_thing_stuff": 0.6456923557267004
+  },
+  {
+   "cfg": "cam(tau=0.2, gamma=1)",
+   "n": 5383,
+   "region": 56.734163106074675,
+   "miou": 0.5675898194313049,
+   "region_person": 48.97504456327986,
+   "region_thing": 68.59468723221937,
+   "region_stuff": 43.975155279503106,
+   "auroc_thing_stuff": 0.6507787375761045
+  },
+  {
+   "cfg": "ratio(alpha=0.25, gamma=0)",
+   "n": 5383,
+   "region": 56.604124094371166,
+   "miou": 0.593264102935791,
+   "region_person": 43.716577540106954,
+   "region_thing": 63.239074550128535,
+   "region_stuff": 73.29192546583852,
+   "auroc_thing_stuff": 0.6559835041889993
+  },
+  {
+   "cfg": "excess(beta=1.5, gamma=1, peak)",
+   "n": 5383,
+   "region": 56.30689206762028,
+   "miou": 0.5689104199409485,
+   "region_person": 54.90196078431373,
+   "region_thing": 63.96743787489289,
+   "region_stuff": 38.01242236024845,
+   "auroc_thing_stuff": 0.6382263100379872
+  },
+  {
+   "cfg": "excess(beta=0.5, gamma=0)",
+   "n": 5383,
+   "region": 56.26973806427643,
+   "miou": 0.5914035439491272,
+   "region_person": 47.45989304812834,
+   "region_thing": 59.168808911739504,
+   "region_stuff": 72.4223602484472,
+   "auroc_thing_stuff": 0.6651771868657959
+  },
+  {
+   "cfg": "excess(beta=1.0, gamma=0, peak)",
+   "n": 5383,
+   "region": 56.06539104588519,
+   "miou": 0.5883124470710754,
+   "region_person": 54.500891265597154,
+   "region_thing": 60.06855184233076,
+   "region_stuff": 48.81987577639752,
+   "auroc_thing_stuff": 0.6213443825779258
+  },
+  {
+   "cfg": "excess(beta=1.5, gamma=2, peak)",
+   "n": 5383,
+   "region": 56.02823704254133,
+   "miou": 0.5676035284996033,
+   "region_person": 55.65953654188949,
+   "region_thing": 62.724935732647815,
+   "region_stuff": 37.63975155279503,
+   "auroc_thing_stuff": 0.6470903366810636
+  },
+  {
+   "cfg": "excess(beta=1.0, gamma=0)",
+   "n": 5383,
+   "region": 55.69385101244659,
+   "miou": 0.5858680009841919,
+   "region_person": 55.258467023172905,
+   "region_thing": 61.61096829477292,
+   "region_stuff": 39.75155279503105,
+   "auroc_thing_stuff": 0.6129437477233699
+  },
+  {
+   "cfg": "ratio(alpha=0.75, gamma=2)",
+   "n": 5383,
+   "region": 55.52665799739922,
+   "miou": 0.5572768449783325,
+   "region_person": 44.29590017825312,
+   "region_thing": 73.00771208226222,
+   "region_stuff": 36.149068322981364,
+   "auroc_thing_stuff": 0.6720929385439975
+  },
+  {
+   "cfg": "ratio(alpha=0.25, gamma=0, peak)",
+   "n": 5383,
+   "region": 55.43377298903957,
+   "miou": 0.5851180553436279,
+   "region_person": 43.716577540106954,
+   "region_thing": 61.739502999143106,
+   "region_stuff": 69.8136645962733,
+   "auroc_thing_stuff": 0.6509613883540615
+  },
+  {
+   "cfg": "excess(beta=1.5, gamma=0.5, peak)",
+   "n": 5383,
+   "region": 55.136540962288684,
+   "miou": 0.5616756677627563,
+   "region_person": 53.20855614973262,
+   "region_thing": 63.324764353041985,
+   "region_stuff": 36.77018633540373,
+   "auroc_thing_stuff": 0.6250265390019254
+  },
+  {
+   "cfg": "excess(beta=0.5, gamma=0, peak)",
+   "n": 5383,
+   "region": 54.95077094556938,
+   "miou": 0.5822412371635437,
+   "region_person": 47.14795008912656,
+   "region_thing": 57.41216795201372,
+   "region_stuff": 69.56521739130434,
+   "auroc_thing_stuff": 0.6592589894364365
+  },
+  {
+   "cfg": "excess(beta=1.5, gamma=1)",
+   "n": 5383,
+   "region": 54.0962288686606,
+   "miou": 0.5432305335998535,
+   "region_person": 52.18360071301248,
+   "region_thing": 66.45244215938303,
+   "region_stuff": 23.60248447204969,
+   "auroc_thing_stuff": 0.6401287922152261
+  },
+  {
+   "cfg": "cam(tau=0.3, gamma=1)",
+   "n": 5383,
+   "region": 53.79899684190972,
+   "miou": 0.5436142086982727,
+   "region_person": 44.34046345811052,
+   "region_thing": 65.68123393316195,
+   "region_stuff": 45.714285714285715,
+   "auroc_thing_stuff": 0.6490560441275953
+  },
+  {
+   "cfg": "excess(beta=1.5, gamma=0.5)",
+   "n": 5383,
+   "region": 53.66895783020621,
+   "miou": 0.5419496297836304,
+   "region_person": 52.139037433155075,
+   "region_thing": 65.89545844044558,
+   "region_stuff": 22.48447204968944,
+   "auroc_thing_stuff": 0.6263084768694385
+  },
+  {
+   "cfg": "excess(beta=1.5, gamma=2)",
+   "n": 5383,
+   "region": 51.86698866802898,
+   "miou": 0.5265038013458252,
+   "region_person": 47.860962566844925,
+   "region_thing": 65.50985432733505,
+   "region_stuff": 23.47826086956522,
+   "auroc_thing_stuff": 0.6587196232502471
+  },
+  {
+   "cfg": "ratio(alpha=0.5, gamma=0)",
+   "n": 5383,
+   "region": 50.770945569385106,
+   "miou": 0.546737551689148,
+   "region_person": 41.31016042780749,
+   "region_thing": 53.04198800342759,
+   "region_stuff": 70.55900621118012,
+   "auroc_thing_stuff": 0.5794166623302285
+  },
+  {
+   "cfg": "ratio(alpha=0.5, gamma=0, peak)",
+   "n": 5383,
+   "region": 50.659483559353525,
+   "miou": 0.5466523766517639,
+   "region_person": 42.29055258467023,
+   "region_thing": 52.485004284490145,
+   "region_stuff": 68.69565217391305,
+   "auroc_thing_stuff": 0.5874613623354322
+  },
+  {
+   "cfg": "cam(tau=0.5, gamma=1)",
+   "n": 5383,
+   "region": 49.06186141556753,
+   "miou": 0.5047304034233093,
+   "region_person": 38.68092691622103,
+   "region_thing": 60.49700085689803,
+   "region_stuff": 44.84472049689441,
+   "auroc_thing_stuff": 0.6379367226934485
+  },
+  {
+   "cfg": "excess(beta=2.0, gamma=2, peak)",
+   "n": 5383,
+   "region": 48.33735835036225,
+   "miou": 0.5084595680236816,
+   "region_person": 45.94474153297683,
+   "region_thing": 56.89802913453299,
+   "region_stuff": 30.186335403726712,
+   "auroc_thing_stuff": 0.6119394286308997
+  },
+  {
+   "cfg": "excess(beta=2.0, gamma=1, peak)",
+   "n": 5383,
+   "region": 48.11443433029909,
+   "miou": 0.5068772435188293,
+   "region_person": 45.18716577540107,
+   "region_thing": 57.11225364181662,
+   "region_stuff": 30.186335403726712,
+   "auroc_thing_stuff": 0.6006710204506427
+  },
+  {
+   "cfg": "excess(beta=2.0, gamma=0.5, peak)",
+   "n": 5383,
+   "region": 47.42708526843767,
+   "miou": 0.5025469660758972,
+   "region_person": 44.02852049910874,
+   "region_thing": 56.769494430162815,
+   "region_stuff": 29.81366459627329,
+   "auroc_thing_stuff": 0.5937042722589374
+  },
+  {
+   "cfg": "cam(tau=0.2, gamma=0.5)",
+   "n": 5383,
+   "region": 47.35277726174995,
+   "miou": 0.49807825684547424,
+   "region_person": 36.987522281639926,
+   "region_thing": 62.55355612682091,
+   "region_stuff": 32.17391304347826,
+   "auroc_thing_stuff": 0.6263248686059218
+  },
+  {
+   "cfg": "excess(beta=1.5, gamma=0, peak)",
+   "n": 5383,
+   "region": 46.349619171465726,
+   "miou": 0.5074597597122192,
+   "region_person": 43.27094474153298,
+   "region_thing": 53.29905741216795,
+   "region_stuff": 34.78260869565217,
+   "auroc_thing_stuff": 0.5708565332778269
+  },
+  {
+   "cfg": "excess(beta=2.0, gamma=1)",
+   "n": 5383,
+   "region": 44.083224967490246,
+   "miou": 0.4568531811237335,
+   "region_person": 40.909090909090914,
+   "region_thing": 58.39760068551843,
+   "region_stuff": 11.428571428571429,
+   "auroc_thing_stuff": 0.5935720976218973
+  },
+  {
+   "cfg": "excess(beta=1.5, gamma=0)",
+   "n": 5383,
+   "region": 43.841723945755156,
+   "miou": 0.4818480908870697,
+   "region_person": 42.02317290552585,
+   "region_thing": 54.15595544130248,
+   "region_stuff": 19.006211180124225,
+   "auroc_thing_stuff": 0.5550580215434251
+  },
+  {
+   "cfg": "excess(beta=2.0, gamma=0.5)",
+   "n": 5383,
+   "region": 43.600222924020066,
+   "miou": 0.45496174693107605,
+   "region_person": 40.77540106951872,
+   "region_thing": 57.71208226221079,
+   "region_stuff": 10.559006211180124,
+   "auroc_thing_stuff": 0.5817489722641411
+  },
+  {
+   "cfg": "excess(beta=2.0, gamma=2)",
+   "n": 5383,
+   "region": 42.968604867174435,
+   "miou": 0.44693854451179504,
+   "region_person": 38.50267379679144,
+   "region_thing": 58.09768637532133,
+   "region_stuff": 11.5527950310559,
+   "auroc_thing_stuff": 0.6094915959827236
+  },
+  {
+   "cfg": "cam(tau=0.1, gamma=0)",
+   "n": 5383,
+   "region": 42.615641835407764,
+   "miou": 0.4852963089942932,
+   "region_person": 37.21033868092692,
+   "region_thing": 52.82776349614395,
+   "region_stuff": 28.074534161490682,
+   "auroc_thing_stuff": 0.5689694020918978
+  },
+  {
+   "cfg": "cam(tau=0.3, gamma=0.5)",
+   "n": 5383,
+   "region": 41.222366710013006,
+   "miou": 0.44718775153160095,
+   "region_person": 30.614973262032088,
+   "region_thing": 55.78406169665809,
+   "region_stuff": 28.57142857142857,
+   "auroc_thing_stuff": 0.603402716344903
+  },
+  {
+   "cfg": "excess(beta=2.0, gamma=0, peak)",
+   "n": 5383,
+   "region": 40.31209362808843,
+   "miou": 0.45698630809783936,
+   "region_person": 36.54188948306595,
+   "region_thing": 47.90059982862039,
+   "region_stuff": 28.819875776397513,
+   "auroc_thing_stuff": 0.5452287037518864
+  },
+  {
+   "cfg": "excess(beta=2.0, gamma=0)",
+   "n": 5383,
+   "region": 35.29630317666729,
+   "miou": 0.4014914631843567,
+   "region_person": 32.70944741532977,
+   "region_thing": 46.65809768637532,
+   "region_stuff": 9.565217391304348,
+   "auroc_thing_stuff": 0.5185929125253682
+  },
+  {
+   "cfg": "cam(tau=0.5, gamma=0.5)",
+   "n": 5383,
+   "region": 33.58721902284971,
+   "miou": 0.38363754749298096,
+   "region_person": 24.242424242424242,
+   "region_thing": 44.30162810625535,
+   "region_stuff": 28.57142857142857,
+   "auroc_thing_stuff": 0.5651152625279701
+  },
+  {
+   "cfg": "ratio(alpha=0.75, gamma=0, peak)",
+   "n": 5383,
+   "region": 33.32714099944269,
+   "miou": 0.40650832653045654,
+   "region_person": 27.85204991087344,
+   "region_thing": 32.77634961439589,
+   "region_stuff": 50.18633540372671,
+   "auroc_thing_stuff": 0.5165043971483583
+  },
+  {
+   "cfg": "cam(tau=0.2, gamma=0)",
+   "n": 5383,
+   "region": 29.853241686791755,
+   "miou": 0.37937286496162415,
+   "region_person": 23.796791443850267,
+   "region_thing": 38.86032562125107,
+   "region_stuff": 20.62111801242236,
+   "auroc_thing_stuff": 0.5209762189727846
+  },
+  {
+   "cfg": "ratio(alpha=0.75, gamma=0)",
+   "n": 5383,
+   "region": 24.224410180196916,
+   "miou": 0.32952022552490234,
+   "region_person": 18.805704099821746,
+   "region_thing": 25.36418166238218,
+   "region_stuff": 36.024844720496894,
+   "auroc_thing_stuff": 0.485253421449758
+  },
+  {
+   "cfg": "cam(tau=0.3, gamma=0)",
+   "n": 5383,
+   "region": 23.815716143414452,
+   "miou": 0.3267362713813782,
+   "region_person": 18.805704099821746,
+   "region_thing": 30.334190231362467,
+   "region_stuff": 18.88198757763975,
+   "auroc_thing_stuff": 0.4946771088099079
+  },
+  {
+   "cfg": "cam(tau=0.5, gamma=0)",
+   "n": 5383,
+   "region": 19.190042727103844,
+   "miou": 0.28100359439849854,
+   "region_person": 16.354723707664885,
+   "region_thing": 21.89374464438732,
+   "region_stuff": 19.25465838509317,
+   "auroc_thing_stuff": 0.4779799136181506
+  }
+ ],
+ "report_rows": [
+  {
+   "label": "R1 (round 1): excess mass",
+   "cfg": "excess(beta=1.0, gamma=0)",
+   "select": {
+    "n": 5383,
+    "region": 55.69385101244659,
+    "miou": 0.5858680009841919,
+    "region_person": 55.258467023172905,
+    "region_thing": 61.61096829477292,
+    "region_stuff": 39.75155279503105,
+    "auroc_thing_stuff": 0.6129437477233699
+   },
+   "report": {
+    "n": 1795,
+    "region": 55.71030640668524,
+    "miou": 0.5847733616828918,
+    "region_person": 52.693823915900126,
+    "region_thing": 64.1160949868074,
+    "region_stuff": 40.94202898550724,
+    "auroc_thing_stuff": 0.6475791801595451
+   }
+  },
+  {
+   "label": "best ratio + objectness (on B)",
+   "cfg": "ratio(alpha=0.5, gamma=0.5)",
+   "select": {
+    "n": 5383,
+    "region": 74.64239271781534,
+    "miou": 0.7033713459968567,
+    "region_person": 68.27094474153299,
+    "region_thing": 80.29134532990574,
+    "region_stuff": 76.0248447204969,
+    "auroc_thing_stuff": 0.7062837591715668
+   },
+   "report": {
+    "n": 1795,
+    "region": 75.26462395543176,
+    "miou": 0.7023637890815735,
+    "region_person": 66.36005256241788,
+    "region_thing": 83.7730870712401,
+    "region_stuff": 76.44927536231883,
+    "auroc_thing_stuff": 0.7402579772529816
+   }
+  },
+  {
+   "label": "best ratio + objectness + peak (on B)",
+   "cfg": "ratio(alpha=0.5, gamma=0.5, peak)",
+   "select": {
+    "n": 5383,
+    "region": 72.45030652052759,
+    "miou": 0.689132809638977,
+    "region_person": 69.91978609625669,
+    "region_thing": 74.764353041988,
+    "region_stuff": 72.79503105590062,
+    "auroc_thing_stuff": 0.6905450902846438
+   },
+   "report": {
+    "n": 1795,
+    "region": 74.09470752089136,
+    "miou": 0.6951936483383179,
+    "region_person": 67.67411300919842,
+    "region_thing": 79.68337730870712,
+    "region_stuff": 76.44927536231883,
+    "auroc_thing_stuff": 0.725142662506911
+   }
+  },
+  {
+   "label": "best excess + objectness (on B)",
+   "cfg": "excess(beta=0.5, gamma=1)",
+   "select": {
+    "n": 5383,
+    "region": 70.35110533159948,
+    "miou": 0.6766775250434875,
+    "region_person": 67.7361853832442,
+    "region_thing": 71.2082262210797,
+    "region_stuff": 75.15527950310559,
+    "auroc_thing_stuff": 0.7226304834261331
+   },
+   "report": {
+    "n": 1795,
+    "region": 70.25069637883009,
+    "miou": 0.6734613180160522,
+    "region_person": 64.5203679369251,
+    "region_thing": 74.93403693931398,
+    "region_stuff": 73.18840579710145,
+    "auroc_thing_stuff": 0.7461298475633836
+   }
+  },
+  {
+   "label": "best excess + objectness + peak (on B)",
+   "cfg": "excess(beta=0.5, gamma=2, peak)",
+   "select": {
+    "n": 5383,
+    "region": 68.56771317109418,
+    "miou": 0.6642650961875916,
+    "region_person": 70.90017825311944,
+    "region_thing": 66.40959725792631,
+    "region_stuff": 68.32298136645963,
+    "auroc_thing_stuff": 0.7083342873497425
+   },
+   "report": {
+    "n": 1795,
+    "region": 69.8050139275766,
+    "miou": 0.6721019744873047,
+    "region_person": 67.4113009198423,
+    "region_thing": 70.97625329815304,
+    "region_stuff": 73.18840579710145,
+    "auroc_thing_stuff": 0.7386956006634547
+   }
+  },
+  {
+   "label": "best cam + objectness (on B)",
+   "cfg": "cam(tau=0.1, gamma=1)",
+   "select": {
+    "n": 5383,
+    "region": 63.10607467954672,
+    "miou": 0.6184519529342651,
+    "region_person": 59.40285204991087,
+    "region_thing": 72.57926306769494,
+    "region_stuff": 45.962732919254655,
+    "auroc_thing_stuff": 0.6528927512098662
+   },
+   "report": {
+    "n": 1795,
+    "region": 63.50974930362116,
+    "miou": 0.6180404424667358,
+    "region_person": 58.47568988173456,
+    "region_thing": 75.59366754617413,
+    "region_stuff": 44.20289855072464,
+    "auroc_thing_stuff": 0.6837483216175657
+   }
+  },
+  {
+   "label": "best ratio (on B)",
+   "cfg": "ratio(alpha=0.25, gamma=0)",
+   "select": {
+    "n": 5383,
+    "region": 56.604124094371166,
+    "miou": 0.593264102935791,
+    "region_person": 43.716577540106954,
+    "region_thing": 63.239074550128535,
+    "region_stuff": 73.29192546583852,
+    "auroc_thing_stuff": 0.6559835041889993
+   },
+   "report": {
+    "n": 1795,
+    "region": 56.713091922005574,
+    "miou": 0.5941121578216553,
+    "region_person": 40.34165571616295,
+    "region_thing": 67.28232189973615,
+    "region_stuff": 72.82608695652173,
+    "auroc_thing_stuff": 0.6931744135534318
+   }
+  },
+  {
+   "label": "best excess (on B)",
+   "cfg": "excess(beta=0.5, gamma=0)",
+   "select": {
+    "n": 5383,
+    "region": 56.26973806427643,
+    "miou": 0.5914035439491272,
+    "region_person": 47.45989304812834,
+    "region_thing": 59.168808911739504,
+    "region_stuff": 72.4223602484472,
+    "auroc_thing_stuff": 0.6651771868657959
+   },
+   "report": {
+    "n": 1795,
+    "region": 54.930362116991645,
+    "miou": 0.5855523943901062,
+    "region_person": 42.31274638633377,
+    "region_thing": 60.4221635883905,
+    "region_stuff": 74.63768115942028,
+    "auroc_thing_stuff": 0.7021364821104178
+   }
+  },
+  {
+   "label": "best excess + peak (on B)",
+   "cfg": "excess(beta=1.0, gamma=0, peak)",
+   "select": {
+    "n": 5383,
+    "region": 56.06539104588519,
+    "miou": 0.5883124470710754,
+    "region_person": 54.500891265597154,
+    "region_thing": 60.06855184233076,
+    "region_stuff": 48.81987577639752,
+    "auroc_thing_stuff": 0.6213443825779258
+   },
+   "report": {
+    "n": 1795,
+    "region": 56.54596100278552,
+    "miou": 0.5889496207237244,
+    "region_person": 51.77398160315374,
+    "region_thing": 63.852242744063325,
+    "region_stuff": 49.63768115942029,
+    "auroc_thing_stuff": 0.6518343732722534
+   }
+  },
+  {
+   "label": "best ratio + peak (on B)",
+   "cfg": "ratio(alpha=0.25, gamma=0, peak)",
+   "select": {
+    "n": 5383,
+    "region": 55.43377298903957,
+    "miou": 0.5851180553436279,
+    "region_person": 43.716577540106954,
+    "region_thing": 61.739502999143106,
+    "region_stuff": 69.8136645962733,
+    "auroc_thing_stuff": 0.6509613883540615
+   },
+   "report": {
+    "n": 1795,
+    "region": 55.71030640668524,
+    "miou": 0.5877257585525513,
+    "region_person": 39.68462549277267,
+    "region_thing": 65.69920844327177,
+    "region_stuff": 72.46376811594203,
+    "auroc_thing_stuff": 0.6873593120606587
+   }
+  },
+  {
+   "label": "best cam (on B)",
+   "cfg": "cam(tau=0.1, gamma=0)",
+   "select": {
+    "n": 5383,
+    "region": 42.615641835407764,
+    "miou": 0.4852963089942932,
+    "region_person": 37.21033868092692,
+    "region_thing": 52.82776349614395,
+    "region_stuff": 28.074534161490682,
+    "auroc_thing_stuff": 0.5689694020918978
+   },
+   "report": {
+    "n": 1795,
+    "region": 43.73259052924791,
+    "miou": 0.4933325946331024,
+    "region_person": 38.501971090670175,
+    "region_thing": 52.770448548812666,
+    "region_stuff": 33.33333333333333,
+    "auroc_thing_stuff": 0.6148655319485032
+   }
+  }
+ ]
+}

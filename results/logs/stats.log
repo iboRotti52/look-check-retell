@@ -1,0 +1,5 @@
+latex  -> report/generated/data_macros.tex
+figure -> report/figures/claim_frequency.pdf
+{'n_train': 6000, 'n_validation': 1000, 'n_test': 1000, 'n_A': 3000, 'n_B': 3000, 'overlap_AB': 0, 'mean_caption_len': 10.806533333333334, 'n_classes': 169, 'n_surface': 316, 'n_person': 1, 'n_thing': 130, 'n_stuff': 38, 'claims_per_caption': 2.1018333333333334, 'classes_per_image_union': 3.8465, 'noun_token_coverage': 63.4684952216403, 'share_person': 34.50955515026564, 'share_thing': 44.81801601776227, 'share_stuff': 20.672428831972088}
+never seen: []
+{'ball': ['fence', 'toy', 'stick', 'tree'], 'frisbee': ['leash', 'collar', 'toy', 'cat'], 'bicycle': ['car', 'backpack', 'helmet', 'jacket'], 'snow': ['sky', 'forest', 'path', 'desert'], 'beach': ['lake', 'wave', 'shore', 'ocean'], 'guitar': ['table', 'dress', 'costume', 'glasses']}

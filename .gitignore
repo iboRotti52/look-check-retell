@@ -1,0 +1,34 @@
+# Large data, model caches and checkpoints (~16 GB): not in git. See docs/handoff/YOLCULUK.md §6 and README.md.
+data/
+*.pt
+*.pth
+*.safetensors
+*.npz
+*.pkl
+
+# Environment and caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+.ipynb_checkpoints/
+
+# Scratch and duplicates
+tmp/
+lcr_code*.zip
+output/lcr_check_gpu_pilot.zip
+output/check_gpu_pilot/
+
+# LaTeX build artefacts (main.pdf and figures/*.pdf are kept)
+report/*.aux
+report/*.bbl
+report/*.blg
+report/*.log
+report/*.out
+report/figures/*.aux
+report/figures/*.log
+
+# Flickr8k-derived images are not redistributed in the public repo (regenerate with the scripts)
+results/*.png
+annotation/pilot/annotate.html

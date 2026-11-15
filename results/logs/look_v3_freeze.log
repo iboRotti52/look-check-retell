@@ -1,0 +1,4 @@
+W1114 10:09:35.584000 63038 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+A_B_look3: 6856 claims; 312 regions changed from v1; current metadata migrated
+W1114 10:09:43.606000 63084 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+A_validation_look3: 2272 claims; 93 regions changed from v1; current metadata migrated

@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 20010.14it/s]
+init identical to drafts: True
+ep 0 step 100/1407 loss 1.886 0.5 min
+ep 0 step 200/1407 loss 1.867 0.8 min
+ep 0 step 300/1407 loss 1.881 1.2 min
+ep 0 step 400/1407 loss 1.842 1.6 min
+epoch 1 {'epoch': 1, 'train_loss': 1.8688365500618909, 'BLEU-4': 34.31113399775111, 'CIDEr': 0.9913040815909848, 'RUOR': 15.660542432195976, 'claims': 2286, 'claims_per_image': 2.286}
+ep 1 step 500/1407 loss 1.796 2.5 min
+ep 1 step 600/1407 loss 1.850 2.8 min
+ep 1 step 700/1407 loss 1.819 3.1 min
+ep 1 step 800/1407 loss 1.816 3.4 min
+ep 1 step 900/1407 loss 1.825 3.8 min
+epoch 2 {'epoch': 2, 'train_loss': 1.8221097877030688, 'BLEU-4': 33.33946095274192, 'CIDEr': 0.9783067859377865, 'RUOR': 16.2057044079516, 'claims': 2314, 'claims_per_image': 2.314}
+ep 2 step 1000/1407 loss 1.778 4.6 min
+ep 2 step 1100/1407 loss 1.761 5.0 min
+ep 2 step 1200/1407 loss 1.786 5.3 min
+ep 2 step 1300/1407 loss 1.773 5.7 min
+ep 2 step 1400/1407 loss 1.773 6.0 min
+epoch 3 {'epoch': 3, 'train_loss': 1.775680842684276, 'BLEU-4': 33.24004018423338, 'CIDEr': 0.9732232860224512, 'RUOR': 16.032843560933447, 'claims': 2314, 'claims_per_image': 2.314}
+real {'BLEU-4': 34.31113399775111, 'CIDEr': 0.9913040815909848, 'RUOR': 15.660542432195976, 'claims': 2286, 'claims_per_image': 2.286, 'changed_captions': 64.1, 'n_contradicted': 271, 'contradicted_claim_retained': 87.08487084870849, 'alternative_adopted': 40.95940959409594, 'supported_claim_retained': 91.02564102564102, 'ref_supported_retained': 93.15211709357031, 'ref_unsupported_retained': 68.24512534818942}
+masked {'BLEU-4': 34.1122066855193, 'CIDEr': 0.9837922357858662, 'RUOR': 15.91304347826087, 'claims': 2300, 'claims_per_image': 2.3, 'changed_captions': 63.5, 'n_contradicted': 271, 'contradicted_claim_retained': 87.45387453874538, 'alternative_adopted': 40.95940959409594, 'supported_claim_retained': 90.79254079254079, 'ref_supported_retained': 93.20439100888656, 'ref_unsupported_retained': 69.08077994428969}
+false {'BLEU-4': 34.31113399775111, 'CIDEr': 0.9913040815909848, 'RUOR': 15.660542432195976, 'claims': 2286, 'claims_per_image': 2.286, 'changed_captions': 64.1, 'n_contradicted': 271, 'contradicted_claim_retained': 87.08487084870849, 'alternative_adopted': 0.0, 'supported_claim_retained': 91.02564102564102, 'ref_supported_retained': 93.15211709357031, 'ref_unsupported_retained': 68.24512534818942}
+sensitivity {'masked': 10.9, 'false': 0.0}

@@ -1,0 +1,60 @@
+# Check tamamlama — B (otomatik tablo)
+
+Üreten: `scripts/42_check_complete.py`. Protokol: `docs/CHECK_TAMAMLAMA_PROTOKOL.md`. Yalnız B; seçim yok; etiket otomatik referans proxy'si.
+
+Bundle `15fdb954e7de71c6`; kişi dışı claim 4594 (B_fit 3601).
+
+## Sistemler
+
+| sistem | küme | J | contr. kesinlik | yanlış yakalama | sup. kesinlik | supported | contradicted | uncertain |
+|---|---|---|---|---|---|---|---|---|
+| S0_codex_Bcal | B_fit | 0.512 | 0.465 | 0.342 | 0.848 | 0.614 | 0.176 | 0.210 |
+| S1_codex_rule_crossfit | B_fit | 0.482 | 0.484 | 0.308 | 0.839 | 0.642 | 0.153 | 0.205 |
+| S1_codex_rule_crossfit | B_all | 0.493 | 0.490 | 0.315 | 0.841 | 0.637 | 0.154 | 0.209 |
+| S2_complete_crossfit | B_fit | 0.458 | 0.488 | 0.257 | 0.843 | 0.629 | 0.126 | 0.245 |
+| S2_complete_crossfit | B_all | 0.464 | 0.491 | 0.259 | 0.845 | 0.625 | 0.126 | 0.248 |
+
+## S2 eylemleri (tüm B, dış-kat)
+
+| eylem | n | oran | proxy-doğru oranı |
+|---|---|---|---|
+| keep | 2872 | 0.625 | 0.845 |
+| keep_elsewhere | 164 | 0.036 | 0.646 |
+| replace | 324 | 0.071 | 0.500 |
+| remove | 257 | 0.056 | 0.521 |
+| skip | 977 | 0.213 | 0.681 |
+
+- replace: ikame referansta 0.241 (proxy-yanlışlarda 0.216); referansta aynı gruptan sınıf var 0.546.
+- remove: referansta aynı gruptan sınıf yok (silme uygun) 0.654.
+- 'camera' kalıbı (nesne iddiası değil): 34 claim.
+
+## Görsel denetlenen claim'ler (Claude gözlemi, insan etiketi değil)
+
+| claim | Claude | proxy | S0 kararı | S2 eylemi | ikame |
+|---|---|---|---|---|---|
+| train_4594:shorts | correct | wrong | supported | keep |  |
+| train_3690:ball | correct | wrong | supported | keep |  |
+| train_2949:surfboard | wrong | wrong | supported | keep |  |
+| train_1587:shorts | correct | wrong | supported | keep |  |
+| train_0928:pole | correct | wrong | supported | keep |  |
+| train_1391:field | correct | wrong | supported | keep |  |
+| train_0429:newspaper | correct | wrong | supported | keep |  |
+| train_0165:house | correct | wrong | supported | keep |  |
+| train_0107:bat | correct | wrong | supported | keep |  |
+| train_5707:mountain | wrong | wrong | uncertain | skip |  |
+| train_3334:sweater | correct | wrong | contradicted | replace | suit |
+| train_3254:street | unclear | wrong | uncertain | skip |  |
+| train_0295:wall | correct | wrong | contradicted | replace | stairs |
+| train_1792:camera | non_visual | wrong | uncertain | skip |  |
+| train_5021:book | unclear | wrong | uncertain | keep_elsewhere |  |
+| train_5416:dress | unclear | wrong | contradicted | replace | scarf |
+| train_4171:sky | correct | wrong | uncertain | keep |  |
+| train_5299:mud | correct | wrong | uncertain | skip |  |
+| train_4690:vest | correct | wrong | supported | keep |  |
+| train_3803:dress | unclear | wrong | contradicted | skip |  |
+| train_1281:shorts | correct | wrong | supported | keep |  |
+| train_3561:vest | unclear | wrong | contradicted | replace | scarf |
+| train_5639:shirt | correct | wrong | contradicted | replace | uniform |
+| train_1714:camera | non_visual | wrong | contradicted | skip |  |
+
+Son eşikler (tüm B, z ölçeği): thing: τs 1.339, τc 1.128; stuff: τs 1.872, τc –

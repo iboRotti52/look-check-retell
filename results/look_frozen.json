@@ -1,0 +1,30 @@
+{
+ "version": "v3",
+ "map_source": "S3_caption",
+ "map_provenance": "archived v2 caption-wide sink maps",
+ "rules_by_kind": {
+  "person": {
+   "alpha": 0.5,
+   "gamma": 0.5,
+   "sigma": 1.0
+  },
+  "thing": {
+   "alpha": 0.5,
+   "gamma": 0.5,
+   "sigma": 0.0
+  },
+  "stuff": {
+   "alpha": 0.5,
+   "gamma": 0.25,
+   "sigma": 0.0
+  }
+ },
+ "accepted_experiments": [
+  "E1"
+ ],
+ "E2_accepted_source": null,
+ "acceptance_sources": [
+  "results/look_e1.json",
+  "results/look_e2.json"
+ ]
+}

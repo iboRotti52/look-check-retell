@@ -1,0 +1,53 @@
+W1114 14:57:58.497000 3544 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+48 feature families, 6856 B claims, 4594 evaluated
+v2                         ll 0.4163 auroc 0.825 ap 0.574 cprec 0.499 recw 0.689 p@20 0.573
+v2+crop                    ll 0.4143 auroc 0.827 ap 0.582 cprec 0.496 recw 0.690 p@20 0.577
+v2+look                    ll 0.4155 auroc 0.826 ap 0.575 cprec 0.494 recw 0.693 p@20 0.573
+v2+cons                    ll 0.3788 auroc 0.862 ap 0.638 cprec 0.499 recw 0.834 p@20 0.637
+v2+cons+crop               ll 0.3778 auroc 0.863 ap 0.643 cprec 0.501 recw 0.831 p@20 0.634
+v2+cons+look               ll 0.3801 auroc 0.861 ap 0.633 cprec 0.499 recw 0.828 p@20 0.633
+v2+itm                     ll 0.4090 auroc 0.833 ap 0.593 cprec 0.501 recw 0.718 p@20 0.590
+v2+itm+crop                ll 0.4092 auroc 0.832 ap 0.592 cprec 0.503 recw 0.710 p@20 0.587
+v2+itm+look                ll 0.4096 auroc 0.832 ap 0.590 cprec 0.501 recw 0.709 p@20 0.594
+v2+itm+cons                ll 0.3767 auroc 0.863 ap 0.643 cprec 0.500 recw 0.831 p@20 0.627
+v2+itm+cons+crop           ll 0.3769 auroc 0.863 ap 0.643 cprec 0.500 recw 0.826 p@20 0.627
+v2+itm+cons+look           ll 0.3774 auroc 0.863 ap 0.640 cprec 0.500 recw 0.827 p@20 0.628
+v2+vqa_yes                 ll 0.4010 auroc 0.842 ap 0.610 cprec 0.501 recw 0.769 p@20 0.604
+v2+vqa_yes+crop            ll 0.4003 auroc 0.843 ap 0.613 cprec 0.503 recw 0.768 p@20 0.608
+v2+vqa_yes+look            ll 0.4012 auroc 0.842 ap 0.608 cprec 0.502 recw 0.758 p@20 0.594
+v2+vqa_yes+cons            ll 0.3709 auroc 0.869 ap 0.655 cprec 0.501 recw 0.844 p@20 0.642
+v2+vqa_yes+cons+crop       ll 0.3705 auroc 0.869 ap 0.658 cprec 0.501 recw 0.840 p@20 0.646
+v2+vqa_yes+cons+look       ll 0.3720 auroc 0.868 ap 0.652 cprec 0.502 recw 0.837 p@20 0.638
+v2+vqa_yes+itm             ll 0.3980 auroc 0.845 ap 0.616 cprec 0.500 recw 0.775 p@20 0.607
+v2+vqa_yes+itm+crop        ll 0.3983 auroc 0.845 ap 0.615 cprec 0.500 recw 0.772 p@20 0.604
+v2+vqa_yes+itm+look        ll 0.3987 auroc 0.845 ap 0.614 cprec 0.501 recw 0.762 p@20 0.607
+v2+vqa_yes+itm+cons        ll 0.3703 auroc 0.870 ap 0.657 cprec 0.501 recw 0.840 p@20 0.651
+v2+vqa_yes+itm+cons+crop   ll 0.3705 auroc 0.869 ap 0.657 cprec 0.499 recw 0.837 p@20 0.652
+v2+vqa_yes+itm+cons+look   ll 0.3714 auroc 0.869 ap 0.655 cprec 0.499 recw 0.833 p@20 0.644
+v2+vqa_ens                 ll 0.3993 auroc 0.844 ap 0.614 cprec 0.501 recw 0.774 p@20 0.598
+v2+vqa_ens+crop            ll 0.3987 auroc 0.844 ap 0.617 cprec 0.503 recw 0.775 p@20 0.606
+v2+vqa_ens+look            ll 0.3997 auroc 0.843 ap 0.612 cprec 0.500 recw 0.765 p@20 0.597
+v2+vqa_ens+cons            ll 0.3697 auroc 0.870 ap 0.658 cprec 0.504 recw 0.846 p@20 0.641
+v2+vqa_ens+cons+crop       ll 0.3693 auroc 0.870 ap 0.661 cprec 0.501 recw 0.840 p@20 0.647
+v2+vqa_ens+cons+look       ll 0.3709 auroc 0.869 ap 0.655 cprec 0.501 recw 0.843 p@20 0.644
+v2+vqa_ens+itm             ll 0.3968 auroc 0.847 ap 0.618 cprec 0.498 recw 0.776 p@20 0.614
+v2+vqa_ens+itm+crop        ll 0.3971 auroc 0.846 ap 0.618 cprec 0.501 recw 0.775 p@20 0.609
+v2+vqa_ens+itm+look        ll 0.3975 auroc 0.846 ap 0.617 cprec 0.500 recw 0.765 p@20 0.612
+v2+vqa_ens+itm+cons        ll 0.3693 auroc 0.870 ap 0.660 cprec 0.501 recw 0.844 p@20 0.649
+v2+vqa_ens+itm+cons+crop   ll 0.3695 auroc 0.870 ap 0.660 cprec 0.501 recw 0.841 p@20 0.646
+v2+vqa_ens+itm+cons+look   ll 0.3705 auroc 0.870 ap 0.658 cprec 0.500 recw 0.836 p@20 0.645
+v2+vqa_word                ll 0.3942 auroc 0.849 ap 0.627 cprec 0.505 recw 0.779 p@20 0.622
+v2+vqa_word+crop           ll 0.3934 auroc 0.849 ap 0.631 cprec 0.509 recw 0.784 p@20 0.622
+v2+vqa_word+look           ll 0.3948 auroc 0.848 ap 0.624 cprec 0.507 recw 0.775 p@20 0.619
+v2+vqa_word+cons           ll 0.3669 auroc 0.872 ap 0.666 cprec 0.499 recw 0.850 p@20 0.650
+v2+vqa_word+cons+crop      ll 0.3665 auroc 0.873 ap 0.669 cprec 0.502 recw 0.847 p@20 0.653
+v2+vqa_word+cons+look      ll 0.3682 auroc 0.871 ap 0.663 cprec 0.499 recw 0.847 p@20 0.646
+v2+vqa_word+itm            ll 0.3915 auroc 0.851 ap 0.633 cprec 0.501 recw 0.787 p@20 0.625
+v2+vqa_word+itm+crop       ll 0.3918 auroc 0.851 ap 0.632 cprec 0.503 recw 0.786 p@20 0.624
+v2+vqa_word+itm+look       ll 0.3923 auroc 0.850 ap 0.631 cprec 0.504 recw 0.778 p@20 0.621
+v2+vqa_word+itm+cons       ll 0.3665 auroc 0.873 ap 0.668 cprec 0.502 recw 0.845 p@20 0.652
+v2+vqa_word+itm+cons+crop  ll 0.3666 auroc 0.872 ap 0.668 cprec 0.504 recw 0.843 p@20 0.653
+v2+vqa_word+itm+cons+look  ll 0.3676 auroc 0.872 ap 0.666 cprec 0.499 recw 0.837 p@20 0.656
+model factorized ll 0.3952 auroc 0.857
+model gbm        ll 0.3757 auroc 0.864
+LOCKED feature family v2+vqa_word+cons | model logistic | alternative cons

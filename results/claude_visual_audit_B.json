@@ -1,0 +1,16 @@
+{
+ "what": "Claude visual inspection of B claims labelled wrong by the automatic reference proxy (not in refs). NOT human labels; small anecdotal samples.",
+ "categories": {"correct": "object visibly present, word acceptable", "wrong": "object not present", "unclear": "cannot decide from the image", "non_visual": "idiom such as 'looking at the camera'; not an object claim"},
+ "samples": {
+  "detector_confident_seed0": {"how": "9 random proxy-wrong claims with OWLv2 image max prob >= 0.5", "png": "results/claude_audit_B_detector_confident.png",
+   "items": {"train_4594:shorts": "correct", "train_3690:ball": "correct", "train_2949:surfboard": "wrong", "train_1587:shorts": "correct",
+             "train_0928:pole": "correct", "train_1391:field": "correct", "train_0429:newspaper": "correct", "train_0165:house": "correct",
+             "train_0107:bat": "correct"}},
+  "detector_absent_seed0": {"how": "3 random proxy-wrong claims with OWLv2 image max prob < 0.1", "png": "results/claude_audit_B_detector_confident.png",
+   "items": {"train_5707:mountain": "wrong", "train_3334:sweater": "correct", "train_3254:street": "unclear"}},
+  "random_seed7": {"how": "12 random proxy-wrong claims (no detector condition)", "png": "results/claude_audit_B_random.png",
+   "items": {"train_0295:wall": "correct", "train_1792:camera": "non_visual", "train_5021:book": "unclear", "train_5416:dress": "unclear",
+             "train_4171:sky": "correct", "train_5299:mud": "correct", "train_4690:vest": "correct", "train_3803:dress": "unclear",
+             "train_1281:shorts": "correct", "train_3561:vest": "unclear", "train_5639:shirt": "correct", "train_1714:camera": "non_visual"}}
+ }
+}

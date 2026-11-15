@@ -1,0 +1,30 @@
+W1114 10:32:05.767000 69696 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+train 200/3000 rows, 1.2 min
+Traceback (most recent call last):
+  File "<proje>/scripts/25_look_e3_extract.py", line 44, in <module>
+    h, mm, info = dec.run_row(r, feats[data.parse_id(r["id"])[1]])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<proje>/lcr/look_e3.py", line 165, in run_row
+    return self.extract_e3(row, image_features)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<proje>/lcr/look_e3.py", line 113, in extract_e3
+    return np.stack(heads), maps, info
+           ^^^^^^^^^^^^^^^
+  File "<proje>/.venv/lib/python3.12/site-packages/numpy/_core/shape_base.py", line 454, in stack
+    raise ValueError('need at least one array to stack')
+ValueError: need at least one array to stack
+W1114 10:35:04.832000 70457 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+train 400/3000 rows, 1.3 min
+train 600/3000 rows, 2.6 min
+train 800/3000 rows, 4.0 min
+train 1000/3000 rows, 4.9 min
+train 1200/3000 rows, 5.7 min
+train 1400/3000 rows, 6.5 min
+train 1600/3000 rows, 7.3 min
+train 1800/3000 rows, 8.2 min
+train 2000/3000 rows, 9.0 min
+train 2200/3000 rows, 9.9 min
+train 2400/3000 rows, 10.7 min
+train 2600/3000 rows, 11.6 min
+train 2800/3000 rows, 12.5 min
+train 3000/3000 rows, 13.3 min

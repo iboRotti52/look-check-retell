@@ -1,0 +1,9 @@
+{
+ "last_k": 4,
+ "t_excess": 0.0,
+ "t_support": 0.22,
+ "t_contra": 0.205,
+ "calibrated_on": "A_B_sink",
+ "records": "att",
+ "label": "reference proxy (interim)"
+}
