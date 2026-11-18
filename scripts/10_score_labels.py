@@ -11,6 +11,11 @@ Outputs (results/labels_<name>.json):
     supported-vs-incorrect while keeping 'contradicted' precision >= 0.5.
     With --write-thresholds the chosen point is written to results/thresholds.json,
     which every later script picks up (lcr/pipeline.thresholds).
+  * Look L1 (docs/LOOK_L1_PROTOKOL.md, step 9): error-type distribution/agreement
+    (misidentified vs invented) among adjudicated "incorrect" claims, and the human-drawn
+    true-referent boxes for "misidentified" claims, written separately to
+    results/look_l1_referent_boxes_<name>.json. Silently skipped for CSVs exported before
+    these columns existed (annotate.html did not yet write them).
 Disagreements are adjudicated by a third annotator's CSV if given with --adjudicator.
 """
 import argparse
@@ -74,9 +79,47 @@ oov = [(k, v) for k, v in final.items() if v != "na" and ref.get(k, {}).get("in_
 out["hicr_in_vocab"] = metrics.hicr([v for _, v in voc])
 out["hicr_out_of_vocab"] = metrics.hicr([v for _, v in oov])
 
-# ---- threshold calibration on vocabulary claims
 key = cache.load_json(config.ROOT / "annotation" / a.name / "key.json")
 item_img = {it["item"]: it["image"] for it in key["items"]}
+
+# ---- Look L1 (docs/LOOK_L1_PROTOKOL.md, step 9): error-type and referent-box fields.
+# Older CSVs, exported before these columns existed, simply have no "error_type"/"box" key;
+# .get() keeps this script working on them unchanged.
+err_by_key: dict[tuple, str] = {}
+for k, v in final.items():
+    if v != "incorrect":
+        continue
+    types = [s[k].get("error_type") for s, _ in sheets if k in s and s[k].get("error_type")]
+    if types:
+        err_by_key[k] = types[0] if len(set(types)) == 1 else "uncertain"
+out["error_type_dist"] = dict(Counter(err_by_key.values()))
+
+if len(sheets) >= 2:
+    both_err = [k for k in both if s1[k].get("error_type") and s2[k].get("error_type")]
+    out["n_error_type_double"] = len(both_err)
+    if both_err:
+        e1_vals = [s1[k]["error_type"] for k in both_err]
+        e2_vals = [s2[k]["error_type"] for k in both_err]
+        out["error_type_kappa"] = metrics.cohen_kappa(e1_vals, e2_vals)
+        out["error_type_raw_agreement"] = float(np.mean([x == y for x, y in zip(e1_vals, e2_vals)]))
+
+# Gold-standard L1 test set: (image, claimed class, human-drawn true-referent box) for every
+# adjudicated "misidentified" claim with a box. scripts/46/47 compare Look's own box against
+# these once a real pilot has been run; this script only collects them.
+referent_boxes = []
+for k, etype in err_by_key.items():
+    if etype != "misidentified":
+        continue
+    box_str = next((s[k].get("box") for s, _ in sheets if k in s and s[k].get("box")), "")
+    if not box_str:
+        continue
+    item, j = k
+    referent_boxes.append(dict(item=item, noun_index=j, image=item_img.get(item),
+                               cls=ref.get(k, {}).get("cls"), box=[float(x) for x in box_str.split(":")]))
+out["n_misidentified_with_box"] = len(referent_boxes)
+cache.save_json(referent_boxes, config.RESULTS / f"look_l1_referent_boxes_{a.name}.json")
+
+# ---- threshold calibration on vocabulary claims
 rows = {r["id"]: r for r in cache.load_json(config.CACHE / "pipeline" / f"{key['decoder']}_{key['split']}_sink.json")} \
     if (config.CACHE / "pipeline" / f"{key['decoder']}_{key['split']}_sink.json").exists() else \
     {r["id"]: r for r in cache.load_json(config.CACHE / "pipeline" / f"{key['decoder']}_{key['split']}.json")}

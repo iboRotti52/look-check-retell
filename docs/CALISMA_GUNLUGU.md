@@ -8,6 +8,52 @@ Ayrıntılı geçmiş: `docs/handoff/transcript_main.md` (ilk büyük oturumun d
 
 ---
 
+## Şu anki durum (2026-11-18)
+
+**Look L1 başladı (Claude, yalnız kod — henüz çalıştırılmadı):** `docs/LOOK_L1_PROTOKOL.md`. Amaç: önerinin
+III-B bölümünün taahhüt ettiği ama dondurulmuş Look v4'ün kaldırdığı "uygun bölge yok" çekimserliğini kör bir
+eşikle değil, önce ölçerek geri getirmek; ayrıca mevcut Look ölçümünün ayırt edemediği iki hata türünü
+("yanlış tanımlanmış" vs "uydurulmuş") insan etiketiyle ayırmak. Metin'in alanı; başlamadan önce ona
+gösterilmesi gerekiyordu (kullanıcı bu oturumda "Metin'i atla" dedi — bu yüzden koşulmadan önce doğrudan onun
+onayını almak hâlâ ekibin kararı).
+
+Eklenenler (hepsi `look/l1-referent-signals` dalında; hiçbiri seçilen bölgeyi, Check'i, Retell'i veya
+validation/test'i değiştirmez):
+- `lcr/look_v4.py`: `residual_strength` (yeni fonksiyon, `selected_map`'in kendisi değişmedi).
+- `lcr/look_referent.py` (yeni, saf numpy, torch'suz) + `tests/test_look_referent.py`, `tests/test_look_v4.py`:
+  12+2 test, hepsi geçti (bkz. altta "Doğrulama").
+- `scripts/46_look_referent.py`: B'de önbellekteki E3 işaretli başlıklardan sinyal + AUROC + nesne-boyutu
+  tabakası. **Kod hazır, henüz çalıştırılmadı** (`data/cache` yerelde yok).
+- `scripts/47_look_forced_hallucination.py`: zorlanmış halüsinasyon testi (misidentified/invented), v4'ün canlı
+  kod yolunu (`pipeline.run_v4`) kullanıyor. **Kod hazır, henüz çalıştırılmadı** (`decoder_A` + `data/cache`
+  yerelde yok); script içinde TODO olarak işaretli bir sınırlama var (uydurulmuş claim'ler için `strength`
+  sinyali `pipeline.run_v4`'ün döndürdüğü haritadan hesaplanamıyor, yalnız entropy/top1/null hesaplanabilir).
+- `scripts/13_look_benchmark.py`: yeni, varsayılan kapalı `--bootstrap` bayrağı — Look top-1 vs B3, görüntü
+  düzeyi eşleştirilmiş bootstrap (H6 düzeltmesi). Bayraksız eski davranış değişmedi.
+- `scripts/07_make_annotation.py` / üretilen `annotate.html`: "yanlış" etiketine ek hata türü alanı
+  (doğru/yanlış tanımlanmış/uydurulmuş) ve yanlış-tanımlanmış claim'ler için fare ile kutu çizme. Tarayıcıda
+  uçtan uca denendi (render, etiketleme, kutu çizme, sayfa yenileme sonrası kalıcılık, CSV dışa aktarım —
+  hepsi doğru). Eski CSV formatı (bu alanlar olmadan) hâlâ okunur.
+- `scripts/10_score_labels.py`: yeni alanları okur (hata türü dağılımı + kappa, `results/look_l1_referent_boxes_<name>.json`).
+- `docs/LOOK_L1_PROTOKOL.md`: adım 6 (çekimserlik eşiği) ve adım 7 (Check için ayrım) **bilerek tamamlanmadı**
+  — gerçek B sonucu olmadan eşik uydurmak "sonuç uydurma yok" kuralını ihlal eder. Script 46/47 gerçek bir
+  koşudan sonra bu protokole bir sonuç bölümü eklenecek.
+
+**Doğrulama (bu oturumda yapılabilen):** proje `.venv`'i yerelde kurulu değildi (veri de yok); geçici bir
+numpy+pytest ortamında (sonra torch da eklendi) `tests/test_look_referent.py` (12/12), `tests/test_look_v4.py`
+(2/2) ve mevcut `tests/test_look.py` (10/10, regresyon yok) çalıştırıldı, hepsi geçti. Tüm yeni/değişen
+dosyalar `py_compile` ile sözdizimi kontrolünden geçti. `annotate.html`'in üretilen JS'i `node --check` ile ve
+gerçek bir tarayıcı sekmesinde elle doğrulandı. Script 46/47'nin kendisi — gerçek sayılar — **çalıştırılmadı**;
+bunun için `bash scripts/fetch_data.sh` ve `python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt`
+gerekir.
+
+**Sıradaki adım (Look L1 için):** Metin'in onayı → `scripts/46_look_referent.py` ve
+`scripts/47_look_forced_hallucination.py`'yi gerçek veriyle çalıştır → sonuçları
+`docs/LOOK_L1_PROTOKOL.md`'ye ekle → adım 9'un etiketleme alanlarını **sıradaki insan pilotu başlamadan önce**
+kullan (aşağıdaki madde 0 ile aynı pilot turu).
+
+---
+
 ## Şu anki durum (2026-11-15)
 
 **YENİ VARSAYILAN CHECK: S4** (`docs/CHECK_S4.md`, protokol `docs/CHECK_S4_PROTOKOL.md`, tablo
@@ -129,6 +175,9 @@ Colab durumu (oturum kapanırken, Colab saati 20:37 UTC):
    keep (özellikle giysi), replace'ler, keep_elsewhere ve taban oranı için rastgele keep örneği. Sonuç: gerçek hata
    oranı → FCR hedefi (λ), S4 kararlarının gerçek kesinliği.
    Araç `annotation/pilot/annotate.html`. Seçim pilotun etiketiyle yapılır; swap/FCR'ye bakarak yeniden seçim yok.
+   **2026-11-18 eklendi:** araç artık Look L1'in hata türü (doğru/yanlış tanımlanmış/uydurulmuş) ve referans
+   kutusu alanlarını da içeriyor (`docs/LOOK_L1_PROTOKOL.md` §8). Bu pilot başlamadan önce `scripts/07_make_annotation.py`
+   ile sayfa yeniden üretilmeli ki tek bir etiketleme turu hem Check hem Look L1'i karşılasın.
 0b. **(İsteğe bağlı, GPU) Daha büyük detektör: OWLv2-large.** Şu an `google/owlv2-base-patch16-ensemble` kullanılıyor
    (`lcr/config.py`). Giysi türünde (shirt/jacket/sweater) ayırt etme detektörle sınırlı (aynı-sınıf AUROC shirt 0.71,
    sweater 0.53; kırpıp yeniden bakmak kazandırmadı, `docs/FABLE_INCELEME_2.md`). Aynı ailenin large sürümü mantığın
