@@ -8,6 +8,21 @@ Ayrıntılı geçmiş: `docs/handoff/transcript_main.md` (ilk büyük oturumun d
 
 ---
 
+## Şu anki durum (2026-11-19)
+
+**Look L1 (PR #1) inceleme düzeltmeleri yapıldı; gerçek B koşusu bekliyor.** İbrahim ve Astra'nın PR #1 bulguları
+düzeltildi (ayrıntı `docs/LOOK_L1_PROTOKOL.md` "Revizyonlar" R1–R6): script 47 artık kelimeyi *üreten* (v4)
+ve *okuyan* adımı ayrı raporluyor, top-1/top-3/B3 tek sıralama ve tek öneri havuzundan geliyor, uydurulmuş
+sınıflar S4 eşiğiyle yokluğu onaylanmadan kullanılmıyor, uydurulmuş-vs-doğru AUROC hesaplanıyor; script 46'nın
+boyut kontrolü F30kE yerine Look top-1 kutu alanıyla yapılıyor; script 10 hata türünde ve kutuda hakemi kullanıyor
+ve CSV sırasından bağımsız (`lcr/pilot.py`). Script 46'nın ilk B koşusu (İbrahim) ön deneme sayılır.
+
+Doğrulama: tam CPU test paketi (veri gerektirmeyenler), script 46/47/10 için sahte veriyle uçtan uca harness'ler
+(47: gerçek BLIP tokenizer + rastgele ağırlıklı aynı mimari decoder). Gerçek sayılar yok.
+
+**Sıradaki adım:** veri sahibi (İbrahim) script 46 ve 47'yi B'de yeniden koşar → sonuçlar protokole → adım 6.
+Check tarafındaki S4 kanıt-kutusu düzeltmesi ayrı bir dalda (`check/s4-witness-box`).
+
 ## Şu anki durum (2026-11-18)
 
 **Look L1 başladı (Claude, yalnız kod — henüz çalıştırılmadı):** `docs/LOOK_L1_PROTOKOL.md`. Amaç: önerinin
@@ -41,7 +56,7 @@ validation/test'i değiştirmez):
 
 **Doğrulama (bu oturumda yapılabilen):** proje `.venv`'i yerelde kurulu değildi (veri de yok); geçici bir
 numpy+pytest ortamında (sonra torch da eklendi) `tests/test_look_referent.py` (12/12), `tests/test_look_v4.py`
-(2/2) ve mevcut `tests/test_look.py` (10/10, regresyon yok) çalıştırıldı, hepsi geçti. Tüm yeni/değişen
+(2/2) ve mevcut `tests/test_look.py` (8/8, regresyon yok; 2026-11-19 düzeltme: önceki metinde yanlışlıkla 10/10 yazıyordu) çalıştırıldı, hepsi geçti. Tüm yeni/değişen
 dosyalar `py_compile` ile sözdizimi kontrolünden geçti. `annotate.html`'in üretilen JS'i `node --check` ile ve
 gerçek bir tarayıcı sekmesinde elle doğrulandı. Script 46/47'nin kendisi — gerçek sayılar — **çalıştırılmadı**;
 bunun için `bash scripts/fetch_data.sh` ve `python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt`
@@ -606,3 +621,20 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   script 07 ile yeniden üretilir). Git geçmişi tek temiz commit'e indirildi. Ham Flickr8k görüntüleri ve test split'i
   release'te yok.
 
+
+### 2026-11-18 — Claude: Look L1 altyapısı (PR #1)
+- Ön kayıt `docs/LOOK_L1_PROTOKOL.md`; `lcr/look_v4.residual_strength`; `lcr/look_referent.py` (saf numpy);
+  scripts 46/47; `13_look_benchmark.py --bootstrap` (H6); `07_make_annotation.py`/`annotate.html` hata türü +
+  referans kutusu; `10_score_labels.py` yeni alanları okur. Testler `tests/test_look_referent.py`, `tests/test_look_v4.py`.
+- Adım 6/7 (çekimserlik eşiği) bilerek yapılmadı: gerçek B sonucu yok. Veri bu makinede yok; 46/47 koşulmadı.
+
+### 2026-11-19 — Claude: PR #1 inceleme düzeltmeleri
+- İbrahim + Astra bulguları: 47'de top-1/top-3 farklı sıralamalardan, takas v4'ün okuduğu attention'ı değiştirmiyor
+  (nedensel decoder), uydurulmuş sınıfa yokluk eşiği yok, uydurulmuş-vs-doğru AUROC eksik; 46'da F30kE boyut
+  bölünmesi negatifleri eliyor (1/0); 10'da hata türü/kutu hakemsiz ve CSV sırasına bağlı.
+- Değişenler: `lcr/look_v4.py` (`signed_heads`; `attention_map` aynı, eşitlik testli), `scripts/46_look_referent.py`,
+  `scripts/47_look_forced_hallucination.py` (yeniden yazıldı), `lcr/pilot.py` (yeni), `scripts/10_score_labels.py`,
+  `tests/test_look_v4.py`, `tests/test_pilot.py` (yeni), protokol R1–R6, README.
+- Harness bulgusu: takasta kelimeyi üreten adımın ham attention farkı aynı uzunlukta 0, farklı uzunlukta ~4e-9;
+  okuyan adımda ~4e-3. Rastgele ağırlıkla predict top-1 takas sonrası %0, read top-1 %80 değişti (yalnız mekanizma,
+  sayılar anlamsız).

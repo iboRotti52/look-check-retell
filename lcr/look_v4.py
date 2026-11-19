@@ -56,6 +56,19 @@ def residual_strength(signed_heads, heads) -> float:
     return float(np.clip(x, 0, None).sum())
 
 
+def signed_heads(attention, query, valid_t):
+    """Every head's sink-corrected cross-attention at decoder step `query`, float16 like the E3 cache.
+
+    attention_map(a, p, t, h) == selected_map(signed_heads(a, p - 1, t), h): v4 reads the step that
+    *predicts* the claim's first piece, before the word is in context, so swapping the word cannot change
+    that step's raw attention (only the caption mean). A later query -- the step that has just read the
+    word -- shows where attention goes once the word is known (docs/LOOK_L1_PROTOKOL.md, Revizyon 1).
+    """
+    a = attention.float()
+    signed = a[:, :, query, 1:] - a[:, :, :valid_t, 1:].mean(2)
+    return signed.detach().cpu().numpy().astype(np.float16)
+
+
 def attention_map(attention, position, valid_t, heads):
     """Match E3's signed-head cache quantisation, before pooling and ReLU."""
     a = attention.float()

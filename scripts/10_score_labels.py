@@ -25,7 +25,7 @@ from collections import Counter, defaultdict
 import numpy as np
 
 import _common  # noqa: F401
-from lcr import cache, check, config, metrics, pipeline
+from lcr import cache, check, config, metrics, pilot, pipeline
 
 ap = argparse.ArgumentParser()
 ap.add_argument("csvs", nargs="+")
@@ -84,15 +84,18 @@ item_img = {it["item"]: it["image"] for it in key["items"]}
 
 # ---- Look L1 (docs/LOOK_L1_PROTOKOL.md, step 9): error-type and referent-box fields.
 # Older CSVs, exported before these columns existed, simply have no "error_type"/"box" key;
-# .get() keeps this script working on them unchanged.
+# .get() keeps this script working on them unchanged. Rules (lcr/pilot.py) are CSV-order independent:
+# agreement, else the adjudicator, else uncertain / no gold box.
 err_by_key: dict[tuple, str] = {}
+err_source = Counter()
 for k, v in final.items():
     if v != "incorrect":
         continue
-    types = [s[k].get("error_type") for s, _ in sheets if k in s and s[k].get("error_type")]
-    if types:
-        err_by_key[k] = types[0] if len(set(types)) == 1 else "uncertain"
+    etype, source = pilot.final_error_type([s[k] for s, _ in sheets if k in s], adj.get(k))
+    err_by_key[k] = etype
+    err_source[source] += 1
 out["error_type_dist"] = dict(Counter(err_by_key.values()))
+out["error_type_source"] = dict(err_source)
 
 if len(sheets) >= 2:
     both_err = [k for k in both if s1[k].get("error_type") and s2[k].get("error_type")]
@@ -106,17 +109,24 @@ if len(sheets) >= 2:
 # Gold-standard L1 test set: (image, claimed class, human-drawn true-referent box) for every
 # adjudicated "misidentified" claim with a box. scripts/46/47 compare Look's own box against
 # these once a real pilot has been run; this script only collects them.
-referent_boxes = []
+referent_boxes, box_source, box_needs_adjudication, box_ious = [], Counter(), [], []
 for k, etype in err_by_key.items():
     if etype != "misidentified":
         continue
-    box_str = next((s[k].get("box") for s, _ in sheets if k in s and s[k].get("box")), "")
-    if not box_str:
-        continue
+    box, source, iou = pilot.final_box([s[k] for s, _ in sheets if k in s], adj.get(k))
+    box_source[source] += 1
+    if iou is not None:
+        box_ious.append(iou)
     item, j = k
-    referent_boxes.append(dict(item=item, noun_index=j, image=item_img.get(item),
-                               cls=ref.get(k, {}).get("cls"), box=[float(x) for x in box_str.split(":")]))
+    if box is None:
+        box_needs_adjudication.append(dict(item=item, noun_index=j, reason=source))
+        continue
+    referent_boxes.append(dict(item=item, noun_index=j, image=item_img.get(item), cls=ref.get(k, {}).get("cls"),
+                               box=box, box_source=source, annotator_box_iou=iou))
 out["n_misidentified_with_box"] = len(referent_boxes)
+out["referent_box_source"] = dict(box_source)
+out["referent_box_mean_annotator_iou"] = float(np.mean(box_ious)) if box_ious else None
+out["referent_boxes_needing_adjudication"] = box_needs_adjudication
 cache.save_json(referent_boxes, config.RESULTS / f"look_l1_referent_boxes_{a.name}.json")
 
 # ---- threshold calibration on vocabulary claims

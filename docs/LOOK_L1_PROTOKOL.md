@@ -112,3 +112,51 @@ durumda; burada yalnız girdi başlığı değişir.
 kutu çizim aracı eklenir. `scripts/10_score_labels.py` bu alanları okur. Bu, pilotu L1'in altın-standart test
 kümesine çevirir; ayrı bir ikinci pilot koşusuna gerek kalmaması için, bu alanlar ekip onayıyla **sıradaki
 insan pilotu başlamadan önce** araca eklenmelidir (bkz. `docs/CALISMA_GUNLUGU.md` "Sıradaki adımlar" madde 0).
+
+## Revizyonlar (2026-11-19, PR #1 incelemesinden sonra; Claude)
+
+İbrahim ve Astra (GPT-6.2) PR #1'i B önbelleğinde inceledi; İbrahim script 46'yı, Astra script 47'yi gerçek
+B örnekleriyle CPU'da koştu. Aşağıdaki değişiklikler o incelemenin bulduğu **tasarım/uygulama hatalarına**
+dayanıyor, hiçbir sinyalin AUROC değerine değil. Script 46'nın ilk koşusunun genel AUROC tablosu görüldü;
+boyut tablosu kullanılamaz durumdaydı (aşağıda R2). Bu yüzden 46'nın ilk koşusu bağımsız bir sonuç değil,
+yeniden koşulacak bir ön denemedir. Script 47'nin gerçek bir ölçüm koşusu yoktu.
+
+**R1 — iki attention okuması (script 47).** v4 kelimenin ilk parçasını *üreten* adımı (p−1) okur. Decoder
+nedensel olduğu için kelimeyi değiştirmek bu adımın ham attention'ını değiştirmez; yalnız başlık ortalaması
+(sink düzeltmesi) değişir. Astra bunu dog→cat ile gösterdi; harness'te de doğrulandı (aynı uzunlukta takasta
+fark tam 0, farklı uzunlukta ~1e-9; okuyan adımda ~4e-3). Bu yüzden 47 artık her claim için iki harita raporlar:
+- *predict* (p−1, v4/LCR'nin kullandığı): "model kelimeyi söylemeden önce gerçek nesneye bakıyor muydu?"
+- *read* (kelimenin son parçası, kelime okunduktan sonra): "yanlış kelime bağlama girince attention nereye gidiyor?"
+İki harita da `look_v4.signed_heads` ile çıkar; predict haritasının `look_v4.attention_map` ile bit düzeyinde
+aynı olduğu script içinde assert edilir (`tests/test_look_v4.py`).
+
+**R2 — boyut kontrolü (script 46).** F30kE kutuları referans öbeklerine bağlı; referansta desteklenmeyen bir
+claim'in neredeyse hiç kutusu yok. İlk B koşusunda F30kE-alanı bölünmesi küçük grupta 1, büyük grupta 0 negatif
+bıraktı. Yeni boyut değişkeni Look'un kendi top-1 kutusunun alanı (her claim'de var); üçte birlik hücreler,
+hücre başına en az 25 pozitif ve 25 negatif yoksa AUROC verilmez. `top1_area` ayrıca kendi başına bir sinyal
+olarak skorlanır: bunu geçmeyen bir sinyal yalnız boyutu izliyor olabilir. F30kE kapsamı tabloda gösterilir.
+
+**R3 — tek sıralama (46 ve 47).** 47 top-1'i v4'ün `rec_att` kutusundan (2-patch filtreli `look.select_region`),
+top-3'ü filtresiz `region_evidence.candidates`'ten alıyordu; Astra B'de 4.594 kişi dışı claim'de top-1'in 292
+kez değiştiğini, 46 örnekte top-3'e hiç girmediğini buldu. Artık ikisi de `candidates(..., S4 bundle'ın "look"
+kuralı, n=3)`'ten gelir; top-1 her zaman top-3'ün ilkidir. B3 aynı geometrik öneri havuzunda (küçük kutu filtresi
+yok) S4'ün kendi sorgularıyla yanlış kelimenin en yüksek detektör kutusudur.
+
+**R4 — uydurulmuş claim'ler için yokluk eşiği (script 47).** Eski kod en düşük skorlu adayı alıyordu ama bir
+eşik altında olmasını şart koşmuyordu. Artık bir sınıf yalnız S4'ün ham görüntü-maksimum logit'i, S4'ün sınıf
+eşiği τ_c'nin altındaysa (`--absence-margin`, varsayılan 0) uydurulmuş olarak kullanılabilir; ham maksimum S4'ün
+rakip-farkında X_c'sinden asla küçük olmadığı için S4 de bu sınıfı "yok" sayar. τ'su olmayan sınıflar kullanılmaz;
+uygun sınıflar arasından rastgele seçilir (en düşük skorlu değil). Hâlâ **proxy yokluk**.
+
+**R5 — uydurulmuş vs doğru AUROC (script 47, §4'te vaat edilen).** Artık hesaplanıyor: pozitif = aynı
+görüntülerin referans destekli gerçek claim'leri (otomatik proxy), negatif = uydurulmuş claim; dört sinyal,
+iki okuma, görüntü düzeyi bootstrap GA. Yanlış tanımlanmış vs doğru da betimsel olarak raporlanır. Takas
+testinin iyimserliği = orijinal kelimenin (predict) top-1 isabeti − takastan sonra yeniden hesaplanan isabet.
+
+**R6 — insan etiketi birleştirme (script 10, `lcr/pilot.py`).** Hata türünde anlaşmazlıkta hakem kullanılmıyordu;
+iki farklı kutuda ilk CSV'nin kutusu alınıyordu (Astra sırayı değiştirerek kutuyu taşıdı). Kural artık ana
+etiketle aynı: uzlaşma, yoksa hakem, yoksa belirsiz. Kutular: ≥2 kutu ve her çift IoU ≥ 0.5 ise ortalama; yoksa
+hakemin kutusu; tek kutu varsa o; yoksa altın kümeye girmez ve "hakem gerekli" listesine yazılır. Sonuç CSV
+sırasından bağımsızdır (`tests/test_pilot.py`).
+
+Bu revizyonlar §6'nın başarı ölçütlerini değiştirmez. Adım 6 (eşik) hâlâ yeni koşunun sonuçlarını bekliyor.
