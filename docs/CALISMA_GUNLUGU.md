@@ -638,3 +638,16 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
 - Harness bulgusu: takasta kelimeyi üreten adımın ham attention farkı aynı uzunlukta 0, farklı uzunlukta ~4e-9;
   okuyan adımda ~4e-3. Rastgele ağırlıkla predict top-1 takas sonrası %0, read top-1 %80 değişti (yalnız mekanizma,
   sayılar anlamsız).
+
+### 2026-11-19 — Claude: Astra'nın tam proje incelemesi (Look/rapor tarafı)
+- **Küçük nesne kapsaması fazla iyimserdi:** script 37, sınıfın hem küçük hem büyük kutusu varsa büyük kutuya isabeti de
+  "küçük bulundu" sayıyordu (kodda doğrulandı). `lcr/grounding.coverage_hits` (testli), 37 düzeltildi (Look seçimi
+  top-3'e dayandığı için değişmez), yeni `scripts/49_look_small_object.py`. Rapor makroları (`lcr_numbers.tex`) 49 koşulana
+  kadar `--`; Astra'nın B sayımı %4,9 → %55,6 (n = 162; burada yeniden üretilmedi).
+- **H1 güç tablosu H1'in etkisini ölçmüyordu:** sabit 1/3 düzeltme, p0 = %8'de %21,8 göreli azalma demek (14–26% satıra
+  göre). Yeni `scripts/50_h1_power.py` etkiyi %15'te tutuyor: p0 = %8'de 1.000 claim %52, 2.000 claim %85 güç (Astra'yla
+  aynı). Tablo ve rapor metni yeniden üretildi; görüntü içi bağımlılık ve Retell'in eklediği nesneler modellenmiyor,
+  metinde açıkça yazıyor. Script 08 artık bu tabloyu yazmıyor. `report/main.pdf` yeniden derlenmedi (bu makinede TeX yok).
+- Ertelenen: eski Retell bulgusu (kanıt gizleme vs ikame; hedeflerin %33,4'ü taslaktaki doğru nesneyi anmıyor) Retell
+  kapalı olduğu için yalnız not; Astra'nın "insan kutusu vs Look kutusu vs detektör kutusu" tasarım önerisi insan pilotu
+  tasarımıyla birlikte ele alınacak.

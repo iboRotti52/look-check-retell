@@ -151,6 +151,16 @@ def auroc(pos: np.ndarray, neg: np.ndarray) -> float:
     return float((ranks[: len(pos)].sum() - len(pos) * (len(pos) + 1) / 2) / (len(pos) * len(neg)))
 
 
+def fix_rate_for(relative_reduction: float, p0: float, break_rate: float) -> float:
+    """Fix rate at which traced draft claims improve HICR by exactly `relative_reduction`.
+
+    Expected HICR change is p0 * fix - (1 - p0) * break; setting it to relative_reduction * p0 gives the rate.
+    A power table must hold the effect at the hypothesis' size: fixing a third of the errors while breaking 1%
+    of correct claims is a 21.8% reduction at p0 = 8%, not H1's 15%.
+    """
+    return (relative_reduction * p0 + (1 - p0) * break_rate) / p0
+
+
 def paired_power(n_claims: int, p0: float, fix_rate: float, break_rate: float,
                  alpha: float = 0.05, n_sim: int = 4000, seed: int = 415) -> float:
     """Power of the exact two-sided sign (McNemar) test for 'fixes != breaks'.
