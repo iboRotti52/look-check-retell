@@ -70,3 +70,17 @@ yazmayı reddeder.
 
 Ayrıca `scripts/42_check_complete.py` (S2) kendi dosyası yerine varsayılan `re.BUNDLE_PATH`'e (S4'e) bakıyor ve
 oraya yazıyordu; artık `FIVE_WAY_BUNDLE_PATH`. Mevcut ayarları etkilemiyordu, deneyleri yeniden kurmayı bozuyordu.
+
+## Bilinen kalibrasyon hatası (2026-11-19, düzeltilmedi — karar Check sahibinin)
+
+Canlı Check "at the camera" kalıbını ve birleşik kelimeleri ("hot dog", "home plate", "toy car", "dirt bike")
+`claims.non_visual` ile atlıyor; ama `scripts/45_check_s4.py` kalibrasyonda referans anmalarını
+`claims.reference_classes` ile sayıyor, yani "a man looks at the camera" diyen bir referans kamera için pozitif sayılıyor
+(kodda doğrulandı, satır 129–134). Astra aynı filtreyi referanslara uygulayınca kamera eşiğinin −6,08'den −1,79'a
+çıktığını, B'deki 4.594 claim'in yalnız 2'sinde contradicted kararının değiştiğini buldu (onun sayımı; burada yeniden
+üretilmedi). Düzeltme τ'yu değiştirir, yani yeni bir kalibrasyon, yeni bundle kimliği ve yeni `check_s4_B.json`
+metrikleri demektir; dondurulmuş S4 bu yüzden olduğu gibi bırakıldı. Düzeltilirse: anma, referans cümlesi
+`claims.non_visual(ref, c, compounds=True)` değilse sayılmalı (hem `refs` hem `cnt`).
+
+Ayrıca rapor (`report/sections/3_design.tex`, Check bölümü) hâlâ ilk birleşik Check'in z ölçeği ve üç yollu eşik
+kuralını anlatıyor; S4'ün (rakip-farkında kanıt, maliyete duyarlı τ_c, top-1 ikamesi) metne geçmesi bekliyor.

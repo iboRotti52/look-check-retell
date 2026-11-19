@@ -68,7 +68,7 @@ def test_corruption_preserves_v2_so_the_old_excess_gate_is_not_reapplied():
 
 @pytest.mark.parametrize("extension", [".json", ".maps.npz"])
 def test_draft_cli_refuses_existing_outputs_before_loading_a_model(tmp_path, monkeypatch, extension):
-    output = tmp_path / "pipeline" / f"A_validation_{config.LOOK_VERSION.replace('v', 'look')}{extension}"
+    output = tmp_path / "pipeline" / f"{pipeline.output_stem('A', 'validation', True, config.LOOK_VERSION)}{extension}"
     output.parent.mkdir()
     output.write_bytes(b"existing experiment")
     monkeypatch.setattr(config, "CACHE", tmp_path)
@@ -78,3 +78,12 @@ def test_draft_cli_refuses_existing_outputs_before_loading_a_model(tmp_path, mon
         runpy.run_path(str(config.ROOT / "scripts" / "04_draft_look_check.py"), run_name="__main__")
     assert exc.value.code == 2
     assert output.read_bytes() == b"existing experiment"
+
+
+def test_live_lcr_output_is_named_after_the_default_bundle(monkeypatch):
+    """scripts/04's default run wrote A_B_lcr.json (the first unified bundle's records) although S4 is default."""
+    from lcr import region_evidence as re
+    assert pipeline.output_stem("A", "B", True, "lcr") == "A_B_lcr4"            # S4 default -> A_B_lcr4.json
+    assert pipeline.output_stem("A", "validation", True, "lcr") == "A_validation_lcr4"
+    monkeypatch.setattr(re, "BUNDLE_PATH", re.HISTORICAL_BUNDLE_PATH)
+    assert pipeline.output_stem("A", "B", True, "lcr") == "A_B_lcr"

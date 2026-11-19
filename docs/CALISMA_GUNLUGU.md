@@ -566,3 +566,10 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   (S4 kanıt sözleşmesi), `tests/test_check_fix.py`, `tests/test_check_complete.py`, `docs/CHECK_S4.md`, README.
 - **Bekleyen:** veri bu makinede yok. Veri sahibi 48 (kuru koşu → `--overwrite`) ve `39 --live` koşmalı; o zamana
   kadar eski `A_B_lcr4.json` yeni 39 denetiminden geçmez (beklenen).
+
+### 2026-11-19 — Claude: Astra'nın tam proje incelemesi (Check tarafı)
+- **Varsayılan canlı koşu yanlış dosyaya yazıyordu** (İbrahim): `pipeline.output_stem(..., "lcr")` her zaman
+  `A_B_lcr` (ilk birleşik bundle'ın kaydı) veriyordu; varsayılan S4 olduğu için `A_B_lcr4` olmalı. Artık ad varsayılan
+  bundle'dan geliyor (`pipeline.lcr_tag`); `tests/test_pipeline_versions.py` (yeni test eski kodla başarısız).
+- **S4 kalibrasyonu canlıda atlanan kalıpları pozitif sayıyor** (Astra): kodda doğrulandı; τ'yu değiştireceği için
+  düzeltilmedi, `docs/CHECK_S4.md`'ye bilinen hata olarak yazıldı. Rapordaki Check tanımının S4'e güncellenmesi bekliyor.
