@@ -152,3 +152,92 @@ def test_record_rival_np():
     assert rec["action"] == "remove"
     rec = ch.record("camel", att(), prop([[0, 0, 1], [0, 0, 0]]))
     assert rec["action"] == "skip" and rec["reason"] == "abstain_class"
+
+
+def _rival_checker(tau_value=1.):
+    q = np.zeros((len(CLASSES), 3), np.float32)
+    q[CLASS_INDEX["dog"]] = [2, 0, 0]; q[CLASS_INDEX["cat"]] = [0, 2, 0]; q[CLASS_INDEX["frisbee"]] = [0, 0, 2]
+    bundle = dict(classes=CLASSES, query_sha256=hashlib.sha256(q.tobytes()).hexdigest(), decision="rival_np",
+                  mu=[0.] * len(CLASSES), sd=[1.] * len(CLASSES), look=dict(min_patches=0, alpha=.5), pool="max",
+                  alternatives="all", tau=[tau_value] * len(CLASSES), centre=[0.] * len(CLASSES), rival_weight=2.,
+                  confusion=re.CONFUSION_CLEAN)
+    bundle["id"] = re.fingerprint(bundle)
+    return re.RegionChecker(bundle, q)
+
+
+def _two_attended_boxes(embeds):
+    """Two proposals inside Look's attention, so both are top-3 candidates."""
+    boxes = np.array([[.06, .13, .29, .49], [.09, .15, .27, .45]], np.float32)
+    return dict(boxes=boxes, objectness=np.ones(2, np.float32), embeds=np.asarray(embeds, np.float32),
+                shift=np.zeros(2, np.float32), scale=np.ones(2, np.float32))
+
+
+def test_rival_np_keep_shows_the_box_that_supports_the_decision():
+    """Reviewed bug (S4 keep): the box with the highest RAW dog logit has a stronger cat rival, so its rival-aware
+    score is below tau; the keep is earned by the other box, and that box must be the one shown."""
+    ch = _rival_checker(tau_value=1.4)
+    p = _two_attended_boxes([[1., 1.2, 0], [.8, 0, 0]])     # box0: dog 2.0, cat 2.4 -> v 1.2; box1: dog 1.6 -> v 1.6
+    rec = ch.record("dog", att(), p)
+    assert rec["action"] == "keep" and sorted(rec["region_indices"]) == [0, 1]
+    assert rec["region"] == 1 and rec["box"] == p["boxes"][1].tolist()
+    v = re.rival_matrix(re.proposal_logits(p, ch.queries), ch.M, 2.)[:, CLASS_INDEX["dog"]]
+    assert np.isclose(rec["s_claim"], v[rec["region"]]) and v[rec["region"]] >= rec["tau_claim"]
+
+
+def test_rival_np_replace_s_alt_belongs_to_the_shown_box():
+    """Reviewed display bug (S4 replace): the substitute is read on the top-1 box, but s_alt carried the pooled
+    max over all candidates, which can sit on another box. Decision unchanged; pooled value kept separately."""
+    ch = _rival_checker()
+    p = _two_attended_boxes([[0, 0, 0], [0, 0, 0]])
+    top, _ = re.candidates(att(), p, "thing", ch.bundle["look"])
+    p["embeds"][top[0]] = [0, .75, 0]                        # cat 1.5 on the top-1 box
+    p["embeds"][top[1]] = [0, 1.5, 0]                        # cat 3.0 on the other candidate
+    rec = ch.record("dog", att(), p)
+    assert rec["action"] == "replace" and rec["substitute"] == "cat"
+    assert rec["region"] == int(top[0]) and rec["box"] == p["boxes"][top[0]].tolist()
+    assert np.isclose(rec["s_alt"], 1.5) and np.isclose(rec["s_alt_pooled"], 3.0)
+
+
+def _script(name):
+    import importlib.util
+    import sys
+    from pathlib import Path
+    root = Path(__file__).resolve().parent.parent
+    sys.path.insert(0, str(root / "scripts"))
+    spec = importlib.util.spec_from_file_location(name.replace(".py", ""), root / "scripts" / name)
+    module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+    return module
+
+
+def test_verifier_witness_contract_rejects_the_pre_fix_records():
+    v39 = _script("39_verify_lcr.py")
+    ch = _rival_checker(tau_value=1.4)
+    p = _two_attended_boxes([[1., 1.2, 0], [.8, 0, 0]])
+    rec = ch.record("dog", att(), p)
+    z = re.proposal_logits(p, ch.queries); v = re.rival_matrix(z, ch.M, 2.)
+    v39.witness_contract("x", rec, z, v)
+    with pytest.raises(AssertionError):
+        v39.witness_contract("x", dict(rec, region=0), z, v)          # the raw-score box the old code showed
+    ch = _rival_checker()
+    p = _two_attended_boxes([[0, 0, 0], [0, 0, 0]])
+    top, _ = re.candidates(att(), p, "thing", ch.bundle["look"])
+    p["embeds"][top[0]] = [0, .75, 0]; p["embeds"][top[1]] = [0, 1.5, 0]
+    rec = ch.record("dog", att(), p)
+    z = re.proposal_logits(p, ch.queries); v = re.rival_matrix(z, ch.M, 2.)
+    v39.witness_contract("x", rec, z, v)
+    with pytest.raises(AssertionError):
+        v39.witness_contract("x", dict(rec, s_alt=rec["s_alt_pooled"]), z, v)   # the old pooled s_alt
+
+
+def test_record_rewrite_allows_display_changes_and_refuses_decision_changes():
+    import copy
+    s48 = _script("48_rewrite_lcr4_records.py")
+    rec = dict(verdict="supported", action="keep", substitute="", reason="claim_present", alt="", s_claim=1.6,
+               region_indices=[0, 1], region_weights=[.5, .5], region=0, box=[0., 0., .5, .5], excess=.1, s_alt=0.)
+    stored = [dict(id="train_0001", draft="a dog", claims=[dict(cls="dog", rec_att=rec)])]
+    shown = copy.deepcopy(stored); shown[0]["claims"][0]["rec_att"].update(region=1, box=[.1, .1, .4, .4], excess=.2)
+    changed, examples = s48.compare(stored, shown)
+    assert changed == {"keep:region": 1, "keep:box": 1, "keep:excess": 1} and examples[0]["region"] == [0, 1]
+    decided = copy.deepcopy(stored); decided[0]["claims"][0]["rec_att"]["action"] = "keep_elsewhere"
+    with pytest.raises(RuntimeError, match="decision field changed"):
+        s48.compare(stored, decided)

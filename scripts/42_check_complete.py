@@ -93,8 +93,10 @@ def crossfit(image_max, xs, pooled, rows, complete):
 
 
 def main():
-    if re.BUNDLE_PATH.exists():
-        raise FileExistsError(f"{re.BUNDLE_PATH} exists: completed Check is calibrated")
+    # S2's own file. re.BUNDLE_PATH is the current default (S4 since 2026-11-15) and must not be used here:
+    # checking it refused S2 whenever S4 existed, and writing it put S2 under S4's name.
+    if re.FIVE_WAY_BUNDLE_PATH.exists():
+        raise FileExistsError(f"{re.FIVE_WAY_BUNDLE_PATH} exists: completed Check is calibrated")
     rows, maps, owl, q, hist, image_max, xs, pooled = build()
     ok = np.array([x["ok"] for x in xs]); fitp = np.array([x["part"] == "fit" for x in xs])
     old = cache.load_json(P / "A_B_lcr.json")
@@ -173,7 +175,7 @@ def main():
                   breakdown_S2_oof=breakdown, audited=audited,
                   in_sample_all_B=dict(quality=Q(vf, ok), actions=dict(collections.Counter(af))),
                   caveat="B only; proxy labels; S0 thresholds from B_cal so compared on B_fit; no selection")
-    re.BUNDLE_PATH.write_text(json.dumps(bundle, indent=1, allow_nan=False) + "\n")
+    re.FIVE_WAY_BUNDLE_PATH.write_text(json.dumps(bundle, indent=1, allow_nan=False) + "\n")
     cache.save_json(result, config.RESULTS / "check_complete_B.json")
     cache.save_json(generated, P / "A_B_lcr2.json")
     shutil.copyfile(P / "A_B_look4.maps.npz", P / "A_B_lcr2.maps.npz")

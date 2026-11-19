@@ -46,3 +46,27 @@
 - **Giysi türü:** detektörle sınırlı. İsteğe bağlı yol: OWLv2-large (günlükte not edildi).
 - **Retell (kapalı):** `remove` → kelimeyi yasakla; `replace` (kesinlik ~0.91) → ikameyi öner;
   `keep_elsewhere` → dokunma.
+
+## Düzeltme (2026-11-19): gösterilen kanıt kutusu kararın kutusu
+
+Astra (GPT-6.2, İbrahim'in incelemesi) B kayıtlarında iki gösterim hatası buldu; sayılar onun B sayımıdır, burada
+yeniden üretilmedi. **Hiçbir karar değişmez**: verdict/action/substitute, τ, λ ve bundle (`c7156af83dcca3b4`) aynı.
+- **keep kutusu.** keep kararı rakip-farkında skorla (v_c) veriliyor, ama kanıt olarak gösterilen kutu ham claim
+  logit'iyle seçiliyordu. 4.024 keep'in 29'unda gösterilen kutunun v_c'si τ_c altındaydı (ör. train_0505 slide:
+  τ −3,172, gösterilen kutu −4,305, kararı veren kutu −2,644). Artık kutu v_c ile seçiliyor; s_claim tam o kutunun
+  v_c'si.
+- **replace skoru.** İkame Look top-1 kutusunda okunuyor ve o kutu gösteriliyor, ama `s_alt` aday kutular üzerinden
+  birleştirilmiş skoru taşıyordu (52 ikamenin 6'sında başka bir kutuya ait). Artık `s_alt` gösterilen kutunun
+  skoru; birleştirilmiş değer `s_alt_pooled` alanında. `s_substitute_best` değişmedi. Retell kanıtı aday başına
+  `regions` jetonlarını kullandığı için Retell girdisi değişmez.
+
+Kod: `lcr/region_evidence.py` (`RegionChecker.record`). Testler `tests/test_check_fix.py` (eski kodla ikisi de
+başarısız olur). `scripts/39_verify_lcr.py` artık S4 kayıtlarında bu sözleşmeyi denetler (keep: kutunun v_c'si
+= s_claim ≥ τ_c; replace: kutu top-1, s_alt o kutunun skoru) — **eski `A_B_lcr4.json` bu denetimden geçmez.**
+Kayıtları yenilemek için veri sahibi: `python scripts/48_rewrite_lcr4_records.py` (kuru koşu, raporu
+`results/lcr4_witness_rewrite.json`), sonra `--overwrite` (eski dosya `data/cache/pipeline/archive/pre_witness_fix/`'e),
+sonra `python scripts/39_verify_lcr.py --live`. Script 48 yeniden kalibre etmez ve tek bir karar alanı değişirse
+yazmayı reddeder.
+
+Ayrıca `scripts/42_check_complete.py` (S2) kendi dosyası yerine varsayılan `re.BUNDLE_PATH`'e (S4'e) bakıyor ve
+oraya yazıyordu; artık `FIVE_WAY_BUNDLE_PATH`. Mevcut ayarları etkilemiyordu, deneyleri yeniden kurmayı bozuyordu.

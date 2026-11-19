@@ -90,6 +90,7 @@ GPU işi başlatılmadı. Aşağıdaki v1–v4 ve Retell çalıştırma anlatım
 | `43_check_fix.py` | Pozitif-çapalı Check (Fable düzeltmesi): ham OWLv2 logit, sınıf eşiği temiz pozitiflerden, çekimser sınıflar, karışma kümesi ikamesi, FCR ≤ %5; S2 ile FCR + swap kıyası → `lcr_check3_bundle.json`, `check_fix_B.json`, `A_B_lcr3.json` | CPU |
 | `44_check_fix_ablation.py` | 43'ün sonradan çekimserlik ablation'ı (seçim değil) | CPU |
 | `45_check_s4.py` | **Check S4 (varsayılan):** rakip-farkında kanıt, maliyete duyarlı sınıf eşikleri, Look top-1 merkezli ikame, temiz kümeler; S2/S3 kıyası → `lcr_check4_bundle.json`, `check_s4_B.json`, `A_B_lcr4.json` | CPU |
+| `48_rewrite_lcr4_records.py` | Dondurulmuş S4 bundle'ıyla `A_B_lcr4.json`'u yeniden yazar (kanıt kutusu/`s_alt` gösterim düzeltmesi, `docs/CHECK_S4.md`); tek bir karar alanı değişirse yazmaz; kuru koşu varsayılan, `--overwrite` eski dosyayı arşivler | CPU |
 | `review_first_principles_B.py` | İlk ilkeler tanısı (eylem türü, bölge dışı varlık, alternatif kalitesi, görsel denetim özeti) | CPU |
 | `review_look_e3.py` | Donmuş E3/v4 için kayıt eşitliği, B tür/başlık/SAM tanıları ve `--live` yeniden çıkarım kontrolü | CPU/MPS |
 | `review_look_e3_drift.py` | İlk 16 B taslağında SEP ve sayısal duyarlık sapma tanıları | CPU |

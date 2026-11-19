@@ -557,3 +557,12 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   script 07 ile yeniden üretilir). Git geçmişi tek temiz commit'e indirildi. Ham Flickr8k görüntüleri ve test split'i
   release'te yok.
 
+
+### 2026-11-19 — Claude: S4 kanıt kutusu ve S2 bundle yolu düzeltmesi (`check/s4-witness-box`)
+- Astra'nın bulguları (İbrahim'in incelemesi; sayılar onların B sayımı): S4 keep kutusu ham logit'le seçiliyordu
+  (29/4.024 keep'te kutu τ altında), replace `s_alt`'ı birleştirilmiş skordu (6/52). Kararlar değişmiyor.
+- Değişenler: `lcr/region_evidence.py`, `scripts/42_check_complete.py` (S2 kendi dosyası), `scripts/45_check_s4.py`
+  (`generate_records` ayrıldı, davranış aynı), `scripts/48_rewrite_lcr4_records.py` (yeni), `scripts/39_verify_lcr.py`
+  (S4 kanıt sözleşmesi), `tests/test_check_fix.py`, `tests/test_check_complete.py`, `docs/CHECK_S4.md`, README.
+- **Bekleyen:** veri bu makinede yok. Veri sahibi 48 (kuru koşu → `--overwrite`) ve `39 --live` koşmalı; o zamana
+  kadar eski `A_B_lcr4.json` yeni 39 denetiminden geçmez (beklenen).

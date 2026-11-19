@@ -116,6 +116,31 @@ def metrics(F, v, a, sub, a_sw, sub_sw):
         proxy=calibrate.verdict_quality(v, ok))
 
 
+def generate_records(checker, rows, maps, owl, q):
+    """A_B_lcr4.json rows through the shared checker. scripts/48 reuses this to rewrite records with the frozen
+    bundle when RegionChecker.record changes without changing any decision."""
+    bundle = checker.bundle
+    owner = {tuple(o): i for i, o in enumerate(maps["owner"])}
+    generated = []
+    for ri, row in enumerate(rows):
+        prop = owl[int(row["id"].rsplit("_", 1)[1])]
+        lg = re.proposal_logits(prop, q)
+        out = []
+        for ci, c in enumerate(row["claims"]):
+            rec = checker.record(c["cls"], maps["maps"][owner[(ri, ci)]], prop, logits=lg,
+                                 person_record=c["rec_att"] if c["kind"] == "person" else None,
+                                 non_visual=claims.non_visual(row["draft"], c["cls"], compounds=True))
+            out.append(dict(c, rec_att=rec, regions_by_k={"4": rec["region"]}, excess_by_k={"4": rec["excess"]}))
+        generated.append(dict(row, claims=out, bundle_id=bundle["id"], evidence_partition="all_B",
+                              look_metadata=dict(row["look_metadata"], region_rule="lcr", proposal_rule=bundle["look"]),
+                              check_metadata=dict(method="lcr", decision="rival_np", bundle_id=bundle["id"],
+                                                  calibration="all_B (in-sample thresholds; OOF metrics in results/check_s4_B.json)",
+                                                  label=bundle["label"])))
+        if (ri + 1) % 1000 == 0:
+            print(f"records {ri + 1}/{len(rows)}", flush=True)
+    return generated
+
+
 def pick(curve, target):
     ok = [lam for lam in curve if curve[lam]["FCR_thing"] <= target]
     return max(ok, key=lambda lam: curve[lam]["FCR_thing"]) if ok else None
@@ -198,24 +223,7 @@ def main():
                   protocol="docs/CHECK_S4_PROTOKOL.md")
     bundle["id"] = re.fingerprint(bundle)
     checker = re.RegionChecker(bundle, q)
-    owner = {tuple(o): i for i, o in enumerate(maps["owner"])}
-    generated = []
-    for ri, row in enumerate(rows):
-        prop = owl[int(row["id"].rsplit("_", 1)[1])]
-        lg = re.proposal_logits(prop, q)
-        out = []
-        for ci, c in enumerate(row["claims"]):
-            rec = checker.record(c["cls"], maps["maps"][owner[(ri, ci)]], prop, logits=lg,
-                                 person_record=c["rec_att"] if c["kind"] == "person" else None,
-                                 non_visual=claims.non_visual(row["draft"], c["cls"], compounds=True))
-            out.append(dict(c, rec_att=rec, regions_by_k={"4": rec["region"]}, excess_by_k={"4": rec["excess"]}))
-        generated.append(dict(row, claims=out, bundle_id=bundle["id"], evidence_partition="all_B",
-                              look_metadata=dict(row["look_metadata"], region_rule="lcr", proposal_rule=bundle["look"]),
-                              check_metadata=dict(method="lcr", decision="rival_np", bundle_id=bundle["id"],
-                                                  calibration="all_B (in-sample thresholds; OOF metrics in results/check_s4_B.json)",
-                                                  label=bundle["label"])))
-        if (ri + 1) % 1000 == 0:
-            print(f"records {ri + 1}/{len(rows)}", flush=True)
+    generated = generate_records(checker, rows, maps, owl, q)
     for i, x in enumerate(xs):            # vectorised fit and RegionChecker.record must agree on every claim
         rec = generated[x["ri"]]["claims"][x["ci"]]["rec_att"]
         assert rec["verdict"] == vf[i] and rec["action"] == af[i] and rec["substitute"] == subf[i], (x, rec["action"], af[i])
