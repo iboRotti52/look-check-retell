@@ -25,7 +25,7 @@ from collections import Counter, defaultdict
 import numpy as np
 
 import _common  # noqa: F401
-from lcr import cache, check, config, metrics, pilot, pipeline
+from lcr import cache, check, config, grounding, metrics, pilot, pipeline
 
 ap = argparse.ArgumentParser()
 ap.add_argument("csvs", nargs="+")
@@ -146,13 +146,23 @@ if pilot_mode:
             ans["substitute_ok"], src = pilot.final_answer(entries, adj.get(k), "substitute_ok")
             sources[f"substitute_{src}"] += 1
         answers[(f["id"], f["claim_index"])] = ans
+        true_cls = None
+        if ans.get("error_type") == "misidentified":
+            # optional free-text correct name -> vocabulary class (same lexicon as claim extraction), then adjudicated
+            named = [dict(e, true_cls=grounding.phrase_class(e.get("true_name") or "") or "") for e in entries]
+            adj_named = dict(adj[k], true_cls=grounding.phrase_class(adj[k].get("true_name") or "") or "") if k in adj else None
+            true_cls, src = pilot.final_answer(named, adj_named, "true_cls")
+            sources[f"true_name_{src}"] += 1
+            true_cls = None if true_cls == "uncertain" else true_cls
         if lab == "correct" or ans.get("error_type") == "misidentified":
             box, src, iou = pilot.final_box(entries, adj.get(k))
             sources[f"box_{src}"] += 1
             # detector / Look / human box comparison: the human box next to the box Look's S4 record shows
             ref_boxes.append(dict(id=f["id"], claim_index=f["claim_index"], cls=f["cls"], stratum=f["stratum"],
                                   label=lab, error_type=ans.get("error_type"), human_box=box, human_box_source=src,
-                                  annotator_box_iou=iou, look_region=f["look_region"], look_box=f["look_box"]))
+                                  annotator_box_iou=iou, look_region=f["look_region"], look_box=f["look_box"],
+                                  true_cls=f["cls"] if lab == "correct" else true_cls, s4_action=f["s4_action"],
+                                  substitute=f["substitute"], substitute_ok=ans.get("substitute_ok")))
     out["pilot"] = dict(records=key["records"], s4_bundle_id=key["s4_bundle_id"], population=key["population"],
                         n_focus=len(key["focus"]), n_focus_labelled=len(answers), sources=dict(sources),
                         strata=pilot.summarise_strata(key["focus"], answers),

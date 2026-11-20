@@ -100,6 +100,7 @@ hiçbir seçilen bölgeyi veya yukarıdaki ana yolu değiştirmez.
 | `49_look_small_object.py` | B_fit'te Look'un insan kutusu kapsaması, küçük nesne isabeti yalnız küçük kutuya gelirse (script 37'nin ilk sayımı büyük kutuyu da sayıyordu); filtreli/filtresiz → `look_small_object_B.json`, `docs/generated/LOOK_SMALL_OBJECT_B.md`; script 38 rapor makrolarını buradan alır | CPU |
 | `50_h1_power.py` | H1 örneklem tablosu, etki tam %15'te tutularak (düzeltme sabiti hesaplanır) → `h1_power.json`, `report/generated/power_table.tex`, `power_macros.tex` (eskiden script 08) | CPU, veri gerekmez |
 | `51_check_s4_report.py` | Raporun Check S4 makroları (`check_s4_B.json` + S4 bundle'dan; elle sayı yok) → `report/generated/check_s4_macros.tex` | CPU, veri gerekmez |
+| `52_pilot_box_comparison.py` | Pilot P6: aynı donmuş OWLv2 ile detektör (B3), Look ve insan kutusu; S4 kurallarıyla doğru claim desteği, yanlış adı reddetme, doğru adı bulma, öneri kapsaması → `pilot_box_comparison_<ad>.json` | CPU, veri önbelleği |
 | `review_first_principles_B.py` | İlk ilkeler tanısı (eylem türü, bölge dışı varlık, alternatif kalitesi, görsel denetim özeti) | CPU |
 | `review_look_e3.py` | Donmuş E3/v4 için kayıt eşitliği, B tür/başlık/SAM tanıları ve `--live` yeniden çıkarım kontrolü | CPU/MPS |
 | `review_look_e3_drift.py` | İlk 16 B taslağında SEP ve sayısal duyarlık sapma tanıları | CPU |

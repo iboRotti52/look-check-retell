@@ -121,3 +121,29 @@ def test_referent_box_counts_correct_claims_too():
     assert pilot.final_answer([row(), row()], None, "label") == ("incorrect", "agreement")
     assert pilot.final_answer([dict(label="correct", substitute_ok="yes"), dict(label="correct", substitute_ok="no")],
                               dict(substitute_ok="no"), "substitute_ok") == ("no", "adjudicator")
+
+
+def test_box_evidence_follows_s4_rules():
+    from lcr import region_evidence as re
+    from lcr.vocab import CLASSES, CLASS_INDEX
+    M = re.set_matrix(re.CONFUSION_CLEAN)
+    d, c, f = CLASS_INDEX["dog"], CLASS_INDEX["cat"], CLASS_INDEX["frisbee"]
+    z = np.full((2, len(CLASSES)), -9.)
+    z[0, d], z[0, c] = 1., 3.                   # box 0: OWLv2 prefers cat over the claimed dog
+    z[1, d] = 2.                                # box 1: a clear dog
+    v = re.rival_matrix(z, M, 2.)
+    tau = np.full(len(CLASSES), 1.5)
+    on0 = pilot.box_evidence(z, v, tau, M, 0, d, true_k=c)
+    assert on0 == dict(supports_claim=False, claim_rejected=True, true_is_rival=True, true_name_found=True)
+    assert pilot.box_evidence(z, v, tau, M, 1, d)["supports_claim"]
+    assert not pilot.box_evidence(z, v, tau, M, 0, d, true_k=f)["true_is_rival"]
+    tau[d] = np.nan                             # class without a threshold never supports or is found
+    assert not pilot.box_evidence(z, v, tau, M, 1, d)["supports_claim"]
+
+
+def test_matching_proposal_respects_the_pool():
+    boxes = np.array([[0, 0, .5, .5], [0, 0, .45, .45], [.6, .6, 1, 1]], np.float32)
+    pool = np.array([False, True, True])
+    j, iou = pilot.matching_proposal(boxes, pool, [0, 0, .5, .5])
+    assert j == 1 and abs(iou - .81) < 1e-6
+    assert pilot.matching_proposal(boxes, np.zeros(3, bool), [0, 0, .5, .5]) == (None, 0.)

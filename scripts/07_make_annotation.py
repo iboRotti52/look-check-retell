@@ -188,6 +188,7 @@ function render(){const L=document.getElementById("list");L.innerHTML="";DATA.fo
   OPTS.forEach(o=>{h+='<label><input type="radio" name="'+k+'" value="'+o[0]+'" '+(rec.label===o[0]?"checked":"")+' onchange="setLabel(\\''+k+'\\',this.value)">'+o[1]+'</label>'});
   h+='<div class="errwrap" id="errwrap-'+k+'" style="display:'+(rec.label==="incorrect"?"block":"none")+'">';
   ERR_OPTS.forEach(o=>{h+='<label><input type="radio" name="'+k+'-err" value="'+o[0]+'" '+(rec.error_type===o[0]?"checked":"")+' onchange="setErr(\\''+k+'\\',this.value)">'+o[1]+'</label>'});
+  h+='<span id="tn-'+k+'" style="display:'+(rec.error_type==="misidentified"?"inline":"none")+'">do&#287;ru ad&#305; (biliyorsan&#305;z): <input size="14" value="'+(rec.true_name||"")+'" oninput="setName(\\''+k+'\\',this.value)"></span>';
   h+='</div>';
   if(n.ask_substitute){h+='<div class="errwrap" id="subwrap-'+k+'" style="display:'+(rec.label&&rec.label!=="na"?"block":"none")+'">&Ouml;nerilen ad: <b>'+n.ask_substitute+'</b>. Bu nesne i&ccedil;in do&#287;ru mu? ';
    SUB_OPTS.forEach(o=>{h+='<label><input type="radio" name="'+k+'-sub" value="'+o[0]+'" '+(rec.substitute_ok===o[0]?"checked":"")+' onchange="setSub(\\''+k+'\\',this.value)">'+o[1]+'</label>'});
@@ -197,13 +198,15 @@ function render(){const L=document.getElementById("list");L.innerHTML="";DATA.fo
  DATA.forEach(d=>d.nouns.forEach((n,j)=>{const k=d.item+"|"+j;const rec=ans[k]||{};if(wantsBox(n,rec))mountBox(k,rec.error_type==="misidentified"?HINT_MIS:HINT_REF)}));
  prog()}
 function setLabel(k,v){ans[k]=ans[k]||{};const rec=ans[k],n=findNoun(k);rec.label=v;
- if(v!=="incorrect")rec.error_type=null;
+ if(v!=="incorrect"){rec.error_type=null;rec.true_name="";document.getElementById("tn-"+k).style.display="none"}
  rec.box=null;document.getElementById("boxwrap-"+k).innerHTML="";
  if(wantsBox(n,rec))mountBox(k,HINT_REF);
  const sw=document.getElementById("subwrap-"+k);if(sw)sw.style.display=(v!=="na")?"block":"none";
  save();document.getElementById("n-"+k).classList.remove("todo");
  document.getElementById("errwrap-"+k).style.display=(v==="incorrect")?"block":"none";prog()}
+function setName(k,v){ans[k]=ans[k]||{};ans[k].true_name=v.replace(/[,\\n\\r"<>]+/g," ").trim().toLowerCase();save()}
 function setErr(k,v){ans[k]=ans[k]||{};ans[k].error_type=v;const bw=document.getElementById("boxwrap-"+k);
+ document.getElementById("tn-"+k).style.display=(v==="misidentified")?"inline":"none";if(v!=="misidentified")ans[k].true_name="";
  if(v==="misidentified"){mountBox(k,HINT_MIS)}else{bw.innerHTML="";ans[k].box=null}
  save()}
 function setSub(k,v){ans[k]=ans[k]||{};ans[k].substitute_ok=v;save()}
@@ -228,10 +231,10 @@ function mountBox(k,hint){const wrap=document.getElementById("boxwrap-"+k);const
 function total(){return DATA.reduce((s,d)=>s+d.nouns.length,0)}
 function prog(){const done=Object.values(ans).filter(a=>a.label).length;document.getElementById("prog").textContent=done+" / "+total()+" etiket"}
 function exportCsv(){if(!who.value){alert("Önce adınızı yazın");return}
- let rows=["item,noun_index,word,cls,in_vocab,label,error_type,box,substitute,substitute_ok,annotator"];
+ let rows=["item,noun_index,word,cls,in_vocab,label,error_type,box,substitute,substitute_ok,true_name,annotator"];
  DATA.forEach(d=>d.nouns.forEach((n,j)=>{const k=d.item+"|"+j;const rec=ans[k]||{};
   const box=rec.box?rec.box.map(v=>v.toFixed(4)).join(":"):"";
-  rows.push([d.item,j,n.word,n.cls,n.in_vocab?1:0,rec.label||"",rec.error_type||"",box,n.ask_substitute||"",rec.substitute_ok||"",who.value].join(","))}));
+  rows.push([d.item,j,n.word,n.cls,n.in_vocab?1:0,rec.label||"",rec.error_type||"",box,n.ask_substitute||"",rec.substitute_ok||"",rec.true_name||"",who.value].join(","))}));
  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([rows.join("\\n")],{type:"text/csv"}));
  a.download="labels_"+NAME+"_"+who.value.replace(/\\W+/g,"_")+".csv";a.click()}
 render();

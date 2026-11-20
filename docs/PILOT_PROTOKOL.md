@@ -64,3 +64,17 @@ python scripts/07_make_annotation.py --pilot lcr --name pilot_b
 # iki etiketleyici annotation/pilot_b/annotate.html'i doldurur, CSV indirir; hakem yalnız anlaşmazlıkları
 python scripts/10_score_labels.py --name pilot_b labels_pilot_b_A.csv labels_pilot_b_B.csv --adjudicator labels_pilot_b_H.csv
 ```
+
+## Ek (2026-11-20, etiketleme başlamadan önce): P6 için doğru ad ve analiz
+- "Yanlış tanımlanmış" seçildiğinde isteğe bağlı bir **doğru adı** alanı açılır (serbest metin). Script 10 bunu claim
+  çıkarmayla aynı sözlükle bir sınıfa eşler (`grounding.phrase_class`) ve diğer alanlar gibi birleştirir (uzlaşma, hakem,
+  belirsiz). Sözlükte olmayan adlar sayılmaz. Bu, P6'nın "doğru adı buluyor mu" sorusu için gerekli; olmadan yalnız
+  "yanlış adı reddediyor mu" ölçülebilirdi.
+- Analiz: `scripts/52_pilot_box_comparison.py --name <ad>`. Aynı önbellek öneri havuzundan üç öneri: yanlış kelimenin en iyi
+  detektör kutusu (B3), S4 kaydının gösterdiği Look kutusu, insan kutusuna en iyi uyan öneri. Her birinde S4'ün kurallarıyla:
+  doğru claim'i destekliyor mu (v ≥ τ), yanlış tanımlanmışta yanlış adı reddediyor mu, doğru adı buluyor mu (S4'ün replace
+  koşulu), doğru ad S4'ün ikame kümesinde mi. Öneri kapsaması (insan kutusuna IoU ≥ 0,5 bir öneri var mı) ayrıca raporlanır;
+  hiçbir kaynak onu geçemez. Farklar aynı claim'lerde, görüntü düzeyi bootstrap. Çıktı `results/pilot_box_comparison_<ad>.json`,
+  `docs/generated/PILOT_BOX_COMPARISON_<ad>.md`.
+- Karar okuması (Astra): insan kutusu doğru adı bulup Look bulamıyorsa Look'u iyileştir; insan kutusu da bulamıyorsa önce
+  detektörün önerileri ve sınıf ayrımı.

@@ -174,3 +174,41 @@ def summarise_strata(claims, answers):
                        substitute_right_ci95=list(wilson(sub.count("yes"), len(sub))) if sub else None)
         out[g] = res
     return out
+
+
+# ------------------------------------------------------------- P6: detector box vs Look box vs human box
+def proposal_pool(prop, rule):
+    """Proposals any box source may use: the geometric pool of region_evidence.candidates (no attention filter)."""
+    boxes = prop["boxes"].astype(np.float32)
+    wh = boxes[:, 2:] - boxes[:, :2]
+    ok = np.isfinite(boxes).all(1) & (wh > 0).all(1)
+    if rule["min_patches"]:
+        from . import config
+        ok &= (wh >= rule["min_patches"] / config.BLIP_GRID).all(1)
+    return ok
+
+
+def matching_proposal(boxes, pool, human_box):
+    """(index, IoU) of the pool proposal that best matches the human box, or (None, 0.)."""
+    if not pool.any():
+        return None, 0.
+    ious = np.array([box_iou(b, human_box) if ok else -1. for b, ok in zip(boxes.tolist(), pool)])
+    j = int(ious.argmax())
+    return j, float(ious[j])
+
+
+def box_evidence(z, v, tau, rival, p, claim_k, true_k=None):
+    """What the frozen detector says on proposal p, by S4's own rules.
+
+    z: (n, C) raw logits; v: (n, C) rival-aware evidence; tau: (C,) per-class thresholds (nan = none);
+    rival: (C, C) bool, rival[c, j] = j is in c's exclusive set. supports_claim: v_p(c) >= tau_c (S4's keep test on
+    this box). For a misidentified claim with a known true class t: claim_rejected (v_p(c) < tau_c),
+    true_name_found (l_p(t) >= tau_t and l_p(t) > l_p(c), S4's replace test) and true_is_rival (S4 could only
+    propose t if it is in c's set).
+    """
+    th = lambda j: tau[j] if np.isfinite(tau[j]) else np.inf
+    out = dict(supports_claim=bool(v[p, claim_k] >= th(claim_k)))
+    if true_k is not None and true_k != claim_k:
+        out.update(claim_rejected=bool(v[p, claim_k] < th(claim_k)), true_is_rival=bool(rival[claim_k, true_k]),
+                   true_name_found=bool(z[p, true_k] >= th(true_k) and z[p, true_k] > z[p, claim_k]))
+    return out

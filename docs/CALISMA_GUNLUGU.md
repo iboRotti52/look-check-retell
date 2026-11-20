@@ -676,3 +676,10 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   `4_experiments.tex`: S4'ün B dış-kat sonuçları (S2'ye karşı FCR, swap yakalama, ikame kesinliği, ablation'lar, eylem
   sayıları); `5_conclusion.tex` plan tablosunun 8–9. haftaları güncel plana çekildi.
 - Bütün sayılar yeni `scripts/51_check_s4_report.py` → `report/generated/check_s4_macros.tex`. PDF yeniden derlenmedi (TeX yok).
+
+### 2026-11-20 — Claude: pilot P6 kutu kıyası (`pilot/s4-s2-tooling`)
+- Yeni `scripts/52_pilot_box_comparison.py` ve `lcr/pilot.py` (öneri havuzu, insan kutusuna en iyi öneri, S4 kurallarıyla
+  kutu kanıtı). Etiketleme sayfasına yanlış tanımlanmış isimler için isteğe bağlı "doğru adı" alanı (virgül/tırnak temizlenir);
+  script 10 bunu sözlük sınıfına eşleyip birleştiriyor. Protokole etiketleme öncesi ek (`docs/PILOT_PROTOKOL.md`).
+- Doğrulama: birim testleri; sahte kayıtlarla 07 → CSV → 10 → 52 uçtan uca (Look ve insan aynı öneriyken fark tam 0);
+  ad alanı tarayıcıda denendi (görünme, CSV bütünlüğü, yeniden yüklemede korunma).
