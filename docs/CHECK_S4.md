@@ -84,3 +84,12 @@ metrikleri demektir; dondurulmuş S4 bu yüzden olduğu gibi bırakıldı. Düze
 
 Ayrıca rapor (`report/sections/3_design.tex`, Check bölümü) hâlâ ilk birleşik Check'in z ölçeği ve üç yollu eşik
 kuralını anlatıyor; S4'ün (rakip-farkında kanıt, maliyete duyarlı τ_c, top-1 ikamesi) metne geçmesi bekliyor.
+
+### data-v1 kullananlar için tek seferlik geçiş
+
+`data/cache/pipeline/A_B_lcr4.json` git'te değil; GitHub release `data-v1` (`scripts/fetch_data.sh`) eski kayıtları
+içeriyor. Bu dalı birleştirdikten sonra `data-v1` indiren herkes bir kez şunu koşmalı:
+`python scripts/48_rewrite_lcr4_records.py --overwrite` ve `python scripts/39_verify_lcr.py`. Unutulursa 39'un yeni
+kanıt sözleşmesi eski dosyayı yakalar. Kalıcı çözüm: düzeltilmiş önbellekle yeni bir sürümlü release (`data-v2`) ve
+`fetch_data.sh`'de ona geçmek (ekip kararı). Yeniden yazmayı yapan kişi `results/lcr4_witness_rewrite.json` ve
+`results/lcr4_contract.json`'u bu PR'a eklemeli; değişen kayıtların ve doğrulamanın kanıtı onlar.

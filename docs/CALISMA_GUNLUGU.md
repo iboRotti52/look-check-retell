@@ -573,3 +573,5 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   bundle'dan geliyor (`pipeline.lcr_tag`); `tests/test_pipeline_versions.py` (yeni test eski kodla başarısız).
 - **S4 kalibrasyonu canlıda atlanan kalıpları pozitif sayıyor** (Astra): kodda doğrulandı; τ'yu değiştireceği için
   düzeltilmedi, `docs/CHECK_S4.md`'ye bilinen hata olarak yazıldı. Rapordaki Check tanımının S4'e güncellenmesi bekliyor.
+- 2026-11-20 ek: `A_B_lcr4.json` git'te değil; `data-v1` indirenler için tek seferlik geçiş (48 → 39) ve `data-v2`
+  önerisi `docs/CHECK_S4.md`'ye yazıldı.
