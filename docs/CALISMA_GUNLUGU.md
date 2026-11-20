@@ -10,6 +10,26 @@ Ayrıntılı geçmiş: `docs/handoff/transcript_main.md` (ilk büyük oturumun d
 
 ## Şu anki durum (2026-11-19)
 
+**Astra ile ana depo incelemesi.** A/B üyeliği ve B kayıtları 3.000'er görüntülük bölmeyle eşleşiyor.
+Varsayılan canlı S4 çıkarımı, tarihsel `A_B_lcr.json` adında duruyor. Küçük nesne ölçümü kutu boyutuna
+göre yeniden değerlendirildi. H1 örneklem hesabının eşleşmiş sütunu %15 hedefinden daha büyük bir etki
+varsayıyor. S4'ün referans kalibrasyonu, canlı çıkarımda atlanan bazı kalıpları pozitif sayıyor.
+Rapor ile güncel S4 ve insan değerlendirmesi arasındaki farklar açık.
+
+**Astra'nın ilk ilkelerden tasarım önerisi.** Look'un katkısını, gerçek taslak hatalarında hangi nesnenin
+kastedildiğini bulma ve doğru içeriğe zarar vermeden ikameyi iyileştirme üzerinden ölçmeyi öneriyor.
+Görüntü geneli varlık, cümledeki referent ve o referentin doğru adı ayrı kanıtlar gerektiriyor.
+
+**Astra ile bağımsız S4 incelemesi.** Bölgesi bulunan ve değerlendirmeye giren 4.530 kişi dışı B claim'inde
+çelişki kararını görüntü geneli OWLv2 skoru tek başına yeniden üretiyor. Look, bölgesel destek ile görüntü
+geneli desteği ayırıyor ve ikame kutusunu sağlıyor. B kayıtlarında 4.024 `keep` kararının 29'unda gösterilen
+kutu S4 destek eşiğini geçmiyor. İnsan pilotunu üretme ve puanlama betikleri eski Check kayıtlarına bağlı.
+
+**Astra ile ikinci inceleme, Look L1 (PR #1).** Script 47'nin top-1 ve top-3 ölçümleri farklı kutu kuralları
+kullanıyor. Aynı konumdaki zorlanmış kelime takasında v4'ün okuduğu ham attention iki metinde aynı kaldı.
+Script 46'nın insan kutusu şartı, boyut kırılımında 1.100 referans-desteksiz iddiadan yalnız birini tutuyor.
+İnsan etiketlerini birleştiren betik hata alt türünde hakem etiketini kullanmıyor ve ilk CSV'nin kutusunu seçiyor.
+
 **Look L1 (PR #1) inceleme düzeltmeleri yapıldı; gerçek B koşusu bekliyor.** İbrahim ve Astra'nın PR #1 bulguları
 düzeltildi (ayrıntı `docs/LOOK_L1_PROTOKOL.md` "Revizyonlar" R1–R6): script 47 artık kelimeyi *üreten* (v4)
 ve *okuyan* adımı ayrı raporluyor, top-1/top-3/B3 tek sıralama ve tek öneri havuzundan geliyor, uydurulmuş
@@ -186,6 +206,19 @@ Colab durumu (oturum kapanırken, Colab saati 20:37 UTC):
 
 15 Kasım Retell araştırması bu sıraya uygulama işi eklemedi; araştırma notu bir yol haritası değildir.
 
+- **Ana depo incelemesinden:** S4 canlı çıktısını ve tarihsel çıktıyı sürüm kimliğiyle ayır. Küçük nesne
+  metriğinde isabetin küçük insan kutusuna geldiğini doğrula. H1 örneklem hesabını hedef etki, görüntü
+  içi bağımlılık ve yeni iddialar dahil insan puanlama akışıyla uyumlu hale getir. Raporu güncel yöntemle
+  eşleştir ve tarihsel deneylerin sürümlerini belirt. S4'ün referans etiketlerinde canlı çıkarımla aynı
+  nesne iddiası tanımını uygula.
+- **İlk ilkelerden deney önerisi:** B insan pilotunda varlık, yanlış adlandırılmış belirli nesne,
+  uydurulmuş iddia ve belirsizlik ayrımını değerlendirin. Aynı iddialarda detektörün seçtiği kutu,
+  Look kutusu ve insan kutusuna eşleşen öneriyle düzeltme fırsatını kıyaslamak tartışıldı.
+
+- **Look L1 ölçüm kontrolü:** PR #1'de top-1 ile top-3 için ortak kutu sıralamasını kullan. Kelime öncesi
+  ham attention ile cümle ortalamasının etkisini ayır. Boyut analizini iki karşılaştırma grubunu da kapsayan
+  bir örneklemle yürüt. Pilot öncesi hata alt türünü ve referans kutusunu hakem etiketiyle uzlaştır.
+
 0. **İnsan pilotu:** ~300–400 B claim, tabakalı. S4 (`A_B_lcr4.json`) contradicted'ların hepsi, S2 contradicted / S4
    keep (özellikle giysi), replace'ler, keep_elsewhere ve taban oranı için rastgele keep örneği. Sonuç: gerçek hata
    oranı → FCR hedefi (λ), S4 kararlarının gerçek kesinliği.
@@ -193,6 +226,8 @@ Colab durumu (oturum kapanırken, Colab saati 20:37 UTC):
    **2026-11-18 eklendi:** araç artık Look L1'in hata türü (doğru/yanlış tanımlanmış/uydurulmuş) ve referans
    kutusu alanlarını da içeriyor (`docs/LOOK_L1_PROTOKOL.md` §8). Bu pilot başlamadan önce `scripts/07_make_annotation.py`
    ile sayfa yeniden üretilmeli ki tek bir etiketleme turu hem Check hem Look L1'i karşılasın.
+   Pilot öncesi etiketleme ve puanlama araçlarını S4/S2 kayıtlarını, claim tabakalarını ve önerilen ikameyi
+   değerlendirecek biçimde uyarlamak gerekiyor. Eşik seçimi pilotun insan etiketiyle yapılır.
 0b. **(İsteğe bağlı, GPU) Daha büyük detektör: OWLv2-large.** Şu an `google/owlv2-base-patch16-ensemble` kullanılıyor
    (`lcr/config.py`). Giysi türünde (shirt/jacket/sweater) ayırt etme detektörle sınırlı (aynı-sınıf AUROC shirt 0.71,
    sweater 0.53; kırpıp yeniden bakmak kazandırmadı, `docs/FABLE_INCELEME_2.md`). Aynı ailenin large sürümü mantığın
@@ -620,6 +655,70 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   6 inceleme PNG'si ve `annotation/pilot/annotate.html` lisans nedeniyle public repodan çıkarıldı (yerelde duruyor,
   script 07 ile yeniden üretilir). Git geçmişi tek temiz commit'e indirildi. Ham Flickr8k görüntüleri ve test split'i
   release'te yok.
+
+### 2026-11-18 — GPT-6.2 Astra ile bağımsız proje incelemesi
+
+- GPT-6.2 Astra (high), S4 karar ve kanıt kaydını B üzerinde yeniden inceledi. Çelişki kararının Look
+  kutularından bağımsız olduğu doğrulandı. `keep` eyleminde ham skorla seçilen kutu 48 kayıtta en güçlü
+  rakip-farkında kanıtı vermiyor ve 29 kayıtta destek eşiğini geçmiyor.
+- Sentetik temiz dışlayan 834 swap'ın 590'ı köpek kaynaklı. Köpek dışındaki 244 temiz swap'ta S2 88,
+  S4 152 örnek yakalıyor. S4 toplam 2.401 swap'ın 1.333'ünü yakalıyor (S2: 1.342) ve özgün sınıfı
+  723'ünde ikameyle geri kazanıyor (S2: 687). Sayılar `results/check_s4_B.json` ve B kayıtlarından hesaplandı.
+- `scripts/07_make_annotation.py` ile `scripts/10_score_labels.py` mevcut S4 insan pilotunu üretip
+  puanlamıyor. CPU'da 98 birim testi geçti. İnceleme için yalnız çalışma günlüğü güncellendi.
+  Validation ve test açılmadı. GPU işi başlatılmadı.
+
+### 2026-11-18 — GPT-6.2 Astra ile Look L1 ikinci incelemesi
+
+- PR #1 script 47'nin sıralama kuralları 4.594 kişi dışı B iddiasında tekrarlandı. Tarihsel v4 top-1 kutusu
+  292 örnekte filtresiz listenin ilk kutusundan farklı ve 46 örnekte listenin ilk üçünde yer almıyor.
+- `train_0004` üzerinde decoder A ile aynı konumda `dog` → `cat` değişimi yapıldı. Değişen kelimeden önceki
+  ham attention ve token logit'leri aynı kaldı. Cümle geneli sink ortalaması değişti.
+- PR #1 script 46, B önbelleğinden çalıştırıldı. Boyut alt grubunda küçük kutulu 1.473 destekli ve 1 desteksiz
+  iddia, büyük kutulu 1.665 destekli ve 0 desteksiz iddia var. Tüm kişi dışı iddialarda kutu içi attention
+  kütlesi AUROC 0,583, yalnız kutu alanı 0,577 ve alanı çıkarılmış kütle 0,487 verdi. Etiketler otomatik proxy.
+- PR #1 script 10'un etiket birleştirme mantığı sentetik CSV kayıtlarıyla yeniden çalıştırıldı. Alt tür
+  uyuşmazlığında hakem kararı yok sayılıyor. İki etiketleyici farklı kutular çizdiğinde CSV sırası referans
+  kutusunu değiştiriyor.
+- PR #1 script 47, her bozma türünden bir B örneğiyle CPU'da uçtan uca çalıştı. Uydurulmuş iddialar için
+  protokoldeki AUROC ve eski kutuyu yeniden kullanma kıyası çıktıda yok.
+- Kontroller CPU ve B verisiyle yapıldı. Bu incelemede yalnız çalışma günlüğü güncellendi.
+
+### 2026-11-19 — GPT-6.2 Astra ile ana depo incelemesi
+
+- 6.000 benzersiz eğitim Flickr kimliği içinde A ve B örtüşmüyor. İncelenen üç kayıt dosyasındaki
+  görüntüler sabit B üyeliğiyle eşleşti. Tarihsel BLIP checkpoint seçimi validation CIDEr kullanmış.
+  Veri sayım betiği test dosyasını satır saymak için tüm kolonlarıyla yüklüyor. İnceleme sırasında
+  validation ve test verisi okunmadı.
+- Küçük nesne kapsamı, eşleşmenin de küçük kutuda olması şartıyla, 162 B_fit iddiasında eski filtrede
+  8/162 (%4,9), filtre kaldırıldığında 90/162 (%55,6). Önceki %39,5 ve %83,3 ölçümü, aynı iddianın
+  büyük kutularına da isabet yazıyordu.
+- H1'in eşleşmiş güç tablosu %8 başlangıç hata oranında %21,83 göreli iyileşme varsayıyor. %15 hedefi
+  ve aynı %1 bozma varsayımıyla 1.000 iddiada güç yaklaşık %52, 2.000 iddiada yaklaşık %85. Bu hesapta
+  iddialar bağımsız. Mevcut insan puanlayıcısı, raporda bahsedilen eşleşmiş iddia analizi ve güven
+  aralıklarını üretmiyor.
+- `scripts/04_draft_look_check.py --split B` mevcut tarihsel `A_B_lcr.json` yolunda çıktı çakışması
+  ile durdu. Güncel S4 kaydı `A_B_lcr4.json`. CPU'da 98 test geçti.
+- Kamera için en az iki referansla pozitif sayılan 51 B görüntüsünün 32'si, S4'ün canlı çıkarımda
+  atladığı kalıplar çıkarılınca iki referans koşulunun altına iniyor. Bisiklet için 15/133 görüntü
+  koşulun altına iniyor. Bellek içi yeniden ayarda kamera eşiği −6,08'den −1,79'a, bisiklet eşiği
+  −2,97'den −2,43'e çıktı. B'deki 4.594 kişi dışı iddianın ikisinde çelişki kararı değişti. Bu sayılar
+  referans etiketi tutarlılığını ölçüyor.
+- Tarihsel Retell koşusunda kanıtı maskelemek altyazıların %10,9'unu değiştirirken ikame etiketini
+  değiştirmek %0'ını değiştirdi. B'de referans destekli 3.494 kişi dışı iddianın beş hedef metnindeki
+  17.470 iddia-hedef çiftinin 5.830'unda sınıf anılmıyor. Güncel eğitim betiği tarihsel koşudan
+  farklı örneklem ve epoch seçimi kullanıyor. Retell eğitimi başlatılmadı.
+
+### 2026-11-19 — GPT-6.2 Astra ile ilk ilkelerden tasarım tartışması
+
+- Görüntüde sınıfın bulunması ile altyazıda o adla anılan nesnenin doğru olması ayrıldı. Look'un
+  konumu, insanın cümle ve görüntüden belirleyebildiği referenti sınamak için aday olarak ele alındı.
+- B için önerilen deney, aynı gerçek iddialarda donmuş OWLv2 ile detektör kutusunu, Look kutusunu ve
+  insan kutusuna eşleşen öneriyi kıyaslıyor. Başarı, doğru içeriği bozma oranı eşitken daha çok gerçek
+  hatayı düzeltmek. Rastgele örnek, yer bilgisiyle düzeltilebilecek hataların yaygınlığını ölçüyor.
+- Retell için tasarım fikri, özgün altyazıyı aday olarak tutup tek ifadeyi ve ona dilbilgisel olarak
+  bağlı kısmı değiştirmek. Korunan doğru içeriğin ve yeni hataların insan tarafından puanlanması
+  tartışıldı. Bu oturum tasarım değerlendirmesiydi.
 
 
 ### 2026-11-18 — Claude: Look L1 altyapısı (PR #1)
