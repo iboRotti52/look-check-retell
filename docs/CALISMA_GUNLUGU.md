@@ -714,3 +714,14 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
 - Eğitim engeli yerinde; hiçbir şey eğitilmedi. Testler `tests/test_retell_actions.py` (CPU). `tests/test_retell.py`
   (BLIP + Flickr8k gerekir) burada koşulamadı; sıfır-başlangıç özelliği kapılardan geldiği için etkilenmez.
 - Bileşen sahibi İbrahim Billurcu (öneri: evidence encoder); PR'da onun incelemesi istenmeli.
+
+### 2026-11-20 — Claude: PR #1–#4 birleştirildi, veri gerektiren adımlar koşuldu
+- Sıra #1 → #3 (tabanı `main`'e çekildi) → #2 → #4; README ve günlük çakışmalarında iki taraf korundu. Birleşik ağaçta
+  CPU test paketi (veriyle) 141/141 geçti.
+- #2: `48_rewrite_lcr4_records.py` kuru koşu → `--overwrite` (6.856 claim, karar alanları aynı; eski dosya
+  `data/cache/pipeline/archive/pre_witness_fix/`), `39_verify_lcr.py --live` geçti → `results/lcr4_witness_rewrite.json`,
+  `results/lcr4_contract.json`. `data-v1` indirenler hâlâ 48'i bir kez koşmalı (`data-v2` yapılmadı).
+- #1: 46 → 47 (`--n 300 --seed 415`) → 49 → 38 gerçek B'de koşuldu; özet `docs/LOOK_L1_PROTOKOL.md` §9, tablolar
+  `docs/generated/LOOK_{REFERENT,FORCED_HALLUCINATION,SMALL_OBJECT}_B.md`. Küçük nesne sayımı Astra'nın bağımsız sayımıyla
+  aynı (kapı). `report/main.pdf` yeniden derlendi.
+- Bekleyen: Look adım 6 kararı (Metin), #4 için Billurcu'nun incelemesi, insan pilotu (script 07 `--pilot lcr`).

@@ -50,6 +50,7 @@
    "after": "supported"
   }
  ],
+ "witness_contract_checked": 4076,
  "live_fixed_draft_replay": [
   {
    "id": "train_0004",

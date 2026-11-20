@@ -1,0 +1,134 @@
+{
+ "protocol": "docs/LOOK_L1_PROTOKOL.md",
+ "look_rule": {
+  "min_patches": 0,
+  "alpha": 0.5
+ },
+ "min_per_class": 25,
+ "n_claims": 6856,
+ "n_no_candidate": 0,
+ "overall": {
+  "strength": {
+   "auroc": 0.5367224332622157,
+   "n_pos": 3494,
+   "n_neg": 1100
+  },
+  "top1_concentration": {
+   "auroc": 0.5879650829994276,
+   "n_pos": 3494,
+   "n_neg": 1100
+  },
+  "neg_entropy": {
+   "auroc": 0.41257610449081544,
+   "n_pos": 3494,
+   "n_neg": 1100
+  },
+  "null_margin": {
+   "auroc": 0.4996911397199148,
+   "n_pos": 3411,
+   "n_neg": 1093
+  },
+  "top1_area": {
+   "auroc": 0.5829761409168965,
+   "n_pos": 3494,
+   "n_neg": 1100
+  }
+ },
+ "by_size": {
+  "edges": [
+   0.12183094024658203,
+   0.4627547860145569
+  ],
+  "small": {
+   "strength": {
+    "auroc": 0.5436229186975059,
+    "n_pos": 1047,
+    "n_neg": 485
+   },
+   "top1_concentration": {
+    "auroc": 0.5228704496893432,
+    "n_pos": 1047,
+    "n_neg": 485
+   },
+   "neg_entropy": {
+    "auroc": 0.4558296162821611,
+    "n_pos": 1047,
+    "n_neg": 485
+   },
+   "null_margin": {
+    "auroc": 0.5346712029981563,
+    "n_pos": 1033,
+    "n_neg": 482
+   },
+   "top1_area": {
+    "auroc": 0.5270118847172579,
+    "n_pos": 1047,
+    "n_neg": 485
+   }
+  },
+  "medium": {
+   "strength": {
+    "auroc": 0.610596539068747,
+    "n_pos": 1208,
+    "n_neg": 323
+   },
+   "top1_concentration": {
+    "auroc": 0.596469870625141,
+    "n_pos": 1208,
+    "n_neg": 323
+   },
+   "neg_entropy": {
+    "auroc": 0.4669386750866258,
+    "n_pos": 1208,
+    "n_neg": 323
+   },
+   "null_margin": {
+    "auroc": 0.5704888774894065,
+    "n_pos": 1166,
+    "n_neg": 321
+   },
+   "top1_area": {
+    "auroc": 0.5492203678264613,
+    "n_pos": 1208,
+    "n_neg": 323
+   }
+  },
+  "large": {
+   "strength": {
+    "auroc": 0.5560715114929186,
+    "n_pos": 1239,
+    "n_neg": 292
+   },
+   "top1_concentration": {
+    "auroc": 0.5639960418808805,
+    "n_pos": 1239,
+    "n_neg": 292
+   },
+   "neg_entropy": {
+    "auroc": 0.42996727365197296,
+    "n_pos": 1239,
+    "n_neg": 292
+   },
+   "null_margin": {
+    "auroc": 0.5403977466712189,
+    "n_pos": 1212,
+    "n_neg": 290
+   },
+   "top1_area": {
+    "auroc": 0.4746080577575818,
+    "n_pos": 1239,
+    "n_neg": 292
+   }
+  }
+ },
+ "gt_coverage": {
+  "supported": {
+   "n": 3494,
+   "with_gt_box": 3138
+  },
+  "unsupported": {
+   "n": 1100,
+   "with_gt_box": 1
+  }
+ }
+}

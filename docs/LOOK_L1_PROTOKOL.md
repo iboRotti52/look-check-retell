@@ -174,3 +174,28 @@ kontrollü ölçüme dayanmalı.
 
 **Koşu sırası:** `46` → `47 --n 300 --seed 415` → `49` → `38` (49'un sonucunu rapor makrolarına taşır) → raporu derle.
 Script 38 olmadan derlenen PDF küçük nesne sayılarında `--` gösterir.
+
+## 9. İlk gerçek B koşusu (2026-11-20, Claude)
+
+Koşu sırası §R8'deki gibi: `46` → `47 --n 300 --seed 415` → `49` → `38`; birleşik `main` (PR #1–#4) ve S4 kayıtları
+script 48 ile yeniden yazıldıktan sonra. Sayılar yalnız şu dosyalardan: `docs/generated/LOOK_REFERENT_B.md`,
+`docs/generated/LOOK_FORCED_HALLUCINATION_B.md`, `docs/generated/LOOK_SMALL_OBJECT_B.md` (JSON'ları `results/`).
+Bütün etiketler otomatik proxy; insan etiketi yok.
+
+- **46 (referans destekli vs desteksiz, 3.494 / 1.100 claim):** en iyi sinyal `top1_concentration` AUROC 0,588; ama
+  Look top-1 kutu alanı tek başına 0,583. Alan üçte birliklerinin içinde sinyaller 0,43–0,61 aralığında. Sinyaller
+  büyük ölçüde boyutu izliyor; desteksiz claim'leri ayırma gücü zayıf.
+- **47 yanlış tanımlanmış (n = 300):** kelimeyi üreten adımda (predict, v4) Look top-1 gerçek referente %81,7
+  [77,3; 86,0] isabet ediyor; yanlış kelimenin detektör kutusu (B3) %22,3. Kelimeyi okuyan adımda (read) top-1 %36,3.
+  Yani Look'un kelimeden önceki bakışı, yanlış adın detektör kutusundan çok daha sık doğru nesneyi gösteriyor
+  (S4'ün Look merkezli ikamesinin gerekçesiyle uyumlu).
+- **47 uydurulmuş, konum kontrollü ana ölçüm (251 / 251):** dört sinyalin AUROC'u predict'te 0,44–0,50, read'de
+  0,54–0,57. Konum karışık kıyasta görülen yüksek değerler (ör. predict `top1_concentration` 0,822) çoğunlukla
+  konumdan geliyor.
+- **49 küçük nesne (B_fit, 162 küçük kutulu claim):** yeni tanımla filtreli %4,94, filtresiz %55,56 (eski tanım
+  %39,51 / %83,33). Astra'nın bağımsız B sayımıyla (8/162, 90/162) aynı — kapı geçti. Script 38 rapor makrolarını
+  güncelledi.
+
+**Adım 6 için not (karar değil):** §6'ya göre eşik bu sonuçlardan sonra seçilecek. Konum kontrollü ölçümde
+sinyallerin şansa yakın olması, Look sinyalleriyle "uygun bölge yok" çekimserliğini geri getirmenin zayıf
+dayanakta olduğunu gösteriyor; karar Look sahibinin (Metin) ve insan pilotunun.

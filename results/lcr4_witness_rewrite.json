@@ -1,0 +1,732 @@
+{
+ "bundle_id": "c7156af83dcca3b4",
+ "claims": 6856,
+ "decisions_identical": true,
+ "changed_display_fields": {
+  "keep_elsewhere:region": 36,
+  "keep_elsewhere:box": 36,
+  "keep_elsewhere:excess": 36,
+  "skip:region": 8,
+  "skip:box": 8,
+  "skip:excess": 8,
+  "keep:region": 48,
+  "keep:box": 48,
+  "keep:excess": 48,
+  "replace:s_alt": 6
+ },
+ "examples": [
+  {
+   "id": "train_0006",
+   "cls": "sidewalk",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    43,
+    1
+   ],
+   "s_alt": [
+    -3.674572229385376,
+    -3.674572229385376
+   ]
+  },
+  {
+   "id": "train_0025",
+   "cls": "sidewalk",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    46,
+    12
+   ],
+   "s_alt": [
+    -4.394184589385986,
+    -4.394184589385986
+   ]
+  },
+  {
+   "id": "train_0070",
+   "cls": "shirt",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    25,
+    7
+   ],
+   "s_alt": [
+    -2.8643205165863037,
+    -2.8643205165863037
+   ]
+  },
+  {
+   "id": "train_0123",
+   "cls": "bicycle",
+   "action": "skip",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    0,
+    29
+   ],
+   "s_alt": [
+    -4.227001190185547,
+    -4.227001190185547
+   ]
+  },
+  {
+   "id": "train_0171",
+   "cls": "uniform",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    2,
+    31
+   ],
+   "s_alt": [
+    -3.7130393981933594,
+    -3.7130393981933594
+   ]
+  },
+  {
+   "id": "train_0365",
+   "cls": "sidewalk",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    12,
+    32
+   ],
+   "s_alt": [
+    -2.8797991275787354,
+    -2.8797991275787354
+   ]
+  },
+  {
+   "id": "train_0505",
+   "cls": "slide",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    0,
+    10
+   ],
+   "s_alt": [
+    -4.135614395141602,
+    -4.135614395141602
+   ]
+  },
+  {
+   "id": "train_0564",
+   "cls": "street",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    76,
+    46
+   ],
+   "s_alt": [
+    -2.97025465965271,
+    -2.97025465965271
+   ]
+  },
+  {
+   "id": "train_0610",
+   "cls": "suit",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    0,
+    1
+   ],
+   "s_alt": [
+    0.2659509778022766,
+    0.2659509778022766
+   ]
+  },
+  {
+   "id": "train_0698",
+   "cls": "suit",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    8,
+    4
+   ],
+   "s_alt": [
+    -0.8566060066223145,
+    -0.8566060066223145
+   ]
+  },
+  {
+   "id": "train_0702",
+   "cls": "street",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    3,
+    19
+   ],
+   "s_alt": [
+    -3.4289398193359375,
+    -3.4289398193359375
+   ]
+  },
+  {
+   "id": "train_0709",
+   "cls": "bicycle",
+   "action": "skip",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    0,
+    6
+   ],
+   "s_alt": [
+    -4.8654680252075195,
+    -4.8654680252075195
+   ]
+  },
+  {
+   "id": "train_0800",
+   "cls": "puddle",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    8,
+    9
+   ],
+   "s_alt": [
+    -5.247714042663574,
+    -5.247714042663574
+   ]
+  },
+  {
+   "id": "train_0804",
+   "cls": "surfboard",
+   "action": "replace",
+   "fields": [
+    "s_alt"
+   ],
+   "region": [
+    2,
+    2
+   ],
+   "s_alt": [
+    -0.44756019115448,
+    -0.8071743845939636
+   ]
+  },
+  {
+   "id": "train_0811",
+   "cls": "ice",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    64,
+    70
+   ],
+   "s_alt": [
+    -3.575287342071533,
+    -3.575287342071533
+   ]
+  },
+  {
+   "id": "train_0846",
+   "cls": "jacket",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    31,
+    0
+   ],
+   "s_alt": [
+    -3.384787082672119,
+    -3.384787082672119
+   ]
+  },
+  {
+   "id": "train_0896",
+   "cls": "shirt",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    6,
+    18
+   ],
+   "s_alt": [
+    -2.658064365386963,
+    -2.658064365386963
+   ]
+  },
+  {
+   "id": "train_1038",
+   "cls": "suit",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    0,
+    1
+   ],
+   "s_alt": [
+    -0.03043212741613388,
+    -0.03043212741613388
+   ]
+  },
+  {
+   "id": "train_1062",
+   "cls": "shirt",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    61,
+    10
+   ],
+   "s_alt": [
+    -3.9712705612182617,
+    -3.9712705612182617
+   ]
+  },
+  {
+   "id": "train_1083",
+   "cls": "shirt",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    10,
+    3
+   ],
+   "s_alt": [
+    -4.561880588531494,
+    -4.561880588531494
+   ]
+  },
+  {
+   "id": "train_1136",
+   "cls": "shirt",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    9,
+    18
+   ],
+   "s_alt": [
+    -3.4684064388275146,
+    -3.4684064388275146
+   ]
+  },
+  {
+   "id": "train_1414",
+   "cls": "shirt",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    0,
+    6
+   ],
+   "s_alt": [
+    -3.376244306564331,
+    -3.376244306564331
+   ]
+  },
+  {
+   "id": "train_1552",
+   "cls": "suit",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    3,
+    6
+   ],
+   "s_alt": [
+    0.7018585205078125,
+    0.7018585205078125
+   ]
+  },
+  {
+   "id": "train_1639",
+   "cls": "street",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    73,
+    48
+   ],
+   "s_alt": [
+    -5.930347919464111,
+    -5.930347919464111
+   ]
+  },
+  {
+   "id": "train_1675",
+   "cls": "slide",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    1,
+    8
+   ],
+   "s_alt": [
+    -5.336897373199463,
+    -5.336897373199463
+   ]
+  },
+  {
+   "id": "train_1720",
+   "cls": "horse",
+   "action": "replace",
+   "fields": [
+    "s_alt"
+   ],
+   "region": [
+    0,
+    0
+   ],
+   "s_alt": [
+    -0.10279716551303864,
+    -0.15757086873054504
+   ]
+  },
+  {
+   "id": "train_1742",
+   "cls": "suit",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    1,
+    4
+   ],
+   "s_alt": [
+    0.8133187890052795,
+    0.8133187890052795
+   ]
+  },
+  {
+   "id": "train_1760",
+   "cls": "shirt",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    17,
+    5
+   ],
+   "s_alt": [
+    -3.0582542419433594,
+    -3.0582542419433594
+   ]
+  },
+  {
+   "id": "train_1791",
+   "cls": "sidewalk",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    82,
+    4
+   ],
+   "s_alt": [
+    -5.600090026855469,
+    -5.600090026855469
+   ]
+  },
+  {
+   "id": "train_1832",
+   "cls": "mud",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    5,
+    20
+   ],
+   "s_alt": [
+    0.45750007033348083,
+    0.45750007033348083
+   ]
+  },
+  {
+   "id": "train_1842",
+   "cls": "puddle",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    3,
+    6
+   ],
+   "s_alt": [
+    -0.180544912815094,
+    -0.180544912815094
+   ]
+  },
+  {
+   "id": "train_1886",
+   "cls": "suit",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    2,
+    18
+   ],
+   "s_alt": [
+    0.685853898525238,
+    0.685853898525238
+   ]
+  },
+  {
+   "id": "train_1897",
+   "cls": "horse",
+   "action": "replace",
+   "fields": [
+    "s_alt"
+   ],
+   "region": [
+    2,
+    2
+   ],
+   "s_alt": [
+    0.26622873544692993,
+    -0.889590322971344
+   ]
+  },
+  {
+   "id": "train_2093",
+   "cls": "sidewalk",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    18,
+    79
+   ],
+   "s_alt": [
+    -4.942522048950195,
+    -4.942522048950195
+   ]
+  },
+  {
+   "id": "train_2220",
+   "cls": "pond",
+   "action": "keep_elsewhere",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    8,
+    0
+   ],
+   "s_alt": [
+    -3.955542802810669,
+    -3.955542802810669
+   ]
+  },
+  {
+   "id": "train_2221",
+   "cls": "bicycle",
+   "action": "skip",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    0,
+    7
+   ],
+   "s_alt": [
+    0.5138457417488098,
+    0.5138457417488098
+   ]
+  },
+  {
+   "id": "train_2233",
+   "cls": "street",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    53,
+    32
+   ],
+   "s_alt": [
+    -5.8534040451049805,
+    -5.8534040451049805
+   ]
+  },
+  {
+   "id": "train_2256",
+   "cls": "street",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    21,
+    2
+   ],
+   "s_alt": [
+    -5.203202724456787,
+    -5.203202724456787
+   ]
+  },
+  {
+   "id": "train_2297",
+   "cls": "jacket",
+   "action": "keep",
+   "fields": [
+    "region",
+    "box",
+    "excess"
+   ],
+   "region": [
+    20,
+    11
+   ],
+   "s_alt": [
+    -4.037835121154785,
+    -4.037835121154785
+   ]
+  },
+  {
+   "id": "train_2326",
+   "cls": "raft",
+   "action": "replace",
+   "fields": [
+    "s_alt"
+   ],
+   "region": [
+    9,
+    9
+   ],
+   "s_alt": [
+    -1.597307801246643,
+    -1.948272943496704
+   ]
+  }
+ ],
+ "written": true
+}

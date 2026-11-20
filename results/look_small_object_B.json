@@ -1,0 +1,44 @@
+{
+ "images": 2365,
+ "small_side": 0.08333333333333333,
+ "rules": {
+  "with_filter": {
+   "min_patches": 2,
+   "alpha": 0.5
+  },
+  "without_filter": {
+   "min_patches": 0,
+   "alpha": 0.5
+  }
+ },
+ "counts": {
+  "with_filter": {
+   "n": 2470,
+   "top1": 1988,
+   "top3": 2224,
+   "small_n": 162,
+   "small_top3": 8,
+   "small_top3_any_box": 64
+  },
+  "without_filter": {
+   "n": 2470,
+   "top1": 2049,
+   "top3": 2304,
+   "small_n": 162,
+   "small_top3": 90,
+   "small_top3_any_box": 135
+  }
+ },
+ "rates": {
+  "with_filter": {
+   "top3": 90.04,
+   "small_top3": 4.94,
+   "small_top3_any_box": 39.51
+  },
+  "without_filter": {
+   "top3": 93.28,
+   "small_top3": 55.56,
+   "small_top3_any_box": 83.33
+  }
+ }
+}

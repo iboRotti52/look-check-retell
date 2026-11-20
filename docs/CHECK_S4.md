@@ -93,3 +93,8 @@ içeriyor. Bu dalı birleştirdikten sonra `data-v1` indiren herkes bir kez şun
 kanıt sözleşmesi eski dosyayı yakalar. Kalıcı çözüm: düzeltilmiş önbellekle yeni bir sürümlü release (`data-v2`) ve
 `fetch_data.sh`'de ona geçmek (ekip kararı). Yeniden yazmayı yapan kişi `results/lcr4_witness_rewrite.json` ve
 `results/lcr4_contract.json`'u bu PR'a eklemeli; değişen kayıtların ve doğrulamanın kanıtı onlar.
+
+**2026-11-20 (Claude):** yeniden yazım veri sahibinin makinesinde yapıldı: 48 kuru koşu → `--overwrite` (6.856 claim,
+bütün karar alanları aynı; yalnız gösterilen kutu ve replace `s_alt` gösterimi değişti), ardından `39 --live` geçti
+(4.076 kanıt sözleşmesi denetlendi). Kanıt `results/lcr4_witness_rewrite.json` ve `results/lcr4_contract.json`'da
+(birleştirmeden sonra `main`'e eklendi). `data-v2` release'i henüz yapılmadı.
