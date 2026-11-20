@@ -57,10 +57,10 @@ hiçbir seçilen bölgeyi veya yukarıdaki ana yolu değiştirmez.
 | `03_finetune_decoder.py` | BLIP decoder'ını A yarısında fine-tune eder | GPU |
 | `04_draft_look_check.py` | Draft → Look → Check, kayıtları yazar (`--attn sink` varsayılan) | GPU |
 | `06_train_retell.py` | Retell / B0+ / B2 / B3 eğitimi + validation değerlendirmesi | GPU |
-| `07_make_annotation.py` | Kör etiketleme sayfası üretir | CPU |
+| `07_make_annotation.py` | Kör etiketleme sayfası üretir; `--pilot lcr`: S4/S2 kararlarından tabakalı B insan pilotu, ikame sorusu ve referans kutusu etiketten sonra (`docs/PILOT_PROTOKOL.md`) | CPU |
 | `08_analyse.py` | Colab çıktılarından raporun tablolarını, figürlerini, sayılarını üretir | CPU |
 | `09_attention_variants.py` | Ham vs sink-düzeltilmiş attention karşılaştırması | GPU/CPU |
-| `10_score_labels.py` | İnsan etiketlerinden HICR, κ ve eşik kalibrasyonu | CPU |
+| `10_score_labels.py` | İnsan etiketlerinden HICR, κ ve eşik kalibrasyonu; pilot anahtarında grup başına S4 kesinliği, ikame doğruluğu, silme zararı ve referans kutuları | CPU |
 | `11_proxy_thresholds.py` | B yarısında referans proxy'sine göre ara eşik kalibrasyonu | CPU |
 | `12_look_variants.py` | Kayıtlı haritalardan Look varyantları + AUROC (GPU'suz) | CPU |
 | `13_look_benchmark.py` | Look'u Flickr30k Entities insan kutularıyla ölçer (pointing, enerji, bölge IoU) | CPU |
@@ -100,6 +100,7 @@ hiçbir seçilen bölgeyi veya yukarıdaki ana yolu değiştirmez.
 | `49_look_small_object.py` | B_fit'te Look'un insan kutusu kapsaması, küçük nesne isabeti yalnız küçük kutuya gelirse (script 37'nin ilk sayımı büyük kutuyu da sayıyordu); filtreli/filtresiz → `look_small_object_B.json`, `docs/generated/LOOK_SMALL_OBJECT_B.md`; script 38 rapor makrolarını buradan alır | CPU |
 | `50_h1_power.py` | H1 örneklem tablosu, etki tam %15'te tutularak (düzeltme sabiti hesaplanır) → `h1_power.json`, `report/generated/power_table.tex`, `power_macros.tex` (eskiden script 08) | CPU, veri gerekmez |
 | `51_check_s4_report.py` | Raporun Check S4 makroları (`check_s4_B.json` + S4 bundle'dan; elle sayı yok) → `report/generated/check_s4_macros.tex` | CPU, veri gerekmez |
+| `52_pilot_box_comparison.py` | Pilot P6: aynı donmuş OWLv2 ile detektör (B3), Look ve insan kutusu; S4 kurallarıyla doğru claim desteği, yanlış adı reddetme, doğru adı bulma, öneri kapsaması → `pilot_box_comparison_<ad>.json` | CPU, veri önbelleği |
 | `review_first_principles_B.py` | İlk ilkeler tanısı (eylem türü, bölge dışı varlık, alternatif kalitesi, görsel denetim özeti) | CPU |
 | `review_look_e3.py` | Donmuş E3/v4 için kayıt eşitliği, B tür/başlık/SAM tanıları ve `--live` yeniden çıkarım kontrolü | CPU/MPS |
 | `review_look_e3_drift.py` | İlk 16 B taslağında SEP ve sayısal duyarlık sapma tanıları | CPU |

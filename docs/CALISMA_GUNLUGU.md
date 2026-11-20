@@ -661,9 +661,25 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
 - 2026-11-20 ek: konum kontrolündeki "var" nesne ham logit'le seçiliyordu; S4'ün rakip-farkında X_c'si kullanılmalıydı
   (ör. backpack ham +0,1 τ üstü, bag rakibiyle S4'te −1,7 altı). Düzeltildi, test `tests/test_look_l1_scripts.py`.
 
+### 2026-11-20 — Claude: B insan pilotu araçları (S4/S2), `pilot/s4-s2-tooling`
+- Ön kayıt `docs/PILOT_PROTOKOL.md`. `scripts/07_make_annotation.py --pilot lcr`: `A_B_lcr4`/`A_B_lcr2`'den tabakalı örneklem
+  (rastgele 60, S4 replace/remove hepsi, S2-çelişki/S4-keep 80 önce giysi, keep_elsewhere 60, keep 80), görüntü başına kart,
+  ikame sorusu ve referans kutusu yalnız etiketten sonra; script 48 yeniden yazımı yoksa reddeder.
+  `scripts/10_score_labels.py`: pilot anahtarında grup başına sonuçlar, eski v1 eşik taraması atlanır.
+  `lcr/pilot.py`: örneklem, takip sorusu birleştirme, grup özeti; testler `tests/test_pilot.py`.
+- Doğrulama: sahte S4/S2 kayıtlarıyla 07 → 10 uçtan uca; sayfa tarayıcıda elle denendi (sorular etiketten sonra açılıyor,
+  yeniden yüklemede korunuyor, etiket değişince kutu temizleniyor, CSV'de yeni sütunlar). Gerçek sayfa için veri + script 48 gerekir.
+- Bekleyen: P6 kutu kıyası analizi (insan / Look / detektör kutusu, aynı OWLv2) veri önbelleği ile ayrı script.
 ### 2026-11-20 — Claude: raporun Check bölümü S4'e güncellendi
 - `report/sections/3_design.tex` Check bölümü artık ilk birleşik Check'in z ölçeği/üç yollu kuralı yerine S4'ü anlatıyor
   (rakip-farkında kanıt, sınıf başına maliyete duyarlı τ_c, beş eylem, kararın kutusu; bilinen kalibrasyon hatası dahil).
   `4_experiments.tex`: S4'ün B dış-kat sonuçları (S2'ye karşı FCR, swap yakalama, ikame kesinliği, ablation'lar, eylem
   sayıları); `5_conclusion.tex` plan tablosunun 8–9. haftaları güncel plana çekildi.
 - Bütün sayılar yeni `scripts/51_check_s4_report.py` → `report/generated/check_s4_macros.tex`. PDF yeniden derlenmedi (TeX yok).
+
+### 2026-11-20 — Claude: pilot P6 kutu kıyası (`pilot/s4-s2-tooling`)
+- Yeni `scripts/52_pilot_box_comparison.py` ve `lcr/pilot.py` (öneri havuzu, insan kutusuna en iyi öneri, S4 kurallarıyla
+  kutu kanıtı). Etiketleme sayfasına yanlış tanımlanmış isimler için isteğe bağlı "doğru adı" alanı (virgül/tırnak temizlenir);
+  script 10 bunu sözlük sınıfına eşleyip birleştiriyor. Protokole etiketleme öncesi ek (`docs/PILOT_PROTOKOL.md`).
+- Doğrulama: birim testleri; sahte kayıtlarla 07 → CSV → 10 → 52 uçtan uca (Look ve insan aynı öneriyken fark tam 0);
+  ad alanı tarayıcıda denendi (görünme, CSV bütünlüğü, yeniden yüklemede korunma).

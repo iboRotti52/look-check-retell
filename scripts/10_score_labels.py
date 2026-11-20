@@ -25,7 +25,7 @@ from collections import Counter, defaultdict
 import numpy as np
 
 import _common  # noqa: F401
-from lcr import cache, check, config, metrics, pilot, pipeline
+from lcr import cache, check, config, grounding, metrics, pilot, pipeline
 
 ap = argparse.ArgumentParser()
 ap.add_argument("csvs", nargs="+")
@@ -129,41 +129,83 @@ out["referent_box_mean_annotator_iou"] = float(np.mean(box_ious)) if box_ious el
 out["referent_boxes_needing_adjudication"] = box_needs_adjudication
 cache.save_json(referent_boxes, config.RESULTS / f"look_l1_referent_boxes_{a.name}.json")
 
-# ---- threshold calibration on vocabulary claims
-rows = {r["id"]: r for r in cache.load_json(config.CACHE / "pipeline" / f"{key['decoder']}_{key['split']}_sink.json")} \
-    if (config.CACHE / "pipeline" / f"{key['decoder']}_{key['split']}_sink.json").exists() else \
-    {r["id"]: r for r in cache.load_json(config.CACHE / "pipeline" / f"{key['decoder']}_{key['split']}.json")}
-pairs = []
-for (item, j), lab in voc:
-    if lab not in ("correct", "incorrect"):
-        continue
-    cls = ref[(item, j)]["cls"]
-    row = rows.get(item_img[item])
-    rec = next((c["rec_att"] for c in (row["claims"] if row else []) if c["cls"] == cls), None)
-    if rec is not None:
-        pairs.append((rec, lab))
-out["n_calibration_claims"] = len(pairs)
-grid = []
-base = pipeline.thresholds()
-for ts in np.round(np.arange(0.02, 0.41, 0.02), 3):
-    for tc in np.round(np.arange(0.005, 0.11, 0.005), 3):
-        if tc >= ts:
+# ---- B human pilot (docs/PILOT_PROTOKOL.md): per-group results on the sampled claims of the S4/S2 records
+pilot_mode = key.get("mode") == "lcr_pilot"
+if pilot_mode:
+    answers, sources, ref_boxes = {}, Counter(), []
+    for f in key["focus"]:
+        k = (f["item"], f["noun_index"])
+        entries = [s[k] for s, _ in sheets if k in s]
+        lab = final.get(k)
+        if lab is None:
             continue
-        th = {**base, "t_support": float(ts), "t_contra": float(tc)}
-        v = [(pipeline.finalise(r, th)["verdict"], lab) for r, lab in pairs]
-        sup_ok = np.mean([vv == "supported" for vv, lab in v if lab == "correct"]) if any(l == "correct" for _, l in v) else 0
-        con_ok = np.mean([vv == "contradicted" for vv, lab in v if lab == "incorrect"]) if any(l == "incorrect" for _, l in v) else 0
-        n_con = sum(vv == "contradicted" for vv, _ in v)
-        prec = sum(vv == "contradicted" and lab == "incorrect" for vv, lab in v) / n_con if n_con else float("nan")
-        grid.append(dict(t_support=float(ts), t_contra=float(tc), supported_recall=float(sup_ok),
-                         contradicted_recall=float(con_ok), contradicted_precision=float(prec),
-                         balanced=float((sup_ok + con_ok) / 2)))
-ok = [g for g in grid if not np.isnan(g["contradicted_precision"]) and g["contradicted_precision"] >= 0.5]
-best = max(ok or grid, key=lambda g: g["balanced"]) if grid else None
-out["calibration_best"] = best
-out["calibration_grid"] = grid
+        ans = dict(label=lab)
+        if lab == "incorrect":
+            ans["error_type"] = err_by_key.get(k, "uncertain")
+        if f["s4_action"] == "replace":
+            ans["substitute_ok"], src = pilot.final_answer(entries, adj.get(k), "substitute_ok")
+            sources[f"substitute_{src}"] += 1
+        answers[(f["id"], f["claim_index"])] = ans
+        true_cls = None
+        if ans.get("error_type") == "misidentified":
+            # optional free-text correct name -> vocabulary class (same lexicon as claim extraction), then adjudicated
+            named = [dict(e, true_cls=grounding.phrase_class(e.get("true_name") or "") or "") for e in entries]
+            adj_named = dict(adj[k], true_cls=grounding.phrase_class(adj[k].get("true_name") or "") or "") if k in adj else None
+            true_cls, src = pilot.final_answer(named, adj_named, "true_cls")
+            sources[f"true_name_{src}"] += 1
+            true_cls = None if true_cls == "uncertain" else true_cls
+        if lab == "correct" or ans.get("error_type") == "misidentified":
+            box, src, iou = pilot.final_box(entries, adj.get(k))
+            sources[f"box_{src}"] += 1
+            # detector / Look / human box comparison: the human box next to the box Look's S4 record shows
+            ref_boxes.append(dict(id=f["id"], claim_index=f["claim_index"], cls=f["cls"], stratum=f["stratum"],
+                                  label=lab, error_type=ans.get("error_type"), human_box=box, human_box_source=src,
+                                  annotator_box_iou=iou, look_region=f["look_region"], look_box=f["look_box"],
+                                  true_cls=f["cls"] if lab == "correct" else true_cls, s4_action=f["s4_action"],
+                                  substitute=f["substitute"], substitute_ok=ans.get("substitute_ok")))
+    out["pilot"] = dict(records=key["records"], s4_bundle_id=key["s4_bundle_id"], population=key["population"],
+                        n_focus=len(key["focus"]), n_focus_labelled=len(answers), sources=dict(sources),
+                        strata=pilot.summarise_strata(key["focus"], answers),
+                        caveat="Only the random group estimates natural rates; the other groups are targeted.")
+    cache.save_json(ref_boxes, config.RESULTS / f"pilot_referent_boxes_{a.name}.json")
+
+if not pilot_mode:
+    # The v1 threshold sweep below applies to the historical Check, not to the S4/S2 pilot records.
+    # ---- threshold calibration on vocabulary claims
+    rows = {r["id"]: r for r in cache.load_json(config.CACHE / "pipeline" / f"{key['decoder']}_{key['split']}_sink.json")} \
+        if (config.CACHE / "pipeline" / f"{key['decoder']}_{key['split']}_sink.json").exists() else \
+        {r["id"]: r for r in cache.load_json(config.CACHE / "pipeline" / f"{key['decoder']}_{key['split']}.json")}
+    pairs = []
+    for (item, j), lab in voc:
+        if lab not in ("correct", "incorrect"):
+            continue
+        cls = ref[(item, j)]["cls"]
+        row = rows.get(item_img[item])
+        rec = next((c["rec_att"] for c in (row["claims"] if row else []) if c["cls"] == cls), None)
+        if rec is not None:
+            pairs.append((rec, lab))
+    out["n_calibration_claims"] = len(pairs)
+    grid = []
+    base = pipeline.thresholds()
+    for ts in np.round(np.arange(0.02, 0.41, 0.02), 3):
+        for tc in np.round(np.arange(0.005, 0.11, 0.005), 3):
+            if tc >= ts:
+                continue
+            th = {**base, "t_support": float(ts), "t_contra": float(tc)}
+            v = [(pipeline.finalise(r, th)["verdict"], lab) for r, lab in pairs]
+            sup_ok = np.mean([vv == "supported" for vv, lab in v if lab == "correct"]) if any(l == "correct" for _, l in v) else 0
+            con_ok = np.mean([vv == "contradicted" for vv, lab in v if lab == "incorrect"]) if any(l == "incorrect" for _, l in v) else 0
+            n_con = sum(vv == "contradicted" for vv, _ in v)
+            prec = sum(vv == "contradicted" and lab == "incorrect" for vv, lab in v) / n_con if n_con else float("nan")
+            grid.append(dict(t_support=float(ts), t_contra=float(tc), supported_recall=float(sup_ok),
+                             contradicted_recall=float(con_ok), contradicted_precision=float(prec),
+                             balanced=float((sup_ok + con_ok) / 2)))
+    ok = [g for g in grid if not np.isnan(g["contradicted_precision"]) and g["contradicted_precision"] >= 0.5]
+    best = max(ok or grid, key=lambda g: g["balanced"]) if grid else None
+    out["calibration_best"] = best
+    out["calibration_grid"] = grid
 cache.save_json(out, config.RESULTS / f"labels_{a.name}.json")
 print({k: v for k, v in out.items() if k != "calibration_grid"})
-if a.write_thresholds and best:
+if a.write_thresholds and not pilot_mode and best:
     cache.save_json({**base, "t_support": best["t_support"], "t_contra": best["t_contra"]}, config.RESULTS / "thresholds.json")
     print("thresholds written to results/thresholds.json")
