@@ -84,3 +84,11 @@ def test_relabel_keeps_five_way(checker):
     assert rec["action"] == "keep"
     new = checker.relabel(rec, "frisbee", p)
     assert new["action"] == "replace" and new["region_indices"] == rec["region_indices"]
+
+
+def test_s2_script_reads_and_writes_its_own_bundle():
+    """scripts/42 used re.BUNDLE_PATH, which became S4's file when S4 became the default."""
+    from pathlib import Path
+    src = (Path(__file__).resolve().parent.parent / "scripts" / "42_check_complete.py").read_text()
+    assert "re.BUNDLE_PATH" not in src.replace("re.BUNDLE_PATH is the current default", "")
+    assert src.count("re.FIVE_WAY_BUNDLE_PATH.exists()") == 1 and src.count("re.FIVE_WAY_BUNDLE_PATH.write_text") == 1

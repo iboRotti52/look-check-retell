@@ -19,13 +19,22 @@ def output_stem(decoder: str, split: str, sink: bool, region_rule: str = "v2") -
     if region_rule == "v1":
         suffix = "_sink" if sink else ""
     elif region_rule in ("v2", "v3", "v4", "lcr"):
-        tag = "lcr" if region_rule == "lcr" else "look" + region_rule[1:]
+        tag = lcr_tag() if region_rule == "lcr" else "look" + region_rule[1:]
         if region_rule in ("v4", "lcr") and not sink:
             raise ValueError("Frozen attention maps require sink attention")
         suffix = f"_{tag}" if sink else f"_raw_{tag}"
     else:
         raise ValueError(f"Unknown region rule: {region_rule}")
     return f"{decoder}_{split}{suffix}"
+
+
+def lcr_tag() -> str:
+    """Record name of the default Check bundle. "lcr" alone is the first unified bundle (A_B_lcr.json); the
+    default has been S4 (A_B_lcr4.json) since 2026-11-15, and a live run must not write under the old name."""
+    from . import region_evidence as re
+    names = {re.HISTORICAL_BUNDLE_PATH: "lcr", re.FIVE_WAY_BUNDLE_PATH: "lcr2", re.CHECK3_BUNDLE_PATH: "lcr3",
+             re.CHECK4_BUNDLE_PATH: "lcr4"}
+    return next(t for path, t in names.items() if path.resolve() == re.BUNDLE_PATH.resolve())
 
 
 def look_metadata(sink: bool, region_rule: str = "v2", available_last_k=LAST_K) -> dict:

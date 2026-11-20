@@ -425,11 +425,17 @@ class RegionChecker:
                 v = str(decide(row[k], row[j] if j is not None else -np.inf, True, ts, tc))
                 alt_index = j
             witness_class = alt_index if v == "contradicted" and alt_index is not None else k
-            witness = int(top[np.argmax(scores[top, witness_class])])
+            witness_scores = scores[top, witness_class]
+            if rv and kind != "person" and witness_class == k:
+                witness_scores = vk[top]                      # S4 decides on rival-aware evidence: show that box
+            witness = int(top[np.argmax(witness_scores)])
             if pa and kind != "person" and action == "replace":
                 witness = int(top[0])                         # the substitute was read on the top-1 Look box
             box = person_record["box"] if kind == "person" and person_record is not None else prop["boxes"][witness]
             result = one(row, witness, box, "pooled_owl_proposals", alt_index=alt_index)
+            if pa and kind != "person" and action == "replace":
+                # s_alt must belong to the box shown; the pooled top-k score is kept under its own name
+                result.update(s_alt=float(scores[witness, alt_index]), s_alt_pooled=result["s_alt"])
             if five and kind != "person":
                 result.update(verdict=v, action=action, reason=reason,
                               substitute=CLASSES[sj] if action == "replace" else "",

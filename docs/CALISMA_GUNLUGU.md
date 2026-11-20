@@ -683,3 +683,21 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   script 10 bunu sözlük sınıfına eşleyip birleştiriyor. Protokole etiketleme öncesi ek (`docs/PILOT_PROTOKOL.md`).
 - Doğrulama: birim testleri; sahte kayıtlarla 07 → CSV → 10 → 52 uçtan uca (Look ve insan aynı öneriyken fark tam 0);
   ad alanı tarayıcıda denendi (görünme, CSV bütünlüğü, yeniden yüklemede korunma).
+
+### 2026-11-19 — Claude: S4 kanıt kutusu ve S2 bundle yolu düzeltmesi (`check/s4-witness-box`)
+- Astra'nın bulguları (İbrahim'in incelemesi; sayılar onların B sayımı): S4 keep kutusu ham logit'le seçiliyordu
+  (29/4.024 keep'te kutu τ altında), replace `s_alt`'ı birleştirilmiş skordu (6/52). Kararlar değişmiyor.
+- Değişenler: `lcr/region_evidence.py`, `scripts/42_check_complete.py` (S2 kendi dosyası), `scripts/45_check_s4.py`
+  (`generate_records` ayrıldı, davranış aynı), `scripts/48_rewrite_lcr4_records.py` (yeni), `scripts/39_verify_lcr.py`
+  (S4 kanıt sözleşmesi), `tests/test_check_fix.py`, `tests/test_check_complete.py`, `docs/CHECK_S4.md`, README.
+- **Bekleyen:** veri bu makinede yok. Veri sahibi 48 (kuru koşu → `--overwrite`) ve `39 --live` koşmalı; o zamana
+  kadar eski `A_B_lcr4.json` yeni 39 denetiminden geçmez (beklenen).
+
+### 2026-11-19 — Claude: Astra'nın tam proje incelemesi (Check tarafı)
+- **Varsayılan canlı koşu yanlış dosyaya yazıyordu** (İbrahim): `pipeline.output_stem(..., "lcr")` her zaman
+  `A_B_lcr` (ilk birleşik bundle'ın kaydı) veriyordu; varsayılan S4 olduğu için `A_B_lcr4` olmalı. Artık ad varsayılan
+  bundle'dan geliyor (`pipeline.lcr_tag`); `tests/test_pipeline_versions.py` (yeni test eski kodla başarısız).
+- **S4 kalibrasyonu canlıda atlanan kalıpları pozitif sayıyor** (Astra): kodda doğrulandı; τ'yu değiştireceği için
+  düzeltilmedi, `docs/CHECK_S4.md`'ye bilinen hata olarak yazıldı. Rapordaki Check tanımının S4'e güncellenmesi bekliyor.
+- 2026-11-20 ek: `A_B_lcr4.json` git'te değil; `data-v1` indirenler için tek seferlik geçiş (48 → 39) ve `data-v2`
+  önerisi `docs/CHECK_S4.md`'ye yazıldı.
