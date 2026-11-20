@@ -57,10 +57,10 @@ hiçbir seçilen bölgeyi veya yukarıdaki ana yolu değiştirmez.
 | `03_finetune_decoder.py` | BLIP decoder'ını A yarısında fine-tune eder | GPU |
 | `04_draft_look_check.py` | Draft → Look → Check, kayıtları yazar (`--attn sink` varsayılan) | GPU |
 | `06_train_retell.py` | Retell / B0+ / B2 / B3 eğitimi + validation değerlendirmesi | GPU |
-| `07_make_annotation.py` | Kör etiketleme sayfası üretir | CPU |
+| `07_make_annotation.py` | Kör etiketleme sayfası üretir; `--pilot lcr`: S4/S2 kararlarından tabakalı B insan pilotu, ikame sorusu ve referans kutusu etiketten sonra (`docs/PILOT_PROTOKOL.md`) | CPU |
 | `08_analyse.py` | Colab çıktılarından raporun tablolarını, figürlerini, sayılarını üretir | CPU |
 | `09_attention_variants.py` | Ham vs sink-düzeltilmiş attention karşılaştırması | GPU/CPU |
-| `10_score_labels.py` | İnsan etiketlerinden HICR, κ ve eşik kalibrasyonu | CPU |
+| `10_score_labels.py` | İnsan etiketlerinden HICR, κ ve eşik kalibrasyonu; pilot anahtarında grup başına S4 kesinliği, ikame doğruluğu, silme zararı ve referans kutuları | CPU |
 | `11_proxy_thresholds.py` | B yarısında referans proxy'sine göre ara eşik kalibrasyonu | CPU |
 | `12_look_variants.py` | Kayıtlı haritalardan Look varyantları + AUROC (GPU'suz) | CPU |
 | `13_look_benchmark.py` | Look'u Flickr30k Entities insan kutularıyla ölçer (pointing, enerji, bölge IoU) | CPU |

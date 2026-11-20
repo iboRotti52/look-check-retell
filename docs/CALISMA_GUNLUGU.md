@@ -660,3 +660,13 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   bulduğu) nesne kontrolü eklendi; ana ölçüm o (protokol R7–R8). Koşu sırası protokolde: 46 → 47 → 49 → 38 → derleme.
 - 2026-11-20 ek: konum kontrolündeki "var" nesne ham logit'le seçiliyordu; S4'ün rakip-farkında X_c'si kullanılmalıydı
   (ör. backpack ham +0,1 τ üstü, bag rakibiyle S4'te −1,7 altı). Düzeltildi, test `tests/test_look_l1_scripts.py`.
+
+### 2026-11-20 — Claude: B insan pilotu araçları (S4/S2), `pilot/s4-s2-tooling`
+- Ön kayıt `docs/PILOT_PROTOKOL.md`. `scripts/07_make_annotation.py --pilot lcr`: `A_B_lcr4`/`A_B_lcr2`'den tabakalı örneklem
+  (rastgele 60, S4 replace/remove hepsi, S2-çelişki/S4-keep 80 önce giysi, keep_elsewhere 60, keep 80), görüntü başına kart,
+  ikame sorusu ve referans kutusu yalnız etiketten sonra; script 48 yeniden yazımı yoksa reddeder.
+  `scripts/10_score_labels.py`: pilot anahtarında grup başına sonuçlar, eski v1 eşik taraması atlanır.
+  `lcr/pilot.py`: örneklem, takip sorusu birleştirme, grup özeti; testler `tests/test_pilot.py`.
+- Doğrulama: sahte S4/S2 kayıtlarıyla 07 → 10 uçtan uca; sayfa tarayıcıda elle denendi (sorular etiketten sonra açılıyor,
+  yeniden yüklemede korunuyor, etiket değişince kutu temizleniyor, CSV'de yeni sütunlar). Gerçek sayfa için veri + script 48 gerekir.
+- Bekleyen: P6 kutu kıyası analizi (insan / Look / detektör kutusu, aynı OWLv2) veri önbelleği ile ayrı script.
