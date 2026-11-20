@@ -45,6 +45,30 @@ def selected_map(signed_heads, heads):
     return (x / x.sum() if x.sum() > 0 else np.full_like(x, 1 / x.size)).reshape(24, 24)
 
 
+def residual_strength(signed_heads, heads) -> float:
+    """Total positive mass of the sink-corrected map, before `selected_map` renormalises it to sum to 1.
+
+    A degenerate (all-zero or negative) map has strength 0, unlike `selected_map`, which falls back to a
+    uniform map at that point. `selected_map` itself is unchanged; this only reads the same intermediate
+    quantity a second time (docs/LOOK_L1_PROTOKOL.md).
+    """
+    x = np.asarray(signed_heads, np.float32).reshape(144, 576)[heads].mean(0)
+    return float(np.clip(x, 0, None).sum())
+
+
+def signed_heads(attention, query, valid_t):
+    """Every head's sink-corrected cross-attention at decoder step `query`, float16 like the E3 cache.
+
+    attention_map(a, p, t, h) == selected_map(signed_heads(a, p - 1, t), h): v4 reads the step that
+    *predicts* the claim's first piece, before the word is in context, so swapping the word cannot change
+    that step's raw attention (only the caption mean). A later query -- the step that has just read the
+    word -- shows where attention goes once the word is known (docs/LOOK_L1_PROTOKOL.md, Revizyon 1).
+    """
+    a = attention.float()
+    signed = a[:, :, query, 1:] - a[:, :, :valid_t, 1:].mean(2)
+    return signed.detach().cpu().numpy().astype(np.float16)
+
+
 def attention_map(attention, position, valid_t, heads):
     """Match E3's signed-head cache quantisation, before pooling and ReLU."""
     a = attention.float()

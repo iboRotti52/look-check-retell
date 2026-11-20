@@ -35,6 +35,7 @@ mantıksal kesinlik veya doğru kelimeyi otomatik değiştirme emri değildir.
 - Seçim yalnız B_fit'te insan kutularıyla yapılmıştır. İnsan kutuları Check etiketi veya model eğitim hedefi değildir.
 
 Otomatik katkı tablosu: [`generated/LCR_DEVELOPMENT.md`](generated/LCR_DEVELOPMENT.md).
+**Düzeltme (2026-11-19):** o tablodaki küçük nesne kapsaması (%39,5 → %83,3) bir sınıfın büyük kutusuna gelen isabeti de "küçük nesne bulundu" sayıyordu. Doğru sayım `scripts/49_look_small_object.py` → `docs/generated/LOOK_SMALL_OBJECT_B.md` (isabet küçük kutuya gelmeli). Astra'nın B'deki yeniden sayımı %4,9 → %55,6 (n = 162; burada yeniden üretilmedi). Filtreyi kaldırmanın faydası sürüyor; Look seçimi top-3'e dayandığı için değişmiyor. Rapor makroları script 49 koşulana kadar `--` gösterir.
 Bu, tüm zincirin bağımsız test başarısı değil, B üzerinde bir Look geliştirme sonucudur.
 
 ## Check

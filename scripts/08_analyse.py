@@ -43,32 +43,8 @@ except Exception:
     mac["NumTests"] = len(re.findall(r"::", col))
 
 # ------------------------------------------------------------------ power analysis
-p0s = [0.05, 0.08, 0.12]
-ns = [500, 1000, 2000]
-rows = []
-for p0 in p0s:
-    indep = metrics.claims_needed(p0, 0.15)
-    pw = [metrics.paired_power(n, p0, fix_rate=1 / 3, break_rate=0.01) for n in ns]
-    rows.append((p0, indep, pw))
-out["power"] = [dict(p0=p0, independent=i, paired={n: p for n, p in zip(ns, pw)}) for p0, i, pw in rows]
-body = "\n".join(f"{100*p0:.0f}\\% & {i:,} & " + " & ".join(f"{100*p:.0f}\\%" for p in pw) + r" \\"
-                 for p0, i, pw in rows).replace(",", "{,}")
-write_tex("power_table", r"""\begin{table}[t]
-\caption{Sample size for H1 (15\% relative HICR reduction, $\alpha=0.05$). Left: claims per system for an
-independent two-proportion test at 80\% power. Right: simulated power of the paired sign test with
-$N$ traced draft claims, assuming one third of draft errors are fixed and 1\% of correct claims are broken.}
-\label{tab:power}
-\centering\footnotesize
-\begin{tabular}{@{}cr|ccc@{}}
-\toprule
-Draft error & Independent & \multicolumn{3}{c}{Paired power at $N$ claims} \\
-rate $p_0$ & claims needed & 500 & 1{,}000 & 2{,}000 \\
-\midrule
-""" + body + r"""
-\bottomrule
-\end{tabular}
-\end{table}
-""")
+# Moved to scripts/50_h1_power.py (2026-11-19): it needs no Colab outputs, and the effect is now held at
+# H1's 15% instead of a fixed 1/3 fix rate. That script is the only writer of power_table.tex.
 
 # ------------------------------------------------------------------ captioner quality
 ft = cache.load_json(R / "finetune_A.json")

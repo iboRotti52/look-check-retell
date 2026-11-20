@@ -33,13 +33,17 @@ def run(live=False, mode=None):
     if split:
         fit, cal = set(checker.bundle["fit_ids"]), set(checker.bundle["calibration_ids"])
         assert not fit & cal and fit | cal == {r["id"] for r in rows}
-    n = tokens = synthetic = 0
+    n = tokens = synthetic = witnessed = 0
+    rival = checker.bundle.get("decision") == "rival_np"
     for row in rows:
         assert row["id"].startswith("train_")
         assert row["bundle_id"] == checker.bundle["id"]
         if split:
             assert row["evidence_partition"] == ("fit" if row["id"] in fit else "cal")
         prop = owl[int(row["id"].rsplit("_", 1)[1])]
+        if rival:
+            z = (re.proposal_logits(prop, checker.queries) - checker.mu) / checker.sd
+            v = re.rival_matrix(z, checker.M, checker.bundle["rival_weight"])
         feats, _ = evidence.features(row, "ours", pipeline.DEFAULT_THRESHOLDS, prop, None)
         assert len(feats) == sum(max(1, len(c["rec_att"]["regions"])) for c in row["claims"])
         for feat in feats:
@@ -59,6 +63,9 @@ def run(live=False, mode=None):
                     expected = (raw - checker.mu[k]) / checker.sd[k]
                     assert np.isclose(expected, region[field], atol=3e-5), (row["id"], label, expected, region[field])
                 assert region["box"] == (rec["box"] if c["kind"] == "person" else prop["boxes"][t].astype(float).tolist())
+            if rival and c["kind"] != "person" and rec.get("action") in ("keep", "replace"):
+                witness_contract(row["id"], rec, z, v)
+                witnessed += 1
             if c["kind"] != "person" and n % 40 == 0:
                 label = "dog" if c["cls"] != "dog" else "frisbee"
                 altered = checker.relabel(rec, label, prop)
@@ -77,7 +84,8 @@ def run(live=False, mode=None):
                 frisbee.append(dict(id=row["id"], before=prior["verdict"], after=c["rec_att"]["verdict"]))
     result = dict(bundle_id=checker.bundle["id"], images=len(rows), claims=n, evidence_tokens=tokens,
                   synthetic_rescores=synthetic, fit_cal_disjoint=split or None, all_region_scores_independently_checked=True,
-                  all_stored_verdicts_preserved=True, image_maximum_excluded=True, frisbee_proxy_cases=frisbee)
+                  all_stored_verdicts_preserved=True, image_maximum_excluded=True, frisbee_proxy_cases=frisbee,
+                  witness_contract_checked=witnessed if rival else None)
     if live:
         if mode != default_mode():
             raise ValueError("live replay runs the pipeline, which uses the default bundle")
@@ -85,6 +93,19 @@ def run(live=False, mode=None):
     result["mode"] = mode
     cache.save_json(result, config.RESULTS / contract)
     print(result)
+
+
+def witness_contract(iid, rec, z, v):
+    """S4 shows the box the decision used (docs/CHECK_S4.md, 2026-11-19). keep: that box's rival-aware claim
+    score is s_claim and clears tau_c. replace: the box is Look's top-1 and s_alt is the substitute's logit there."""
+    t, k = rec["region"], CLASS_INDEX[rec["claim"]]
+    if rec["action"] == "keep":
+        assert np.isclose(v[t, k], rec["s_claim"], atol=3e-5) and v[t, k] >= rec["tau_claim"] - 3e-5, \
+            (iid, rec["claim"], "keep box does not carry the decision score", float(v[t, k]), rec["s_claim"], rec["tau_claim"])
+    else:
+        j = CLASS_INDEX[rec["substitute"]]
+        assert t == rec["region_indices"][0] and np.isclose(z[t, j], rec["s_alt"], atol=3e-5), \
+            (iid, rec["claim"], "replace s_alt is not the shown box's score", float(z[t, j]), rec["s_alt"])
 
 
 def live_replay(rows):

@@ -29,7 +29,7 @@ def run():
     qfile = "class_queries_single.npy"
     queries = np.load(config.CACHE / "owl" / qfile).astype(np.float32)
     rules = [dict(min_patches=m, alpha=a) for m, a in itertools.product((2, 0), (.5, 1.))]
-    xs, raw_features, image_max, look_counts = [], [], [], [dict(n=0, top1=0, top3=0, small_n=0, small_top3=0) for _ in rules]
+    xs, raw_features, image_max, look_counts = [], [], [], [dict(n=0, top1=0, top3=0, small_n=0, small_top3=0, small_top3_any_box=0) for _ in rules]
     fit_images = np.array([re.partition(r["id"]) == "fit" for r in rows])
     for ri, row in enumerate(rows):
         prop = owl[int(row["id"].rsplit("_", 1)[1])]
@@ -46,13 +46,13 @@ def run():
                 top, weights = re.candidates(att, prop, c["kind"], rule)
                 one.append([re.pool_logits(lg, top, weights, pool) for pool in ("weighted", "max")])
                 if gt is not None and len(gt):
-                    hits = np.array([look.iou(prop["boxes"][t].astype(np.float32), gt).max() for t in top])
+                    # small_top3 needs the hit on a SMALL box (2026-11-19); the first count credited any box of the
+                    # class and is kept as small_top3_any_box. The Look choice below uses top3 only.
+                    h = grounding.coverage_hits(prop["boxes"][top].astype(np.float32), gt)
                     s = look_counts[rj]
-                    small = bool(np.any(np.min(gt[:, 2:] - gt[:, :2], axis=1) < 2 / 24))
-                    s["n"] += 1; s["top1"] += bool(len(hits) and hits[0] >= .5)
-                    s["top3"] += bool(len(hits) and hits.max() >= .5)
-                    s["small_n"] += small
-                    s["small_top3"] += small and bool(len(hits) and hits.max() >= .5)
+                    s["n"] += 1; s["top1"] += h["top1"]; s["top3"] += h["top3"]
+                    s["small_n"] += h["has_small"]; s["small_top3"] += h["small_top3"]
+                    s["small_top3_any_box"] += h["small_top3_any_box"]
             xs.append(dict(ri=ri, ci=ci, cls=c["cls"], kind=c["kind"], ok=c["in_refs"],
                            id=row["id"], fold=calibrate.fold_of(row["id"])))
             raw_features.append(one)
