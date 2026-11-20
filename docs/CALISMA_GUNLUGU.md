@@ -651,3 +651,10 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
 - Ertelenen: eski Retell bulgusu (kanıt gizleme vs ikame; hedeflerin %33,4'ü taslaktaki doğru nesneyi anmıyor) Retell
   kapalı olduğu için yalnız not; Astra'nın "insan kutusu vs Look kutusu vs detektör kutusu" tasarım önerisi insan pilotu
   tasarımıyla birlikte ele alınacak.
+
+### 2026-11-20 — Claude: ChatGPT incelemesinden PR #1 düzeltmeleri
+- Script 47, bir karşılaştırmada bütün `null_margin` değerleri tanımsızsa bootstrap'ta `IndexError` ile çöküyordu
+  (yeniden üretildi). `metrics.bootstrap_ci` boş durumda tanımsız aralık döndürüyor; 47 hücre başına n yazıyor, 10'dan
+  az değerde AUROC vermiyor. Test `tests/test_check_metrics.py`.
+- Uydurulmuş isimler hep başlığın sonunda: konum karışıklığı. Aynı ekle eklenmiş gerçek (referansta anılan, detektörün
+  bulduğu) nesne kontrolü eklendi; ana ölçüm o (protokol R7–R8). Koşu sırası protokolde: 46 → 47 → 49 → 38 → derleme.

@@ -160,3 +160,17 @@ hakemin kutusu; tek kutu varsa o; yoksa altın kümeye girmez ve "hakem gerekli"
 sırasından bağımsızdır (`tests/test_pilot.py`).
 
 Bu revizyonlar §6'nın başarı ölçütlerini değiştirmez. Adım 6 (eşik) hâlâ yeni koşunun sonuçlarını bekliyor.
+
+**R7 — tanımsız değerler (script 47, 2026-11-20).** Bir başlıkta başka claim yoksa `null_margin` tanımsız. Bir
+karşılaştırmada bütün değerler tanımsızsa bootstrap boş listenin yüzdeliğini almaya çalışıp çöküyordu (ChatGPT
+yeniden üretti). `lcr.metrics.bootstrap_ci` artık tanımsız aralık döndürüyor; script 47 her sinyal için kullanılabilir
+pozitif/negatif sayısını yazıyor ve iki taraftan birinde 10'dan az değer varsa AUROC vermiyor.
+
+**R8 — konum kontrolü (script 47).** Uydurulmuş her isim başlığın sonuna ("and a …") ekleniyor, doğru claim'ler ise
+captioner'ın koyduğu yerde duruyor; uydurulmuş-vs-doğru AUROC'u kısmen konumu ölçebilir. Ana ölçüm artık aynı eklemeyle
+eklenmiş, referansta anılan, taslakta geçmeyen ve S4 detektörünün τ_c üstünde bulduğu bir nesneye karşı
+(`invented_vs_appended_present`); uydurulmuş-vs-doğru konum karışık bir kıyas olarak kalıyor. Adım 6'nın kararı konum
+kontrollü ölçüme dayanmalı.
+
+**Koşu sırası:** `46` → `47 --n 300 --seed 415` → `49` → `38` (49'un sonucunu rapor makrolarına taşır) → raporu derle.
+Script 38 olmadan derlenen PDF küçük nesne sayılarında `--` gösterir.

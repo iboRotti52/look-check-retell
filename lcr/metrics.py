@@ -98,6 +98,8 @@ def bootstrap_ci(per_image: list, stat, n_boot: int = 2000, seed: int = 415, alp
         v = stat([per_image[i] for i in idx])
         if not (isinstance(v, float) and math.isnan(v)):
             vals.append(v)
+    if not vals:                                   # undefined in every resample (e.g. no usable values at all)
+        return float(stat(per_image)), float("nan"), float("nan")
     lo, hi = np.quantile(vals, [alpha / 2, 1 - alpha / 2])
     return float(stat(per_image)), float(lo), float(hi)
 

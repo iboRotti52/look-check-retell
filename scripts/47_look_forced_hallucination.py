@@ -106,6 +106,14 @@ class ImageData:
         x = float(self.z[:, CLASS_INDEX[cls]].max())
         return float(t - x) if x < t - margin else None
 
+    def presence_margin(self, cls, tau):
+        """raw image-wide max - tau_c if S4's detector finds the class (>= tau_c), else None."""
+        t = tau[CLASS_INDEX[cls]]
+        if not np.isfinite(t) or not len(self.z):
+            return None
+        x = float(self.z[:, CLASS_INDEX[cls]].max())
+        return float(x - t) if x >= t else None
+
 
 def run_pass(ctx, image, text):
     """Teacher-force `text` the way pipeline.run_v4 does and read both maps for every claim word."""
@@ -184,22 +192,32 @@ def try_misidentified(ctx, image, base, table, rng, dropped):
                 top1_changed={m: original[m]["top1"] != recomputed[m]["top1"] for m in MODES})
 
 
-def try_invented(ctx, image, base, rng, margin, dropped):
+def try_appended(ctx, image, base, rng, group, margin, dropped):
+    """Append "and a <word>" to the draft and score the new claim (same suffix, same word index for both groups).
+
+    group "invented": a class no reference mentions and S4 certifies absent (raw image max < tau_c - margin).
+    group "present":  the position control -- a class the references mention and S4's detector finds
+    (raw image max >= tau_c), not already claimed. Comparing the two removes the position confound: every
+    appended noun sits at the end of the caption, while real claims sit where the captioner put them.
+    """
     claimed = {c.cls for c in base["every"].values()}
-    certified = {c: m for c in CLASSES
-                 if KIND[c] != "person" and c not in image.present and c not in claimed
-                 and (m := image.absence_margin(c, ctx.tau, margin)) is not None}
+    if group == "invented":
+        certified = {c: m for c in CLASSES if KIND[c] != "person" and c not in image.present and c not in claimed
+                     and (m := image.absence_margin(c, ctx.tau, margin)) is not None}
+    else:
+        certified = {c: m for c in CLASSES if KIND[c] != "person" and c in image.present and c not in claimed
+                     and (m := image.presence_margin(c, ctx.tau)) is not None}
     if not certified:
-        dropped["invented_nothing_certified_absent"] += 1
+        dropped[f"{group}_no_certified_class"] += 1
         return None
     new_cls = str(rng.choice(sorted(certified)))
     word = SURFACE[new_cls]
     inserted = run_pass(ctx, image, " ".join(base["ws"] + ["and", article(new_cls, word), word]))
     index = len(base["ws"]) + 2
     if index not in inserted["every"] or inserted["every"][index].cls != new_cls:
-        dropped["invented_not_reextracted"] += 1
+        dropped[f"{group}_not_reextracted"] += 1
         return None
-    return dict(id=image.id, cls=new_cls, absence_margin=certified[new_cls], **score_claim(ctx, image, inserted, index))
+    return dict(id=image.id, cls=new_cls, detector_margin=certified[new_cls], **score_claim(ctx, image, inserted, index))
 
 
 # ------------------------------------------------------------------------------------------------ statistics
@@ -224,21 +242,43 @@ def misidentified_summary(mis):
     return out
 
 
-def auroc_vs_correct(units, negative):
-    """Positives: reference-supported real claims; negatives: the units' corrupted claims. One unit = one image."""
-    usable = [u for u in units if any(r["in_refs"] for r in u["real"])]
-    out = dict(n_images=len(usable), n_correct=sum(sum(r["in_refs"] for r in u["real"]) for u in usable),
-               n_negative=len(usable))
+MIN_PER_SIDE = 10      # fewer usable values on either side: the AUROC is reported as unavailable
+
+
+def auroc_two_groups(units, positive, negative):
+    """AUROC of every signal, positives vs negatives, with an image-level bootstrap CI; one unit = one image.
+
+    `positive(u)` / `negative(u)` return the unit's list of scored claims on that side. Values that are undefined
+    for a claim (null_margin when the caption has no other claim) are dropped per signal and the usable counts are
+    reported; with fewer than MIN_PER_SIDE on either side the cell is unavailable rather than estimated.
+    """
+    usable = [u for u in units if positive(u) and negative(u)]
+    out = dict(n_images=len(usable), n_positive=sum(len(positive(u)) for u in usable),
+               n_negative=sum(len(negative(u)) for u in usable))
     for m in MODES:
         out[m] = {}
         for s in SIGNALS:
+            vals = lambda us, side, m=m, s=s: [r[m][s] for u in us for r in side(u) if np.isfinite(r[m][s])]
+            n_pos, n_neg = len(vals(usable, positive)), len(vals(usable, negative))
+            if min(n_pos, n_neg) < MIN_PER_SIDE:
+                out[m][s] = dict(auroc=float("nan"), lo95=float("nan"), hi95=float("nan"), n_pos=n_pos, n_neg=n_neg,
+                                 note=f"unavailable: fewer than {MIN_PER_SIDE} usable values on one side")
+                continue
             def stat(us, m=m, s=s):
-                pos = [r[m][s] for u in us for r in u["real"] if r["in_refs"] and np.isfinite(r[m][s])]
-                neg = [negative(u)[m][s] for u in us if np.isfinite(negative(u)[m][s])]
+                pos, neg = vals(us, positive), vals(us, negative)
                 return metrics.auroc(np.array(pos), np.array(neg)) if pos and neg else float("nan")
-            v, lo, hi = metrics.bootstrap_ci(usable, stat) if usable else (float("nan"),) * 3
-            out[m][s] = dict(auroc=v, lo95=lo, hi95=hi)
+            v, lo, hi = metrics.bootstrap_ci(usable, stat)
+            out[m][s] = dict(auroc=v, lo95=lo, hi95=hi, n_pos=n_pos, n_neg=n_neg)
     return out
+
+
+def correct(u):
+    return [r for r in u["real"] if r["in_refs"]]
+
+
+def auroc_vs_correct(units, negative):
+    """Positives: reference-supported real claims (automatic proxy); negatives: the units' corrupted claim."""
+    return auroc_two_groups(units, correct, lambda u: [negative(u)])
 
 
 def main():
@@ -277,17 +317,22 @@ def main():
         if len(mis) < a.n and (u := try_misidentified(ctx, image, base, table, rng, dropped)) is not None:
             real = real_claims(ctx, image, base)
             mis.append(dict(u, real=real))
-        if len(inv) < a.n and (u := try_invented(ctx, image, base, rng, a.absence_margin, dropped)) is not None:
-            inv.append(dict(id=image.id, invented=u, real=real if real is not None else real_claims(ctx, image, base)))
+        if len(inv) < a.n and (u := try_appended(ctx, image, base, rng, "invented", a.absence_margin, dropped)) is not None:
+            inv.append(dict(id=image.id, invented=u,
+                            appended_present=try_appended(ctx, image, base, rng, "present", a.absence_margin, dropped),
+                            real=real if real is not None else real_claims(ctx, image, base)))
 
     out = dict(protocol="docs/LOOK_L1_PROTOKOL.md", bundle_id=s4["id"], look_rule=s4["look"], heads=ctx.heads,
                seed=a.seed, absence_margin=a.absence_margin, dropped=dict(dropped),
                labels="correct = reference-supported real claim (automatic proxy); invented = S4-certified absent (proxy)",
                misidentified=misidentified_summary(mis),
-               invented=dict(n=len(inv), mean_absence_margin=float(np.mean([u["invented"]["absence_margin"] for u in inv]))
+               invented=dict(n=len(inv), n_with_present_control=sum(u["appended_present"] is not None for u in inv),
+                             mean_absence_margin=float(np.mean([u["invented"]["detector_margin"] for u in inv]))
                              if inv else None,
                              no_candidate={m: sum(u["invented"][m]["n_candidates"] == 0 for u in inv) for m in MODES}),
                invented_vs_correct=auroc_vs_correct(inv, lambda u: u["invented"]),
+               invented_vs_appended_present=auroc_two_groups(
+                   inv, lambda u: [u["appended_present"]] if u["appended_present"] else [], lambda u: [u["invented"]]),
                misidentified_vs_correct=auroc_vs_correct(mis, lambda u: u["swapped"]),
                records=dict(misidentified=mis, invented=inv))
     cache.save_json(out, config.RESULTS / "look_forced_hallucination_B.json")
@@ -297,7 +342,9 @@ def main():
 
 def fmt(ci, digits=1):
     v, lo, hi = ci
-    return "–" if v != v else f"{v:.{digits}f} [{lo:.{digits}f}, {hi:.{digits}f}]"
+    if v != v:
+        return "–"
+    return f"{v:.{digits}f}" if lo != lo else f"{v:.{digits}f} [{lo:.{digits}f}, {hi:.{digits}f}]"
 
 
 def write_markdown(out, path):
@@ -316,16 +363,24 @@ def write_markdown(out, path):
             r = m[mode]
             L.append(f"| {mode} | {fmt(r['hit1'])} | {fmt(r['hit3'])} | {fmt(r['hit1_minus_b3'])} | "
                      f"{fmt(r['reuse_minus_recomputed'])} | {r['top1_changed']:.1f} | {r['no_candidate']} |")
-    L += ["", f"## Uydurulmuş (n = {inv['n']}; yokluk yalnız S4 detektör proxy'si)", ""]
-    for key, title in (("invented_vs_correct", "Uydurulmuş vs doğru (ana ölçüm)"),
-                       ("misidentified_vs_correct", "Yanlış tanımlanmış vs doğru (betimsel)")):
+    L += ["", f"## Uydurulmuş (n = {inv['n']}, konum kontrolü olan {inv['n_with_present_control']}; "
+              "yokluk ve varlık yalnız S4 detektör proxy'si)", "",
+          "Eklenen her isim başlığın sonunda (\"and a ...\"). Ana ölçüm bu yüzden aynı ekle eklenmiş, referansta anılan ve "
+          "detektörün bulduğu bir nesneye karşı; taslaktaki doğru claim'lere karşı olan konum farkını da içerir.", ""]
+    for key, title, pos in (
+            ("invented_vs_appended_present", "Uydurulmuş vs aynı konumda eklenmiş gerçek nesne (konum kontrollü, ana ölçüm)",
+             "eklenmiş gerçek nesne"),
+            ("invented_vs_correct", "Uydurulmuş vs taslaktaki doğru claim (konum karışık)", "referans destekli gerçek claim"),
+            ("misidentified_vs_correct", "Yanlış tanımlanmış vs doğru (betimsel)", "referans destekli gerçek claim")):
         r = out[key]
         L += [f"### {title}", "",
-              f"{r['n_images']} görüntü, {r['n_correct']} referans destekli gerçek claim (proxy), {r['n_negative']} bozulmuş claim.", "",
+              f"{r['n_images']} görüntü; pozitif: {r['n_positive']} {pos}, negatif: {r['n_negative']} bozulmuş claim. "
+              f"Hücrede (n pozitif/n negatif) tanımlı değerler; her iki tarafta {MIN_PER_SIDE}'dan az varsa –.", "",
               "| sinyal | AUROC predict | AUROC read |", "|---|---|---|"]
         for s in SIGNALS:
             p, q = r["predict"][s], r["read"][s]
-            L.append(f"| {s} | {fmt((p['auroc'], p['lo95'], p['hi95']), 3)} | {fmt((q['auroc'], q['lo95'], q['hi95']), 3)} |")
+            L.append(f"| {s} | {fmt((p['auroc'], p['lo95'], p['hi95']), 3)} ({p['n_pos']}/{p['n_neg']}) | "
+                     f"{fmt((q['auroc'], q['lo95'], q['hi95']), 3)} ({q['n_pos']}/{q['n_neg']}) |")
         L.append("")
     path.write_text("\n".join(L) + "\n")
 

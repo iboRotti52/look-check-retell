@@ -92,3 +92,13 @@ def test_paired_power_behaves():
     assert none == 0.0 and weak < strong and strong > 0.8
     # equal expected fixes and breaks -> the directional rejection rate stays near alpha / 2
     assert metrics.paired_power(1000, 0.5, 0.05, 0.05, n_sim=2000) < 0.06
+
+
+def test_bootstrap_ci_with_no_defined_resample_does_not_crash():
+    """scripts/47 crashed here when every null_margin in a comparison was undefined (no other claim)."""
+    import math
+    from lcr import metrics
+    v, lo, hi = metrics.bootstrap_ci([1, 2, 3], lambda us: float("nan"))
+    assert math.isnan(v) and math.isnan(lo) and math.isnan(hi)
+    v, lo, hi = metrics.bootstrap_ci([1., 2., 3.], lambda us: sum(us) / len(us), n_boot=200)
+    assert lo <= v <= hi
