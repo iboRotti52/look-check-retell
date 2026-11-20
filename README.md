@@ -31,6 +31,11 @@ Sıradaki ağır hesap için Claude brifi: [`docs/handoff/CLAUDE_LOOK_CHECK_GPU.
 Hazır Colab defteri `colab/LOOK_CHECK_GPU_PILOT.ipynb`, girdi paketi `output/lcr_check_gpu_pilot.zip`.
 GPU işi başlatılmadı. Aşağıdaki v1–v4 ve Retell çalıştırma anlatımları tarihsel deneylerdir.
 
+**Look L1 (yalnız ölçüm, 2026-11-18):** dondurulmuş Look v4'ün neden öncesi taahhüt ettiği "uygun bölge yok"
+çekimserliğini B'de ölçmeye başlayan paralel bir çalışma; [`docs/LOOK_L1_PROTOKOL.md`](docs/LOOK_L1_PROTOKOL.md).
+Script 46/47 ve `lcr/look_referent.py` hazır ama henüz çalıştırılmadı (`data/cache` + proje `.venv`'i gerekir);
+hiçbir seçilen bölgeyi veya yukarıdaki ana yolu değiştirmez.
+
 ## Klasörler
 | Klasör | İçerik |
 |---|---|
@@ -52,10 +57,10 @@ GPU işi başlatılmadı. Aşağıdaki v1–v4 ve Retell çalıştırma anlatım
 | `03_finetune_decoder.py` | BLIP decoder'ını A yarısında fine-tune eder | GPU |
 | `04_draft_look_check.py` | Draft → Look → Check, kayıtları yazar (`--attn sink` varsayılan) | GPU |
 | `06_train_retell.py` | Retell / B0+ / B2 / B3 eğitimi + validation değerlendirmesi | GPU |
-| `07_make_annotation.py` | Kör etiketleme sayfası üretir | CPU |
+| `07_make_annotation.py` | Kör etiketleme sayfası üretir; `--pilot lcr`: S4/S2 kararlarından tabakalı B insan pilotu, ikame sorusu ve referans kutusu etiketten sonra (`docs/PILOT_PROTOKOL.md`) | CPU |
 | `08_analyse.py` | Colab çıktılarından raporun tablolarını, figürlerini, sayılarını üretir | CPU |
 | `09_attention_variants.py` | Ham vs sink-düzeltilmiş attention karşılaştırması | GPU/CPU |
-| `10_score_labels.py` | İnsan etiketlerinden HICR, κ ve eşik kalibrasyonu | CPU |
+| `10_score_labels.py` | İnsan etiketlerinden HICR, κ ve eşik kalibrasyonu; pilot anahtarında grup başına S4 kesinliği, ikame doğruluğu, silme zararı ve referans kutuları | CPU |
 | `11_proxy_thresholds.py` | B yarısında referans proxy'sine göre ara eşik kalibrasyonu | CPU |
 | `12_look_variants.py` | Kayıtlı haritalardan Look varyantları + AUROC (GPU'suz) | CPU |
 | `13_look_benchmark.py` | Look'u Flickr30k Entities insan kutularıyla ölçer (pointing, enerji, bölge IoU) | CPU |
@@ -91,6 +96,12 @@ GPU işi başlatılmadı. Aşağıdaki v1–v4 ve Retell çalıştırma anlatım
 | `44_check_fix_ablation.py` | 43'ün sonradan çekimserlik ablation'ı (seçim değil) | CPU |
 | `45_check_s4.py` | **Check S4 (varsayılan):** rakip-farkında kanıt, maliyete duyarlı sınıf eşikleri, Look top-1 merkezli ikame, temiz kümeler; S2/S3 kıyası → `lcr_check4_bundle.json`, `check_s4_B.json`, `A_B_lcr4.json` | CPU |
 | `48_rewrite_lcr4_records.py` | Dondurulmuş S4 bundle'ıyla `A_B_lcr4.json`'u yeniden yazar (kanıt kutusu/`s_alt` gösterim düzeltmesi, `docs/CHECK_S4.md`); tek bir karar alanı değişirse yazmaz; kuru koşu varsayılan, `--overwrite` eski dosyayı arşivler | CPU |
+| `46_look_referent.py` | Look L1 (`docs/LOOK_L1_PROTOKOL.md`): önbellekteki E3 işaretli başlıklardan güç/yoğunluk/boş-hipotez sinyalleri, LCR `candidates` sıralaması; referansta destekli/desteksiz claim ayrımı (otomatik proxy) × Look top-1 kutu alanı üçte birlikleri → `look_referent_B.json`, `docs/generated/LOOK_REFERENT_B.md`. Yalnız B. | CPU |
+| `47_look_forced_hallucination.py` | Look L1: zorlanmış halüsinasyon testi — `decoder_A` ile takaslı/eklemeli başlıkları teacher-force eder; kelimeyi üreten (*predict*, v4) ve okuyan (*read*) adımda tek sıralamayla top-1/top-3'ü B3'e karşı F30kE referansıyla, S4'ün eşiğiyle yokluğu onaylanmış uydurulmuş claim'leri doğru claim'lere karşı AUROC ile ölçer → `look_forced_hallucination_B.json`. Yalnız B. | CPU (birkaç yüz claim), yoksa Colab |
+| `49_look_small_object.py` | B_fit'te Look'un insan kutusu kapsaması, küçük nesne isabeti yalnız küçük kutuya gelirse (script 37'nin ilk sayımı büyük kutuyu da sayıyordu); filtreli/filtresiz → `look_small_object_B.json`, `docs/generated/LOOK_SMALL_OBJECT_B.md`; script 38 rapor makrolarını buradan alır | CPU |
+| `50_h1_power.py` | H1 örneklem tablosu, etki tam %15'te tutularak (düzeltme sabiti hesaplanır) → `h1_power.json`, `report/generated/power_table.tex`, `power_macros.tex` (eskiden script 08) | CPU, veri gerekmez |
+| `51_check_s4_report.py` | Raporun Check S4 makroları (`check_s4_B.json` + S4 bundle'dan; elle sayı yok) → `report/generated/check_s4_macros.tex` | CPU, veri gerekmez |
+| `52_pilot_box_comparison.py` | Pilot P6: aynı donmuş OWLv2 ile detektör (B3), Look ve insan kutusu; S4 kurallarıyla doğru claim desteği, yanlış adı reddetme, doğru adı bulma, öneri kapsaması → `pilot_box_comparison_<ad>.json` | CPU, veri önbelleği |
 | `review_first_principles_B.py` | İlk ilkeler tanısı (eylem türü, bölge dışı varlık, alternatif kalitesi, görsel denetim özeti) | CPU |
 | `review_look_e3.py` | Donmuş E3/v4 için kayıt eşitliği, B tür/başlık/SAM tanıları ve `--live` yeniden çıkarım kontrolü | CPU/MPS |
 | `review_look_e3_drift.py` | İlk 16 B taslağında SEP ve sayısal duyarlık sapma tanıları | CPU |
