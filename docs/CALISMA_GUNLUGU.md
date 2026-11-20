@@ -670,3 +670,9 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
 - Doğrulama: sahte S4/S2 kayıtlarıyla 07 → 10 uçtan uca; sayfa tarayıcıda elle denendi (sorular etiketten sonra açılıyor,
   yeniden yüklemede korunuyor, etiket değişince kutu temizleniyor, CSV'de yeni sütunlar). Gerçek sayfa için veri + script 48 gerekir.
 - Bekleyen: P6 kutu kıyası analizi (insan / Look / detektör kutusu, aynı OWLv2) veri önbelleği ile ayrı script.
+### 2026-11-20 — Claude: raporun Check bölümü S4'e güncellendi
+- `report/sections/3_design.tex` Check bölümü artık ilk birleşik Check'in z ölçeği/üç yollu kuralı yerine S4'ü anlatıyor
+  (rakip-farkında kanıt, sınıf başına maliyete duyarlı τ_c, beş eylem, kararın kutusu; bilinen kalibrasyon hatası dahil).
+  `4_experiments.tex`: S4'ün B dış-kat sonuçları (S2'ye karşı FCR, swap yakalama, ikame kesinliği, ablation'lar, eylem
+  sayıları); `5_conclusion.tex` plan tablosunun 8–9. haftaları güncel plana çekildi.
+- Bütün sayılar yeni `scripts/51_check_s4_report.py` → `report/generated/check_s4_macros.tex`. PDF yeniden derlenmedi (TeX yok).
