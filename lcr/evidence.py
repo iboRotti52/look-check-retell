@@ -75,7 +75,8 @@ def features(row: dict, mode: str, th: dict, prop: dict, scores: np.ndarray, *,
                 # A different region lacking the claim must not contradict a claim
                 # that another attended region supports. Preserve local scores and
                 # use the combined claim verdict as the caption-level instruction.
-                token = dict(token, local_verdict=token["verdict"], verdict=r["verdict"])
+                token = dict(token, local_verdict=token["verdict"], verdict=r["verdict"],
+                             action=r.get("action", ""), substitute=r.get("substitute", ""))
                 ts = token["thresholds"]["support"]
                 # raw-logit records gate the alternative on its own class threshold inside RegionChecker
                 if token.get("score_scale") != "raw_logit" and (ts is None or token["s_alt"] < ts):
@@ -91,12 +92,16 @@ def features(row: dict, mode: str, th: dict, prop: dict, scores: np.ndarray, *,
 
 def false_evidence(recs: list[dict], absent: list[str], rng: np.random.Generator) -> list[dict]:
     """H4 false-evidence condition: the alternative LABEL of each contradicted record is
-    swapped for a class that is absent from the image; scores, region and verdict are kept."""
+    swapped for a class that is absent from the image; scores, region and verdict are kept.
+    Check's chosen substitute (a replace) becomes that same false label, so the true
+    substitute cannot leak into the false-evidence run through the action fields."""
     out = []
     for r in recs:
         r = dict(r)
         if r["verdict"] == "contradicted" and absent:
             r["alt"] = str(rng.choice(absent))
+            if r.get("substitute"):
+                r["substitute"] = r["alt"]
         if "regions" in r and r["verdict"] == "contradicted":
             r["regions"] = false_evidence(r["regions"], absent, rng)
         out.append(r)

@@ -13,6 +13,7 @@ Only the evidence encoder and the gated blocks are trainable.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import NamedTuple
 
 import numpy as np
 import torch
@@ -23,7 +24,22 @@ from .vocab import CLASSES, CLASS_INDEX
 
 N_SCALARS = 9                      # s_claim, s_alt, s_image, excess, cx, cy, w, h, has_region
 TYPE_IDS = {**{v: i for i, v in enumerate(VERDICTS)}, "tag": len(VERDICTS)}
+# Check's caption-level instruction (S4 five-way action). "" = none (historical records, B2 tags): index 0 is the
+# padding row of a zero-initialised embedding, so such tokens are encoded exactly as before this field existed.
+ACTION_IDS = {"": 0, "keep": 1, "keep_elsewhere": 2, "replace": 3, "remove": 4, "skip": 5}
 REGION_DIM = 512
+
+
+class EvidenceToken(NamedTuple):
+    """One evidence token. `alt` is the box's own strongest alternative; `substitute` is the class Check chose to
+    replace the claim with (replace only), the same for every box token of the claim, like `action` and `type_id`."""
+    claim: int
+    alt: int
+    region: np.ndarray
+    scalars: np.ndarray
+    type_id: int
+    action: int = 0
+    substitute: int = -1
 
 
 @dataclass
@@ -35,6 +51,8 @@ class EvidenceBatch:
     scalars: torch.Tensor    # (B, R, N_SCALARS)
     type_id: torch.Tensor    # (B, R) long
     valid: torch.Tensor      # (B, R) bool
+    action: torch.Tensor     # (B, R) long, ACTION_IDS, 0 = none
+    substitute: torch.Tensor # (B, R) long, class index, -1 = none
 
     def to(self, dev):
         return EvidenceBatch(*(getattr(self, f).to(dev) for f in self.__dataclass_fields__))
@@ -52,8 +70,9 @@ def record_features(rec: Record | dict, region_embed: np.ndarray | None):
     score_keys = ("s_claim_cal", "s_alt_cal", "s_image_cal") if r.get("check") == "v4" else ("s_claim", "s_alt", "s_image")
     scal = [float(r.get(k) or 0.) for k in score_keys] + [r["excess"], *geom, float(has)]
     reg = region_embed if (has and region_embed is not None) else np.zeros(REGION_DIM, np.float32)
-    return (CLASS_INDEX[r["claim"]], CLASS_INDEX.get(r["alt"], -1),
-            np.asarray(reg, np.float32), np.asarray(scal, np.float32), TYPE_IDS[r["verdict"]])
+    return EvidenceToken(CLASS_INDEX[r["claim"]], CLASS_INDEX.get(r["alt"], -1),
+                         np.asarray(reg, np.float32), np.asarray(scal, np.float32), TYPE_IDS[r["verdict"]],
+                         ACTION_IDS[r.get("action") or ""], CLASS_INDEX.get(r.get("substitute") or "", -1))
 
 
 def optimiser_groups(pathway, weight_decay=.01):
@@ -76,12 +95,16 @@ def collate(per_image: list[list[tuple]]) -> EvidenceBatch:
     scal = torch.zeros(b, r, N_SCALARS)
     typ = torch.zeros(b, r, dtype=torch.long)
     valid = torch.zeros(b, r, dtype=torch.bool)
+    act = torch.zeros(b, r, dtype=torch.long)
+    sub = torch.full((b, r), -1, dtype=torch.long)
     for i, recs in enumerate(per_image):
-        for j, (c, a, reg, s, t) in enumerate(recs):
-            claim[i, j], alt[i, j], typ[i, j], valid[i, j] = c, a, t, True
-            region[i, j] = torch.from_numpy(reg)
-            scal[i, j] = torch.from_numpy(s)
-    return EvidenceBatch(claim, alt, region, scal, typ, valid)
+        for j, tok in enumerate(recs):
+            tok = EvidenceToken(*tok)
+            claim[i, j], alt[i, j], typ[i, j], valid[i, j] = tok.claim, tok.alt, tok.type_id, True
+            act[i, j], sub[i, j] = tok.action, tok.substitute
+            region[i, j] = torch.from_numpy(tok.region)
+            scal[i, j] = torch.from_numpy(tok.scalars)
+    return EvidenceBatch(claim, alt, region, scal, typ, valid, act, sub)
 
 
 class EvidenceEncoder(nn.Module):
@@ -94,6 +117,12 @@ class EvidenceEncoder(nn.Module):
         self.alt_proj = nn.Linear(d, d)
         self.visual = nn.Sequential(nn.Linear(REGION_DIM + N_SCALARS, d), nn.GELU(), nn.Linear(d, d))
         self.type_emb = nn.Embedding(len(TYPE_IDS), d)
+        # Check's decision and chosen substitute. Zero-initialised like the gates: a new pathway encodes records
+        # without them exactly as before, and an older checkpoint loads with these at zero (load_pathway_state).
+        self.action_emb = nn.Embedding(len(ACTION_IDS), d, padding_idx=0)
+        self.sub_proj = nn.Linear(d, d)
+        for t in (self.action_emb.weight, self.sub_proj.weight, self.sub_proj.bias):
+            nn.init.zeros_(t)
         self.norm = nn.LayerNorm(d)
         self.null = nn.Parameter(torch.zeros(1, 1, d))
         nn.init.normal_(self.null, std=0.02)
@@ -102,9 +131,10 @@ class EvidenceEncoder(nn.Module):
         """Returns tokens (B, 1+R, d) and key_padding_mask (B, 1+R), True = ignore."""
         claim = self.class_table[ev.claim.clamp_min(0)]
         alt = self.class_table[ev.alt.clamp_min(0)] * (ev.alt >= 0).unsqueeze(-1)
+        sub = self.sub_proj(self.class_table[ev.substitute.clamp_min(0)]) * (ev.substitute >= 0).unsqueeze(-1)
         tok = (self.claim_proj(claim) + self.alt_proj(alt)
                + self.visual(torch.cat([ev.region, ev.scalars], dim=-1))
-               + self.type_emb(ev.type_id))
+               + self.type_emb(ev.type_id) + self.action_emb(ev.action) + sub)
         tok = self.norm(tok)
         null = self.null.expand(tok.shape[0], -1, -1)
         tokens = torch.cat([null, tok], dim=1)
@@ -203,6 +233,20 @@ class RetellPathway(nn.Module):
 
     def num_trainable(self) -> int:
         return sum(p.numel() for p in self.parameters() if p.requires_grad)
+
+
+NEW_ENCODER_KEYS = {"encoder.action_emb.weight", "encoder.sub_proj.weight", "encoder.sub_proj.bias"}
+
+
+def load_pathway_state(pathway: "RetellPathway", state: dict):
+    """Load a pathway checkpoint; one saved before the action/substitute inputs existed keeps them at zero, so it
+    behaves exactly as it did. Any other missing or unexpected key is an error."""
+    missing, unexpected = pathway.load_state_dict(state, strict=False)
+    if unexpected or set(missing) - NEW_ENCODER_KEYS:
+        raise RuntimeError(f"Incompatible Retell checkpoint: missing {missing}, unexpected {unexpected}")
+    for key in missing:
+        torch.nn.init.zeros_(pathway.get_parameter(key))
+    return pathway
 
 
 def null_only(batch_size: int) -> EvidenceBatch:

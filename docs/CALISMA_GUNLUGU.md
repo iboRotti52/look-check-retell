@@ -701,3 +701,16 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   düzeltilmedi, `docs/CHECK_S4.md`'ye bilinen hata olarak yazıldı. Rapordaki Check tanımının S4'e güncellenmesi bekliyor.
 - 2026-11-20 ek: `A_B_lcr4.json` git'te değil; `data-v1` indirenler için tek seferlik geçiş (48 → 39) ve `data-v2`
   önerisi `docs/CHECK_S4.md`'ye yazıldı.
+
+### 2026-11-20 — Claude: Retell kanıt kodlayıcısı Check'in kararını görüyor (`retell/encoder-actions`)
+- Sorun (ChatGPT incelemesi, kodda doğrulandı): Retell her kutu için yalnız claim, kutunun alternatifi, bölge, skorlar ve
+  karar (verdict) alıyordu; S4'ün `remove` ve `replace` kararları ikisi de `contradicted` olarak geliyor, seçilen ikame
+  ancak bir kutunun alternatifi tesadüfen aynıysa ulaşıyordu.
+- `lcr/retell.py`: her jetona S4 eylemi (`ACTION_IDS`) ve seçilen ikame (BLIP kelime gömmesiyle, claim gibi) eklendi;
+  ikisi de kapılar gibi sıfırla başlıyor. Eylemsiz kayıtlar (tarihsel, B2 etiketleri) birebir eskisi gibi kodlanıyor; eski
+  checkpoint'ler `load_pathway_state` ile yeni alanlar sıfırda yükleniyor. Jetonlar adlı alanlı (`EvidenceToken`).
+  `lcr/evidence.py`: eylem ve ikame her kutu jetonuna kopyalanıyor; H4 yanlış kanıtı artık ikameyi de değiştiriyor
+  (yoksa gerçek ikame yanlış-kanıt koşusuna sızardı). `scripts/06_train_retell.py` checkpoint'i bu yükleyiciyle açıyor.
+- Eğitim engeli yerinde; hiçbir şey eğitilmedi. Testler `tests/test_retell_actions.py` (CPU). `tests/test_retell.py`
+  (BLIP + Flickr8k gerekir) burada koşulamadı; sıfır-başlangıç özelliği kapılardan geldiği için etkilenmez.
+- Bileşen sahibi İbrahim Billurcu (öneri: evidence encoder); PR'da onun incelemesi istenmeli.
