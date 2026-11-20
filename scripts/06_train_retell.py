@@ -230,7 +230,7 @@ def main():
         log["minutes"] = (time.time() - t0) / 60
 
     # ---- final B_cal diagnostic, or explicit one-time validation reporting after training
-    pathway.load_state_dict(torch.load(ckpt, map_location=cap.dev)); pathway.eval()
+    retell.load_pathway_state(pathway, torch.load(ckpt, map_location=cap.dev)); pathway.eval()
     if a.report_validation:
         val = Bank(cache.load_json(config.CACHE / "pipeline" / f"{a.decoder}_validation{sfx}.json"))
         if a.attn == "lcr" and any(r.get("bundle_id") != checker.bundle["id"] for r in val.rows.values()):

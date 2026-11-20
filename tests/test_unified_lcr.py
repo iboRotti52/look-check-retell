@@ -72,7 +72,7 @@ def test_retell_keeps_pooled_support_and_separate_local_scores(setup):
     row = dict(claims=[dict(cls="frisbee", rec_att=rec, blip_alts=[])])
     feats, info = evidence.features(row, "ours", pipeline.DEFAULT_THRESHOLDS, prop, np.zeros((2, len(CLASSES))))
     assert len(feats) == 2
-    assert {f[-1] for f in feats} == {retell.TYPE_IDS["supported"]}
+    assert {f.type_id for f in feats} == {retell.TYPE_IDS["supported"]}
     assert sorted(f[3][0] for f in feats) == [0., 2.]
     assert all(f[3][2] == 0 for f in feats)  # no image-level shortcut
     assert pipeline.finalise(rec, dict(t_excess=100, t_support=100, t_contra=100)) == rec
@@ -83,8 +83,9 @@ def test_historical_v4_does_not_lose_decision_or_pair_new_alt_with_old_score():
                s_claim_cal=-2., s_alt_cal=3., s_image_cal=4., excess=.1, box=[0,0,1,1], region=0,
                verdict="contradicted")
     assert pipeline.finalise(rec, pipeline.DEFAULT_THRESHOLDS)["verdict"] == "contradicted"
-    _, alt, _, scalars, verdict = retell.record_features(rec, np.zeros(512))
-    assert alt == CLASS_INDEX["frisbee"] and scalars[:3].tolist() == [-2.,3.,4.]
+    tok = retell.record_features(rec, np.zeros(512))
+    assert tok.alt == CLASS_INDEX["frisbee"] and tok.scalars[:3].tolist() == [-2.,3.,4.]
+    assert tok.action == 0 and tok.substitute == -1           # historical record: no Check action
     with pytest.raises(NotImplementedError):
         pipeline.relabel(rec, "dog", {}, None, [])
 
