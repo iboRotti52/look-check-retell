@@ -52,3 +52,20 @@ def test_union_handles_empty_degenerate_and_clipped_boxes():
     assert not grounding.coverage_mask(np.empty((0, 4))).any()
     boxes = np.array([[-1, -1, .5, .5], [1, 1, 0, 0], [.2, .2, .2, .9]])
     assert np.isclose(grounding.coverage_mask(boxes).mean(), .25)
+
+
+def test_small_object_hit_must_land_on_the_small_box():
+    """scripts/37 credited a hit on a class's large box as 'small object found'."""
+    import numpy as np
+    from lcr import grounding
+    large, small = [0., 0., .6, .6], [.8, .8, .85, .85]           # small: shorter side .05 < 2/24
+    gt = np.array([large, small], np.float32)
+    on_large = grounding.coverage_hits([large], gt)
+    assert on_large["has_small"] and on_large["top3"] and on_large["small_top3_any_box"]
+    assert not on_large["small_top3"]
+    on_small = grounding.coverage_hits([[.3, .3, .4, .4], small], gt)
+    assert on_small["small_top3"] and not on_small["top1"] and on_small["top3"]
+    none = grounding.coverage_hits([], gt)
+    assert not none["top3"] and not none["small_top3"] and none["has_small"]
+    big_only = grounding.coverage_hits([large], np.array([large], np.float32))
+    assert not big_only["has_small"] and not big_only["small_top3"]

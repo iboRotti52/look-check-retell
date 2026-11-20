@@ -98,6 +98,8 @@ def bootstrap_ci(per_image: list, stat, n_boot: int = 2000, seed: int = 415, alp
         v = stat([per_image[i] for i in idx])
         if not (isinstance(v, float) and math.isnan(v)):
             vals.append(v)
+    if not vals:                                   # undefined in every resample (e.g. no usable values at all)
+        return float(stat(per_image)), float("nan"), float("nan")
     lo, hi = np.quantile(vals, [alpha / 2, 1 - alpha / 2])
     return float(stat(per_image)), float(lo), float(hi)
 
@@ -149,6 +151,16 @@ def auroc(pos: np.ndarray, neg: np.ndarray) -> float:
         ranks[order[i:j + 1]] = (i + j) / 2 + 1
         i = j + 1
     return float((ranks[: len(pos)].sum() - len(pos) * (len(pos) + 1) / 2) / (len(pos) * len(neg)))
+
+
+def fix_rate_for(relative_reduction: float, p0: float, break_rate: float) -> float:
+    """Fix rate at which traced draft claims improve HICR by exactly `relative_reduction`.
+
+    Expected HICR change is p0 * fix - (1 - p0) * break; setting it to relative_reduction * p0 gives the rate.
+    A power table must hold the effect at the hypothesis' size: fixing a third of the errors while breaking 1%
+    of correct claims is a 21.8% reduction at p0 = 8%, not H1's 15%.
+    """
+    return (relative_reduction * p0 + (1 - p0) * break_rate) / p0
 
 
 def paired_power(n_claims: int, p0: float, fix_rate: float, break_rate: float,

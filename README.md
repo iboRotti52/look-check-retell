@@ -31,6 +31,11 @@ Sıradaki ağır hesap için Claude brifi: [`docs/handoff/CLAUDE_LOOK_CHECK_GPU.
 Hazır Colab defteri `colab/LOOK_CHECK_GPU_PILOT.ipynb`, girdi paketi `output/lcr_check_gpu_pilot.zip`.
 GPU işi başlatılmadı. Aşağıdaki v1–v4 ve Retell çalıştırma anlatımları tarihsel deneylerdir.
 
+**Look L1 (yalnız ölçüm, 2026-11-18):** dondurulmuş Look v4'ün neden öncesi taahhüt ettiği "uygun bölge yok"
+çekimserliğini B'de ölçmeye başlayan paralel bir çalışma; [`docs/LOOK_L1_PROTOKOL.md`](docs/LOOK_L1_PROTOKOL.md).
+Script 46/47 ve `lcr/look_referent.py` hazır ama henüz çalıştırılmadı (`data/cache` + proje `.venv`'i gerekir);
+hiçbir seçilen bölgeyi veya yukarıdaki ana yolu değiştirmez.
+
 ## Klasörler
 | Klasör | İçerik |
 |---|---|
@@ -90,6 +95,11 @@ GPU işi başlatılmadı. Aşağıdaki v1–v4 ve Retell çalıştırma anlatım
 | `43_check_fix.py` | Pozitif-çapalı Check (Fable düzeltmesi): ham OWLv2 logit, sınıf eşiği temiz pozitiflerden, çekimser sınıflar, karışma kümesi ikamesi, FCR ≤ %5; S2 ile FCR + swap kıyası → `lcr_check3_bundle.json`, `check_fix_B.json`, `A_B_lcr3.json` | CPU |
 | `44_check_fix_ablation.py` | 43'ün sonradan çekimserlik ablation'ı (seçim değil) | CPU |
 | `45_check_s4.py` | **Check S4 (varsayılan):** rakip-farkında kanıt, maliyete duyarlı sınıf eşikleri, Look top-1 merkezli ikame, temiz kümeler; S2/S3 kıyası → `lcr_check4_bundle.json`, `check_s4_B.json`, `A_B_lcr4.json` | CPU |
+| `46_look_referent.py` | Look L1 (`docs/LOOK_L1_PROTOKOL.md`): önbellekteki E3 işaretli başlıklardan güç/yoğunluk/boş-hipotez sinyalleri, LCR `candidates` sıralaması; referansta destekli/desteksiz claim ayrımı (otomatik proxy) × Look top-1 kutu alanı üçte birlikleri → `look_referent_B.json`, `docs/generated/LOOK_REFERENT_B.md`. Yalnız B. | CPU |
+| `47_look_forced_hallucination.py` | Look L1: zorlanmış halüsinasyon testi — `decoder_A` ile takaslı/eklemeli başlıkları teacher-force eder; kelimeyi üreten (*predict*, v4) ve okuyan (*read*) adımda tek sıralamayla top-1/top-3'ü B3'e karşı F30kE referansıyla, S4'ün eşiğiyle yokluğu onaylanmış uydurulmuş claim'leri doğru claim'lere karşı AUROC ile ölçer → `look_forced_hallucination_B.json`. Yalnız B. | CPU (birkaç yüz claim), yoksa Colab |
+| `49_look_small_object.py` | B_fit'te Look'un insan kutusu kapsaması, küçük nesne isabeti yalnız küçük kutuya gelirse (script 37'nin ilk sayımı büyük kutuyu da sayıyordu); filtreli/filtresiz → `look_small_object_B.json`, `docs/generated/LOOK_SMALL_OBJECT_B.md`; script 38 rapor makrolarını buradan alır | CPU |
+| `50_h1_power.py` | H1 örneklem tablosu, etki tam %15'te tutularak (düzeltme sabiti hesaplanır) → `h1_power.json`, `report/generated/power_table.tex`, `power_macros.tex` (eskiden script 08) | CPU, veri gerekmez |
+| `51_check_s4_report.py` | Raporun Check S4 makroları (`check_s4_B.json` + S4 bundle'dan; elle sayı yok) → `report/generated/check_s4_macros.tex` | CPU, veri gerekmez |
 | `review_first_principles_B.py` | İlk ilkeler tanısı (eylem türü, bölge dışı varlık, alternatif kalitesi, görsel denetim özeti) | CPU |
 | `review_look_e3.py` | Donmuş E3/v4 için kayıt eşitliği, B tür/başlık/SAM tanıları ve `--live` yeniden çıkarım kontrolü | CPU/MPS |
 | `review_look_e3_drift.py` | İlk 16 B taslağında SEP ve sayısal duyarlık sapma tanıları | CPU |

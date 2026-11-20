@@ -17,11 +17,15 @@ from collections import defaultdict
 import numpy as np
 
 import _common  # noqa: F401
-from lcr import cache, config, data, grounding, look
+from lcr import cache, config, data, grounding, look, metrics
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--pipe", default="A_validation", help="pipeline file stem under data/cache/pipeline")
 ap.add_argument("--examples", type=int, default=0, help="write an overlay figure with this many claims")
+ap.add_argument("--bootstrap", action="store_true",
+                help="H6 fix (docs/LOOK_L1_PROTOKOL.md, question L1c): paired image-level bootstrap of "
+                     "Look top-1 vs B3 region accuracy, on the same claims. Off by default so a "
+                     "plain rerun keeps writing the same JSON schema as before this flag existed.")
 a = ap.parse_args()
 assert "test" not in a.pipe, "the test split is not used during development"
 P = config.CACHE / "pipeline"
@@ -58,7 +62,7 @@ for ri, r in enumerate(rows):
         i, j = np.unravel_index(int(np.argmax(att)), att.shape)
         rand = boxes[rng.choice(np.flatnonzero(ok))] if ok.any() else []
         recs.append(dict(
-            kind=c["kind"], in_refs=c["in_refs"],
+            id=r["id"], kind=c["kind"], in_refs=c["in_refs"],
             point=grounding.point_in_boxes((i + 0.5) / g, (j + 0.5) / g, gt),
             energy=float((att * mask).sum()), area=float(mask.mean()),
             att_iou=best_iou(c["rec_att"]["box"], gt), det_iou=best_iou(c["rec_det"]["box"], gt),
@@ -82,6 +86,24 @@ for x in recs:
     by_kind[x["kind"]].append(x)
 out = dict(pipe=a.pipe, metric_version="exact_box_union_v2", claims=n_all, claims_with_gt=n_gt, all=summarise(recs),
            **{k: summarise(v) for k, v in sorted(by_kind.items())})
+
+if a.bootstrap:
+    def att_minus_det(rs):
+        c = [x for grp in rs for x in grp]
+        return 100 * (float(np.mean([x["att_iou"] >= 0.5 for x in c])) - float(np.mean([x["det_iou"] >= 0.5 for x in c])))
+
+    def per_image_groups(rs):
+        groups: dict[str, list] = defaultdict(list)
+        for x in rs:
+            groups[x["id"]].append(x)
+        return list(groups.values())
+
+    h6 = {"all": metrics.bootstrap_ci(per_image_groups(recs), att_minus_det)}
+    for k, v in sorted(by_kind.items()):
+        groups = per_image_groups(v)
+        h6[k] = metrics.bootstrap_ci(groups, att_minus_det) if groups else None
+    out["h6_att_minus_det_bootstrap"] = {k: (None if v is None else dict(zip(("diff", "lo95", "hi95"), v)))
+                                         for k, v in h6.items()}
 cache.save_json(out, config.RESULTS / f"look_benchmark_{a.pipe}.json")
 print(f"{a.pipe}: {n_gt}/{n_all} claims have F30kE boxes ({100 * n_gt / n_all:.1f}%)")
 hdr = f"{'':8s}{'n':>6s} {'point':>7s} {'chance':>7s} {'energy':>7s} {'reg.att':>8s} {'reg.det':>8s} {'random':>7s} {'oracle':>7s}"
@@ -90,6 +112,10 @@ for k in ["all", *sorted(by_kind)]:
     s = out[k]
     print(f"{k:8s}{s['n']:6d} {s['pointing']:7.1f} {s['pointing_chance']:7.1f} {s['energy']:7.1f} "
           f"{s['region_att']:8.1f} {s['region_det']:8.1f} {s['region_random']:7.1f} {s['region_oracle']:7.1f}")
+if a.bootstrap:
+    for k, v in out["h6_att_minus_det_bootstrap"].items():
+        if v is not None:
+            print(f"H6 att-det {k:8s} {v['diff']:+6.1f} pts [{v['lo95']:+6.1f}, {v['hi95']:+6.1f}] (image bootstrap)")
 
 if a.examples:
     from _common import plt, savefig

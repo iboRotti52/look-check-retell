@@ -123,5 +123,27 @@ def coverage_mask(boxes: np.ndarray, g: int = config.BLIP_GRID) -> np.ndarray:
     return np.clip(out, 0, 1)
 
 
+SMALL_SIDE = 2 / config.BLIP_GRID        # a GT box is "small" if its shorter side is below two BLIP patches
+
+
+def coverage_hits(pred_boxes, gt: np.ndarray, small_side: float = SMALL_SIDE, iou_min: float = .5) -> dict:
+    """Do Look's ranked candidates cover the class's human boxes?
+
+    `pred_boxes` are the ranked candidates (top-1 first). A small-object hit counts only when a candidate
+    reaches IoU >= iou_min with a SMALL GT box: when a class has both a small and a large box in the image, a
+    hit on the large one is not evidence that the small object was found (the error in scripts/37's first
+    count, which credited it).
+    """
+    from .look import iou
+    gt = np.asarray(gt, np.float32).reshape(-1, 4)
+    small = np.min(gt[:, 2:] - gt[:, :2], axis=1) < small_side
+    ious = (np.stack([iou(np.asarray(b, np.float32), gt) for b in pred_boxes]) if len(pred_boxes)
+            else np.zeros((0, len(gt))))
+    hit = ious >= iou_min
+    return dict(top1=bool(len(hit) and hit[0].any()), top3=bool(hit.any()), has_small=bool(small.any()),
+                small_top3=bool(hit[:, small].any()) if small.any() else False,
+                small_top3_any_box=bool(small.any() and hit.any()))
+
+
 def point_in_boxes(y: float, x: float, boxes: np.ndarray) -> bool:
     return bool(np.any((boxes[:, 0] <= x) & (x <= boxes[:, 2]) & (boxes[:, 1] <= y) & (y <= boxes[:, 3])))
