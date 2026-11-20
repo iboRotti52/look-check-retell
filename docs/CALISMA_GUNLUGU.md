@@ -660,3 +660,10 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   bulduğu) nesne kontrolü eklendi; ana ölçüm o (protokol R7–R8). Koşu sırası protokolde: 46 → 47 → 49 → 38 → derleme.
 - 2026-11-20 ek: konum kontrolündeki "var" nesne ham logit'le seçiliyordu; S4'ün rakip-farkında X_c'si kullanılmalıydı
   (ör. backpack ham +0,1 τ üstü, bag rakibiyle S4'te −1,7 altı). Düzeltildi, test `tests/test_look_l1_scripts.py`.
+
+### 2026-11-20 — Claude: raporun Check bölümü S4'e güncellendi
+- `report/sections/3_design.tex` Check bölümü artık ilk birleşik Check'in z ölçeği/üç yollu kuralı yerine S4'ü anlatıyor
+  (rakip-farkında kanıt, sınıf başına maliyete duyarlı τ_c, beş eylem, kararın kutusu; bilinen kalibrasyon hatası dahil).
+  `4_experiments.tex`: S4'ün B dış-kat sonuçları (S2'ye karşı FCR, swap yakalama, ikame kesinliği, ablation'lar, eylem
+  sayıları); `5_conclusion.tex` plan tablosunun 8–9. haftaları güncel plana çekildi.
+- Bütün sayılar yeni `scripts/51_check_s4_report.py` → `report/generated/check_s4_macros.tex`. PDF yeniden derlenmedi (TeX yok).

@@ -22,7 +22,7 @@ Historical Look--Check--Retell variants and matched controls were implemented an
 We fine-tune only the BLIP decoder (encoder frozen), cache two additional OWLv2 quantities, label claims by kind, take corruption labels from the captioner's own runner-up words, and use sink-corrected instead of raw attention. Each change is justified in Section~\ref{sec:design}. The timeline is roughly on track: the work planned for weeks 1--7 is done except the human labelling and threshold calibration, which have moved into the next phase.
 
 \subsection{Next Steps}
-Table~\ref{tab:plan} lists the remaining work. The critical path runs through the pilot labels. Thresholds, the test sample size $N$ and the final Retell training all depend on them.
+Table~\ref{tab:plan} lists the remaining work. The critical path runs through the pilot labels. Whether S4's operating point is right, the test sample size $N$ and the final Retell training all depend on them.
 
 \begin{table}[t]
 \caption{Remaining plan (weeks refer to the proposal's 12-week schedule).}
@@ -32,8 +32,8 @@ Table~\ref{tab:plan} lists the remaining work. The critical path runs through th
 \toprule
 Week & Task \\
 \midrule
-8 & Label the 100-draft pilot (two annotators, $\kappa$); set $\tau_s,\tau_c,\tau_e$; fix $N$ from the pilot error rate; audit Flickr30k Entities phrase mappings for H6. \\
-9 & Re-run Check and B1 with calibrated thresholds; retrain LCR, B0+, B2, B3 and the $\rho\in\{0,0.15,0.3\}$ ablation with sink-corrected attention; select epochs on a held-out part of training half B. \\
+8 & Label the stratified B pilot (a random group plus S4/S2 decision groups; two annotators, an adjudicator, $\kappa$): S4's real precision, substitute accuracy and removal harm, misidentified vs.\ invented errors and referent boxes; fix $N$ from the random group's error rate; audit Flickr30k Entities phrase mappings for H6. \\
+9 & Run the Look L1 measurements and decide on abstention; re-run B1 on S4's replacements; give Retell Check's action and substitute; retrain LCR, B0+, B2, B3 and the $\rho\in\{0,0.15,0.3\}$ ablation with sink-corrected attention; select epochs on a held-out part of training half B. \\
 10 & Reversed split (decoder on B, Retell on A); COCO Karpathy-test inference and CHAIR for all systems (H1b). \\
 11 & Blinded human evaluation on the test sample (HICR, CCI, fix/break/NRR); H4 screening and interventions; H6 localisation with gradient relevance as an alternative. \\
 12 & Statistics (paired bootstrap, sign tests), limitations, final report. \\
