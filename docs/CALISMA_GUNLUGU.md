@@ -658,3 +658,5 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   az değerde AUROC vermiyor. Test `tests/test_check_metrics.py`.
 - Uydurulmuş isimler hep başlığın sonunda: konum karışıklığı. Aynı ekle eklenmiş gerçek (referansta anılan, detektörün
   bulduğu) nesne kontrolü eklendi; ana ölçüm o (protokol R7–R8). Koşu sırası protokolde: 46 → 47 → 49 → 38 → derleme.
+- 2026-11-20 ek: konum kontrolündeki "var" nesne ham logit'le seçiliyordu; S4'ün rakip-farkında X_c'si kullanılmalıydı
+  (ör. backpack ham +0,1 τ üstü, bag rakibiyle S4'te −1,7 altı). Düzeltildi, test `tests/test_look_l1_scripts.py`.

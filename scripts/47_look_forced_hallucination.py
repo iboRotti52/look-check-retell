@@ -90,8 +90,17 @@ class ImageData:
         self.boxes = self.prop["boxes"].astype(np.float32)
         self.pool = geometric_pool(self.prop, s4["look"])
         self.z = (re_.proposal_logits(self.prop, queries) - np.asarray(s4["mu"])) / np.asarray(s4["sd"])
+        self.rival = re_.set_matrix(s4["confusion"]), float(s4["rival_weight"])
+        self._v = None
         self.present = claims.reference_classes(data.references(self.id))
         self.gt = grounding.class_boxes(self.id)
+
+    @property
+    def v(self):
+        """S4's rival-aware evidence per box (region_evidence.rival_matrix), computed on first use."""
+        if self._v is None:
+            self._v = re_.rival_matrix(self.z, *self.rival)
+        return self._v
 
     def b3_box(self, cls):
         s = np.where(self.pool, self.z[:, CLASS_INDEX[cls]], -np.inf)
@@ -107,11 +116,16 @@ class ImageData:
         return float(t - x) if x < t - margin else None
 
     def presence_margin(self, cls, tau):
-        """raw image-wide max - tau_c if S4's detector finds the class (>= tau_c), else None."""
+        """X_c - tau_c if S4 would find the class in the image, else None.
+
+        X_c is S4's own image evidence: the max over all proposals of the RIVAL-AWARE score, not the raw logit. A raw
+        logit can clear tau_c while a stronger rival on the same box (bag over backpack) pushes S4's score below it.
+        (Absence can use the raw max: the rival penalty only lowers scores, so raw < tau implies X_c < tau.)
+        """
         t = tau[CLASS_INDEX[cls]]
         if not np.isfinite(t) or not len(self.z):
             return None
-        x = float(self.z[:, CLASS_INDEX[cls]].max())
+        x = float(self.v[:, CLASS_INDEX[cls]].max())
         return float(x - t) if x >= t else None
 
 
@@ -196,8 +210,8 @@ def try_appended(ctx, image, base, rng, group, margin, dropped):
     """Append "and a <word>" to the draft and score the new claim (same suffix, same word index for both groups).
 
     group "invented": a class no reference mentions and S4 certifies absent (raw image max < tau_c - margin).
-    group "present":  the position control -- a class the references mention and S4's detector finds
-    (raw image max >= tau_c), not already claimed. Comparing the two removes the position confound: every
+    group "present":  the position control -- a class the references mention and S4 finds (rival-aware
+    image evidence X_c >= tau_c), not already claimed. Comparing the two removes the position confound: every
     appended noun sits at the end of the caption, while real claims sit where the captioner put them.
     """
     claimed = {c.cls for c in base["every"].values()}

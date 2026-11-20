@@ -168,7 +168,7 @@ pozitif/negatif sayısını yazıyor ve iki taraftan birinde 10'dan az değer va
 
 **R8 — konum kontrolü (script 47).** Uydurulmuş her isim başlığın sonuna ("and a …") ekleniyor, doğru claim'ler ise
 captioner'ın koyduğu yerde duruyor; uydurulmuş-vs-doğru AUROC'u kısmen konumu ölçebilir. Ana ölçüm artık aynı eklemeyle
-eklenmiş, referansta anılan, taslakta geçmeyen ve S4 detektörünün τ_c üstünde bulduğu bir nesneye karşı
+eklenmiş, referansta anılan, taslakta geçmeyen ve S4'ün bulacağı (rakip-farkında görüntü kanıtı X_c ≥ τ_c; 2026-11-20 düzeltme: önce ham logit kullanılıyordu, ham skor τ'yu geçip daha güçlü bir rakip yüzünden S4'te τ'nun altında kalan sınıflar kabul ediliyordu) bir nesneye karşı
 (`invented_vs_appended_present`); uydurulmuş-vs-doğru konum karışık bir kıyas olarak kalıyor. Adım 6'nın kararı konum
 kontrollü ölçüme dayanmalı.
 
