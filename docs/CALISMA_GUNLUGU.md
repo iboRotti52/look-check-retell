@@ -824,3 +824,20 @@ Güç analizi: H1 için bağımsız tasarımda p0=0.08'de 7.469 iddia gerekir; e
   `docs/generated/LOOK_{REFERENT,FORCED_HALLUCINATION,SMALL_OBJECT}_B.md`. Küçük nesne sayımı Astra'nın bağımsız sayımıyla
   aynı (kapı). `report/main.pdf` yeniden derlendi.
 - Bekleyen: Look adım 6 kararı (Metin), #4 için Billurcu'nun incelemesi, insan pilotu (script 07 `--pilot lcr`).
+
+### 2026-11-22 — Claude: ekip Progress Report 1 incelendi ve düzeltildi (`report/progress1/`)
+- Ekipten gelen `CS415_LCR_Progress_Report_1.pdf` (repodaki `report/main.tex`'ten farklı, sadeleştirilmiş sürüm;
+  kaynağı repoda yok) hocanın dört maddesine ve repo çıktılarına karşı kontrol edildi. Bütün sayılar script
+  çıktılarıyla aynı. İnceleme notu: `report/ilerleme_raporu_inceleme.md`.
+- Kaynak olmadığı için rapor `report/progress1/main.tex` olarak yeniden kuruldu; ekibin dokuz şekli PDF'ten vektör
+  olarak kesildi (`report/progress1/figures/`). Düzeltmeler: özetteki 81.7% (sentetik) ve 3.0% (thing, proxy) bağlamı;
+  epoch seçiminin validation CIDEr ile yapıldığı açıkça yazıldı; Retell'de kanıt maskelemenin altyazıların %10.9'unu
+  değiştirdiği (içerik değil varlık etkisi) eklendi, tabloya "Changed" sütunu; "centred substitute rule" tanımlandı;
+  kısa adlar tablosu (Tablo II); iş paketi tablosuna hafta sütunu ve sonraki adımlara haftalar; Şekil 4/6 altyazıları açıldı.
+- `report/refs.bib`'e Xiao et al. 2024 (attention sinks, ICLR) eklendi (ekip PDF'inde vardı, bib'de yoktu).
+- Derleme: `cd report/progress1 && TEXINPUTS=.:..: pdflatex main && BSTINPUTS=..: BIBINPUTS=..: bibtex main && pdflatex main && pdflatex main`.
+  12 sayfa, tanımsız atıf/referans yok. Commit edilmedi.
+- Aynı gün ek: kullanıcı isteğiyle rapor 12 → 9 sayfaya kısaltıldı (gövde ~7,5 sayfa, kaynakça ~1,5). Hiçbir sayı, tablo
+  satırı veya kaynak düşmedi; Şekil 7 (Tablo VII'yi tekrarlayan çubuk grafik) çıkarıldı, related work alt başlıkları
+  paragraf başlıklarına, hipotez listesi tek paragrafa, Bölüm V'teki yapılanlar/sonuçlar/sapmalar/sonraki adımlar
+  tek liste ve hafta sütunlu plan tablosuna indirildi.
